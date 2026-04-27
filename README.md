@@ -14,7 +14,7 @@ Aqui estão algumas recomendações de como usar o material.
 ## Conteúdos
 
 1. [Olá, Mundo](./intro/README.md)
-2. [Variáveis Primitivas](./variaveis/primitivos.md)
+2. [Variáveis Primitivas](./variaveis/primitivas.md)
 3. [Escopos](./variaveis/escopos.md)
 3. [Condicionais](./condicional/README.md)
 4. [Estrutura de Repetição](./repeticao/README.md)
