@@ -6,7 +6,7 @@ Ele foi feito para se ler do começo ao fim. Não recomendo pular para tópicos 
 
 ## Recomendações
 
-Aqui estão algumas recomendações de como usar o material.
+Aqui estão algumas recomendações de como usar o material:
 
 - Não copie e cole o código desse tutorial. Digite cada linha, cada letra de cada código.
 - Não use Inteligência Artificial, apenas se recomendado. Prefira os sites em [Referência](referência) e tutoriais no [Youtube](https://www.youtube.com).

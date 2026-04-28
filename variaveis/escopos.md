@@ -1,0 +1,3 @@
+- Regras de nomenclatura
+- Convenções de variáveis
+- Quando pode declarar variáveis com o mesmo nome duas vezes?

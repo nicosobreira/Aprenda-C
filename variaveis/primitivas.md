@@ -9,9 +9,9 @@ Para a máquina, a sequência 0011 0101 é apenas um dado bruto. No entanto:
 
 - Se o computador interpretar isso como um número inteiro, o valor é 53.
 
-- Mas, se ele interpretar isso usando algum tipo de lógica de conversão, como por exemplo usando uma tabela que mapeia números para caracteres, o valor pode mudar. Por exemplo, se ele usar o binário `0011 0101` (ou o número 53 em decimal) como um índice na Tabela de Conversão ASCII, o binário passa a representar o carácter '5'.
+- Mas, se ele interpretar isso usando algum tipo de lógica de conversão, como por exemplo usando uma tabela que mapeia números para caracteres, o valor pode mudar. Por exemplo, se o computador usar o binário `0011 0101` (ou o número 53 em decimal) como um índice na Tabela de Conversão ASCII, o binário passa a representar o carácter '5'.
 
-Mas como o computador sabe como interpretar um binário? É exatamente aí que entra a necessidade de declarar o tipo da variável na linguagem C.
+Mas como o computador sabe como interpretar o binário de tal maneira? É exatamente aí que entra a necessidade de declarar o tipo da variável na linguagem C.
 
 ## Declaração
 
@@ -41,7 +41,7 @@ O nome da variável mudou de `numero` para `palavra`, mas o seu tipo continua se
 
 ## Atribuição
 
-No *Flávia Script*, para mudarmos o valor de uma variável, usamos da seguinte notação para dizer que uma variável inteira chamada `numero` recebe 10 `numero <- 10;`.
+No *Flávia Script*, para mudarmos o valor de uma variável, usamos da seguinte notação para dizer que uma variável inteira chamada `numero` recebe 10: `numero <- 10;`.
 
 Em C usamos outra sintaxe:
 
@@ -49,11 +49,12 @@ Em C usamos outra sintaxe:
 int numero = 10;
 ```
 
-O símbolo de "=" é traduzido para "->".
+O símbolo de "=" é traduzido para "<-".
 
 ## Tipos Primitivos
 
-São os tipos de variáveis que são definidas pela linguagem por padrão
+São os tipos de variáveis que são definidas pela linguagem por padrão.
+
 São alguns tipos:
 
 ### Inteiro
@@ -62,9 +63,10 @@ São alguns tipos:
 int idade = 18;
 ```
 
-Ainda não vimos que a função `printf` declarada em `stdio.h` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis.
+Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h`.
+A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis.
 
-Por exemplo, no código abaixo estamos imprimindo uma idade:
+Por exemplo, no código abaixo estamos imprimindo o valor da variável `idade` do tipo inteiro:
 
 ``` c
 #include <stdio.h>
@@ -79,16 +81,17 @@ int main()
 }
 ```
 
-Esse `%` é o padrão adotado pelas funções `printf` e `scanf` para lidar com os diferentes tipos de variáveis que podem ser exibidas e lidas. Ele indica que o valor a ser imprimido vem de uma variável. Como no caso não existe nenhum `%` antes desse `%d`, o `%d` irá substituir o valor da primeira variável passada como argumento. O `d` cria uma promessa para a função `printf` que a primeira variável dos argumentos será do tipo inteiro.
+Esse `%` é o padrão adotado pelas funções `printf` e `scanf` para lidar com os diferentes tipos de variáveis que podem ser exibidas e lidas. Ele indica que o valor a ser imprimido vem de uma variável.
+O `d` cria uma promessa para a função `printf` que a primeira variável dos argumentos será do tipo inteiro.
 
 ### Real
 
-Para a representação de valores reais em binário, a linguagem C utiliza do padrão IEEE 754.
+Para a representação de valores reais em binário, a linguagem C utiliza-se do padrão IEEE 754.
 
-Esse padrão divide um binário em três partes, são elas:
+Esse padrão divide um binário com 32 ou 64 bits em três partes, são elas:
 - Sinal, 0 para positivo e 1 para negativo;
-- Expoente;
-- Mantissa;
+- Expoente, expoente da notação científica;
+- Mantissa, valor em notação científica;
 
 #### Single Point Precision
 
@@ -112,7 +115,7 @@ double media_d = 3.2;
 
 #### Printf
 
-Para imprimir o valor da média, vamos usar do `%f` em ambos:
+Para imprimir o valor da média, vamos usar o `%f` em ambos:
 
 ``` c
 // Esse "barra barra" é um comentário. Ele é ignorado pelo compilador.
@@ -123,13 +126,13 @@ printf("Média Double: %f", media_d);
 
 O `printf` interpreta o `float` e `double` como reais em sua implementação interna, por isso utilizamos do mesmo símbolo `f` para ambos. Rode o comando e veja o resultado, ele é seguido por um monte de zeros!
 
-Dependendo do tipo da variável que passamos para o `printf` nos podemos formatar como o valor será exibido. Por exemplo, para exibirmos apenas duas casas depois da vírgula:
+Dependendo do tipo da variável que passamos para o `printf` nos podemos formatar como o valor será exibido. Por exemplo, para exibirmos apenas duas casas depois da vírgula, usamos:
 
 ``` c
 printf("Média: %.2f", media_f);
 ```
 
-Até podemos colocar nada depois da vírgula com:
+Até podemos colocar sem vírgula com:
 
 ``` c
 printf("Média: %.0f", media_d);
@@ -147,21 +150,21 @@ char caracter = 'a';
 
 Ao invés de usarmos aspas duplas, como qualquer pessoa normal, usamos as aspas simples, mas por quê? Veremos isso com mais detalhes em [Strings](../variaveis/string.md), mas já pincelando, a linguagem C diferencia um único carácter de uma string com o uso das aspas simples.
 
-Lembra no começo do capítulo, quando discutimos como o binário `0011 0101` (ou 53 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
+Tá lembrado no começo do capítulo, quando discutimos como o binário `0011 0101` (ou 53 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
 
 ``` c
-char five = '5';
+char cinco = '5';
 
-printf("Carácter: %c\n", five);
+printf("Carácter: %c\n", cinco);
 
-printf("Índice:   %d\n", five);
+printf("Índice:   %d\n", cinco);
 ```
 
-Primeiro, declaramos um carácter em uma variável chamada `five`. Depois, usamos do `%c` para imprimir o carácter no terminal. Mas fazemos algo esquisito depois: imprimimos a variável `five` como um `int`?! Por que o código funciona, e por que ele exibe 53?
+Primeiro, declaramos um carácter em uma variável chamada `five`. Depois, usamos o `%c` para imprimir o carácter no terminal. Mas fazemos algo esquisito depois: imprimimos a variável `five` como um `int`?! Por que o código funciona, e por que ele exibe 53?
 
 Isso se deve ao modo como os carácteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 8 bits, que é traduzido para um carácter por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
 
-Se você abrir essa tabela, notará que não existem carácteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada por americanos, ou seja, a tabela foi criada por pessoas que já não usam acentos, por isso eles não colocaram. Por isso os acentos podem estar meio esquisitos.
+Se você abrir essa tabela, notará duas coisas: o *código ASCII* do carácter '5' é 53; e que não existem carácteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada por americanos, ou seja, a tabela foi criada por pessoas que já não usam acentos, por isso eles não colocaram acentos nela. Isso explica o porque os acentos podem estar meio esquisitos quando exibidos.
 
 ### Boolean
 
@@ -173,9 +176,9 @@ Os valores booleanos são aqueles que podem ser ou **verdadeiro** (1) ou **falso
 bool estou_feliz = false;
 ```
 
-A variável do tipo `bool` só tem dois valores, ou `true` (1) ou `false` (0).
-
 Diferente dos outros tipos primitivos, para declararmos uma variável booleana, precisamos primeiro importar sua definição com o `#include <stdbool.h>` no começo.
-O motivo de precisarmos usar um `include` ficará claro em [Condicionais](../condicional/README.md)
-Nós também não temos como imprimir um `bool` do mesmo jeito temos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação algum jeito de converter o `bool` para uma string. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
+O motivo de precisarmos usar um `include` para usar esse tipo ficará claro em [Condicionais](../condicional/README.md)
+Nós também não temos como imprimir um `bool` do mesmo jeito temos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação uma maneira de converter o `bool` para uma string. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
+
+A variável do tipo `bool` só tem dois valores, ou `true` (1) ou `false` (0).
 

@@ -1,6 +1,6 @@
 # Olá, Mundo
 
-O programa "Olá, Mundo" é a iniciação de todo programador, ele nos mostrar algumas regras básicas da linguagem.
+O programa "Olá, Mundo" é a iniciação de todo programador. Ele nos mostra algumas regras básicas da linguagem.
 
 Primeiro, vamos ver como ele é escrito e logo em seguida vamos entender o código linha a linha.
 
@@ -23,7 +23,7 @@ int main()
 
 O `#include <stdio.h>` serve para importar as declarações das funções de entrada e saída padrão (como o `printf` e o `scanf`), permitindo o seu uso.
 
-Ele avisa ao compilador apenas que essas funções existem, enquanto o código real que as executa fica armazenado na Biblioteca Padrão do C fornecida pelo sistema operacional.
+Ele avisa o compilador que essas funções existem, enquanto o código real que as executa fica armazenado na Biblioteca Padrão do C (*Standard*) fornecida pelo sistema operacional.
 
 ### Biblioteca Padrão
 
@@ -31,7 +31,7 @@ Ele avisa ao compilador apenas que essas funções existem, enquanto o código r
 
 As plataformas são como o Windows, Linux e Android.
 
-### Main
+## Main
 
 Essa é a função em que o nosso programa começa a executar. É o ponto inicial de toda a nossa aplicação, por isso do nome "main", do inglês, "principal".
 
@@ -53,10 +53,10 @@ As chaves indicam a definição da função, que é todo o código que será exe
 
 ## Printf
 
-A função `printf` **imprime** (print) textos **formatados** (f) para o terminal. Nos veremos os diferentes tipos de formatação em [Variáveis](./../variaveis/primitivos.md), mas o que você precisa saber agora é que o `printf` escreve a o texto "Olá, Mundo!" no terminal.
+A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nos veremos os diferentes tipos de formatação em [Variáveis](./../variaveis/primitivas.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
 
 Nos precisamos colocar esse `\n`, lido como "barra *new line*", no final para quebrar a linha. Tire ele e veja como a saída saí meio esquisita.
 
-Temos que colocar esse bendito ponto e vírgula no final para indicar o fim do comando `printf`. Sem ele o compilador irá tentar executar desdo `printf` até encontrar o próximo ";", ou seja, até `return 0;`, o que vai gerar um erro.
+Temos que colocar esse bendito ponto e vírgula no final para indicar o fim do comando `printf`. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ";", ou seja, até `return 0;`, o que vai gerar um erro.
 
 Lembre-se que nós só podemos executar a função `printf` depois que importamos sua definição com o uso do `#include` em `#include <stdio.h>`.
