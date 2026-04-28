@@ -25,7 +25,7 @@ var numero: inteiro;
 
 Já em C, usamos:
 
-```c
+``` c
 int numero;
 ```
 
@@ -33,7 +33,7 @@ Esse `int` mostra para o computador que o valor armazenado na variável de nome 
 
 Note que o código a seguir também é válido:
 
-```c
+``` c
 int palavra;
 ```
 
@@ -45,7 +45,7 @@ No *Flávia Script*, para mudarmos o valor de uma variável, usamos da seguinte 
 
 Em C usamos outra sintaxe:
 
-```c
+``` c
 int numero = 10;
 ```
 
@@ -58,7 +58,7 @@ São alguns tipos:
 
 ### Inteiro
 
-```c
+``` c
 int idade = 18;
 ```
 
@@ -66,7 +66,7 @@ Ainda não vimos que a função `printf` declarada em `stdio.h` pode receber mai
 
 Por exemplo, no código abaixo estamos imprimindo uma idade:
 
-```c
+``` c
 #include <stdio.h>
 
 int main()
@@ -114,7 +114,7 @@ double media_d = 3.2;
 
 Para imprimir o valor da média, vamos usar do `%f` em ambos:
 
-```c
+``` c
 // Esse "barra barra" é um comentário. Ele é ignorado pelo compilador.
 // Vou pular a declaração do main e o #include, mas você precisa colocar!
 printf("Média Float: %f", media_f);
@@ -125,26 +125,57 @@ O `printf` interpreta o `float` e `double` como reais em sua implementação int
 
 Dependendo do tipo da variável que passamos para o `printf` nos podemos formatar como o valor será exibido. Por exemplo, para exibirmos apenas duas casas depois da vírgula:
 
-```c
+``` c
 printf("Média: %.2f", media_f);
 ```
 
-Até podemos colocar nenhuma, se quisermos, com:
+Até podemos colocar nada depois da vírgula com:
 
-```c
+``` c
 printf("Média: %.0f", media_d);
 ```
 
 #### Qual tipo usar?
 
-Se você estiver trabalhando em um projeto para computadores modernos, prefira o `double`, já que ele apresenta uma maior precisão por um custo baixo.
+Se você estiver trabalhando em um projeto para computadores modernos, prefira o `double`, já que ele apresenta uma maior precisão por um custo desprezível de performance.
 
 ### Carácter
 
-...
+``` c
+char caracter = 'a';
+```
 
+Ao invés de usarmos aspas duplas, como qualquer pessoa normal, usamos as aspas simples, mas por quê? Veremos isso com mais detalhes em [Strings](../variaveis/string.md), mas já pincelando, a linguagem C diferencia um único carácter de uma string com o uso das aspas simples.
+
+Lembra no começo do capítulo, quando discutimos como o binário `0011 0101` (ou 53 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
+
+``` c
+char five = '5';
+
+printf("Carácter: %c\n", five);
+
+printf("Índice:   %d\n", five);
+```
+
+Primeiro, declaramos um carácter em uma variável chamada `five`. Depois, usamos do `%c` para imprimir o carácter no terminal. Mas fazemos algo esquisito depois: imprimimos a variável `five` como um `int`?! Por que o código funciona, e por que ele exibe 53?
+
+Isso se deve ao modo como os carácteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 8 bits, que é traduzido para um carácter por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
+
+Se você abrir essa tabela, notará que não existem carácteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada por americanos, ou seja, a tabela foi criada por pessoas que já não usam acentos, por isso eles não colocaram. Por isso os acentos podem estar meio esquisitos.
 
 ### Boolean
 
-...
+Os valores booleanos são aqueles que podem ser ou **verdadeiro** (1) ou **falso** (0). São usados principalmente para estabelecer condições.
+
+``` c
+#include <stdbool.h>
+
+bool estou_feliz = false;
+```
+
+A variável do tipo `bool` só tem dois valores, ou `true` (1) ou `false` (0).
+
+Diferente dos outros tipos primitivos, para declararmos uma variável booleana, precisamos primeiro importar sua definição com o `#include <stdbool.h>` no começo.
+O motivo de precisarmos usar um `include` ficará claro em [Condicionais](../condicional/README.md)
+Nós também não temos como imprimir um `bool` do mesmo jeito temos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação algum jeito de converter o `bool` para uma string. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
 
