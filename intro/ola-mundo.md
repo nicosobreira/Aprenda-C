@@ -27,11 +27,9 @@ Ele avisa o compilador que essas funções existem, enquanto o código real que 
 
 ### Biblioteca Padrão
 
-É uma biblioteca cuja a funcionalidade é definida pela linguagem C, mas sua implementação muda de plataforma para plataforma, isso é, cada plataforma tem um jeito diferente de como executar a mesma lógica.
+É uma biblioteca cuja a funcionalidade é definida pela linguagem C, mas sua implementação muda de plataforma para plataforma, isso é, cada plataforma tem um jeito diferente de como executar a mesma lógica. As plataformas são como o Windows, Linux e Android.
 
-As plataformas são como o Windows, Linux e Android.
-
-As funcionalidades da Biblioteca Padrão estão espalhados por vários arquivos no formato `.h`. Primeiro, precisamos usar o `#include <módulo>` para importar um módulo (conjunto de funcionalidades). Falaremos do porque usamos `<>` mais para frente.
+As funcionalidades da Biblioteca Padrão estão espalhados por vários arquivos no formato `.h`. Primeiro, precisamos usar o `#include <módulo>` para importar as funções de determinado módulo. Falaremos do porque usamos `<>` mais para frente.
 
 ## Main
 
@@ -59,6 +57,6 @@ A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o ter
 
 Nos precisamos colocar esse `\n`, lido como "barra *new line*", no final para quebrar a linha. Tire ele e veja como a saída saí meio esquisita.
 
-Temos que colocar esse bendito ponto e vírgula no final para indicar o fim do comando `printf`. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ";", ou seja, até `return 0;`, o que vai gerar um erro.
+Temos que colocar esse bendito ponto e vírgula no final para indicar o fim de comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro.
 
 Lembre-se que nós só podemos executar a função `printf` depois que importamos sua definição com o uso do `#include` em `#include <stdio.h>`.
