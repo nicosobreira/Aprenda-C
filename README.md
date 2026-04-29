@@ -17,7 +17,7 @@ Aqui estão algumas recomendações de como usar o material:
 0. [O que é C?](./intro/linguagem-c.md)
 1. [Olá, Mundo](./intro/ola-mundo.md)
 2. [Variáveis Primitivas](./variaveis/primitivas.md)
-3. ~[Escopos](./variaveis/escopos.md)~
+3. ~~[Escopos](./variaveis/escopos.md)~~
 4. ~~[Condicionais](./condicional/README.md)~~
 5. ~~[Estrutura de Repetição](./repeticao/README.md)~~
 6. ~~[Projeto 1](./projeto/um.md)~~
