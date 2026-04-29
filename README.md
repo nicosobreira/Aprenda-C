@@ -14,7 +14,8 @@ Aqui estão algumas recomendações de como usar o material:
 
 ## Conteúdos
 
-1. [Olá, Mundo](./intro/README.md)
+0. [O que é C?](./intro/linguagem-c.md)
+1. [Olá, Mundo](./intro/ola-mundo.md)
 2. [Variáveis Primitivas](./variaveis/primitivas.md)
 3. ~~[Escopos](./variaveis/escopos.md)~~
 4. ~~[Condicionais](./condicional/README.md)~~

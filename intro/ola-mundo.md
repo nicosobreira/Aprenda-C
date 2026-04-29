@@ -31,6 +31,8 @@ Ele avisa o compilador que essas funções existem, enquanto o código real que 
 
 As plataformas são como o Windows, Linux e Android.
 
+As funcionalidades da Biblioteca Padrão estão espalhados por vários arquivos no formato `.h`. Primeiro, precisamos usar o `#include <módulo>` para importar um módulo (conjunto de funcionalidades). Falaremos do porque usamos `<>` mais para frente.
+
 ## Main
 
 Essa é a função em que o nosso programa começa a executar. É o ponto inicial de toda a nossa aplicação, por isso do nome "main", do inglês, "principal".
