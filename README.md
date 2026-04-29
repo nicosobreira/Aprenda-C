@@ -10,14 +10,14 @@ Aqui estão algumas recomendações de como usar o material:
 
 - Não copie e cole o código desse tutorial. Digite cada linha, cada letra de cada código.
 - Não use Inteligência Artificial, apenas se recomendado. Prefira os sites em [Referência](referência) e tutoriais no [Youtube](https://www.youtube.com).
-- Execute cada código de exemplo.
+- Execute todos os códigos de exemplo.
 
 ## Conteúdos
 
 0. [O que é C?](./intro/linguagem-c.md)
 1. [Olá, Mundo](./intro/ola-mundo.md)
-2. [Variáveis Primitivas](./variaveis/primitivas.md)
-3. ~~[Escopos](./variaveis/escopos.md)~~
+2. [Variáveis I](./variaveis/variaveis-1.md)
+3. ~~[Variáveis II](./variaveis/variaveis-2.md)~~
 4. ~~[Condicionais](./condicional/README.md)~~
 5. ~~[Estrutura de Repetição](./repeticao/README.md)~~
 6. ~~[Projeto 1](./projeto/um.md)~~

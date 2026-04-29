@@ -1,4 +1,6 @@
-# Escopos
+# Variáveis II
+
+## Escopos
 
 Os escopos delimitam a região em nosso código que uma variável fica disponível.
 
