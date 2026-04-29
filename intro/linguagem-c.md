@@ -17,4 +17,4 @@ A linguagem C foi criada em 1970, há mais de 50 anos atrás! Ela foi muito revo
 
 Diferente de linguagens modernas que utilizam processos automáticos pesados rodando em segundo plano para gerenciar recursos, o C entrega o controle absoluto da máquina ao programador. Ele exige a manipulação manual da alocação de memória e é compilado quase sem intermediários para o código de máquina. É essa comunicação de baixo nível que elimina atrasos e permite extrair o máximo de velocidade e eficiência dos componentes físicos, motivo pelo qual a linguagem continua sendo a base para sistemas operacionais e softwares que exigem alta performance até hoje.
 
-Dessa forma, para aprendermos C também temos que aprender como o computador funciona de verdade, o que é de extrema importância para um programador.
+Dessa forma, para aprendermos C também temos que aprender como o computador funciona de verdade, o que é de extrema importância para a carreira de um/uma programador/programadora.
