@@ -14,29 +14,28 @@ Aqui estão algumas recomendações de como usar o material:
 
 ## Conteúdos
 
-0. [O que é C?](./intro/linguagem-c.md)
-1. [Olá, Mundo](./intro/ola-mundo.md)
-2. [Variáveis I](./variaveis/variaveis-1.md)
-3. ~~[Variáveis II](./variaveis/variaveis-2.md)~~
-4. ~~[Condicionais](./condicional/README.md)~~
-5. ~~[Estrutura de Repetição](./repeticao/README.md)~~
-6. ~~[Projeto 1](./projeto/um.md)~~
-7. ~~[Ponteiros](./ponteiros.md)~~
-8. ~~[Listas](./variaveis/lista.md)~~
-9. ~~[Matrizes](./variaveis/matriz.md)~~
-10. ~~[Strings](./variaveis/string.md)~~
-11. ~~[Structs](./variaveis/struct.md)~~
-12. ~~[Enums](./variaveis/enum.md)~~
-13. ~~[Funções](./funcoes/README.md)~~
-14. ~~[Projeto 2](./projeto/dois.md)~~
-15. ~~[Compilador](./arquivos/compilador.md)~~
-16. ~~[Múltiplos arquivos](./arquivos/header.md)~~
-17. ~~[Projeto 3](./projeto/tres.md)~~
+1. [O que é C?](./intro/linguagem-c.md)
+2. [Olá, Mundo](./intro/ola-mundo.md)
+3. [Variáveis I](./variaveis/variaveis-1.md)
+4. [Variáveis II](./variaveis/variaveis-2.md)
+5. ~~[Condicionais](./condicional/README.md)~~
+6. ~~[Estrutura de Repetição](./repeticao/README.md)~~
+7. ~~[Projeto 1](./projeto/um.md)~~
+8. ~~[Ponteiros](./ponteiros.md)~~
+9. ~~[Listas](./variaveis/lista.md)~~
+10. ~~[Matrizes](./variaveis/matriz.md)~~
+11. ~~[Strings](./variaveis/string.md)~~
+12. ~~[Structs](./variaveis/struct.md)~~
+13. ~~[Enums](./variaveis/enum.md)~~
+14. ~~[Funções](./funcoes/README.md)~~
+15. ~~[Projeto 2](./projeto/dois.md)~~
+16. ~~[Compilador](./arquivos/compilador.md)~~
+17. ~~[Múltiplos arquivos](./arquivos/header.md)~~
+18. ~~[Projeto 3](./projeto/tres.md)~~
 <!-- 18. [Build System]() -->
 
 ## Referência
 
-- [Geeks for Geeks](https://www.geeksforgeeks.org/) para o funcionamento da linguagem.
-- [DevDocs](https://devdocs.io/c/) para as funções da biblioteca padrão (std).
+- [Geeks for Geeks](https://www.geeksforgeeks.org/) para o funcionamento da linguagem e funções da Biblioteca Padrão.
 - [Stack Overflow](https://stackoverflow.com/questions) para dúvidas mais especificas. Pode digitar a dúvida no google que esse site provavelmente já aparece.
 
