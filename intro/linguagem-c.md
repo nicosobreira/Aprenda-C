@@ -13,9 +13,9 @@ No caso da linguagem C, essa tradução é feita pelo **compilador**, que é um 
 
 ## Por que aprender C?
 
-A linguagem C foi criada em 1970, há mais de 50 anos atrás! Ela foi muito revolucionária para a época, por possuir um conjunto de regras bem concisos, ser de extrema portabilidade e possuir uma ótima performance, em um tempo onde os computadores eram muito mais lentos. Para conseguir isso, a linguagem C se comunica de forma mais direta com o **processador** e a **memória RAM**.
+A linguagem C foi criada em 1970, há mais de 50 anos atrás! Ela foi muito revolucionária para a época, por possuir um conjunto de regras bem concisos, ser portável e ter uma ótima performance, em um tempo onde os computadores eram muito mais lentos. Para conseguir isso, a linguagem C se comunica de forma mais direta com o **processador** e a **memória RAM**.
 
 Diferente de linguagens modernas que utilizam processos automáticos pesados rodando em segundo plano para gerenciar recursos, o C entrega o controle absoluto da máquina ao programador. Ele exige a manipulação manual da alocação de memória e é compilado quase sem intermediários para o código de máquina. É essa comunicação de baixo nível que elimina atrasos e permite extrair o máximo de velocidade e eficiência dos componentes físicos, motivo pelo qual a linguagem continua sendo a base para sistemas operacionais e softwares que exigem alta performance até hoje.
 
-Dessa forma, para aprendermos C também temos que aprender como o computador funciona de verdade, o que é de extrema importância para a carreira de um/uma programador/programadora.
+Dessa forma, para aprendermos C também temos que compreender como o computador funciona de verdade, o que é de extrema importância para a carreira de um/uma programador/programadora.
 
