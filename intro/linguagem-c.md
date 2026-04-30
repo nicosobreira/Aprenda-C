@@ -11,6 +11,10 @@ No entanto, essa velocidade bruta é inútil por si só, pois os computadores ca
 
 No caso da linguagem C, essa tradução é feita pelo **compilador**, que é um programa encarregado em transformar todas as regras da linguagem em uma sequência de 0s e 1s que podem ser interpretados pelo computador. Essa sequência final é chamada de executável, programa ou binário.
 
+## Terminal
+
+Quando estamos criando nossos primeiros programas em C, não queremos nos preocupar com elementos de UI, como botões e animações, queremos um jeito simples e fácil de exibir o necessário e focar na lógica do nosso programa. É aí que o Terminal entra! Ele é um jeito dos usuários se comunicarem com o nosso programa apenas por texto, sem depender do mouse.
+
 ## Por que aprender C?
 
 A linguagem C foi criada em 1970, há mais de 50 anos atrás! Ela foi muito revolucionária para a época, por possuir um conjunto de regras bem concisos, ser portável e ter uma ótima performance, em um tempo onde os computadores eram muito mais lentos. Para conseguir isso, a linguagem C se comunica de forma mais direta com o **processador** e a **memória RAM**.
