@@ -4,14 +4,14 @@
 
 Essas regras são válidas para toda a linguagem C, não somente para variáveis.
 
-- São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), digitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
-- Não é permitido começar com um digito.
+- São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
+- Não é permitido começar com um dígito.
 - A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o computador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
-- Você não pode dar a uma variável o nome de um comando interno da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes.
+- Você não pode nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes.
 
 ### Boas práticas
 
-Evite nomes misteriosos. Em vez de `int p`;, use `int pontuacao;`. O nome da variável deve conseguir transmitir sua informação.
+Evite nomes misteriosos. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve conseguir transmitir sua função dentro de seu contexto.
 
 Evite o encurtamento dos nomes, como escrever `int vf;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar agora, daqui a um mês, quando precisar mudar o código denovo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
 
@@ -38,9 +38,9 @@ int main()
 }
 ```
 
-Sempre que inicilizar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero`. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora sempre inicialize as variáveis.
+Sempre que inicilizar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero`. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora sempre inicialize suas variáveis.
 
-Agora, vamos declarar outra função, chamada `copia_numero`, que retorna a variável **global** `numero` e recebe nenhum argumento:
+Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna o valor armazenado da variável **global** `numero` e recebe nenhum argumento:
 
 ``` c
 #include <stdio.h>
@@ -60,7 +60,7 @@ int main()
 }
 ```
 
- Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Tente mover a ordem e veja o que acontece.
+ Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Troque a ordem e veja o que acontece.
 
 Agora vamos adicionar outra variável chamada `numero`, só que em um lugar diferente do código, e ver como o programa vai se comportar:
 
@@ -87,7 +87,7 @@ int main()
 
 Quando fazemos, dentro da função `main`, a declaração `int numero = 7;`, estamos criando uma nova **variável local da função `main`** que também se chama `numero`, mas tem o valor de 7. Desse modo, nosso programa possui uma variável global e outra local, ambas com o nome de `numero`, mas como o compilador sabe quando teve usar cada uma?
 
-Isso se deve a uma regra da linguagem C: **a variável do escopo mais interno tem sempre sobre a do escopo mais externo**. O escopo pode ser definido em cima do arquivo, para variáveis globais, ou dentro das **chaves** `{}` para variáveis locais. As variáveis locais fazem parte do escopo de suas respectivas funções.
+Isso se deve a uma regra da linguagem C: **a variável do escopo mais interno tem sempre sobre a do escopo mais externo**. O escopo pode ser definido em cima do arquivo, para variáveis globais, ou dentro das **chaves** `{}`, para variáveis locais. As variáveis locais fazem parte do escopo de suas respectivas funções.
 
 O próximo exemplo mostra o que acontece quando declaramos duas variáveis com o mesmo nome no mesmo escopo:
 
@@ -139,7 +139,7 @@ São valores que, ao serem declarados, não podem mudar de valor.
 
 Por exemplo, vamos declarar o valor da constante `pi`.
 
->Não se esqueça de importar `#include <stdio.h>` e declarar a função `main`:
+> Não se esqueça de importar `#include <stdio.h>` e declarar a função `main`!
 
 ``` c
 const double pi = 3.14;
@@ -159,7 +159,7 @@ printf("Pi vale aproximadamente %f\n", pi);
 
 ### Boas práticas
 
-As variáveis constantes são ótimas para eliminar os chamados **valores mágicos**. No exemplo a seguir usamos alguns **números soltos** para calcular o salário de um funcionário. Eles não carregam nenhuma valor por si só, nem o contexto deixa claro suas funções na função.
+As variáveis constantes são ótimas para eliminar os chamados **valores mágicos**. No exemplo a seguir usamos alguns **números soltos** para calcular o salário de um funcionário. Eles não carregam nenhuma valor por si só, nem o contexto deixa claro suas funções.
 
 > Não esqueça de declarar essa função a cima de `main` e executar ela!
 
@@ -170,7 +170,7 @@ double calcular_salario(double horas)
 }
 ```
 
-Agora, se dermos nomes para esses valores, seus papéis ficam claros:
+Agora, se dando nomes aos seus valores, seus papéis ficam claros:
 
 ``` c
 double calcular_salario(double horas)
@@ -186,7 +186,7 @@ Com as novas informações, sabemos que a função `calcular_salario` calcula o 
 
 Você pode estar pensando: será que não poderíamos usar comentários ao invés de constantes? Vamos verificar:
 
-> É comum usarmos `///` ao invés de `//` para comentário que explicam o funcionamento de funções. Esses comentários acima da definição da função.
+> É comum usarmos `///` ao invés de `//` para comentário que explicam o funcionamento de funções. Esses comentários ficam em cima da definição da função.
 
 ``` c
 /// Calcula o salário de um funcionario
@@ -201,9 +201,9 @@ double calcular_salario(double horas)
 A respota é sim, podemos, mas nesse caso elas não são a melhor opção, por 2 motivos:
 
 1. **Comentários não ajudam na manutenção**. Se decidirmos mudar o valor do adicional noturno de 15% para 10%, teríamos que mudar em dois lugares diferentes. Basta esquecer de mudar uma só vez para criar uma discrepância.
-2. **O código autocomentado é mais fluido**. Para interpretarmos a função com comentário, toda vez que nos depararmos com um número temos que pular para a seção de comentários. Em contra partida, ao usarmos variáveis constantes, a leitura se torna sequencial.
+2. **O código autocomentado é mais fluido**. Para interpretarmos a função com comentário, toda vez que nos depararmos com um número, temos que pular para a seção de comentários. Em contra partida, ao usarmos variáveis constantes, a leitura se torna sequencial.
 
-Os comentários são ideias para deixar claro o **por quê** dos valores serem esses, e as variáveis constantes mostra **quais** são esses valores. Sendo assim, a versão final da função seria:
+Os comentários são ideias para deixar claro o **por quê** dos valores serem esses, e as variáveis constantes mostram **quais** são esses valores. Sendo assim, a versão final da função seria:
 
 ``` c
 /// Calcula o salário de um funcionário
