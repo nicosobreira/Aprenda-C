@@ -9,7 +9,7 @@ Para a máquina, a sequência 0011 0101 é apenas um dado bruto. No entanto:
 
 - Se o computador interpretar isso como um número inteiro, o valor é 53.
 
-- Mas, se ele interpretar isso usando algum tipo de lógica de conversão, como por exemplo usando uma tabela que mapeia números para caracteres, o valor pode mudar. Por exemplo, se o computador usar o binário `0011 0101` (ou o número 53 em decimal) como um índice na Tabela de Conversão ASCII, o binário passa a representar o carácter '5'. (Não se preocupe se não tenha indentido, mais para frente iremos voltar nesse exemplo)
+- Mas, se ele interpretar isso usando algum tipo de lógica de conversão, como por exemplo usando uma tabela que mapeia números para caracteres, o valor pode mudar. Por exemplo, se o computador usar o binário `0011 0101` (ou o número 53 em decimal) como um índice na Tabela de Conversão ASCII, o binário passa a representar o carácter '5'. (Não se preocupe se não tenha entendido, mais para frente iremos voltar nesse exemplo)
 
 Mas como o computador sabe como interpretar o binário de tal maneira? É exatamente aí que entra a necessidade de declarar o tipo da variável na linguagem C.
 
@@ -70,7 +70,7 @@ int idade = 18;
 ```
 
 Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h`.
-A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis.
+A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis da maioria dos tipos primitivos e são usados para imprimir os valores das variáveis.
 
 Por exemplo, no código abaixo estamos imprimindo o valor da variável `idade` do tipo inteiro:
 
@@ -168,7 +168,7 @@ printf("Carácter: %c\n", cinco);
 printf("Índice:   %d\n", cinco);
 ```
 
-Primeiro, declaramos um carácter em uma variável chamada `five`. Depois, usamos o `%c` para imprimir o carácter no terminal. Mas fazemos algo esquisito depois: imprimimos a variável `cinco` como um `int`?! Por que o código funciona, e por que ele exibe 53?
+Primeiro, declaramos um carácter em uma variável chamada `cinco`. Depois, usamos o `%c` para imprimir o carácter no terminal. Mas fazemos algo esquisito depois: imprimimos a variável `cinco` como um `int`?! Por que o código funciona, e por que ele exibe 53?
 
 Isso se deve ao modo como os carácteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 8 bits, que é traduzido para um carácter por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
 
@@ -187,7 +187,7 @@ bool estou_feliz = false;
 Diferente dos outros tipos primitivos, para declararmos uma variável booleana, precisamos primeiro importar sua definição na Biblioteca Padrão, com o `#include <stdbool.h>`.
 O motivo de precisarmos usar um `include` para usar esse tipo ficará claro em [Condicionais](../condicional/README.md)
 
-Nós também não temos como imprimir um `bool` do mesmo jeito temos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação uma maneira de converter o `bool` para uma string. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
+Nós também não temos como imprimir um `bool` do mesmo jeito temos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação uma maneira de converter o `bool` para uma string, ou seja, não definir um código como `d` para tal. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
 
 Chamamos os estados **verdadeiro** e **falso** de `true` e `false`, respectivamente.
 
