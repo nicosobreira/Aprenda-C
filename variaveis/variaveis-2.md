@@ -38,9 +38,9 @@ int main()
 }
 ```
 
-Sempre que inicilizar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero`. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora sempre inicialize suas variáveis.
+Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero` com o valor 0. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora sempre inicialize suas variáveis.
 
-Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna o valor armazenado da variável **global** `numero` e recebe nenhum argumento:
+Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma copia do valor armazenado na variável **global** `numero` e recebe nenhum argumento:
 
 ``` c
 #include <stdio.h>
@@ -60,7 +60,7 @@ int main()
 }
 ```
 
- Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Troque a ordem e veja o que acontece.
+ Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Mude a declaração da função `retorna_numero` para o final e veja o que acontece.
 
 Agora vamos adicionar outra variável chamada `numero`, só que em um lugar diferente do código, e ver como o programa vai se comportar:
 
@@ -87,7 +87,9 @@ int main()
 
 Quando fazemos, dentro da função `main`, a declaração `int numero = 7;`, estamos criando uma nova **variável local da função `main`** que também se chama `numero`, mas tem o valor de 7. Desse modo, nosso programa possui uma variável global e outra local, ambas com o nome de `numero`, mas como o compilador sabe quando teve usar cada uma?
 
-Isso se deve a uma regra da linguagem C: **a variável do escopo mais interno tem sempre sobre a do escopo mais externo**. O escopo pode ser definido em cima do arquivo, para variáveis globais, ou dentro das **chaves** `{}`, para variáveis locais. As variáveis locais fazem parte do escopo de suas respectivas funções.
+Isso se deve a uma regra da linguagem C: **a variável do escopo mais interno tem preferência sobra a do escopo mais externo**. O escopo pode ser definido em cima do arquivo, para variáveis globais, ou dentro das **chaves** `{}`, para variáveis locais. Nesse caso, as variáveis locais fazem parte do escopo de suas respectivas funções.
+
+Quando declaramos `int numero = 7;` dentro de `main`, o compilador passa a usar essa variável local no primeiro `printf`. Contudo, no segundo `printf`, usamos o valor de uma função, nesse caso a `retorna_numero`. Olhe bem para a definição de `retorna_numero`, você percebe alguma declaração de uma variável chamada `numero`? Como não estamos declarando nenhuma variável, o compilador usará a variável do escopo global.
 
 O próximo exemplo mostra o que acontece quando declaramos duas variáveis com o mesmo nome no mesmo escopo:
 
@@ -105,6 +107,8 @@ int main()
     return 0;
 }
 ```
+
+Tente remover o `int` quando a variável `numero` recebe 2, ou seja, em `int numero = 2;`. Agora, o programa irá compilar e mostrará dois valores distintos.
 
 Esse código não irá compilar devido a uma regra da linguagem C: é permitido a declaração de variáveis com o mesmo nome, contanto que as variáveis fiquem em **escopos diferentes**. Como ambos as variáveis `numero` fazem parte do escopo da função `main`, elas violam a regra.
 
@@ -161,7 +165,7 @@ printf("Pi vale aproximadamente %f\n", pi);
 
 As variáveis constantes são ótimas para eliminar os chamados **valores mágicos**. No exemplo a seguir usamos alguns **números soltos** para calcular o salário de um funcionário. Eles não carregam nenhuma valor por si só, nem o contexto deixa claro suas funções.
 
-> Não esqueça de declarar essa função a cima de `main` e executar ela!
+> Não esqueça de declarar a função `calcular_salario` a cima de `main` e executar ela antes do `return 0;`!
 
 ``` c
 double calcular_salario(double horas)
@@ -170,7 +174,7 @@ double calcular_salario(double horas)
 }
 ```
 
-Agora, se dando nomes aos seus valores, seus papéis ficam claros:
+Agora, dando nomes aos seus valores, seus papéis ficam claros:
 
 ``` c
 double calcular_salario(double horas)
