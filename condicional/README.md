@@ -40,9 +40,9 @@ Com isso em mente, lemos esse código da seguinte forma: se o valor armazenado n
 
 ## else if
 
-Agora, vamos pensar em outro problema do dia a dia: qual camisa eu devo vestir? Ao avaliarmos essa pergunta, temos que levar a consideração a temperatura média ao longo do dia. Utilizamos um valores arbitrários para decidir a nossa temperatura de frio, de calor e a ideal.
+Agora, vamos pensar em outro problema do dia a dia: qual camisa eu devo vestir? Ao avaliarmos essa pergunta, temos que levar a consideração a temperatura média ao longo do dia. Utilizamos de valores arbitrários para decidir quais faixas de temperaturas são frias, quentes e a ideais.
 
-Para resolver esse problema, vamos criar um programa que utilize duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as temperaturas que você considera entre o frio e calor, no meu caso é 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para a decidirmos que tipo de roupa é melhor levar, vamos usar de **operadores** de comparação, como $>$ e $<$ da matemática.
+Para resolver esse problema, vamos criar um programa que utilize duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as temperaturas que você considera fria e quente, no meu caso é 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para a decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores** de comparação, como $>$ e $<$ da matemática junto com duas condicionais.
 
 ``` c
 #include <stdio.h>
