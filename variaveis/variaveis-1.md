@@ -2,7 +2,7 @@
 
 Para entendermos as variáveis em C, primeiro precisamos destrinchar a frase: "O computador só entende 0 e 1". Essa frase diferencia o modo com que os humanos e as máquinas interpretam informações. Enquanto nós temos uma consciência, a máquina está limitada a lidar com níveis baixos e altos de voltagem para representar informações, 0 e 1 respectivamente.
 
-Pode parecer loucura ir tão fundo só para entender o que é uma variável, mas entender que no final das contas toda a informação que passa pelo computador é representada na forma de 0 e 1 explica o porque precisamos declarar o tipo das variáveis.
+Entender que no final das contas toda a informação que passa pelo computador é representada na forma de 0 e 1 explica o porque precisamos declarar o tipo das variáveis.
 
 Tomamos o binário `0011 0101` como exemplo, se o computador olhar apenas para esse binário, ele não tem a menor ideia do que ele significa.
 Para a máquina, a sequência 0011 0101 é apenas um dado bruto. No entanto:
@@ -41,7 +41,7 @@ O nome da variável mudou de `numero` para `palavra`, mas o seu tipo continua se
 
 ## Atribuição
 
-No *Flávia Script*, para mudarmos o valor de uma variável, usamos da seguinte notação para dizer que uma variável inteira chamada `numero` recebe 10: `numero <- 10;`.
+No *Flávia Script*, para mudarmos o valor de uma variável, usamos da seguinte notação para dizer que uma variável inteira chamada `numero` recebe uma copia de 10: `numero <- 10;`.
 
 Em C usamos outra sintaxe:
 
@@ -70,7 +70,7 @@ int idade = 18;
 ```
 
 Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h`.
-A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis da maioria dos tipos primitivos e são usados para imprimir os valores das variáveis.
+A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis no terminal.
 
 Por exemplo, no código abaixo estamos imprimindo o valor da variável `idade` do tipo inteiro:
 
@@ -88,7 +88,7 @@ int main()
 ```
 
 Esse `%` é o padrão adotado pelas funções `printf` e `scanf` para lidar com os diferentes tipos de variáveis que podem ser exibidas e lidas. Ele indica que o valor a ser imprimido vem de uma variável.
-O `d` cria uma promessa para a função `printf` que a primeira variável dos argumentos será do tipo inteiro.
+O `d` cria uma promessa do tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
 
 ### float / double
 
