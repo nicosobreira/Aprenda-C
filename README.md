@@ -18,7 +18,7 @@ Aqui estão algumas recomendações de como usar o material:
 2. [Olá, Mundo](./intro/ola-mundo.md)
 3. [Variáveis I](./variaveis/variaveis-1.md)
 4. [Variáveis II](./variaveis/variaveis-2.md)
-5. ~~[Condicionais](./condicional/README.md)~~
+5. [Condicionais](./condicional/README.md)
 6. ~~[Estrutura de Repetição](./repeticao/README.md)~~
 7. ~~[Projeto 1](./projeto/um.md)~~
 8. ~~[Ponteiros](./ponteiros.md)~~
