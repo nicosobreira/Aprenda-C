@@ -87,7 +87,7 @@ int main()
 }
 ```
 
-Esse `%` é o padrão adotado pelas funções `printf` e `scanf` para lidar com os diferentes tipos de variáveis que podem ser exibidas e lidas. Ele indica que o valor a ser imprimido vem de uma variável.
+Esse `%` é o padrão adotado pela função `printf` para lidar com os diferentes tipos de variáveis que podem ser exibidas e lidas. Ele indica que o valor a ser imprimido vem de uma variável.
 O `d` cria uma promessa do tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
 
 ### float / double
@@ -125,7 +125,8 @@ Para imprimir o valor da média, vamos usar o `%f` em ambos:
 
 ``` c
 // Esse "barra barra" é um comentário. Ele é ignorado pelo compilador.
-// Vou pular a declaração do main e o #include, mas você precisa colocar!
+// Vou pular a definição do main e o #include, mas você precisa colocar!
+
 printf("Média Float: %f", media_f);
 printf("Média Double: %f", media_d);
 ```
