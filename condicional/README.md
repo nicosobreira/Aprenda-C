@@ -1,6 +1,6 @@
 # Condicionais
 
-As condicionais são estruturas que nos possibilitam avaliar condições e executar diferentes códigos dependendo de seus resultados. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. Se chover, então pegamos o guarda chuva, senão deixamos ele em casa.
+As condicionais são estruturas que nos possibilitam avaliar condições e executar diferentes códigos dependendo de seus resultados. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda chuva, **senão** deixamos ele em casa.
 
 ## if e else
 
@@ -29,14 +29,14 @@ int main()
 }
 ```
 
-Para deixar claro, as palavras `if` e `else` são traduções diretas para o "se" e "senão".
+As palavras `if` e `else` são traduções diretas para o "se" e "senão".
 Com isso em mente, lemos esse código da seguinte forma: se o valor armazenado na variável `vai_chover` for `true`, então execute tudo entre as chaves abaixo do `if`, senão execute tudo entre as chaves abaixo do `else`.
 
 ## else if
 
 Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia. Utilizamos de valores arbitrários para decidir quais faixas de temperaturas são frias, quentes e a ideais.
 
-Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para a decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores** de comparação, como $>$ e $<$ da matemática junto a duas condicionais.
+Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores** de comparação, como $>$ e $<$ da matemática junto a duas condicionais.
 
 ``` c
 #include <stdio.h>
@@ -72,7 +72,7 @@ int main()
 
 Primeiro, o programa vai verificar, com o uso do `if`, se o valor armazenado na variável `temperatura` é maior do que o armazenado em `temp_alta`. Se esse for o caso, então faça as recomendações para o calor, senão verifique se a `temperatura` é menor que `temp_baixa`, com o uso do `if else`. Se a `temperatura` for baixa, então recomende um casaco. Por fim, se a temperatura não está nem muito quente, nem muito frio, então o clima só pode estar perfeito.
 
-Teste com diversos valores de temperatura alterando o valor da variável `temperatura` e veja quais mensagens aparecem.
+Teste com diversos valores de temperatura, alterando o valor da variável `temperatura`, e veja quais mensagens aparecem.
 
 Logo em seguida, veja o que acontece com os valores exatos de `temp_baixa` e `temp_alta`. Você percebeu que a mensagem indica um clima perfeito? Isso é um erro lógico em nosso programa, já que a variável `temp_alta` e `temp_baixa` deveriam representar **o ponto de mudança das temperaturas**, ou seja, esses valores também fazem parte de suas respectivas faixas de temperatura.
 
@@ -100,13 +100,13 @@ else
 
 ## Negação
 
-É usado inverter uma condição, ou seja, trocar de `true` para `false` e vice-versa.
+É usado paraa inverter uma condição, ou seja, trocar de `true` para `false` e vice-versa.
 
 Para explicar o uso da negação, vamos pensar em uma festa: uma pessoa só pode entrar nela se possuir um convite, senão ela é barrada na entrada.
 
-Primeiro, vamos resolver esse problema usando um `if` junto a um `else` e logo em seguida veremos um jeito melhor, usando apenas um `if`. Vamos criar uma função chamada `entrar_na_festa` que *retorna nada* e tem como argumento uma variável do tipo `bool` chamada `tem_convite`.
+Primeiro, vamos resolver esse problema usando um `if` junto a um `else`. Logo em seguida, veremos um jeito melhor, usando apenas um `if`. Vamos criar uma função chamada `entrar_na_festa` que *retorna nada* e tem como argumento uma variável do tipo `bool` chamada `tem_convite`.
 
-> O `void` é um termo que possui varios significados na linguagem C. **Nesse caso**, ele indica que a função não vai *retornar nada*.
+> O `void` é um termo que possui varios significados na linguagem C. **Nesse caso**, ele indica que a função vai retornar nenhum valor.
 
 ``` c
 #include <stdio.h>
@@ -153,7 +153,7 @@ Para chegar a uma resposta, precisamos entender realmente o que significa "entra
 
 O nosso código atual não traz essa ideia de **válido** e **inválido** em sua construção. Note que é diferente do nosso primeiro exemplo, no começo do capítulo, onde chuver ou não são **dois caminhos válidos** para o programa.
 
-Sendo assim, o nosso problema está no *design* de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplemente sair antes da nossa função, caso algo inválido aconteça.
+Sendo assim, o nosso problema está no *design* de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplemente sair no começo dr nossa função, caso algo inválido aconteça.
 
 ``` c
 #include <stdio.h>
@@ -208,7 +208,7 @@ Com isso, garantimos que o valor de `divisor` sempre será diferente de 0.
 
 ## O bool por debaixo dos panos
 
-As condições em C sempre resultam em valores númericos, vejamos um exemplo:
+As condições em C sempre resultam em valores númericos. Vejamos um exemplo:
 
 ``` c
 #include <stdio.h>
