@@ -7,15 +7,15 @@ Essas regras são válidas para toda a linguagem C, não somente para variáveis
 - São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
 - Não é permitido começar com um dígito.
 - A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o computador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
-- Você não pode nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes.
+- Você não pode nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções, por exemplo.
 
 ### Boas práticas
 
-Evite nomes misteriosos. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve conseguir transmitir sua função dentro de seu contexto.
+Evite nomes misteriosos. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve transmitir sua função dentro do código.
 
-Evite o encurtamento dos nomes, como escrever `int vf;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar agora, daqui a um mês, quando precisar mudar o código denovo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
+Evite o encurtamento dos nomes, como escrever `int vf;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar, daqui a um mês, quando precisar mudar o código denovo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
 
-Ao longo do guia, veremos ainda mais casos de como melhorar a sua nomenclatura. Enquanto estava aprendendo a programar, achava difícil pensar em bons nomes para as coisas. Se você se sente assim, recomendo utilizar Inteligência Artificial para ter ideias de como nomear bem.
+Ao longo do guia, veremos ainda mais casos de como melhorar a sua nomenclatura. Enquanto estava aprendendo a programar, achava difícil pensar em bons nomes para as coisas. Se você se sente assim, recomendo utilizar Inteligência Artificial para ter ideias de como nomear.
 
 ## Escopos
 
@@ -40,7 +40,7 @@ int main()
 
 Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero` com o valor 0. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora sempre inicialize suas variáveis.
 
-Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma copia do valor armazenado na variável **global** `numero` e recebe nenhum argumento:
+Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma **copia** do valor armazenado na variável **global** `numero` e recebe nenhum argumento:
 
 ``` c
 #include <stdio.h>
@@ -60,9 +60,9 @@ int main()
 }
 ```
 
- Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Mude a declaração da função `retorna_numero` para o final e veja o que acontece.
+Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Mude a declaração da função `retorna_numero` para o final e veja o que acontece.
 
-Agora vamos adicionar outra variável chamada `numero`, só que em um lugar diferente do código, e ver como o programa vai se comportar:
+Agora vamos adicionar outra variável chamada `numero`, só que dentro da função `main`, e ver como o programa vai se comportar:
 
 ``` c
 #include <stdio.h>
@@ -108,9 +108,9 @@ int main()
 }
 ```
 
-Tente remover o `int` quando a variável `numero` recebe 2, ou seja, em `int numero = 2;`. Agora, o programa irá compilar e mostrará dois valores distintos.
-
 Esse código não irá compilar devido a uma regra da linguagem C: é permitido a declaração de variáveis com o mesmo nome, contanto que as variáveis fiquem em **escopos diferentes**. Como ambos as variáveis `numero` fazem parte do escopo da função `main`, elas violam a regra.
+
+Tente remover o `int` quando a variável `numero` recebe 2, ou seja, em `int numero = 2;`. Agora, o programa irá compilar e mostrará dois valores distintos.
 
 ### Boas Práticas
 
@@ -163,7 +163,7 @@ printf("Pi vale aproximadamente %f\n", pi);
 
 ### Boas práticas
 
-As variáveis constantes são ótimas para eliminar os chamados **valores mágicos**. No exemplo a seguir usamos alguns **números soltos** para calcular o salário de um funcionário. Eles não carregam nenhuma valor por si só, nem o contexto deixa claro suas funções.
+As variáveis constantes são ótimas para eliminar os chamados **valores mágicos** de nosso código. No exemplo a seguir usamos alguns **números soltos** para calcular o salário de um funcionário. Eles não carregam nenhuma valor por si só, nem o contexto deixa claro suas funções.
 
 > Não esqueça de declarar a função `calcular_salario` a cima de `main` e executar ela antes do `return 0;`!
 
@@ -190,7 +190,7 @@ Com as novas informações, sabemos que a função `calcular_salario` calcula o 
 
 Você pode estar pensando: será que não poderíamos usar comentários ao invés de constantes? Vamos verificar:
 
-> É comum usarmos `///` ao invés de `//` para comentário que explicam o funcionamento de funções. Esses comentários ficam em cima da definição da função.
+> É comum usarmos `///` ao invés de `//` para comentário que explicam o funcionamento de funções. Esses comentários ficam em cima da declaração das funções.
 
 ``` c
 /// Calcula o salário de um funcionario
@@ -210,7 +210,7 @@ A respota é sim, podemos, mas nesse caso elas não são a melhor opção, por 2
 Os comentários são ideias para deixar claro o **por quê** dos valores serem esses, e as variáveis constantes mostram **quais** são esses valores. Sendo assim, a versão final da função seria:
 
 ``` c
-/// Calcula o salário de um funcionário
+/// Calcula o salário de um funcionário baseado nas horas trabalhadas
 /// Valor Hora: Escolha baseada no regulamento xxx
 /// Adicional Noturno: Bônus garantido como cortesia
 double calcular_salario(double horas)
