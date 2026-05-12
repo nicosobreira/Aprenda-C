@@ -1,17 +1,23 @@
 # Variáveis I
 
+As variáveis servem para armazenar valores. Esses valores são armazenados na memória RAM do computador.
+
+---
+
 Para entendermos as variáveis em C, primeiro precisamos destrinchar a frase: "O computador só entende 0 e 1". Essa frase diferencia o modo com que os humanos e as máquinas interpretam informações. Enquanto nós temos uma consciência, a máquina está limitada a lidar com níveis baixos e altos de voltagem para representar informações, 0 e 1 respectivamente.
 
 Entender que no final das contas toda a informação que passa pelo computador é representada na forma de 0 e 1 explica o porque precisamos declarar o tipo das variáveis.
 
 Tomamos o binário `0011 0101` como exemplo, se o computador olhar apenas para esse binário, ele não tem a menor ideia do que ele significa.
-Para a máquina, a sequência 0011 0101 é apenas um dado bruto. No entanto:
+Para a máquina, a sequência `0011 0101` é apenas um dado bruto. No entanto:
 
 - Se o computador interpretar isso como um número inteiro, o valor é 53.
 
-- Mas, se ele interpretar isso usando algum tipo de lógica de conversão, como por exemplo usando uma tabela que mapeia números para caracteres, o valor pode mudar. Por exemplo, se o computador usar o binário `0011 0101` (ou o número 53 em decimal) como um índice na Tabela de Conversão ASCII, o binário passa a representar o carácter '5'. (Não se preocupe se não tenha entendido, mais para frente iremos voltar nesse exemplo)
+- Mas, se ele interpretar isso usando algum tipo de lógica de conversão, como por exemplo usando uma tabela que mapeia números para caracteres, o valor muda. Por exemplo, se o computador usar o binário `0011 0101` (ou o número 53 em decimal) como um índice na Tabela de Conversão ASCII, o binário passa a representar o carácter '5'.
 
-Mas como o computador sabe como interpretar o binário de tal maneira? É exatamente aí que entra a necessidade de declarar o tipo da variável na linguagem C.
+> Não se preocupe se não tenha entendido, mais para frente iremos voltar nesse exemplo.
+
+É por isso que demos que deixar claro para o computador como a informação deve ser processada
 
 ## Declaração
 
@@ -41,7 +47,7 @@ O nome da variável mudou de `numero` para `palavra`, mas o seu tipo continua se
 
 ## Atribuição
 
-No *Flávia Script*, para mudarmos o valor de uma variável, usamos da seguinte notação para dizer que uma variável inteira chamada `numero` recebe uma copia de 10: `numero <- 10;`.
+No *Flávia Script*, para mudarmos o valor de uma variável, usamos da seguinte notação para dizer que uma variável do tipo inteiro chamada `numero` recebe uma copia de 10: `numero <- 10;`.
 
 Em C usamos outra sintaxe:
 
@@ -63,16 +69,17 @@ São os tipos de variáveis que são definidas por padrão pela linguagem.
 
 ### int
 
-Representa um número inteiro.
+Representa um número inteiro, como $-1$, $-3$, $0$ e $1$.
 
 ``` c
 int idade = 18;
 ```
 
-Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h`.
+Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada no header `stdio`.
+
 A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis no terminal.
 
-Por exemplo, no código abaixo estamos imprimindo o valor da variável `idade` do tipo inteiro:
+Por exemplo, no código abaixo estamos imprimindo o valor da variável `idade`:
 
 ``` c
 #include <stdio.h>
@@ -88,7 +95,7 @@ int main()
 ```
 
 Esse `%` é o padrão adotado pela função `printf` para lidar com os diferentes tipos de variáveis que podem ser exibidas e lidas. Ele indica que o valor a ser imprimido vem de uma variável.
-O `d` cria uma promessa do tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
+O `d` indica o tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
 
 ### float / double
 
@@ -101,7 +108,7 @@ Esse padrão divide um binário com 32 ou 64 bits em três partes, são elas:
 
 #### Single Point Precision
 
-São usados 32 bits para armazenar o valor do número real.
+São usados 32 bits para armazenar o valor de um número real.
 Em C esse tipo é chamado de `float`.
 
 ```c
