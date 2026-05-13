@@ -41,7 +41,22 @@ Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string,
 
 ## while
 
-...
+Para aprendermos a estrutura de repetição *while*, vamos criar um programa que pergunte pela senha para proseguir.
+
+> Importe o header `stdio`, declare a função `main` e coloque o `return 0` no final.
+
+``` c
+const int senha = 1234;
+int tentativa = 0;
+
+while (tentativa != senha)
+{
+	printf("Digite a senha de 4 dígitos: ");
+	scanf("%d", &tentativa);
+}
+
+printf("A senha está correta!\n");
+```
 
 ## for
 
