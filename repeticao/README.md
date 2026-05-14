@@ -76,19 +76,7 @@ Esse erro é chamado de **loop infinito**, e é causado quando não atualizamos 
 
 ## for
 
-Para enterdemos o por quê da estrutura de repetição *for* existir, vamos criar uma calculadora de tabuadas usando o *while*.
-
-> Importe o header `stdio`, declare a função `main` e coloque o `return 0` no final. Escreva o código dentro da função `main`.
-
-Primeiro, vamos perguntar ao usuário um numero para saber sua tabuada.
-
-``` c
-int numero = 0;
-printf("Digite um número para saber sua tabuada: ");
-scanf("%d", &numero);
-```
-
-Depois, vamos criar um **contador** de 1 até 10, usando um *while loop*. 
+Para enterdemos o por quê da estrutura de repetição *for* existir, vamos criar um contador de 1 até 10 usando o *while*.
 
 > A condição do contador está errada! Vamos ver como arrumar logo em seguida.
 
@@ -96,19 +84,84 @@ Depois, vamos criar um **contador** de 1 até 10, usando um *while loop*.
 int indice = 1;
 while (indice != 10)
 {
-	// Operações
+	printf("Índice atual: %d\n", indice);
 
 	indice++;
 }
 ```
 
-O contador é contruído a partir de três partes, são elas:
+Antes de corrigirmos o erro do contador, vamos ver quais são suas partes:
 
 1. **Inicialização** antes do *while loop*. É a declaração da variável `indice` com o **valor inicial** de `1`.
 2. **Condição** dentro do *while*. É quando comparamos o valor atual da variável `indice` com `10`.
 3. **Atualização** ao final do *while*. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` por um. Essa parte é essêncial para impedir um **loop infinito**.
 
-Troque o comentário `// Operações` por esse `printf`: `printf("Índice atual: %d\n", indice);` e rode o programa. O contador vai até nove!
+O contador só vai até nove! Para entendermos o por quê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só ira mostrar o indice atual se a condição for verdaderia, caso contrário, nada será imprimido no terminal.
 
+| indice | indice != 10 |
+| :-:    | :-           |
+| 1      | Verdadeiro   |
+| 2      | Verdadeiro   |
+| 3      | Verdadeiro   |
+| ...    | ...          |
+| 8      | Verdadeiro   |
+| 9      | Verdadeiro   |
+| **10** | **Falso**    |
+
+Na última linha da tabela, o valor de `indice` é 10. Dessa forma, a condição `10 != 10` é falsa, já que 10 é igual a 10.
+
+Para consertar esse erro, vamos usar da desigualdade **menor ou igual**, escrita como `<=`. O programa ficará assim:
+
+``` c
+int indice = 1;
+while (indice <= 10)
+{
+	printf("Índice atual: %d\n", indice);
+
+	indice++;
+}
+
+return 0;
+```
+
+Lemos o *while* da seguinte maneira: enquanto o `indice` for **menor ou igual** a 10 imprima o índice atual e incremente a variável `indice`.
+
+Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um *for loop*. Essa estrutura de repetição junta a  **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros como esquecer de incrementar ao final do *loop*. O mesmo programa acima pode ser escrito nesse novo formato:
+
+``` c
+for (int indice = 1; indice <= 10; indice++)
+{
+	printf("Índice atual: %d\n", indice);
+}
+```
+
+Para finalizar, vamos criar um programa que imprima a tabuada de um número.
+
+Primeiro, vamos criar uma variável global chamada `total`, que armazenará o total de números da tabuada, que são `10`.
+
+> Escreva o código dentro da função `main`. Não se esqueça de importar o header `stdio` e retornar `0` ao final de `main`.
+
+``` c
+const int total = 10;
+``` 
+
+Depois, vamos perguntar ao usuário de qual número será a tabuada.
+
+``` c
+int numero = 0;
+printf("Digite um número para saber sua tabuada: ");
+scanf("%d", &numero);
+```
+
+E agora, vamos criar o loop que vai exibir a tabuada.
+
+``` c
+    for (int indice = 1; indice <= total; indice++)
+    {
+        int resultado = numero * indice;
+        printf("%d x %d = %d", numero, indice, resultado);
+        printf("\n");
+    }
+```
 
 ## do while
