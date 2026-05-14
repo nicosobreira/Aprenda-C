@@ -6,7 +6,7 @@ Antes de aprendermos as estruturas de repetição em si, vamos ver como o usuár
 
 ## scanf
 
-Primeiro mostrarei o código para isso, depois vamos analiza-lo.
+Primeiro mostrarei o código para isso, depois vamos analizá-lo.
 
 ``` c
 #include <stdio.h>
@@ -27,13 +27,13 @@ int main()
 A entrada do usuário é feita por meio da função `scanf`, que assim como a função `printf`, é declarada no header `stdio`.
 O primeiro argumento da função é uma string, que indica que tipo de informação queremos que o usuário digite. Nesse caso, como a variável `numero` é um `int`, usamos `%d`.
 
-> As funções `printf` e `scanf` possui muitos formatadores, como o `%d`, em comum, mas existem algumas diferenças. Pesquise qual formatador é necessário antes de usar!
+> As funções `printf` e `scanf` possui muitos formatadores, como o `%d`, em comum, mas existem alguns diferentes. Pesquise qual formatador é necessário antes de usar!
 
 Depois utilizamos desse `&` (chamado de "e") junto ao nome de uma variável para indicar que o valor da entrada do usuário deve ser armazenado nessa variável.
 Nos veremos o que esse símbolo realmente significa mais para frente, por hora, pense nele como a forma com que a função `scanf` muda o valor da variável `numero` para o valor de entrada do usuário.
 
 Antes de recebermos a entrada em si, temos que dizer qual informação queremos que o usuário digite. Para isso, usamos do `printf`.
-Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário a frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
+Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário à frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
 
 - Retire esse espaço final, e veja a saída;
 - Depois, coloque um `\n` no final da mensagem;
@@ -70,13 +70,13 @@ Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa p
 ### Loop infinito
 
 O motivo desse erro está na verificação da condição `tentativa != senha`.
-A estrutura de repetição *while* verifica se a condição é verdadeira no **começo** de cada *loop* e ao **final** dele, após a execução de todo o código entre chaves. Primeiro, o *while* vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, `0 != 1234`, o que é verdade. Dessa forma, se inicia o *loop*. Como retiramos a linha do `scanf`, ao final do *loop*, o valor da variável `tentativa` não mudou, e por isso continua sendo `0`. Portanto, na próxima vez que o *while* verificar a condição, teremos que `0 != 1234`, e assim por diante.
+A estrutura de repetição *while* verifica se a condição é verdadeira no **começo** de cada *loop* e ao **final** dele, após a execução de todo o código entre chaves. Primeiro, o *while* vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, `0 != 1234`, o que é verdade. Dessa forma, se inicia o *loop*. Como retiramos a linha do `scanf`, ao final do *loop* o valor da variável `tentativa` não mudou, e por isso continua sendo `0`. Portanto, na próxima vez que o *while* verificar a condição, teremos que `0 != 1234`, e assim por diante.
 
-Esse erro é chamado de **loop infinito**, e é causado quando não atualizamos as variáveis usadas na condição.
+Esse erro é chamado de **loop infinito**, e é causado quando nossa condição sempre é verdadeira.
 
 ## for
 
-Para enterdemos o por quê da estrutura de repetição *for* existir, vamos criar um contador de 1 até 10 usando o *while*.
+Para entendermos o por quê da estrutura de repetição *for* existir, vamos criar um contador de 1 até 10 usando o *while*.
 
 > A condição do contador está errada! Vamos ver como arrumar logo em seguida.
 
@@ -135,7 +135,7 @@ for (int indice = 1; indice <= 10; indice++)
 }
 ```
 
-Para finalizar, vamos criar um programa que imprima a tabuada de um número.
+Para finalizar, vamos criar um programa que imprime a tabuada de um número.
 
 Primeiro, vamos criar uma variável global chamada `total`, que armazenará o total de números da tabuada, que são `10`.
 
