@@ -1,6 +1,6 @@
 # Olá, Mundo
 
-O programa "Olá, Mundo" é a iniciação de todo programador. Ele nos mostra algumas regras básicas da linguagem.
+O programa "Olá, Mundo!" é a iniciação de todo programador. Ele nos mostra algumas regras básicas da linguagem.
 
 Primeiro, vamos ver como ele é escrito e logo em seguida vamos entender o código linha a linha.
 
@@ -21,7 +21,7 @@ int main()
 
 ## include
 
-O `#include <stdio.h>` serve para importar as declarações das funções de entrada e saída padrão (como o `printf` e o `scanf`), permitindo o seu uso. É apartir do *header* `stdio` que importamos a função `printf`.
+O `#include <stdio.h>` serve para importar as declarações das funções de entrada e saída padrão (como o `printf` e o `scanf`), permitindo o seu uso. É a partir do *header* `stdio.h` que importamos a função `printf`.
 
 O `#include <stdio.h>` avisa o compilador que essas funções existem, enquanto o código real que as executa fica armazenado na Biblioteca Padrão do C (chamado de *C Standard*) fornecida pelo sistema operacional.
 
@@ -29,17 +29,17 @@ O `#include <stdio.h>` avisa o compilador que essas funções existem, enquanto 
 
 É uma biblioteca cuja a funcionalidade é definida pela linguagem C, mas sua implementação muda de plataforma para plataforma, isso é, cada plataforma tem um jeito diferente de como executar a mesma lógica. As plataformas são como o Windows, Linux e Android.
 
-As funcionalidades da Biblioteca Padrão estão espalhados por vários arquivos no formato `.h`, chamados de *header files* ou só *headers. Primeiro, precisamos usar o `#include <header>` para importar as funcionalidades do *header*. Falaremos do porque usamos `<>` mais para frente.
+As funcionalidades da Biblioteca Padrão estão espalhadas por vários arquivos no formato `.h`, chamados de *header files* ou só *headers. Primeiro, precisamos usar o `#include <header>` para importar as funcionalidades do *header*. Falaremos do porque usamos `<>` mais para frente.
 
 ## main
 
 Essa é a função em que o nosso programa começa a executar. É o **ponto inicial** de toda a nossa aplicação, por isso do nome "main", do inglês, principal.
 
-O `int` é usado para indicar que essa função em algum momento retornará um valor do tipo inteiro. Note que esse momento não precisa ser no fim do programa. Experimente trocar a posição do `return 0;` com o `printf(Olá, Mundo!);` e veja o que acontece. Nada será exibido no terminal!
+O `int` é usado para indicar que essa função retornará um valor do tipo inteiro ao final de sua execução. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1`. O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, o programa fechará imediatamente e o texto nunca será exibido.
 
-Dentro dos parênteses são colocados os argumentos da função, igual na matemática quando escrevemos $f(x)$, onde a variável $x$ é um argumento da função $f$. Nesse caso, o parênteses está vazio, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber argumentos, mas vamos ver isso mais para frente.
+Dentro dos parênteses são colocados os argumentos da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um argumento da função `f`. Nesse caso, o parênteses está vazio, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber argumentos, mas vamos ver isso mais para frente.
 
-Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado ao chamarmos `main`. Diferente das outras funções, o `main` é executado automaticamente ao rodarmos o nosso programa.
+Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado ao chamarmos `main`. Diferentemente das outras funções, o `main` é executado automaticamente ao rodarmos o nosso programa.
 
 Você pode escrever a função da seguinte maneira:
 
@@ -55,7 +55,7 @@ E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemo
 
 A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nos veremos os diferentes tipos de formatação em [Variáveis](./../variaveis/primitivas.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
 
-Nos precisamos colocar esse `\n`, lido como "barra *new line*", no final para quebrar a linha. Tire ele e veja como a saída saí meio esquisita.
+Nos precisamos colocar esse `\n`, lido como "barra *new line*", no final para quebrar a linha. Tire ele e veja como a saída sai meio esquisita.
 
 Temos que colocar esse bendito ponto e vírgula no final para indicar o fim de comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro.
 
