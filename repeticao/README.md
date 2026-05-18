@@ -4,7 +4,7 @@ São usadas para **repetir** partes do código, baseado em uma condição.
 
 Antes de aprendermos as estruturas de repetição em si, vamos ver como o usuário pode digitar informações para o programa.
 
-## scanf
+## scanf I
 
 Primeiro mostrarei o código para isso, depois vamos analizá-lo.
 
@@ -166,4 +166,53 @@ E agora, vamos criar o loop que vai exibir a tabuada.
 
 ## do while
 
-Por último, nos veremos como
+Vamos retomar o primeiro exemplo do uso do `scanf`
+
+> Aqui eu vou escrever apenas o conteúdo da função `main`.
+
+``` c
+int numero = 0;
+
+printf("Digite um número, por favor: ");
+scanf("%d", &numero);
+
+printf("O seu número mais 2 vale %d.\n", numero + 2);
+```
+
+Nos vimos que esse código lê um número inteiro do usuário. Mas o que acontece se o usuário acidentalmente digitar um número real ou uma letra?
+
+Primeiro, tente digitar esses casos, depois veremos uma explicação.
+
+### scanf II
+
+Se a entrada do usuário for algo diferente de um número inteiro, o resultado é `2`. Contudo, algo interessante acontece se substituirmos o valor inicial da variável `numero` por outro, como por exemplo `4`. Agora o resultado é `6`, ou seja, `4 + 2`.
+
+Caso a leitura do `scanf` falhar, a variável `numero` não é alterada. Com essa informação nos já poderiamos pensar em validar a entrada do usuário: se o valor inicial continuar o mesmo, então peça outra entrada para o usuário. Mas existe um jeito ainda melhor de fazer a verificação.
+
+Até agora, nos ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem sucedidas**, isso é, o **total de variáveis que foram alteradas**.
+
+Vamos ver esse valor no código a seguir:
+
+``` c
+printf("Digite um número, por favor: ");
+int resultado = scanf("%d", &numero);
+
+printf("Resultado do scanf: %d", resultado);
+```
+
+Se o usuário digitar um número, o `resultado` vale `0`, caso contrário, o `resultado` vale `1`. Com essa informação, podemos usar de um **retorno antecipado** para sair da função `main`, caso o usuário não tenha digitado um número:
+
+``` c
+int numero = 0;
+
+printf("Digite um número, por favor: ");
+int resultado = scanf("%d", &numero);
+
+if (resultado != 1)
+{
+	printf("Digite um número da próxima vez!");
+	return 1;
+}
+
+printf("O seu número mais 2 vale %d.\n", numero + 2);
+```
