@@ -41,7 +41,7 @@ Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string,
 
 ## while
 
-Para aprendermos a estrutura de repetição *while* (do inglês "enquanto"), vamos criar um programa que pergunte pela senha para proseguir. **Enquanto** a senha que o usuário digitar for diferente da senha correta, o programa vai continuar perguntando por uma nova senha. No entanto, no momento em que as senhas forem iguais, o programa ira sair do *loop* e continuar até o `return 0`.
+Para aprendermos a estrutura de repetição *while* (do inglês "enquanto"), vamos criar um programa que pergunte pela senha para proseguir. **Enquanto** a senha que o usuário digitar for diferente da senha correta, o programa vai continuar perguntando por uma nova senha. No entanto, no momento em que as senhas forem iguais, o programa ira sair do *loop* e ira continuar.
 
 > Importe o header `stdio`, declare a função `main` e coloque o `return 0` no final.
 
@@ -63,7 +63,7 @@ while (tentativa != senha)
 printf("A senha está correta!\n");
 ```
 
-> Para o próximo exemplo, saiba que se você precionar a tecla "CTRL" junto a tecla "c", você sairá do programa.
+> Saiba que se você precionar a tecla "CTRL" junto a tecla "c" você sairá forçadamente do programa .
 
 Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa para ver o que acontece. O programa compila, mas nunca para!
 
