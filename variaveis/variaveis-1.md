@@ -94,8 +94,20 @@ int main()
 }
 ```
 
-Esse `%` é o padrão adotado pela função `printf` para lidar com os diferentes tipos de variáveis que podem ser exibidas e lidas. Ele indica que o valor a ser imprimido vem de uma variável.
-O `d` indica o tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
+Esse `%` é o padrão adotado pela função `printf` para lidar com os diferentes tipos de variáveis que podem ser exibidas. Ele indica que o valor a ser imprimido vem de uma variável de um tipo específico.
+O caracter ao lado do `%` representa o tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
+
+#### Operações
+
+Nos também podemos fazer **operações aritiméticas** entre variáveis e números. São elas:
+
+- **Soma**: `int resultado = 20 + 10`
+- **Subtração**: `int resultado = 1 - 10`
+- **Multiplicação**: `int resultado = 5 * 20`
+- **Divisão**: `int resultado = 8 / 2`
+- **Módulo**, dá o resultado do **resto da divisão**: `int resto_1 = 9 % 2`
+
+Nos também usamos parênteses para indicar a ordem de importância das operações.
 
 ### float / double
 
