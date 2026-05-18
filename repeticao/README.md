@@ -166,5 +166,4 @@ E agora, vamos criar o loop que vai exibir a tabuada.
 
 ## do while
 
-- Os perigos do `scanf`
-- Verificação da entrada do usuário
+Por último, nos veremos como
