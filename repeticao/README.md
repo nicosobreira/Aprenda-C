@@ -200,7 +200,7 @@ int resultado = scanf("%d", &numero);
 printf("Resultado do scanf: %d", resultado);
 ```
 
-Se o usuário digitar um número inteiro, o `resultado` vale `0`, caso contrário, o `resultado` vale `1`. Com essa informação, podemos usar de um **retorno antecipado** para sair da função `main`, caso o usuário não tenha digitado um número:
+Se o usuário digitar um número inteiro, o `resultado` vale `1`, caso contrário, o `resultado` vale `0`. Com essa informação, podemos usar de um **retorno antecipado** para sair da função `main`, caso o usuário não tenha digitado um número:
 
 ``` c
 int numero = 0;
@@ -237,80 +237,39 @@ Se não digitarmos um número inteiro, caímos em um **loop infinito**. Para ent
 
 ### Buffer de entrada
 
-TODO: explicar o que é um buffer de entrada.
+Quando você digita algo no terminal e aperta `Enter`, o que você digitou não vai direto para a variável. Primeiro, esses dados vão para uma área de memória temporária chamada **buffer de entrada**, conhecido em C como *stdin* (apelido para *standard input*).
+
+Por exemplo, se você digitar a letra `A` e depois `Enter`, o buffer de entrada vai ficar parecido com isso: \[`A`, `\n`\], como uma **fila de espera**, aguardando ser lida. O papel da função `scanf` é ler esse buffer até encontrar um `\n`. Quando isso acontece, essa parte do buffer é covertida para o formatador. Mas, após a leitura, o buffer de entrada **não é esvaziado**, isso é, **ele continua o mesmo**.
+
+Sendo assim, no código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
+
+1. Vai ler o buffer até o `\n`;
+2. Erro! O valor `A` não é um inteiro, nenhuma conversão foi um sucesso, retorna `0`;
+3. A mensagem avisando o erro ao usuário é exibida;
+4. O buffer ainda possui o `A`, a conversão falha e a mensagem é exibida;
+
+Para limpar esse buffer, nos vamos usar a função `getchar`, declarada no header `stdio`. Essa função navega pelo buffer de entrada e limpa um caracter de cada vez. Seu valor de retorno e justamente esse caracter que acabou de ser limpo.
+
+Portanto, enquanto o valor de retorno do `getchar` for diferente de `\n`, o buffer ainda precisa ser limpo.
+
+``` c
+int numero = 0;
+printf("Digite um número: ");
+
+while(scanf("%d", &numero) != 1)
+{
+	while(getchar() != '\n')
+	{
+	}
+
+	printf("Digite um número inteiro: ");
+}
+```
+
+Uma implicação da não sanitização do buffer de entrada pela função `scanf` é que, mesmo se a entrada for convertida corretamente, o caractere de nova linha (`\n` gerado pelo Enter) ainda permanece no buffer.
+
+Felizmente, formatadores de números como o `%d` e `%f` ignoram esses espaços e quebras de linha automaticamente na próxima leitura. No entanto, se a sua próxima leitura for de um caractere único (`%c`), esse `\n` residual será lido por engano. Nesses casos, use um espaço antes do formatador para instruir o `scanf` a ignorar o lixo do buffer: `scanf(" %c", &letra);`.
 
 ## do while
 
 TODO: Exemplo final
-
-``` c
-#include <stdbool.h>
-#include <stdio.h>
-
-// 1. Fazer a leitura dentro do main para uma nota
-// 2. Criar uma função que leia entre min e max para uma nota
-// 3. Explicar porque se deve criar uma nova função
-// 4. Refatorar o código
-
-double leia_double(void);
-double leia_double_entre(double min, double max);
-
-int main(void)
-{
-    const double nota_minima = 0;
-    const double nota_maxima = 10;
-
-    printf("Digite a nota do aluno: ");
-    double nota = leia_double_entre(nota_minima, nota_maxima);
-
-    printf("A nota é: %g", nota);
-    return 0;
-}
-
-double leia_double(void)
-{
-    do
-    {
-        double numero = 0;
-        int falhas = scanf("%lf", &numero);
-
-        // A função `scanf` retorna o número de leituras bem sucedidas.
-        // Como estamos lendo apenas um único valor, o esperado é 1.
-        printf("Falha: %d", falhas);
-        if (falhas != 1)
-        {
-            printf("Digite um número: ");
-
-            double c;
-            while ((c = getchar()) != '\n' && c != EOF)
-            {
-            }
-
-            continue;
-        }
-
-        return numero;
-    } while (true);
-}
-
-double leia_double_entre(double min, double max)
-{
-    do
-    {
-        double numero = leia_double();
-
-        if (numero < min)
-        {
-            printf("Digite um número maior que %g: ", min);
-        }
-        else if (numero > max)
-        {
-            printf("Digite um número menor que %g: ", max);
-        }
-        else
-        {
-            return numero;
-        }
-    } while (true);
-}
-```
