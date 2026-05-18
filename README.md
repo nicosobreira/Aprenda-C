@@ -4,6 +4,14 @@ Bem-vindo ao guia definitivo de programação em C. Este repositório foi criado
 
 A maioria dos materias modernos **simplificam demais** os comportamentos da linguagem, e consequentemente, de como um computador funciona. Já os materias antigos **complicam o que é simples** e trazem um rigor que afasta os iniciantes. Isso faz com que o estudante decore muita coisa, mas sem responder essas duas perguntas: **porque** as coisas são assim? E **como** elas funcionam?
 
+## Uso de AI na produção do guia
+
+Eu me limitei a usar AI para:
+
+1. Correção ortográfica.
+2. Correção dos códigos de exemplos.
+3. Brainstorm de ideias.
+
 ## Regras de uso
 
 Esse é o jeito **correto** de se usar o material. Se você não seguir essas regras, eu não garanto o seu aprendizado:
