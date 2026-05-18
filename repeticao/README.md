@@ -258,18 +258,103 @@ printf("Digite um número: ");
 
 while(scanf("%d", &numero) != 1)
 {
-	while(getchar() != '\n')
-	{
-	}
+	while(getchar() != '\n') {}
 
 	printf("Digite um número inteiro: ");
 }
 ```
 
-Uma implicação da não sanitização do buffer de entrada pela função `scanf` é que, mesmo se a entrada for convertida corretamente, o caractere de nova linha (`\n` gerado pelo Enter) ainda permanece no buffer.
+Uma implicação da não sanitização do buffer de entrada pela função `scanf` é que, mesmo se a entrada for convertida corretamente, o caractere `\n` ainda permanece no buffer.
 
 Felizmente, formatadores de números como o `%d` e `%f` ignoram esses espaços e quebras de linha automaticamente na próxima leitura. No entanto, se a sua próxima leitura for de um caractere único (`%c`), esse `\n` residual será lido por engano. Nesses casos, use um espaço antes do formatador para instruir o `scanf` a ignorar o lixo do buffer: `scanf(" %c", &letra);`.
 
 ## do while
 
-TODO: Exemplo final
+A ultima versão do código usando do `getchar` junto ao *while loop* para validar a entrada do usuário é funcional, mas apresenta problemas em sua construção. Vamos tentar usar esse código para limitar esse número entre 0 e 10, para valores de notas de prova, por exemplo.
+
+Para tal, vamos utilizar do **operador lógico OU**. Caso alguma condição seja verdadeira, o *while loop* vai continuar.
+
+``` c
+int numero = 0;
+printf("Digite um número: ");
+
+while(scanf("%d", &numero) != 1 || numero < 0 || numero > 10)
+{
+	while(getchar() != '\n') {}
+
+	printf("Digite um número inteiro: ");
+}
+```
+
+Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Agora, imagine se existissem **ainda mais verificações**!
+
+Para resolver esse problema vamos usar outra estrutura de repetição, o **do while**. Primeiro vou mostrar a substuição do *while* pelo *do while*, sem o limite de 0 a 10.
+
+> Não se esqueça de importar o header <stdbool.h> para o `true`!
+
+``` c
+int numero = 0;
+printf("Digite um número: ");
+
+do
+{
+	int resultado = scanf("%d", &numero);
+	if (resultado != 1)
+	{
+		while (getchar() != '\n')
+		{
+		}
+
+		printf("Erro, digite um número inteiro: ");
+		continue;
+	}
+
+	break;
+} while (true);
+
+printf("O número mais 2 é %d", numero + 2);
+```
+
+A principal mudança foi o uso do `do {} while(true);` para continuar a execução "para sempre". Esse "para sempre" está entre aspas por que utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual** e pular direto para a próxima iteração do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
+
+---
+
+Com essas mudanças feitas, ficou muito mais fácil adicionar o limite entre 0 e 10. O código fica assim:
+
+``` c
+const int min = 0;
+const int max = 10;
+int numero = 0;
+
+printf("Digite um número entre %d e %d: ", min, max);
+do
+{
+	int resultado = scanf("%d", &numero);
+
+	if (resultado != 1)
+	{
+		while ((getchar()) != '\n')
+		{
+		}
+
+		printf("Digite um número inteiro: ");
+		continue;
+	}
+
+	if (numero < min)
+	{
+		printf("Digite um número maior que %d: ", min);
+		continue;
+	}
+
+	if (numero > max)
+	{
+		printf("Digite um número menor que %d: ", max);
+		continue;
+	}
+
+	break;
+} while (true);
+
+printf("O número mais 2 é %d", numero + 2);
+``` 
