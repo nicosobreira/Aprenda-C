@@ -1,16 +1,16 @@
 # Aprenda C
 
-Esse repositório contém todo o básico de C.
+Bem-vindo ao guia definitivo de programação em C. Este repositório foi criado com um propósito claro: **ensinar a linguagem C sem esconder o que acontece debaixo dos panos.**
 
-Ele foi feito para se ler do começo ao fim. Não recomendo pular para tópicos avançados se você não souber os tópicos passados.
+A maioria dos materias modernos **simplificam demais** os comportamentos da linguagem, e consequentemente, de como um computador funciona. Já os materias antigos **complicam o que é simples** e trazem um rigor que afasta os iniciantes. Isso faz com que o estudante decore muita coisa, mas sem responder essas duas perguntas: **porque** as coisas são assim? E **como** elas funcionam?
 
-## Recomendações
+## Regras de uso
 
-Aqui estão algumas recomendações de como usar o material:
+Esse é o jeito **correto** de se usar o material. Se você não seguir essas regras, eu não garanto o seu aprendizado:
 
-- Não copie e cole o código desse tutorial. Digite cada linha, cada letra de cada código.
-- Não use Inteligência Artificial, apenas se recomendado. Prefira os sites em [Referência](referência) e tutoriais no [Youtube](https://www.youtube.com).
-- Execute todos os códigos de exemplo.
+- Execute **todos os códigos** de exemplo. Pode pular apenas se você **já sabe o conteúdo**.
+- Não copie e cole os códigos, **digite cada um deles**.
+- Não faça uma leitura passiva, sempre **teste suas ideias** e **tire suas dúvidas com a AI ou Internet**.
 
 ## Conteúdos
 
@@ -36,6 +36,7 @@ Aqui estão algumas recomendações de como usar o material:
 
 ## Referência
 
+Alguns sites úteis que vão te ajudar:
+
 - [Geeks for Geeks](https://www.geeksforgeeks.org/) para o funcionamento da linguagem e funções da Biblioteca Padrão.
 - [Stack Overflow](https://stackoverflow.com/questions) para dúvidas mais especificas. Pode digitar a dúvida no google que esse site provavelmente já aparece.
-
