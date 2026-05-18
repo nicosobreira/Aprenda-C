@@ -164,7 +164,7 @@ E agora, vamos criar o loop que vai exibir a tabuada.
     }
 ```
 
-## do while
+## scanf II
 
 Vamos retomar o primeiro exemplo do uso do `scanf`
 
@@ -183,13 +183,13 @@ Nos vimos que esse código lê um número inteiro do usuário. Mas o que acontec
 
 Primeiro, tente digitar esses casos, depois veremos uma explicação.
 
-### scanf II
+## O valor de retorno
 
 Se a entrada do usuário for algo diferente de um número inteiro, o resultado é `2`. Contudo, algo interessante acontece se substituirmos o valor inicial da variável `numero` por outro, como por exemplo `4`. Agora o resultado é `6`, ou seja, `4 + 2`.
 
 Caso a leitura do `scanf` falhar, a variável `numero` não é alterada. Com essa informação nos já poderiamos pensar em validar a entrada do usuário: se o valor inicial continuar o mesmo, então peça outra entrada para o usuário. Mas existe um jeito ainda melhor de fazer a verificação.
 
-Até agora, nos ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem sucedidas**, isso é, o **total de variáveis que foram alteradas**.
+Até agora, nos ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem sucedidas**, isso é, o **total de variáveis que foram alteradas** pela função.
 
 Vamos ver esse valor no código a seguir:
 
@@ -200,7 +200,7 @@ int resultado = scanf("%d", &numero);
 printf("Resultado do scanf: %d", resultado);
 ```
 
-Se o usuário digitar um número, o `resultado` vale `0`, caso contrário, o `resultado` vale `1`. Com essa informação, podemos usar de um **retorno antecipado** para sair da função `main`, caso o usuário não tenha digitado um número:
+Se o usuário digitar um número inteiro, o `resultado` vale `0`, caso contrário, o `resultado` vale `1`. Com essa informação, podemos usar de um **retorno antecipado** para sair da função `main`, caso o usuário não tenha digitado um número:
 
 ``` c
 int numero = 0;
@@ -215,4 +215,102 @@ if (resultado != 1)
 }
 
 printf("O seu número mais 2 vale %d.\n", numero + 2);
+```
+
+---
+
+Ao invés de sair do programa, podemos utilizar de um *while loop* para ler um número novamente.
+
+``` c
+int numero = 0;
+printf("Digite um número: ");
+
+while(scanf("%d", &numero) != 1)
+{
+	printf("Digite um número inteiro: ");
+}
+```
+
+A primeira vista, esse código deve funcionar. Digite valores válidos e inválidos, e veja o que acontece.
+
+Se não digitarmos um número inteiro, caímos em um **loop infinito**. Para entendermos esse erro, vamos ver como a entrada do usuário entra para a função `scanf`.
+
+### Buffer de entrada
+
+TODO: explicar o que é um buffer de entrada.
+
+## do while
+
+TODO: Exemplo final
+
+``` c
+#include <stdbool.h>
+#include <stdio.h>
+
+// 1. Fazer a leitura dentro do main para uma nota
+// 2. Criar uma função que leia entre min e max para uma nota
+// 3. Explicar porque se deve criar uma nova função
+// 4. Refatorar o código
+
+double leia_double(void);
+double leia_double_entre(double min, double max);
+
+int main(void)
+{
+    const double nota_minima = 0;
+    const double nota_maxima = 10;
+
+    printf("Digite a nota do aluno: ");
+    double nota = leia_double_entre(nota_minima, nota_maxima);
+
+    printf("A nota é: %g", nota);
+    return 0;
+}
+
+double leia_double(void)
+{
+    do
+    {
+        double numero = 0;
+        int falhas = scanf("%lf", &numero);
+
+        // A função `scanf` retorna o número de leituras bem sucedidas.
+        // Como estamos lendo apenas um único valor, o esperado é 1.
+        printf("Falha: %d", falhas);
+        if (falhas != 1)
+        {
+            printf("Digite um número: ");
+
+            double c;
+            while ((c = getchar()) != '\n' && c != EOF)
+            {
+            }
+
+            continue;
+        }
+
+        return numero;
+    } while (true);
+}
+
+double leia_double_entre(double min, double max)
+{
+    do
+    {
+        double numero = leia_double();
+
+        if (numero < min)
+        {
+            printf("Digite um número maior que %g: ", min);
+        }
+        else if (numero > max)
+        {
+            printf("Digite um número menor que %g: ", max);
+        }
+        else
+        {
+            return numero;
+        }
+    } while (true);
+}
 ```
