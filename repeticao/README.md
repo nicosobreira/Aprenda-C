@@ -6,7 +6,7 @@ Antes de aprendermos as estruturas de repetição em si, vamos ver como o usuár
 
 ## scanf I
 
-Primeiro mostrarei o código para isso, depois vamos analizá-lo.
+Primeiro mostrarei o código para isso, depois vamos analisá-lo.
 
 ``` c
 #include <stdio.h>
@@ -41,7 +41,7 @@ Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string,
 
 ## while
 
-Para aprendermos a estrutura de repetição *while* (do inglês "enquanto"), vamos criar um programa que pergunte pela senha para proseguir. **Enquanto** a senha que o usuário digitar for diferente da senha correta, o programa vai continuar perguntando por uma nova senha. No entanto, no momento em que as senhas forem iguais, o programa ira sair do *loop* e ira continuar.
+Para aprendermos a estrutura de repetição *while* (do inglês "enquanto"), vamos criar um programa que pergunte pela senha para prosseguir. **Enquanto** a senha que o usuário digitar for diferente da senha correta, o programa vai continuar perguntando por uma nova senha. No entanto, no momento em que as senhas forem iguais, o programa irá sair do *loop* e continuar.
 
 > Importe o header `stdio`, declare a função `main` e coloque o `return 0` no final.
 
@@ -63,7 +63,7 @@ while (tentativa != senha)
 printf("A senha está correta!\n");
 ```
 
-> Saiba que se você precionar a tecla "CTRL" junto a tecla "c" você sairá forçadamente do programa .
+> Saiba que se você pressionar a tecla "CTRL" junto a tecla "c" você sairá forçadamente do programa .
 
 Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa para ver o que acontece. O programa compila, mas nunca para!
 
@@ -94,9 +94,9 @@ Antes de corrigirmos o erro do contador, vamos ver quais são suas partes:
 
 1. **Inicialização** antes do *while loop*. É a declaração da variável `indice` com o **valor inicial** de `1`.
 2. **Condição** dentro do *while*. É quando comparamos o valor atual da variável `indice` com `10`.
-3. **Atualização** ao final do *while*. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` por um. Essa parte é essêncial para impedir um **loop infinito**.
+3. **Atualização** ao final do *while*. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` por um. Essa parte é essencial para impedir um **loop infinito**.
 
-O contador só vai até nove! Para entendermos o por quê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só ira mostrar o indice atual se a condição for verdaderia, caso contrário, nada será imprimido no terminal.
+O contador só vai até nove! Para entendermos o por quê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só ira mostrar o indice atual se a condição for verdaderia, caso contrário, nada será impresso o no terminal.
 
 | indice | indice != 10 |
 | :-:    | :-           |
@@ -159,8 +159,7 @@ E agora, vamos criar o loop que vai exibir a tabuada.
     for (int indice = 1; indice <= total; indice++)
     {
         int resultado = numero * indice;
-        printf("%d x %d = %d", numero, indice, resultado);
-        printf("\n");
+        printf("%d x %d = %d\n", numero, indice, resultado);
     }
 ```
 
@@ -231,7 +230,7 @@ while(scanf("%d", &numero) != 1)
 }
 ```
 
-A primeira vista, esse código deve funcionar. Digite valores válidos e inválidos, e veja o que acontece.
+À primeira vista, esse código deve funcionar. Digite valores válidos e inválidos, e veja o que acontece.
 
 Se não digitarmos um número inteiro, caímos em um **loop infinito**. Para entendermos esse erro, vamos ver como a entrada do usuário entra para a função `scanf`.
 
@@ -239,7 +238,7 @@ Se não digitarmos um número inteiro, caímos em um **loop infinito**. Para ent
 
 Quando você digita algo no terminal e aperta `Enter`, o que você digitou não vai direto para a variável. Primeiro, esses dados vão para uma área de memória temporária chamada **buffer de entrada**, conhecido em C como *stdin* (apelido para *standard input*).
 
-Por exemplo, se você digitar a letra `A` e depois `Enter`, o buffer de entrada vai ficar parecido com isso: \[`A`, `\n`\], como uma **fila de espera**, aguardando ser lida. O papel da função `scanf` é ler esse buffer até encontrar um `\n`. Quando isso acontece, essa parte do buffer é covertida para o formatador. Mas, após a leitura, o buffer de entrada **não é esvaziado**, isso é, **ele continua o mesmo**.
+Por exemplo, se você digitar a letra `A` e depois `Enter`, o buffer de entrada vai ficar parecido com isso: \[`A`, `\n`\], como uma **fila de espera**, aguardando ser lida. O papel da função `scanf` é ler esse buffer até encontrar um `\n`. Quando isso acontece, essa parte do buffer é convertida para o formatador. Mas, após a leitura, o buffer de entrada **não é esvaziado**, isso é, **ele continua o mesmo**.
 
 Sendo assim, no código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
 
@@ -315,7 +314,7 @@ do
 printf("O número mais 2 é %d", numero + 2);
 ```
 
-A principal mudança foi o uso do `do {} while(true);` para continuar a execução "para sempre". Esse "para sempre" está entre aspas por que utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual** e pular direto para a próxima iteração do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
+A principal mudança foi o uso do `do {} while(true);` para continuar a execução "para sempre". Esse "para sempre" está entre aspas porque utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual** e pular direto para a próxima iteração do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
 
 ---
 
@@ -357,4 +356,4 @@ do
 } while (true);
 
 printf("O número mais 2 é %d", numero + 2);
-``` 
+```
