@@ -7,7 +7,7 @@ Essas regras são válidas para toda a linguagem C, não somente para variáveis
 - São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
 - Não é permitido começar com um dígito.
 - A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o computador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
-- Você não pode nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções, por exemplo.
+- Você não pode usar nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções, por exemplo.
 
 ### Boas práticas
 
@@ -60,7 +60,7 @@ int main()
 }
 ```
 
-Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Mude a declaração da função `retorna_numero` para o final e veja o que acontece.
+Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Mude a declaração da função `retorna_numero` para o final e veja o que acontece. O compilador fala que `retorna_numero` está **declarado implicitamente**. Para corrigir esse erro temos que adicionar a **definição** da nossa função **acima** de `main`. Copie a linha `int retorna_numero()` e cole ela para cima de `main`. Depois, é só colocar um ponto e vírgula no final, ficando assim: `int retorna_numero();`. Agora o compilador não reclama!
 
 Agora vamos adicionar outra variável chamada `numero`, só que dentro da função `main`, e ver como o programa vai se comportar:
 
@@ -87,7 +87,7 @@ int main()
 
 Quando fazemos, dentro da função `main`, a declaração `int numero = 7;`, estamos criando uma nova **variável local da função `main`** que também se chama `numero`, mas tem o valor de 7. Desse modo, nosso programa possui uma variável global e outra local, ambas com o nome de `numero`, mas como o compilador sabe quando teve usar cada uma?
 
-Isso se deve a uma regra da linguagem C: **a variável do escopo mais interno tem preferência sobra a do escopo mais externo**. O escopo pode ser definido em cima do arquivo, para variáveis globais, ou dentro das **chaves** `{}`, para variáveis locais. Nesse caso, as variáveis locais fazem parte do escopo de suas respectivas funções.
+Isso se deve a uma regra da linguagem C: **a variável do escopo mais interno sempre tem preferência sobre a do escopo mais externo**. O escopo pode ser definido em cima do arquivo, para variáveis globais, ou dentro das **chaves** `{}`, para variáveis locais. Nesse caso, as variáveis locais fazem parte do escopo de suas respectivas funções.
 
 Quando declaramos `int numero = 7;` dentro de `main`, o compilador passa a usar essa variável local no primeiro `printf`. Contudo, no segundo `printf`, usamos o valor de uma função, nesse caso a `retorna_numero`. Olhe bem para a definição de `retorna_numero`, você percebe alguma declaração de uma variável chamada `numero`? Como não estamos declarando nenhuma variável, o compilador usará a variável do escopo global.
 
@@ -108,7 +108,7 @@ int main()
 }
 ```
 
-Esse código não irá compilar devido a uma regra da linguagem C: é permitido a declaração de variáveis com o mesmo nome, contanto que as variáveis fiquem em **escopos diferentes**. Como ambos as variáveis `numero` fazem parte do escopo da função `main`, elas violam a regra.
+Esse código não irá compilar devido a uma regra da linguagem C: é permitido a declaração de variáveis com o mesmo nome, contanto que as variáveis fiquem em **escopos diferentes**. Como ambas as variáveis `numero` fazem parte do escopo da função `main`, elas violam a regra.
 
 Tente remover o `int` quando a variável `numero` recebe 2, ou seja, em `int numero = 2;`. Agora, o programa irá compilar e mostrará dois valores distintos.
 
@@ -186,6 +186,8 @@ double calcular_salario(double horas)
 }
 ```
 
+**Atenção com a divisão**: Note que escrevemos `15.0 / 100.0` com o ponto decimal. Se escrevêssemos apenas `15 / 100`, aa linguagem C faria uma **divisão inteira** e o resultado seria `0`, arruinando o cálculo do bônus!
+
 Com as novas informações, sabemos que a função `calcular_salario` calcula o sálario por hora mais um bônus de trabalho noturno de 15%.
 
 Você pode estar pensando: será que não poderíamos usar comentários ao invés de constantes? Vamos verificar:
@@ -202,12 +204,12 @@ double calcular_salario(double horas)
 }
 ```
 
-A respota é sim, podemos, mas nesse caso elas não são a melhor opção, por 2 motivos:
+A resposta é sim, podemos, mas nesse caso elas não são a melhor opção, por 2 motivos:
 
 1. **Comentários não ajudam na manutenção**. Se decidirmos mudar o valor do adicional noturno de 15% para 10%, teríamos que mudar em dois lugares diferentes. Basta esquecer de mudar uma só vez para criar uma discrepância.
-2. **O código autocomentado é mais fluido**. Para interpretarmos a função com comentário, toda vez que nos depararmos com um número, temos que pular para a seção de comentários. Em contra partida, ao usarmos variáveis constantes, a leitura se torna sequencial.
+2. **O código autocomentado é mais fluido**. Para interpretarmos a função com comentário, toda vez que nos depararmos com um número, temos que pular para a seção de comentários. Em contrapartida, ao usarmos variáveis constantes, a leitura se torna sequencial.
 
-Os comentários são ideias para deixar claro o **por quê** dos valores serem esses, e as variáveis constantes mostram **quais** são esses valores. Sendo assim, a versão final da função seria:
+Os comentários são ideais para deixar claro o **por quê** dos valores serem esses, e as variáveis constantes mostram **quais** são esses valores. Sendo assim, a versão final da função seria:
 
 ``` c
 /// Calcula o salário de um funcionário baseado nas horas trabalhadas
