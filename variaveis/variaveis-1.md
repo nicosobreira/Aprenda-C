@@ -140,19 +140,17 @@ double media_d = 3.2;
 
 #### Printf
 
-Para imprimir o valor da média, vamos usar o `%g` em ambos:
+Para imprimir o valor da média, vamos usar o `%f` em ambos:
 
 ``` c
 // Esse "barra barra" é um comentário. Ele é ignorado pelo compilador.
 // Vou pular a definição do main e o #include, mas você precisa colocar!
 
-printf("Média Float: %g", media_f);
-printf("Média Double: %g", media_d);
+printf("Média Float: %f", media_f);
+printf("Média Double: %f", media_d);
 ```
 
-O `printf` interpreta o `float` e `double` como reais em sua implementação interna, por isso utilizamos do mesmo símbolo `g` para ambos. Rode o comando e veja o resultado: ele é seguido por um monte de zeros!
-
-Nos também podemos usar do `%f`, mas o `%g` possui uma formatação mais conveniente. A única diferença é que o `%g` mostra apenas os **zeros necessários**. Por exemplo, o double `13.0` seria exibido apenas como `13`.
+O `printf` interpreta o `float` e `double` como reais em sua implementação interna, por isso utilizamos do mesmo símbolo `f` para ambos. Rode o comando e veja o resultado: ele é seguido por um monte de zeros!
 
 Dependendo do tipo da variável que passamos para o `printf` nos podemos formatar como o valor será exibido. Por exemplo, para exibirmos apenas duas casas depois da vírgula, usamos:
 
@@ -165,6 +163,8 @@ Até podemos arrendondar o número com:
 ``` c
 printf("Média: %.0f", media_d);
 ```
+
+Também existem outros formatadores para `float` e `double`. Caso você queira ignorar todos zeros a direita do número, use o `%g`. Esse formatador apenas mostrará o mínimo possível.
 
 #### Qual tipo usar?
 
