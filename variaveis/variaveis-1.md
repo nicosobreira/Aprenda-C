@@ -6,7 +6,7 @@ As variáveis servem para armazenar valores. Esses valores são armazenados na m
 
 Para entendermos as variáveis em C, primeiro precisamos destrinchar a frase: "O computador só entende 0 e 1". Essa frase diferencia o modo com que os humanos e as máquinas interpretam informações. Enquanto nós temos uma consciência, a máquina está limitada a lidar com níveis baixos e altos de voltagem para representar informações, 0 e 1 respectivamente.
 
-Entender que no final das contas toda a informação que passa pelo computador é representada na forma de 0 e 1 explica o porque precisamos declarar o tipo das variáveis.
+Entender que no final das contas toda a informação que passa pelo computador é representada na forma de 0 e 1 explica o por quê precisamos declarar o tipo das variáveis.
 
 Tomamos o binário `0011 0101` como exemplo, se o computador olhar apenas para esse binário, ele não tem a menor ideia do que ele significa.
 Para a máquina, a sequência `0011 0101` é apenas um dado bruto. No entanto:
@@ -69,7 +69,7 @@ São os tipos de variáveis que são definidas por padrão pela linguagem.
 
 ### int
 
-Representa um número inteiro, como $-1$, $-3$, $0$ e $1$.
+Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
 
 ``` c
 int idade = 18;
@@ -107,7 +107,7 @@ Nos também podemos fazer **operações aritiméticas** entre variáveis e núme
 - **Divisão**: `int resultado = 8 / 2`
 - **Módulo**, dá o resultado do **resto da divisão**: `int resto_1 = 9 % 2`
 
-Nos também usamos parênteses para indicar a ordem de importância das operações.
+Nos também usamos parênteses `( )` para indicar a ordem de importância das operações.
 
 ### float / double
 
@@ -118,7 +118,7 @@ Esse padrão divide um binário com 32 ou 64 bits em três partes, são elas:
 - Expoente, expoente da notação científica.
 - Mantissa, valor em notação científica.
 
-#### Single Point Precision
+#### Single Precision
 
 São usados 32 bits para armazenar o valor de um número real.
 Em C esse tipo é chamado de `float`.
@@ -129,7 +129,7 @@ float media_f = 6.72;
 
 Note que usamos o ponto ao invés da vírgula para separar as casas decimais.
 
-#### Double Point Precision
+#### Double Precision
 
 Ao invés de 32 bits, são usados 64 bits.
 Em C esse tipo é chamado de `double`.
@@ -192,9 +192,11 @@ printf("Índice:   %d\n", cinco);
 
 Primeiro, declaramos um carácter em uma variável chamada `cinco`. Depois, usamos o `%c` para imprimir o carácter no terminal. Mas fazemos algo esquisito depois: imprimimos a variável `cinco` como um `int`?! Por que o código funciona, e por que ele exibe 53?
 
-Isso se deve ao modo como os carácteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 8 bits, que é traduzido para um carácter por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
+Isso se deve ao modo como os carácteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 1 byte, que é traduzido para um carácter por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
 
-Se você abrir essa tabela, notará duas coisas: o *código ASCII* do carácter '5' é 53; e que não existem carácteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada pra a língua inglesa, por isso eles não colocaram acentos nela. Isso explica o porque os acentos podem estar meio esquisitos quando exibidos.
+> O valor de 1 byte na **esmagadora maioria** dos dispositivos é 8 bits.
+
+Se você abrir essa tabela, notará duas coisas: o *código ASCII* do carácter '5' é 53; e que não existem carácteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada pra a língua inglesa, por isso eles não colocaram acentos nela. Isso explica o por quê os acentos podem estar meio esquisitos quando exibidos.
 
 ### bool
 
