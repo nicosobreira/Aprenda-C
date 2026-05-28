@@ -31,13 +31,13 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 5. [Condicionais](./condicional/README.md)
 6. [Estrutura de Repetição](./repeticao/README.md)
 7. ~~[Exercícios I](./repeticao/exercicios.md)~~
-8. ~~[Ponteiros](./ponteiros.md)~~
-9. ~~[Listas](./variaveis/lista.md)~~
-10. ~~[Matrizes](./variaveis/matriz.md)~~
-11. ~~[Strings](./variaveis/string.md)~~
-12. ~~[Structs](./variaveis/struct.md)~~
-13. ~~[Enums](./variaveis/enum.md)~~
-14. ~~[Funções](./funcoes/README.md)~~
+8. ~~[Funções](./funcoes/README.md)
+9. ~~[Memória I](./memoria/um.md)~~
+10. ~~[Listas](./variaveis/lista.md)~~
+11. ~~[Matrizes](./variaveis/matriz.md)~~
+12. ~~[Strings](./variaveis/string.md)~~
+13. ~~[Structs](./variaveis/struct.md)~~
+14. ~~[Enums](./variaveis/enum.md)~~
 15. ~~[Projeto 2](./projeto/dois.md)~~
 16. ~~[Compilador](./arquivos/compilador.md)~~
 17. ~~[Múltiplos arquivos](./arquivos/header.md)~~
