@@ -69,14 +69,14 @@ Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa p
 
 ### Loop infinito
 
-A estrutura de repetição *while* verifica se a condição é verdadeira no **começo** de cada *loop*. Primeiro, o *while* vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, se `0 != 1234`, o que é verdade. Como retiramos a linha do `scanf`, ao final do *loop* o valor da variável `tentativa` **não mudou**, e por isso continua sendo `0`. Sendo assim, na próxima verificação da condição `tentativa != senha`, temos que `0 != 1234`, o que continua sendo verdade.
+A estrutura de repetição `while` verifica se a condição é verdadeira no **começo** de cada *loop*. Primeiro, o `while` vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, se `0 != 1234`, o que é verdade. Como retiramos a linha do `scanf`, ao final do *loop* o valor da variável `tentativa` **não mudou**, e por isso continua sendo `0`. Sendo assim, na próxima verificação da condição `tentativa != senha`, temos que `0 != 1234`, o que continua sendo verdade.
 E assim vai, até nos forçarmos a saída do programa usando `CTRL + c`.
 
 Esse é um **erro lógico**, chamado de **loop infinito**, e é causado quando nossa condição sempre é verdadeira.
 
 ## for
 
-Para entendermos o porquê da estrutura de repetição *for* existir, vamos criar um contador de 1 até 10 usando o *while*.
+Para entendermos o porquê da estrutura de repetição `for` existir, vamos criar um contador de 1 até 10 usando o `while`.
 
 ``` c
 int indice = 1;
@@ -90,11 +90,11 @@ while (indice != 10)
 
 Antes de corrigirmos um erro lógico em nosso contador, vamos ver do que ele é feito:
 
-1. **Inicialização** antes do *while loop*. É a declaração da variável `indice` com o **valor inicial** de `1`.
-2. **Condição** dentro do *while*. É quando comparamos o valor atual da variável `indice` com `10`.
-3. **Atualização** ao final do *while*. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` em um. Essa parte é essencial para impedir um **loop infinito**.
+1. **Inicialização** antes do `while` *loop*. É a declaração da variável `indice` com o **valor inicial** de `1`.
+2. **Condição** dentro do `while`. É quando comparamos o valor atual da variável `indice` com `10`.
+3. **Atualização** ao final do `while`. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` em um. Essa parte é essencial para impedir um **loop infinito**. Note que poderíamos ter usado `indice += 1` também.
 
-O contador só vai até nove! Para entendermos o por quê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só ira mostrar o indice atual se a condição for verdaderia, caso contrário, nada será impresso o no terminal.
+O erro está aqui: o contador só vai até nove! Para entendermos o por quê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só ira **mostrar o indice** atual **se a condição for verdaderia**, caso contrário, nada será impresso o no terminal.
 
 | indice | indice != 10            |
 | :-:    | :-                      |
@@ -122,9 +122,9 @@ while (indice <= 10)
 return 0;
 ```
 
-Lemos o *while* da seguinte maneira: enquanto o `indice` for **menor ou igual** a 10 imprima o índice atual e incremente a variável `indice`.
+Lemos o `while` da seguinte maneira: enquanto o `indice` for **menor ou igual** a 10 imprima o índice atual e incremente a variável `indice`.
 
-Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um *for loop*. Essa estrutura de repetição junta a  **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros, como esquecer de incrementar o indice ao final do *loop*.
+Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um `for` *loop*. Essa estrutura de repetição junta a  **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros, como esquecer de incrementar o indice ao final do *loop*.
 O mesmo programa acima pode ser escrito nesse novo formato:
 
 ``` c
@@ -134,7 +134,7 @@ for (int indice = 1; indice <= 10; indice++)
 }
 ```
 
-Para finalizar, vamos criar um programa que imprime a tabuada de um número.
+Por último, vamos criar um programa que imprime a tabuada de um número.
 
 Primeiro, vamos criar uma variável global chamada `total`, que armazenará o total de números da tabuada, que são `10`.
 
@@ -152,14 +152,14 @@ printf("Digite um número para saber sua tabuada: ");
 scanf("%d", &numero);
 ```
 
-E agora, vamos criar o loop que vai exibir a tabuada.
+E agora, vamos criar o *loop* que vai exibir a tabuada.
 
 ``` c
-    for (int indice = 1; indice <= total; indice++)
-    {
-        int resultado = numero * indice;
-        printf("%d x %d = %d\n", numero, indice, resultado);
-    }
+for (int indice = 1; indice <= total; indice++)
+{
+	int resultado = numero * indice;
+	printf("%d x %d = %d\n", numero, indice, resultado);
+}
 ```
 
 ## scanf II
@@ -181,7 +181,7 @@ Nos vimos que esse código lê um número inteiro do usuário. Mas o que acontec
 
 Primeiro, tente digitar esses casos, depois veremos uma explicação.
 
-## O valor de retorno
+### O valor de retorno do scanf
 
 Se a entrada do usuário for algo diferente de um número inteiro, o resultado é `2`. Contudo, algo interessante acontece se substituirmos o valor inicial da variável `numero` por outro, como por exemplo `4`. Agora o resultado é `6`, ou seja, `4 + 2`.
 
@@ -217,7 +217,7 @@ printf("O seu número mais 2 vale %d.\n", numero + 2);
 
 ---
 
-Ao invés de sair do programa, podemos utilizar de um *while loop* para ler um número novamente.
+Ao invés de sair do programa, podemos utilizar de um `while` *loop* para ler um número novamente.
 
 ``` c
 int numero = 0;
@@ -248,7 +248,7 @@ No código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
 
 Para limpar esse buffer, nos vamos usar a função `getchar`, declarada no header `stdio`. Essa função navega pelo buffer de entrada e limpa um caracter de cada vez. Seu valor de retorno e justamente esse caracter que acabou de ser limpo.
 
-Portanto, enquanto o valor de retorno do `getchar` for diferente de `\n`, o buffer ainda precisa ser limpo.
+Portanto, **enquanto** o valor de retorno do `getchar` for diferente de `\n`, o buffer ainda precisa ser limpo.
 Em código fica assim:
 
 ``` c
@@ -269,17 +269,17 @@ Felizmente, formatadores de números como o `%d` e `%f` ignoram esses espaços e
 
 ## do while
 
-A ultima versão do código usando do `getchar` junto ao *while loop* para validar a entrada do usuário é funcional, mas apresenta problemas em sua construção. Vamos tentar usar esse código para limitar esse número entre 0 e 10, para valores de notas de prova, por exemplo.
+A ultima versão do código usando do `getchar` junto ao `while` *loop* para validar a entrada do usuário é funcional, mas apresenta problemas em sua construção. Vamos tentar usar esse código para limitar esse número entre 0 e 10, para valores de notas de prova, por exemplo.
 
-Para tal, vamos utilizar do **operador lógico OU**. Caso **qualquer das condições** sejam verdadeiras, o *while loop* vai continuar.
+Para tal, vamos utilizar do **operador lógico OU**. Caso **qualquer das condições** sejam verdadeiras, o `while` *loop* vai continuar.
 
 > Usamos o `%lf` por que a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo".
 
 ``` c
-double nota = 0;
+double nota = 0.0;
 printf("Digite uma nota: ");
 
-while (scanf("%lf", &nota) != 1 || nota < 0 || nota > 10)
+while (scanf("%lf", &nota) != 1 || nota < 0.0 || nota > 10.0)
 {
 	while (getchar() != '\n')
 	{
@@ -288,12 +288,12 @@ while (scanf("%lf", &nota) != 1 || nota < 0 || nota > 10)
 	printf("Digite novamente: ");
 }
 
-printf("Parabéns por tirar %f!\n", nota);
+printf("Parabéns por tirar %g!\n", nota);
 ```
 
-Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Nos temos que usar vários **OU**s juntos, o que dificulta a leitura. Caso seja preciso adicionar mensagens de erros mais claras, como "Digite um número maior que 0" caso o número seja menor que 0, teríamos que verificar a condição novamente.
+Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Nos temos que usar vários **OU**s juntos, o que dificulta a leitura. Caso seja preciso adicionar mensagens de erros mais claras, como "Digite um número maior que 0" se `numero` for menor que `0`, teríamos que verificar a condição novamente.
 
-Para resolver esse problema vamos usar outra estrutura de repetição, o **do while**. Primeiro vou mostrar a substuição do *while* pelo *do while*, **sem o limite de 0 a 10**.
+Para resolver esse problema vamos usar outra estrutura de repetição, o **`do while`**. Primeiro vou mostrar a substuição do `while` pelo `do while`, **sem o limite de 0 a 10**.
 
 > Não se esqueça de importar o header <stdbool.h> para o `true`!
 
@@ -320,7 +320,7 @@ do
 printf("Parabéns por tirar %g!\n", nota);
 ```
 
-A principal mudança foi o uso do `do {} while(true);` para continuar a execução enquanto verdadeiro, ou seja, "para sempre". Esse "para sempre" está entre aspas porque utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual**, também chamada de **iteração**, e pular direto para a próxima rodada do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
+A principal mudança foi o uso do `do { } while(true);` para continuar a execução **enquanto verdadeiro**, ou seja, "para sempre". Esse "para sempre" está entre aspas porque utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual**, também chamada de **iteração**, e pular direto para a próxima verificação do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
 
 ---
 
@@ -328,9 +328,9 @@ Com essas mudanças feitas, ficou muito mais fácil adicionar o limite entre 0 e
 O código fica assim:
 
 ``` c
-const double min = 0;
-const double max = 10;
-double nota = 0;
+const double min = 0.0;
+const double max = 10.0;
+double nota = 0.0;
 
 printf("Digite uma nota: ");
 do
@@ -339,7 +339,7 @@ do
 
 	if (resultado != 1)
 	{
-		while ((getchar()) != '\n')
+		while (getchar() != '\n')
 		{
 		}
 
@@ -363,4 +363,50 @@ do
 } while (true);
 
 printf("Parabéns por tirar %g!\n", nota);
+```
+
+### Retomando o exemplo da senha
+
+Por fim, vamos analisar o nosso primeiro exemplo do uso do `while` e ver como o `do while` é a estrutura de repetição ideial para **leitura de dados**.
+Retomando:
+
+``` c
+const int senha = 1234;
+int tentativa = 0;
+
+while (tentativa != senha)
+{
+    // ...
+}
+```
+
+Nós precisamos criar a variável `tentativa` com o valor `0` apenas para garantir que a condição `0 != 1234` fosse verdadeira e o *loop* **pudesse começar**.
+Essa é uma "gambiarra" comum quando usamos o `while` para ler dados.
+
+Mas e se a senha real do sistema fosse exatamente `0`? Como o valor inicial da tentativa seria igual à senha, a condição `0 != 0` seria falsa.
+O programa simplesmente pularia o *loop* inteiro e diria que a senha está correta sem o usuário ter digitado absolutamente nada!
+Nós poderíamos usar outro valor, como `1` e o programa passaria a funcionar, mas vamos por outro caminho.
+
+O `while` segue a seguinte lógica: "**verificar, depois fazer**", ou seja, ele vai verificar se `tentativa != senha` é verdadeiro para aí começar o *loop*.
+Mas como estamos lendo uma entrada do usuário, nos não temos **nada para verificar** no começo do *loop*, é apenas **dentro dele** que a entrada é armazenada na variável `tentativa`.
+
+O `do while` surge como uma forma de **inverter a lógica do while**, ou seja "**fazer, depois verificar**".
+O código final fica assim:
+
+``` c
+const int senha = 1234;
+int tentativa;
+
+do
+{
+	printf("Digite a senha de 4 dígitos: ");
+	scanf("%d", &tentativa);
+
+	if (tentativa != senha)
+	{
+		printf("Você digitou a senha errada!\n");
+	}
+} while (tentativa != senha);
+
+printf("A senha está correta!\n");
 ```
