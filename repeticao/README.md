@@ -6,7 +6,7 @@ Antes de aprendermos as estruturas de repetição em si, vamos ver como o usuár
 
 ## scanf I
 
-Primeiro mostrarei o código para isso, depois vamos analisá-lo.
+Primeiro, mostrarei o código que lê um inteiro do usuário, depois o analizaremos:
 
 ``` c
 #include <stdio.h>
@@ -33,17 +33,17 @@ Depois utilizamos desse `&` (chamado de "e") junto ao nome de uma variável para
 Nos veremos o que esse símbolo realmente significa mais para frente, por hora, pense nele como a forma com que a função `scanf` muda o valor da variável `numero` para o valor de entrada do usuário.
 
 Antes de recebermos a entrada em si, temos que dizer qual informação queremos que o usuário digite. Para isso, usamos do `printf`.
-Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário à frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
+Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário para frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
 
-- Retire esse espaço final, e veja a saída;
-- Depois, coloque um `\n` no final da mensagem;
+- Retire esse espaço final, e execute o programa.
+- Depois, coloque um `\n` no final da mensagem.
 - E por último, remova a mensagem completamente.
 
 ## while
 
-Para aprendermos a estrutura de repetição *while* (do inglês "enquanto"), vamos criar um programa que pergunte pela senha para prosseguir. **Enquanto** a senha que o usuário digitar for diferente da senha correta, o programa vai continuar perguntando por uma nova senha. No entanto, no momento em que as senhas forem iguais, o programa irá sair do *loop* e continuar.
+Agora, vamos criar um programa que pergunte por uma senha ao usuário. **Enquanto** a senha que o usuário digitar for diferente da senha correta, o programa vai continuar perguntando por uma nova senha. No entanto, no momento em que as senhas forem iguais, o programa irá sair do *loop*, do inglês "repetição", e continuar.
 
-> Importe o header `stdio`, declare a função `main` e coloque o `return 0` no final.
+> Importe o header `stdio`, declare a função `main` e coloque o `return 0`. Escreva o código dentro da função `main`.
 
 ``` c
 const int senha = 1234;
@@ -65,20 +65,18 @@ printf("A senha está correta!\n");
 
 > Saiba que se você pressionar a tecla "CTRL" junto a tecla "c" você sairá forçadamente do programa .
 
-Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa para ver o que acontece. O programa compila, mas nunca para!
+Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa para ver o que acontece. O programa compila, mas quando roda nunca para!
 
 ### Loop infinito
 
-O motivo desse erro está na verificação da condição `tentativa != senha`.
-A estrutura de repetição *while* verifica se a condição é verdadeira no **começo** de cada *loop* e ao **final** dele, após a execução de todo o código entre chaves. Primeiro, o *while* vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, `0 != 1234`, o que é verdade. Dessa forma, se inicia o *loop*. Como retiramos a linha do `scanf`, ao final do *loop* o valor da variável `tentativa` não mudou, e por isso continua sendo `0`. Portanto, na próxima vez que o *while* verificar a condição, teremos que `0 != 1234`, e assim por diante.
+A estrutura de repetição *while* verifica se a condição é verdadeira no **começo** de cada *loop*. Primeiro, o *while* vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, se `0 != 1234`, o que é verdade. Como retiramos a linha do `scanf`, ao final do *loop* o valor da variável `tentativa` **não mudou**, e por isso continua sendo `0`. Sendo assim, na próxima verificação da condição `tentativa != senha`, temos que `0 != 1234`, o que continua sendo verdade.
+E assim vai, até nos forçarmos a saída do programa.
 
-Esse erro é chamado de **loop infinito**, e é causado quando nossa condição sempre é verdadeira.
+Esse é um **erro lógico**, chamado de **loop infinito**, e é causado quando nossa condição sempre é verdadeira.
 
 ## for
 
 Para entendermos o por quê da estrutura de repetição *for* existir, vamos criar um contador de 1 até 10 usando o *while*.
-
-> A condição do contador está errada! Vamos ver como arrumar logo em seguida.
 
 ``` c
 int indice = 1;
@@ -90,23 +88,23 @@ while (indice != 10)
 }
 ```
 
-Antes de corrigirmos o erro do contador, vamos ver quais são suas partes:
+Antes de corrigirmos um erro lógico em nosso contador, vamos ver do que ele é feito:
 
 1. **Inicialização** antes do *while loop*. É a declaração da variável `indice` com o **valor inicial** de `1`.
 2. **Condição** dentro do *while*. É quando comparamos o valor atual da variável `indice` com `10`.
-3. **Atualização** ao final do *while*. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` por um. Essa parte é essencial para impedir um **loop infinito**.
+3. **Atualização** ao final do *while*. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` em um. Essa parte é essencial para impedir um **loop infinito**.
 
 O contador só vai até nove! Para entendermos o por quê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só ira mostrar o indice atual se a condição for verdaderia, caso contrário, nada será impresso o no terminal.
 
-| indice | indice != 10 |
-| :-:    | :-           |
-| 1      | Verdadeiro   |
-| 2      | Verdadeiro   |
-| 3      | Verdadeiro   |
-| ...    | ...          |
-| 8      | Verdadeiro   |
-| 9      | Verdadeiro   |
-| **10** | **Falso**    |
+| indice | indice != 10            |
+| :-:    | :-                      |
+| 1      | `1 != 10` => Verdadeiro |
+| 2      | `2 != 10` => Verdadeiro |
+| 3      | `3 != 10` => Verdadeiro |
+| ...    | ...                     |
+| 8      | `8 != 10` => Verdadeiro |
+| 9      | `9 != 10` => Verdadeiro |
+| **10** | `10 != 10` => **Falso** |
 
 Na última linha da tabela, o valor de `indice` é 10. Dessa forma, a condição `10 != 10` é falsa, já que 10 é igual a 10.
 
@@ -126,7 +124,8 @@ return 0;
 
 Lemos o *while* da seguinte maneira: enquanto o `indice` for **menor ou igual** a 10 imprima o índice atual e incremente a variável `indice`.
 
-Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um *for loop*. Essa estrutura de repetição junta a  **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros como esquecer de incrementar ao final do *loop*. O mesmo programa acima pode ser escrito nesse novo formato:
+Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um *for loop*. Essa estrutura de repetição junta a  **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros, como esquecer de incrementar o indice ao final do *loop*.
+O mesmo programa acima pode ser escrito nesse novo formato:
 
 ``` c
 for (int indice = 1; indice <= 10; indice++)
@@ -178,7 +177,7 @@ scanf("%d", &numero);
 printf("O seu número mais 2 vale %d.\n", numero + 2);
 ```
 
-Nos vimos que esse código lê um número inteiro do usuário. Mas o que acontece se o usuário acidentalmente digitar um número real ou uma letra?
+Nos vimos que esse código lê um número inteiro do usuário. Mas o que acontece se o usuário acidentalmente digitar um número real (com vírgula) ou uma letra?
 
 Primeiro, tente digitar esses casos, depois veremos uma explicação.
 
@@ -232,15 +231,15 @@ while(scanf("%d", &numero) != 1)
 
 À primeira vista, esse código deve funcionar. Digite valores válidos e inválidos, e veja o que acontece.
 
-Se não digitarmos um número inteiro, caímos em um **loop infinito**. Para entendermos esse erro, vamos ver como a entrada do usuário entra para a função `scanf`.
+Se não digitarmos um número inteiro, caímos em um **loop infinito**. Para entendermos esse erro, vamos ver como a entrada do usuário entra na função `scanf`.
 
 ### Buffer de entrada
 
-Quando você digita algo no terminal e aperta `Enter`, o que você digitou não vai direto para a variável. Primeiro, esses dados vão para uma área de memória temporária chamada **buffer de entrada**, conhecido em C como *stdin* (apelido para *standard input*).
+Quando você digita algo no terminal e aperta `Enter`, o que você digitou não vai direto para a variável. Primeiro, esses dados vão para uma área de memória temporária chamada **buffer de entrada**, conhecida em C como *stdin* (apelido para *standard input*).
 
 Por exemplo, se você digitar a letra `A` e depois `Enter`, o buffer de entrada vai ficar parecido com isso: \[`A`, `\n`\], como uma **fila de espera**, aguardando ser lida. O papel da função `scanf` é ler esse buffer até encontrar um `\n`. Quando isso acontece, essa parte do buffer é convertida para o formatador. Mas, após a leitura, o buffer de entrada **não é esvaziado**, isso é, **ele continua o mesmo**.
 
-Sendo assim, no código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
+No código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
 
 1. Vai ler o buffer até o `\n`;
 2. Erro! O valor `A` não é um inteiro, nenhuma conversão foi um sucesso, retorna `0`;
@@ -250,6 +249,7 @@ Sendo assim, no código acima, caso digitemos `A` e `Enter`, o `scanf` funcionar
 Para limpar esse buffer, nos vamos usar a função `getchar`, declarada no header `stdio`. Essa função navega pelo buffer de entrada e limpa um caracter de cada vez. Seu valor de retorno e justamente esse caracter que acabou de ser limpo.
 
 Portanto, enquanto o valor de retorno do `getchar` for diferente de `\n`, o buffer ainda precisa ser limpo.
+Em código fica assim:
 
 ``` c
 int numero = 0;
@@ -265,13 +265,13 @@ while(scanf("%d", &numero) != 1)
 
 Uma implicação da não sanitização do buffer de entrada pela função `scanf` é que, mesmo se a entrada for convertida corretamente, o caractere `\n` ainda permanece no buffer.
 
-Felizmente, formatadores de números como o `%d` e `%f` ignoram esses espaços e quebras de linha automaticamente na próxima leitura. No entanto, se a sua próxima leitura for de um caractere único (`%c`), esse `\n` residual será lido por engano. Nesses casos, use um espaço antes do formatador para instruir o `scanf` a ignorar o lixo do buffer: `scanf(" %c", &letra);`.
+Felizmente, formatadores de números como o `%d` e `%f` ignoram esses espaços e quebras de linha automaticamente na próxima leitura. No entanto, se a sua próxima leitura for de um caractere único (`%c`), esse `\n` residual será lido por engano. Nesse caso, use um espaço antes do formatador para instruir o `scanf` a ignorar o lixo do buffer: `scanf(" %c", &letra);`.
 
 ## do while
 
 A ultima versão do código usando do `getchar` junto ao *while loop* para validar a entrada do usuário é funcional, mas apresenta problemas em sua construção. Vamos tentar usar esse código para limitar esse número entre 0 e 10, para valores de notas de prova, por exemplo.
 
-Para tal, vamos utilizar do **operador lógico OU**. Caso alguma condição seja verdadeira, o *while loop* vai continuar.
+Para tal, vamos utilizar do **operador lógico OU**. Caso **qualquer das condições** sejam verdadeiras, o *while loop* vai continuar.
 
 ``` c
 int numero = 0;
@@ -314,11 +314,12 @@ do
 printf("O número mais 2 é %d", numero + 2);
 ```
 
-A principal mudança foi o uso do `do {} while(true);` para continuar a execução "para sempre". Esse "para sempre" está entre aspas porque utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual** e pular direto para a próxima iteração do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
+A principal mudança foi o uso do `do {} while(true);` para continuar a execução enquanto verdadeiro, ou seja, "para sempre". Esse "para sempre" está entre aspas porque utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual**, também chamada de **iteração**, e pular direto para a próxima rodada do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
 
 ---
 
-Com essas mudanças feitas, ficou muito mais fácil adicionar o limite entre 0 e 10. O código fica assim:
+Com essas mudanças feitas, ficou muito mais fácil adicionar o limite entre 0 e 10.
+O código fica assim:
 
 ``` c
 const int min = 0;
