@@ -2,11 +2,11 @@
 
 São usadas para **repetir** partes do código, baseado em uma condição.
 
-Antes de aprendermos as estruturas de repetição em si, vamos ver como o usuário pode digitar informações para o programa.
+Para entendermos suas utilidades, vamos ver como o usuário pode interagir melhor com o nosso programa, lendo sua entrada.
 
 ## scanf I
 
-Primeiro, mostrarei o código que lê um inteiro do usuário, depois o analizaremos:
+Primeiro, mostrarei o código que lê um inteiro do usuário, depois o analisaremos:
 
 ``` c
 #include <stdio.h>
@@ -27,10 +27,10 @@ int main()
 A entrada do usuário é feita por meio da função `scanf`, que assim como a função `printf`, é declarada no header `stdio`.
 O primeiro argumento da função é uma string, que indica que tipo de informação queremos que o usuário digite. Nesse caso, como a variável `numero` é um `int`, usamos `%d`.
 
-> As funções `printf` e `scanf` possui muitos formatadores, como o `%d`, em comum, mas existem alguns diferentes. Pesquise qual formatador é necessário antes de usar!
+> As funções `printf` e `scanf` possuem muitos formatadores, como o `%d`, em comum, mas existem alguns diferentes. Pesquise qual formatador é necessário antes de usar!
 
 Depois utilizamos desse `&` (chamado de "e") junto ao nome de uma variável para indicar que o valor da entrada do usuário deve ser armazenado nessa variável.
-Nos veremos o que esse símbolo realmente significa mais para frente, por hora, pense nele como a forma com que a função `scanf` muda o valor da variável `numero` para o valor de entrada do usuário.
+Nós veremos o que esse símbolo realmente significa mais para frente, por ora, pense nele como a forma com que a função `scanf` muda o valor da variável `numero` para o valor de entrada do usuário.
 
 Antes de recebermos a entrada em si, temos que dizer qual informação queremos que o usuário digite. Para isso, usamos do `printf`.
 Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário para frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
@@ -70,13 +70,13 @@ Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa p
 ### Loop infinito
 
 A estrutura de repetição *while* verifica se a condição é verdadeira no **começo** de cada *loop*. Primeiro, o *while* vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, se `0 != 1234`, o que é verdade. Como retiramos a linha do `scanf`, ao final do *loop* o valor da variável `tentativa` **não mudou**, e por isso continua sendo `0`. Sendo assim, na próxima verificação da condição `tentativa != senha`, temos que `0 != 1234`, o que continua sendo verdade.
-E assim vai, até nos forçarmos a saída do programa.
+E assim vai, até nos forçarmos a saída do programa usando `CTRL + c`.
 
 Esse é um **erro lógico**, chamado de **loop infinito**, e é causado quando nossa condição sempre é verdadeira.
 
 ## for
 
-Para entendermos o por quê da estrutura de repetição *for* existir, vamos criar um contador de 1 até 10 usando o *while*.
+Para entendermos o porquê da estrutura de repetição *for* existir, vamos criar um contador de 1 até 10 usando o *while*.
 
 ``` c
 int indice = 1;
@@ -273,45 +273,51 @@ A ultima versão do código usando do `getchar` junto ao *while loop* para valid
 
 Para tal, vamos utilizar do **operador lógico OU**. Caso **qualquer das condições** sejam verdadeiras, o *while loop* vai continuar.
 
+> Usamos o `%lf` por que a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo".
+
 ``` c
-int numero = 0;
-printf("Digite um número: ");
+double nota = 0;
+printf("Digite uma nota: ");
 
-while(scanf("%d", &numero) != 1 || numero < 0 || numero > 10)
+while (scanf("%lf", &nota) != 1 || nota < 0 || nota > 10)
 {
-	while(getchar() != '\n') {}
+	while (getchar() != '\n')
+	{
+	}
 
-	printf("Digite um número inteiro: ");
+	printf("Digite novamente: ");
 }
+
+printf("Parabéns por tirar %f!\n", nota);
 ```
 
-Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Agora, imagine se existissem **ainda mais verificações**!
+Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Nos temos que usar vários **OU**s juntos, o que dificulta a leitura. Caso seja preciso adicionar mensagens de erros mais claras, como "Digite um número maior que 0" caso o número seja menor que 0, teríamos que verificar a condição novamente.
 
-Para resolver esse problema vamos usar outra estrutura de repetição, o **do while**. Primeiro vou mostrar a substuição do *while* pelo *do while*, sem o limite de 0 a 10.
+Para resolver esse problema vamos usar outra estrutura de repetição, o **do while**. Primeiro vou mostrar a substuição do *while* pelo *do while*, **sem o limite de 0 a 10**.
 
 > Não se esqueça de importar o header <stdbool.h> para o `true`!
 
 ``` c
-int numero = 0;
-printf("Digite um número: ");
+double nota = 0.0;
+printf("Digite uma nota: ");
 
 do
 {
-	int resultado = scanf("%d", &numero);
+	int resultado = scanf("%lf", &nota);
 	if (resultado != 1)
 	{
 		while (getchar() != '\n')
 		{
 		}
 
-		printf("Erro, digite um número inteiro: ");
+		printf("Digite um número real: ");
 		continue;
 	}
 
 	break;
 } while (true);
 
-printf("O número mais 2 é %d", numero + 2);
+printf("Parabéns por tirar %g!\n", nota);
 ```
 
 A principal mudança foi o uso do `do {} while(true);` para continuar a execução enquanto verdadeiro, ou seja, "para sempre". Esse "para sempre" está entre aspas porque utilizamos do comando `break` para **interromper o loop** e continuar a execução do programa. Também usamos do comando `continue` para **interromper a rodada atual**, também chamada de **iteração**, e pular direto para a próxima rodada do *loop*, ou seja, para o `while (true)`, que é sempre verdade.
@@ -322,14 +328,14 @@ Com essas mudanças feitas, ficou muito mais fácil adicionar o limite entre 0 e
 O código fica assim:
 
 ``` c
-const int min = 0;
-const int max = 10;
-int numero = 0;
+const double min = 0;
+const double max = 10;
+double nota = 0;
 
-printf("Digite um número entre %d e %d: ", min, max);
+printf("Digite uma nota: ");
 do
 {
-	int resultado = scanf("%d", &numero);
+	int resultado = scanf("%lf", &nota);
 
 	if (resultado != 1)
 	{
@@ -337,24 +343,24 @@ do
 		{
 		}
 
-		printf("Digite um número inteiro: ");
+		printf("Digite um número real: ");
 		continue;
 	}
 
-	if (numero < min)
+	if (nota < min)
 	{
-		printf("Digite um número maior que %d: ", min);
+		printf("Digite um número maior que %g: ", min);
 		continue;
 	}
 
-	if (numero > max)
+	if (nota > max)
 	{
-		printf("Digite um número menor que %d: ", max);
+		printf("Digite um número menor que %g: ", max);
 		continue;
 	}
 
 	break;
 } while (true);
 
-printf("O número mais 2 é %d", numero + 2);
+printf("Parabéns por tirar %g!\n", nota);
 ```
