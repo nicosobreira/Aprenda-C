@@ -410,3 +410,6 @@ do
 
 printf("A senha está correta!\n");
 ```
+
+Note que não usamos as estruturas de controle `continue` e `break` junto ao `do while(true)`, já que só verificamos **uma única condição**, se `tentativa != senha`. Se tivessemos que verificar **mais de uma condição**, o outro método é uma opção melhor.
+
