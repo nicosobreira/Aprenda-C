@@ -21,7 +21,7 @@ int main()
 
 ## include
 
-O `#include <stdio.h>` serve para importar as declarações das funções de entrada e saída padrão (como o `printf` e o `scanf`), permitindo o seu uso. É a partir do *header* `stdio.h` que importamos a função `printf`.
+O `#include <stdio.h>` serve para importar as declarações das funções de entrada e saída padrão (como o `printf` e o `scanf`), permitindo que o programa exibe e peça informações ao usuário. É a partir do *header* `stdio.h` que importamos a função `printf`.
 
 O `#include <stdio.h>` avisa o compilador que essas funções existem, enquanto o código real que as executa fica armazenado na Biblioteca Padrão do C (chamado de *C Standard*) fornecida pelo sistema operacional.
 
@@ -29,7 +29,7 @@ O `#include <stdio.h>` avisa o compilador que essas funções existem, enquanto 
 
 É uma biblioteca cuja a funcionalidade é definida pela linguagem C, mas sua implementação muda de plataforma para plataforma, isso é, cada plataforma tem um jeito diferente de como executar a mesma lógica. As plataformas são como o Windows, Linux e Android.
 
-As funcionalidades da Biblioteca Padrão estão espalhadas por vários arquivos no formato `.h`, chamados de *header files* ou só *headers. Primeiro, precisamos usar o `#include <header>` para importar as funcionalidades do *header*. Falaremos do porque usamos `<>` mais para frente.
+As funcionalidades da Biblioteca Padrão estão espalhadas por vários arquivos no formato `.h`, chamados de *header files* ou só *headers*. Primeiro, precisamos usar o `#include <header>` para importar as funcionalidades do *header*. Falaremos do porque usamos `<>` mais para frente.
 
 ## main
 
@@ -40,6 +40,8 @@ O `int` é usado para indicar que essa função retornará um valor do tipo inte
 Dentro dos parênteses são colocados os argumentos da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um argumento da função `f`. Nesse caso, o parênteses está vazio, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber argumentos, mas vamos ver isso mais para frente.
 
 Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado ao chamarmos `main`. Diferentemente das outras funções, o `main` é executado automaticamente ao rodarmos o nosso programa.
+
+### Formtação do código
 
 Você pode escrever a função da seguinte maneira:
 
