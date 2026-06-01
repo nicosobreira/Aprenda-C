@@ -6,14 +6,15 @@ Essas regras são válidas para toda a linguagem C, não somente para variáveis
 
 - São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
 - Não é permitido começar com um dígito.
-- A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o computador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
+- Não é permitido ter acento
+- A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o compilador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
 - Você não pode usar nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções, por exemplo.
 
 ### Boas práticas
 
-Evite nomes misteriosos. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve transmitir sua função dentro do código.
+Evite nomes misteriosos para as suas variáveis. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve transmitir parte da sua função dentro do código.
 
-Evite o encurtamento dos nomes, como escrever `int vf;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar, daqui a um mês, quando precisar mudar o código denovo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
+Evite o encurtamento dos nomes, como escrever `int vfinal;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar, daqui a um mês, quando precisar mudar o código denovo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
 
 Ao longo do guia, veremos ainda mais casos de como melhorar a sua nomenclatura. Enquanto estava aprendendo a programar, achava difícil pensar em bons nomes para as coisas. Se você se sente assim, recomendo utilizar Inteligência Artificial para ter ideias de como nomear.
 
@@ -38,7 +39,7 @@ int main()
 }
 ```
 
-Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero` com o valor 0. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora sempre inicialize suas variáveis.
+Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero` com o valor 0. Escreva apenas `int numero;` e rode o programa **mais de uma vez**. Você verá que a variável `numero` armazena valores aleatórios. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora, sempre inicialize suas variáveis.
 
 Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma **copia** do valor armazenado na variável **global** `numero` e recebe nenhum argumento:
 
@@ -59,8 +60,6 @@ int main()
     return 0;
 }
 ```
-
-Note que declaramos a função `retorna_numero` à cima de `main`. Se declararmos ela em baixo, o compilador não irá saber o que executar quando rodarmos `retorna_numero()` dentro do `printf`. Mude a declaração da função `retorna_numero` para o final e veja o que acontece. O compilador fala que `retorna_numero` está **declarado implicitamente**. Para corrigir esse erro temos que adicionar a **definição** da nossa função **acima** de `main`. Copie a linha `int retorna_numero()` e cole ela para cima de `main`. Depois, é só colocar um ponto e vírgula no final, ficando assim: `int retorna_numero();`. Agora o compilador não reclama!
 
 Agora vamos adicionar outra variável chamada `numero`, só que dentro da função `main`, e ver como o programa vai se comportar:
 
@@ -85,7 +84,7 @@ int main()
 }
 ```
 
-Quando fazemos, dentro da função `main`, a declaração `int numero = 7;`, estamos criando uma nova **variável local da função `main`** que também se chama `numero`, mas tem o valor de 7. Desse modo, nosso programa possui uma variável global e outra local, ambas com o nome de `numero`, mas como o compilador sabe quando teve usar cada uma?
+Quando declaramos `int numero = 7;` dentro da função `main`, estamos criando uma **variável local** que também se chama `numero`, mas armazena de `7`. Desse modo, nosso programa possui uma variável global e outra local, ambas com o nome de `numero`, mas como o compilador sabe quando teve usar cada uma?
 
 Isso se deve a uma regra da linguagem C: **a variável do escopo mais interno sempre tem preferência sobre a do escopo mais externo**. O escopo pode ser definido em cima do arquivo, para variáveis globais, ou dentro das **chaves** `{}`, para variáveis locais. Nesse caso, as variáveis locais fazem parte do escopo de suas respectivas funções.
 
