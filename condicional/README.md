@@ -6,8 +6,9 @@ As condicionais são estruturas que nos possibilitam avaliar condições e execu
 
 Para resolvermos o nosso problema do guarda chuva, vamos escrever um programa que irá fazer essa decisão! Primeiro iremos declarar uma variável do tipo `bool`, chamada `vai_chover`. Nós podemos dar o valor de `true` ou `false` para ela, você escolhe. Depois iremos implementar essa lógica do "se e senão".
 
+> Não se esqueça de importar a definição do tipo bool.
+
 ``` c
-// Não se esqueça de importar a definição do tipo bool!
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -30,13 +31,15 @@ int main()
 ```
 
 As palavras `if` e `else` são traduções diretas para o "se" e "senão".
-Com isso em mente, lemos esse código da seguinte forma: se o valor armazenado na variável `vai_chover` for `true`, então execute tudo entre as chaves abaixo do `if`, senão execute tudo entre as chaves abaixo do `else`.
+Com isso em mente, lemos esse código da seguinte forma: **se** o valor armazenado na variável `vai_chover` for `true`, **então** execute tudo entre as chaves abaixo do `if`, senão execute tudo entre as chaves abaixo do `else`.
+
+Mude o valor da variável `vai_chover` para `false` e veja como a saída muda.
 
 ## else if
 
 Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia. Utilizamos de valores arbitrários para decidir quais faixas de temperaturas são frias, quentes e a ideais.
 
-Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores** de comparação, como `>` e `<` da matemática junto com duas condicionais.
+Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores** de comparação, como `>` e `<` da matemática junto a duas condicionais.
 
 ``` c
 #include <stdio.h>
@@ -68,13 +71,13 @@ int main()
 }
 ```
 
-> Note que não precisamos importar `stdbool.h`, isso é por que não usamos o tipo `bool` em nenhum momento.
+> Note que não precisamos importar `stdbool.h`, isso por que não usamos o tipo `bool` em nenhum momento.
 
-Primeiro, o programa vai verificar, com o uso do `if`, se o valor armazenado na variável `temperatura` é maior do que o armazenado em `temp_alta`. Se esse for o caso, então faça as recomendações para o calor, senão verifique se a `temperatura` é menor que `temp_baixa`, com o uso do `else if`. Se a `temperatura` for baixa, então recomende um casaco. Por fim, se a temperatura não está nem muito quente, nem muito frio, então o clima só pode estar perfeito.
+Primeiro, o programa vai verificar, com o uso do primeiro `if`, se o valor armazenado na variável `temperatura` é maior do que o armazenado em `temp_alta`. Se esse for o caso, então faça as recomendações para o calor, senão verifique se a `temperatura` é menor que `temp_baixa`, com o uso do `else if`. Se a `temperatura` for baixa, então recomende um casaco. Por fim, se a temperatura não está nem muito quente, nem muito frio, então o clima só pode estar perfeito.
 
 Teste com diversos valores de temperatura, alterando o valor da variável `temperatura`, e veja quais mensagens aparecem.
 
-Logo em seguida, veja o que acontece com os valores exatos de `temp_baixa` e `temp_alta`. Você percebeu que a mensagem indica um clima perfeito? Isso é um erro lógico em nosso programa, já que a variável `temp_alta` e `temp_baixa` deveriam representar **o ponto de mudança das temperaturas**, ou seja, esses valores também fazem parte de suas respectivas faixas de temperatura.
+Agora, veja o que acontece com os valores exatos de `temp_baixa` e `temp_alta`. Você percebeu que a mensagem indica um clima perfeito? Isso é um erro lógico em nosso programa, já que a variável `temp_alta` e `temp_baixa` deveriam representar **o ponto de mudança das temperaturas**, ou seja, esses valores **também fazem parte de suas respectivas faixas de temperatura**.
 
 Para corrigir isso, devemos usar os operadores `>=` e `<=`.
 
@@ -155,7 +158,7 @@ O nosso código atual não traz essa ideia de **válido** e **inválido** em sua
 
 Sendo assim, o problema está no *design* de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplemente sair no começo da função, caso algo inválido aconteça.
 
-Vamos **negar** o valor da variável `tem_convite` com o uso da exclamação `!`.
+Vamos **negar** o valor da variável `tem_convite` com o uso da exclamação `!` e analisar o código logo em seguida.
 
 ``` c
 #include <stdio.h>
@@ -176,7 +179,9 @@ void entrar_na_festa(bool tem_convite)
 }
 ```
 
-Como o tipo `void` indica que a função não retornará nada, simplesmente utilizamos o `return;`, sem nenhum valor seguido dele.
+Logo no começo da função, verificamos se a pessoa **não tem um convite** em `!tem_convite`, lido como "a negação da variável `tem_convite`". Depois, **saímos da função** por meio do `return` (O tipo `void` indica que a função não retornará nada, simplesmente utilizamos o `return;`, sem nenhum valor seguido dele). Mas se a pessoa tiver um convite, é mentira que ela não pode entrar, e com isso o bloco do `if` não irá rodar.
+
+Com essas mudanças, passamos a indicar que não ter um convite é algo inválido. Chamamos essa estratégia de **Retorno Antecipado**.
 
 A ideia do **Retorno Antecipado** também pode ser usado em outros contextos. Por exemplo, se você quiser dividir dois números, o divisor tem que ser diferente de 0.
 
