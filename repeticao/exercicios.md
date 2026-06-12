@@ -20,6 +20,11 @@ Crie um programa que:
 > 6
 > 8
 
+> Digite um número inteiro positivo: -2
+> Digite um inteiro positivo: 2
+> 0
+> 2
+
 
 #### Incremento
 
