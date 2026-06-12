@@ -20,6 +20,20 @@ Crie um programa que:
 > 6
 > 8
 
+
+#### Incremento
+
+Vimos na seção passada que poderiamos usar o `++` para incrementar uma variável em um.
+Mas também podemos usar da seguinte sintaxe:
+
+``` c
+int numero = 10;
+
+numero += 1;
+```
+
+Note que é possível **trocar o 1 por outro número**, como o 2, por exemplo.
+
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
