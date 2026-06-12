@@ -6,6 +6,20 @@ Fazer e verificar as respostas do exercícios 1 e 2 primeiro, depois fazer o exe
 
 ### 1. Contador de Pares
 
+Crie um programa que:
+
+1. Leia um inteiro `numero` **positivo** do usuário; e
+2. Imprima **todos os números pares** entre 0 e `numero`.
+
+#### Exemplo
+
+> Digite um número inteiro positivo: 9
+> 0
+> 2
+> 4
+> 6
+> 8
+
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
