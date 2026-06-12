@@ -21,7 +21,8 @@ Crie um programa que:
 > 8
 
 > Digite um número inteiro positivo: -2
-> Digite um inteiro positivo: 2
+> Digite um inteiro positivo: texto
+> Digite um inteiro: 2
 > 0
 > 2
 
