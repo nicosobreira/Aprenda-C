@@ -381,7 +381,6 @@ while (tentativa != senha)
 ```
 
 Nós precisamos criar a variável `tentativa` com o valor `0` apenas para garantir que a condição `0 != 1234` fosse verdadeira e o *loop* **pudesse começar**.
-Essa é uma "gambiarra" comum quando usamos o `while` para ler dados.
 
 Mas e se a senha real do sistema fosse exatamente `0`? Como o valor inicial da tentativa seria igual à senha, a condição `0 != 0` seria falsa.
 O programa simplesmente pularia o *loop* inteiro e diria que a senha está correta sem o usuário ter digitado absolutamente nada!
@@ -395,21 +394,34 @@ O código final fica assim:
 
 ``` c
 const int senha = 1234;
-int tentativa;
 
+int tentativa;
 do
 {
 	printf("Digite a senha de 4 dígitos: ");
-	scanf("%d", &tentativa);
+	int r = scanf("%d", &tentativa);
+
+	if (r != 1)
+	{
+		while (getchar() != '\n')
+		{
+		}
+
+		printf("Você não digitou um inteiro!\n");
+		continue;
+	}
 
 	if (tentativa != senha)
 	{
 		printf("Você digitou a senha errada!\n");
+        continue;
 	}
-} while (tentativa != senha);
+
+    break;
+} while (true);
 
 printf("A senha está correta!\n");
 ```
 
-Note que não usamos as estruturas de controle `continue` e `break` junto ao `do while(true)`, já que só verificamos **uma única condição**, se `tentativa != senha`. Se tivessemos que verificar **mais de uma condição**, o outro método é uma opção melhor.
+> Note que a variável `resultado` virou apenas `r`.
 
