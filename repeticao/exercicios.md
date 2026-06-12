@@ -13,18 +13,22 @@ Crie um programa que:
 
 #### Exemplo
 
-> Digite um número inteiro positivo: 9
-> 0
-> 2
-> 4
-> 6
-> 8
+```
+Digite um número inteiro positivo: 9
+0
+2
+4
+6
+8
+```
 
-> Digite um número inteiro positivo: -2
-> Digite um inteiro positivo: texto
-> Digite um inteiro: 2
-> 0
-> 2
+```
+Digite um número inteiro positivo: -2
+Digite um inteiro positivo: texto
+Digite um inteiro: 2
+0
+2
+```
 
 #### Incremento
 
