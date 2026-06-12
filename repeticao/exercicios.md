@@ -26,7 +26,6 @@ Crie um programa que:
 > 0
 > 2
 
-
 #### Incremento
 
 Vimos na seção passada que poderiamos usar o `++` para incrementar uma variável em um.
