@@ -23,7 +23,70 @@ Crie um programa que:
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-resp
+#### Usando o while
+
+``` c
+#include <stdbool.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int numero;
+
+    printf("Digite um número inteiro: ");
+    do
+    {
+        int r = scanf("%d", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um inteiro: ");
+            continue;
+        }
+
+        if (numero < 0)
+        {
+            printf("Digite um inteiro positivo: ");
+            continue;
+        }
+
+        break;
+    } while (true);
+
+    int contador = 0;
+    while (contador <= numero)
+    {
+        printf("%d\n", contador);
+
+        contador += 2;
+    }
+
+    return 0;
+}
+```
+
+#### Usando o for
+
+Aqui, vou apenas trocar o `while` pelo `for`, mas você deve colocar a leitura da entrada do usuário.
+
+``` c
+for (int contador = 0; contador <= numero; contador += 2)
+{
+    printf("%d\n", contador);
+}
+```
+
+Note que é mais comum o uso de **nomes menores** para as variáveis declaradas em loops. Prefere-se nomes como: `i`, `j` e `k`.
+
+``` c
+for (int i = 0; i <= numero; i += 2)
+{
+    printf("%d\n", i);
+}
+```
 
 </details>
 
