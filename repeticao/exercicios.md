@@ -98,7 +98,8 @@ for (int contador = 0; contador <= numero; contador += 2)
 }
 ```
 
-Note que é mais comum o uso de **nomes menores** para as variáveis declaradas em loops. Prefere-se nomes como: `i`, `j` e `k`.
+Variáveis que são incrementadas, chamadas de **contadores**, normalmente possuem **nomes menores** quando o contexto permite.
+É mais comum o uso de nomes como: `i`, `j` e `k`.
 
 ``` c
 for (int i = 0; i <= numero; i += 2)
