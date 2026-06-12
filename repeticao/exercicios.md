@@ -8,7 +8,7 @@ Fazer e verificar as respostas do exercícios 1 e 2 primeiro, depois fazer o exe
 
 Crie um programa que:
 
-1. Leia um inteiro `numero` **positivo** do usuário; e
+1. Leia um inteiro **positivo** chamado `numero` do usuário; e
 2. Imprima **todos os números pares** entre 0 e `numero` (incluindo o `numero`, caso ele seja par).
 
 #### Exemplo
