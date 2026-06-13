@@ -323,7 +323,6 @@ resp
 
 </details>
 
-
 ## Reflexões
 
 - Falar por que as resoluções estão ruim (nenhuma modularização, múltiplas responsabilidades da função main) e introduzir o próximo capítulo sobre funções, que resolvem esses problemas.
