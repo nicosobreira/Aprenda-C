@@ -56,9 +56,9 @@ Note que é possível **trocar o 1 por outro número**, como o 2, por exemplo.
 
 int main(void)
 {
-    int numero;
-
     printf("Digite um número inteiro: ");
+
+    int numero;
     do
     {
         int r = scanf("%d", &numero);
