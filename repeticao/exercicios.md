@@ -116,23 +116,175 @@ for (int i = 0; i <= numero; i += 2)
 
 ### 2. Jogo da Adivinhação
 
-- Explicar o uso do `rand`
+Crie um programa que:
+
+1. Gere um número aleatório de 1 até 100 chamado `aleatorio`.
+2. Peça para o usuário tentar acertar.
+
+Cada tentativa deve ser **contada** em uma variável chamada `jogadas`. Em caso de **erro de digitação** a variável `jogadas` **não deve ser incrementada**.
+
+#### Gerando números aleatórios
+
+Para gerar um número aleatório em C, usamos a função `rand`, declarada no *header* `stdlib.h`, que gera um valor inteiro não negativo.
+
+``` c
+#include <stdio.h>   // Para o printf
+#include <stdlib.h>  // Para o rand
+
+int main(void)
+{
+    int aleatorio = rand();
+
+    printf("O número aleatório é: %d\n", aleatorio);
+
+    return 0;
+}
+```
+
+Rode esse programa várias vezes e perceberá duas coisas:
+
+1. Os números **não são aleatórios**; e
+2. Eles são **grandes**.
+
+O motivo disso está em como os computadores geram números aleatórios. Os computadores, por serem máquinas lógicas e determinísticas, não conseguem gerar números **verdadeiramente aleatórios**, mas sim usam de fórmulas matemáticas complexas onde o número atual depende do anterior, a fim de gerar números **pseudoaleatórios**. Sendo assim, é necessário um **ponto de partida** para que essas fórmulas comecem. Esse ponto é chamado de **seed**.
+A função `rand` já vem com uma **seed padrão**, por isso temos que mudá-la **dentro da nossa função main**. Fazemos isso com outra função também declarada em `stdlib.h`, chamada `srand`.
+
+``` c
+#include <stdio.h>   // Para o printf
+#include <stdlib.h>  // Para o rand e srand
+
+int main(void)
+{
+    srand(50);
+
+    int aleatorio = rand();
+
+    printf("O número aleatório é: %d\n", aleatorio);
+
+    return 0;
+}
+```
+
+Conseguimos mudar a **seed**, mas se rodarmos o programa mais de uma vez o mesmo valor aparece. Assim como a seed padrão da função `rand`, o nosso novo valor continua sendo **constante**. Para resolvermos esse problema vamos utilizar do **tempo atual** em segundos, a partir da função `time`, declarada no *header* `time.h`.
+
+``` c
+#include <stdio.h>   // Para o printf
+#include <stdlib.h>  // Para o rand e srand
+#include <time.h>    // Para o time
+
+int main(void)
+{
+    srand(time(NULL));
+
+    int aleatorio = rand();
+
+    printf("O número aleatório é: %d\n", aleatorio);
+
+    return 0;
+}
+```
+
+Veremos o que é esse `NULL` em [Memória I](./memoria/README.md), por ora veja ele como algo que indica à função `time` que queremos que o tempo atual seja **retornado** como um inteiro.
+
+#### Limitando o valor entre 1 e 100
+
+Agora que temos números imprevisíveis, precisamos resolver o problema de serem muito grandes. Para limitar o número entre 1 e 100, usamos o operador de **resto da divisão matemática** (`%`).
+
+Se dividirmos qualquer número por 100, o resto dessa divisão sempre será algo entre 0 e 99. Somando 1 a esse resultado, garantimos que o número gerado estará exatamente entre 1 e 100:
+
+``` c
+int aleatorio = 1 + rand() % 100
+```
+
+#### Exemplo
 
 ```
-Tente adivinhar o número: A
-Entrada inválida! Digite apenas números.
-Tente adivinhar o número: 10
-Muito baixo!
-Tente adivinhar o número: 50
-Muito alto!
-Tente adivinhar o número: 42
-Você acertou!
+Um número inteiro entre 1 e 100 foi gerado.
+Tente adivinhar o número.
+> texto
+Digite um número inteiro!
+> 0
+Digite um número maior do que 1!
+> 101
+Digite um número menor do que 100!
+> 50
+O número é maior.
+> 75
+O número é menor.
+> 70
+Você acertou! Foram 3 jogada(s)!
 ```
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-resp
+``` c
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+    srand(time(NULL));
+
+    const int min = 1;
+    const int max = 100;
+
+    int aleatorio = min + rand() % max;
+    printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
+
+    printf("Tente adivinhar o número.\n");
+
+    int jogadas = 0;
+    int tentativa;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%d", &tentativa);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+            continue;
+        }
+
+        if (tentativa < min)
+        {
+            printf("Digite um número maior do que %d!\n", min);
+            continue;
+        }
+
+        if (tentativa > max)
+        {
+            printf("Digite um número menor do que %d!\n", max);
+            continue;
+        }
+
+        jogadas++;
+
+        if (tentativa > aleatorio)
+        {
+            printf("O número é menor.\n");
+        }
+        else if (tentativa < aleatorio)
+        {
+            printf("O número é maior.\n");
+        }
+        else
+        {
+            printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
+            break;
+        }
+    } while (true);
+
+    return 0;
+}
+```
 
 </details>
 
@@ -167,4 +319,8 @@ resp
 
 </details>
 
-- Como o código vai ficar gigante, talvez introduzir o tema para o próximo módulo de Funções.
+
+## Reflexões
+
+- Falar por que as resoluções estão ruim (nenhuma modularização, múltiplas responsabilidades da função main) e introduzir o próximo capítulo sobre funções, que resolvem esses problemas.
+- O **control flow** está péssimo.
