@@ -1,6 +1,6 @@
 # Estruturas de Repetições: Exercícios
 
-Fazer e verificar as respostas do exercícios 1 e 2 primeiro, depois fazer o exercício 3.
+Para fazer esses exercícios, sugiro **reduzir o uso da IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
 
 ## Exercícios
 
