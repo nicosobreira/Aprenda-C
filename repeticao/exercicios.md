@@ -1,6 +1,52 @@
 # Estruturas de Repetições: Exercícios
 
-Para fazer esses exercícios, sugiro **reduzir o uso da IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
+Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
+
+## Formato da entrada
+
+Nesses exercícios vamos usar uma formatação diferente para pedir dados do usuário. Primeiro vou mostrar como ela é, depois como implementar ela:
+
+> Esse bloco indica como a entrada e saída do programa deve funcionar.
+```
+Digite um número de 1 a 10.
+> 5
+
+Você digitou 5.
+
+```
+
+Usamos do `>` seguido de um espaço para indicar **as entradas do nosso programa**. Em C fica assim:
+
+``` c
+printf("Digite um número de 1 a 10.\n");
+
+int numero;
+do
+{
+    printf("> ");
+
+    // Usar o scanf e fazer as verificações
+    // ...
+
+    break;
+} while (true)
+```
+
+Caso o usuário digite algo inválido, a saída deve ficar dessa forma:
+
+```
+Digite um número de 1 a 10.
+> texto
+Digite um número inteiro!
+> 0
+Digite um número maior ou igual a 1!
+> 11
+Digite um número menor ou igual a 10!
+> 5
+
+Você digitou 5.
+
+```
 
 ## Exercícios
 
@@ -13,31 +59,42 @@ Crie um programa que:
 
 #### Exemplo
 
+Sem erros na entrada:
+
 ```
-Digite um número inteiro positivo: 9
+Digite um número inteiro.
+> 9
+
 0
 2
 4
 6
 8
-```
 
 ```
-Digite um número inteiro positivo: -2
-Digite um inteiro positivo: texto
-Digite um inteiro: 2
+
+Com erros:
+
+```
+Digite um número inteiro.
+> texto
+Digite um número inteiro!
+> -1
+Digite um número maior ou igual a 0!
+> 2
+
 0
 2
+
 ```
 
 #### Incremento
 
-Vimos na seção passada que poderíamos usar o `++` para incrementar uma variável em um.
+Vimos na seção passada que poderíamos usar o `++` para incrementar uma variável em 1.
 Mas também podemos usar da seguinte sintaxe:
 
 ``` c
 int numero = 10;
-
 numero += 1;
 ```
 
@@ -61,6 +118,8 @@ int main(void)
     int numero;
     do
     {
+        printf("> ");
+
         int r = scanf("%d", &numero);
         if (r != 1)
         {
@@ -68,18 +127,20 @@ int main(void)
             {
             }
 
-            printf("Digite um inteiro: ");
+            printf("Digite um número inteiro!\n");
             continue;
         }
 
         if (numero < 0)
         {
-            printf("Digite um inteiro positivo: ");
+            printf("Digite um número maior ou igual a %d!\n", 0);
             continue;
         }
 
         break;
     } while (true);
+
+    printf("\n");
 
     int contador = 0;
     while (contador <= numero)
@@ -121,11 +182,30 @@ for (int i = 0; i <= numero; i += 2)
 Crie um programa que:
 
 1. Gere um número aleatório de 1 até 100 chamado `aleatorio`.
-2. Peça para o usuário tentar acertar.
+2. Peça para o usuário tentar adivinhar qual é esse número.
 
 Cada tentativa deve ser **contada** em uma variável chamada `jogadas`. Em caso de **erro de digitação** a variável `jogadas` **não deve ser incrementada**.
 
 #### Exemplo
+
+Sem erros na entrada:
+
+```
+Um número inteiro entre 1 e 100 foi gerado.
+Tente adivinhar o número.
+> 50
+
+O número é menor.
+> 20
+
+O número é maior.
+> 22
+
+Você acertou! Foram 3 jogada(s)!
+
+```
+
+Com erros:
 
 ```
 Um número inteiro entre 1 e 100 foi gerado.
@@ -133,15 +213,16 @@ Tente adivinhar o número.
 > texto
 Digite um número inteiro!
 > 0
-Digite um número maior do que 1!
+Digite um número maior ou igual a 1!
 > 101
-Digite um número menor do que 100!
-> 50
-O número é maior.
-> 75
+Digite um número menor ou igual a 100!
+> 5
+
 O número é menor.
-> 70
-Você acertou! Foram 3 jogada(s)!
+> 2
+
+Você acertou! Foram 2 jogada(s)!
+
 ```
 
 #### Gerando números aleatórios
@@ -167,8 +248,8 @@ Rode esse programa várias vezes e perceberá duas coisas:
 1. Os números **não são aleatórios**; e
 2. Eles são **grandes**.
 
-O motivo disso está em como os computadores geram números aleatórios. Os computadores, por serem máquinas lógicas e determinísticas, não conseguem gerar números **verdadeiramente aleatórios**, mas sim usam de fórmulas matemáticas complexas onde o número atual depende do anterior, a fim de gerar números **pseudoaleatórios**. Sendo assim, é necessário um **ponto de partida** para que essas fórmulas comecem. Esse ponto é chamado de **seed**.
-A função `rand` já vem com uma **seed padrão**, por isso temos que mudá-la **dentro da nossa função main**. Fazemos isso com outra função também declarada em `stdlib.h`, chamada `srand`.
+O motivo disso está em como os computadores geram números aleatórios. Os computadores, por serem máquinas lógicas e determinísticas, não conseguem gerar números **verdadeiramente aleatórios**, mas sim usam de fórmulas matemáticas complexas onde o número atual depende do anterior, a fim de gerar números **pseudoaleatórios**. Sendo assim, é necessário um **ponto de partida** para que essas fórmulas comecem. Esse ponto é chamado de ***seed***.
+A função `rand` já vem com uma *seed* padrão, por isso temos que mudá-la **dentro da nossa função main**. Mudamos a *seed* com outra função também declarada em `stdlib.h`, chamada `srand`.
 
 ``` c
 #include <stdio.h>   // Para o printf
@@ -237,10 +318,10 @@ int main(void)
 
     int aleatorio = min + rand() % max;
     printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
-
     printf("Tente adivinhar o número.\n");
 
     int jogadas = 0;
+
     int tentativa;
     do
     {
@@ -259,17 +340,19 @@ int main(void)
 
         if (tentativa < min)
         {
-            printf("Digite um número maior do que %d!\n", min);
+            printf("Digite um número maior ou igual a %d!\n", min);
             continue;
         }
 
         if (tentativa > max)
         {
-            printf("Digite um número menor do que %d!\n", max);
+            printf("Digite um número menor ou igual a %d!\n", max);
             continue;
         }
 
         jogadas++;
+
+        printf("\n");
 
         if (tentativa > aleatorio)
         {
@@ -294,32 +377,74 @@ int main(void)
 
 ### 3. Menu de Caixa Eletrônico
 
-O programa deve ler a escolha do usuário. Se ele digitar algo inválido (uma letra, um número negativo, ou um número fora das opções 1, 2 e 3), o programa deve avisar o erro, limpar o buffer (se necessário) e mostrar o menu novamente.
+Por último, crie um programa que **simule um caixa eletrônico**.
 
-- Se escolher 1, imprima o saldo atual.
-- Se escolher 2, peça o valor do depósito, e some o valor ao saldo.
-- Se escolher 3, o programa deve encerrar.
+Primeiro, será um exibido um **menu**, explicando o uso do caixa. Ele vai contar com essas opções:
+
+1. Ver o saldo atual;
+2. Depositar dinheiro; e
+3. Sair do caixa.
+
+O usuário deve **começar** o programa com **R$ 1000.00** na conta.
+
+#### Exemplos
+
+Sem erros na entrada:
 
 ```
---- MENU ---
+--- OPÇÕES ---
 1. Ver Saldo
 2. Depositar
 3. Sair
 
-Escolha uma opção: X
-Opção inválida. Digite um número de 1 a 3.
-Escolha uma opção: 5
-Opção inválida. Digite um número de 1 a 3.
-Escolha uma opção: 1
-Seu saldo é R$ 1000.00.
---- MENU ---
-... (menu repete até usuário digitar 3)
+> 1
+Seu saldo é de R$ 1000.00
+
+> 2
+
+Deseja depositar quanto? [Digite 0 para sair]
+> 10.25
+
+> 1
+Seu saldo é de R$ 1010.25
+
+> 3
+Até mais!
+
+```
+
+Com erros:
+
+```
+--- OPÇÕES ---
+1. Ver Saldo
+2. Depositar
+3. Sair
+
+> texto
+Digite um número inteiro!
+> 0
+Opção inválida. Digite um número de 1 a 3!
+> 4
+Opção inválida. Digite um número de 1 a 3!
+> 2
+
+Deseja depositar quanto? [Digite 0 para sair]
+> -10
+Digite um número positivo!
+> texto
+Digite um número real!
+> 0
+
+> 3
+Até mais!
+
 ```
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-resp
+A resposta tem 97 linha de código, por isso vamos fazer um passo de cada vez.
 
 </details>
 
@@ -327,3 +452,5 @@ resp
 
 - Falar por que as resoluções estão ruim (nenhuma modularização, múltiplas responsabilidades da função main) e introduzir o próximo capítulo sobre funções, que resolvem esses problemas.
 - O **control flow** está péssimo.
+
+<!-- Na hora de falar sobre modularizade, explicar o que acontece se adicionarmos uma nova feature ao Exercício 3. Vamos adicionar uma opção que **saca dinheiro**. Exmplicar por que mesmo que as lógicas de **depositar** e **sacar** sejam **parecidas** hoje, isso por mudar, por que elas são fundalmentalmente diferentes. -->
