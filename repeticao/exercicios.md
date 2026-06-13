@@ -43,6 +43,8 @@ numero += 1;
 
 Note que é possível **trocar o 1 por outro número**, como o 2, por exemplo.
 
+#### Resposta
+
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
@@ -123,6 +125,25 @@ Crie um programa que:
 
 Cada tentativa deve ser **contada** em uma variável chamada `jogadas`. Em caso de **erro de digitação** a variável `jogadas` **não deve ser incrementada**.
 
+#### Exemplo
+
+```
+Um número inteiro entre 1 e 100 foi gerado.
+Tente adivinhar o número.
+> texto
+Digite um número inteiro!
+> 0
+Digite um número maior do que 1!
+> 101
+Digite um número menor do que 100!
+> 50
+O número é maior.
+> 75
+O número é menor.
+> 70
+Você acertou! Foram 3 jogada(s)!
+```
+
 #### Gerando números aleatórios
 
 Para gerar um número aleatório em C, usamos a função `rand`, declarada no *header* `stdlib.h`, que gera um valor inteiro não negativo.
@@ -196,24 +217,7 @@ Se dividirmos qualquer número por 100, o resto dessa divisão sempre será algo
 int aleatorio = 1 + rand() % 100
 ```
 
-#### Exemplo
-
-```
-Um número inteiro entre 1 e 100 foi gerado.
-Tente adivinhar o número.
-> texto
-Digite um número inteiro!
-> 0
-Digite um número maior do que 1!
-> 101
-Digite um número menor do que 100!
-> 50
-O número é maior.
-> 75
-O número é menor.
-> 70
-Você acertou! Foram 3 jogada(s)!
-```
+#### Resposta
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
