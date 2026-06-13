@@ -330,9 +330,10 @@ O código fica assim:
 ``` c
 const double min = 0.0;
 const double max = 10.0;
-double nota = 0.0;
 
 printf("Digite uma nota: ");
+
+double nota;
 do
 {
 	int resultado = scanf("%lf", &nota);
