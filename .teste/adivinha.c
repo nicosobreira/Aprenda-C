@@ -11,7 +11,6 @@ int main(void)
     const int max = 100;
 
     int aleatorio = min + rand() % max;
-    printf("[debug] aleatorio = %d\n", aleatorio);
     printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
 
     printf("Tente adivinhar o número.\n");
@@ -35,17 +34,19 @@ int main(void)
 
         if (tentativa < min)
         {
-            printf("Digite um número maior do que %d!\n", min);
+            printf("Digite um número maior ou igual a %d!\n", min);
             continue;
         }
 
         if (tentativa > max)
         {
-            printf("Digite um número menor do que %d!\n", max);
+            printf("Digite um número menor ou igual a %d!\n", max);
             continue;
         }
 
         jogadas++;
+
+        printf("\n");
 
         if (tentativa > aleatorio)
         {
