@@ -8,7 +8,7 @@ Fazer e verificar as respostas do exercícios 1 e 2 primeiro, depois fazer o exe
 
 Crie um programa que:
 
-1. Leia um inteiro **positivo** chamado `numero` do usuário; e
+1. Leia um inteiro **positivo** chamado `numero` do usuário.
 2. Imprima **todos os números pares** entre 0 e `numero` (incluindo o `numero`, caso ele seja par).
 
 #### Exemplo
@@ -32,7 +32,7 @@ Digite um inteiro: 2
 
 #### Incremento
 
-Vimos na seção passada que poderiamos usar o `++` para incrementar uma variável em um.
+Vimos na seção passada que poderíamos usar o `++` para incrementar uma variável em um.
 Mas também podemos usar da seguinte sintaxe:
 
 ``` c
