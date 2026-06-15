@@ -21,15 +21,18 @@ Usamos do `>` seguido de um espaço para indicar **as entradas do nosso programa
 printf("Digite um número de 1 a 10.\n");
 
 int numero;
+bool leitura_valida = false;
 do
 {
     printf("> ");
 
     // Usar o scanf e fazer as verificações
     // ...
+} while (!leitura_valida);
 
-    break;
-} while (true)
+printf("\n");
+
+printf("Você digitou 5.");
 ```
 
 Caso o usuário digite algo inválido, a saída deve ficar dessa forma:
@@ -62,7 +65,7 @@ Crie um programa que:
 Sem erros na entrada:
 
 ```
-Digite um número inteiro.
+Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!
 > 9
 
 0
@@ -76,7 +79,7 @@ Digite um número inteiro.
 Com erros:
 
 ```
-Digite um número inteiro.
+Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!
 > texto
 Digite um número inteiro!
 > -1
@@ -113,9 +116,10 @@ Note que é possível **trocar o 1 por outro número**, como o 2, por exemplo.
 
 int main(void)
 {
-    printf("Digite um número inteiro: ");
+    printf("Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!\n");
 
     int numero;
+    bool leitura_valida = false;
     do
     {
         printf("> ");
@@ -130,15 +134,15 @@ int main(void)
             printf("Digite um número inteiro!\n");
             continue;
         }
-
-        if (numero < 0)
+        else if (numero < 0)
         {
             printf("Digite um número maior ou igual a %d!\n", 0);
-            continue;
         }
-
-        break;
-    } while (true);
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
 
     printf("\n");
 
@@ -185,6 +189,8 @@ Crie um programa que:
 2. Peça para o usuário tentar adivinhar qual é esse número.
 
 Cada tentativa deve ser **contada** em uma variável chamada `jogadas`. Em caso de **erro de digitação** a variável `jogadas` **não deve ser incrementada**.
+
+Separe a lógica em **dois** `do while`, um **externo** e outro **interior**, de modo que o interior apenas valide a entrada, sem nenhuma comparação com a variável `aleatorio`.
 
 #### Exemplo
 
@@ -298,6 +304,15 @@ Se dividirmos qualquer número por 100, o resto dessa divisão sempre será algo
 int aleatorio = 1 + rand() % 100
 ```
 
+De forma mais genêrica, podemos limitar um número aletório entre dois inteiros `min` e `max` dessa forma:
+
+``` c
+const int min = 5;
+const int max = 10;
+
+int aleatorio = rand() % (max - min + 1) + min;
+```
+
 #### Resposta
 
 <details>
@@ -316,7 +331,8 @@ int main(void)
     const int min = 1;
     const int max = 100;
 
-    int aleatorio = min + rand() % max;
+    int aleatorio = rand() % (max - min + 1) + min;
+
     printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
     printf("Tente adivinhar o número.\n");
 
@@ -325,30 +341,33 @@ int main(void)
     int tentativa;
     do
     {
-        printf("> ");
-
-        int r = scanf("%d", &tentativa);
-        if (r != 1)
+        bool leitura_valida = false;
+        do
         {
-            while (getchar() != '\n')
+            printf("> ");
+
+            int r = scanf("%d", &tentativa);
+            if (r != 1)
             {
+                while (getchar() != '\n')
+                {
+                }
+
+                printf("Digite um número inteiro!\n");
             }
-
-            printf("Digite um número inteiro!\n");
-            continue;
-        }
-
-        if (tentativa < min)
-        {
-            printf("Digite um número maior ou igual a %d!\n", min);
-            continue;
-        }
-
-        if (tentativa > max)
-        {
-            printf("Digite um número menor ou igual a %d!\n", max);
-            continue;
-        }
+            else if (tentativa < min)
+            {
+                printf("Digite um número maior ou igual a %d!\n", min);
+            }
+            else if (tentativa > max)
+            {
+                printf("Digite um número menor ou igual a %d!\n", max);
+            }
+            else
+            {
+                leitura_valida = true;
+            }
+        } while (!leitura_valida);
 
         jogadas++;
 
@@ -362,12 +381,9 @@ int main(void)
         {
             printf("O número é maior.\n");
         }
-        else
-        {
-            printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
-            break;
-        }
-    } while (true);
+    } while (tentativa != aleatorio);
+
+    printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
 
     return 0;
 }
