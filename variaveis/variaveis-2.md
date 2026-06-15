@@ -39,7 +39,7 @@ int main()
 }
 ```
 
-Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero` com o valor 0. Escreva apenas `int numero;` e rode o programa **mais de uma vez**. Você verá que a variável `numero` armazena valores aleatórios. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por hora, sempre inicialize suas variáveis.
+Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão, independente do escopo da variável. Nesse caso, inicializamos a variável `numero` com o valor 0. Escreva apenas `int numero;` e rode o programa **mais de uma vez**. Você verá que a variável `numero` armazena valores aleatórios. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por ora, sempre inicialize suas variáveis.
 
 Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma **copia** do valor armazenado na variável **global** `numero` e recebe nenhum argumento:
 
