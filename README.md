@@ -50,3 +50,7 @@ Alguns sites úteis que vão te ajudar:
 
 - [Geeks for Geeks](https://www.geeksforgeeks.org/) para o funcionamento da linguagem e funções da Biblioteca Padrão.
 - [Stack Overflow](https://stackoverflow.com/questions) para dúvidas mais especificas. Pode digitar a dúvida no google que esse site provavelmente já aparece.
+
+## Colaboração
+
+Caso você encontre um erro em algum dos capítulos ou ache que algo precisa melhorar, sinta-se livre para abrir um *issue*. Eu não sou um especialista em C, por isso suas contribuições são muito valiosas!
