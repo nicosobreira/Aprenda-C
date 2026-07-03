@@ -30,7 +30,7 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 4. [Variáveis II](./variaveis/variaveis-2.md)
 5. [Condicionais](./condicional/README.md)
 6. [Estruturas de Repetição](./repeticao/README.md)
-7. ~~[Exercícios I](./repeticao/exercicios.md)~~
+7. [Exercícios I](./repeticao/exercicios.md)
 8. ~~[Funções](./funcoes/README.md)~~
 9. ~~[Memória I](./memoria/um.md)~~
 10. ~~[Listas](./variaveis/lista.md)~~
