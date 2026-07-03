@@ -4,7 +4,7 @@ Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida
 
 ## Formato da entrada
 
-Nesses exercícios vamos usar uma formatação diferente para pedir dados do usuário. Primeiro vou mostrar como ela é, depois como implementar ela:
+Nesses exercícios vamos usar uma formatação diferente para pedir dados do usuário. Primeiro vou mostrar como ela é, depois como implementa-la:
 
 > Esse bloco indica como a entrada e saída do programa deve funcionar.
 ```
@@ -15,26 +15,7 @@ Você digitou 5.
 
 ```
 
-Usamos do `>` seguido de um espaço para indicar **as entradas do nosso programa**. Em C fica assim:
-
-``` c
-printf("Digite um número de 1 a 10.\n");
-
-int numero;
-bool leitura_valida = false;
-do
-{
-    printf("> ");
-
-    // Usar o scanf e fazer as verificações
-    // ...
-} while (!leitura_valida);
-
-printf("\n");
-
-printf("Você digitou 5.");
-```
-
+Usamos do `>` seguido de um espaço para indicar **as entradas do nosso programa**.
 Caso o usuário digite algo inválido, a saída deve ficar dessa forma:
 
 ```
@@ -51,9 +32,52 @@ Você digitou 5.
 
 ```
 
+Em C fica assim:
+
+``` c
+const int min = 1;
+const int max = 10;
+
+printf("Digite um número de 1 a 10.\n");
+
+int numero;
+bool leitura_valida = false;
+do
+{
+    printf("> ");
+
+    int r = scanf("%d", &numero);
+    if (r != 1)
+    {
+        while (getchar() != '\n')
+        {
+        }
+
+        printf("Digite um número inteiro!\n");
+        continue;
+    }
+    else if (numero < min)
+    {
+        printf("Digite um número maior ou igual a %d!\n", min);
+    }
+    else if (numero > max)
+    {
+        printf("Digite um número menor ou igual a %d!\n", max);
+    }
+    else
+    {
+        leitura_valida = true;
+    }
+} while (!leitura_valida);
+
+printf("\n");
+
+printf("Você digitou 5.\n");
+```
+
 ## Exercícios
 
-### 1. Contador de Pares
+### 1. C
 
 Crie um programa que:
 
@@ -310,7 +334,7 @@ De forma mais genêrica, podemos limitar um número aletório entre dois inteiro
 const int min = 5;
 const int max = 10;
 
-int aleatorio = rand() % (max - min + 1) + min;
+int aleatorio = min + rand() % (max - min + 1);
 ```
 
 #### Resposta
@@ -331,7 +355,7 @@ int main(void)
     const int min = 1;
     const int max = 100;
 
-    int aleatorio = rand() % (max - min + 1) + min;
+    int aleatorio = min + rand() % (max - min + 1);
 
     printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
     printf("Tente adivinhar o número.\n");
@@ -466,7 +490,11 @@ A resposta tem 97 linha de código, por isso vamos fazer um passo de cada vez.
 
 ## Reflexões
 
-- Falar por que as resoluções estão ruim (nenhuma modularização, múltiplas responsabilidades da função main) e introduzir o próximo capítulo sobre funções, que resolvem esses problemas.
-- O **control flow** está péssimo.
+Em todos os exercícios, nos pedimos para o usuário digitar algum valor com restrições; como um inteiro no intervalo de 1 a 100 ou um inteiro maior que 0.
+Perceba que o código praticamente **não muda** de exercício para exercício. A lógica é a mesma, mas nos temos que copiar e colar sempre.
+
+Isso se torna um problema a medida que o programa cresce, como no exercício 3, tornando difícil entender o que o programa faz.
+
+No próximo capítulo veremos as **funções**, que vão nos permitir escrever diferentes lógicas de leitura **uma vez** e usá-las em diversos lugares.
 
 <!-- Na hora de falar sobre modularizade, explicar o que acontece se adicionarmos uma nova feature ao Exercício 3. Vamos adicionar uma opção que **saca dinheiro**. Exmplicar por que mesmo que as lógicas de **depositar** e **sacar** sejam **parecidas** hoje, isso por mudar, por que elas são fundalmentalmente diferentes. -->
