@@ -14,9 +14,12 @@ int main(void)
     printf("3. Sair\n");
     printf("\n");
 
-    while (true)
+    double caixa_esta_ligado = true;
+    while (caixa_esta_ligado)
     {
         int opcao;
+
+        bool leitura_valida = false;
         do
         {
             printf("> ");
@@ -29,23 +32,20 @@ int main(void)
                 }
 
                 printf("Digite um número inteiro!\n");
-                continue;
             }
-
-            if (opcao < primeira_opcao)
+            else if (opcao < primeira_opcao)
             {
                 printf("Digite um número maior ou igual a %d!\n", primeira_opcao);
-                continue;
             }
-
-            if (opcao > ultima_opcao)
+            else if (opcao > ultima_opcao)
             {
                 printf("Digite um número menor ou igual a %d!\n", ultima_opcao);
-                continue;
             }
-
-            break;
-        } while (true);
+            else
+            {
+                leitura_valida = true;
+            }
+        } while (!leitura_valida);
 
         if (opcao == 1)
         {
@@ -57,6 +57,8 @@ int main(void)
             printf("Deseja depositar quanto? [Digite 0 para sair]\n");
 
             double deposito;
+
+            bool leitura_valida = false;
             do
             {
                 printf("> ");
@@ -69,23 +71,22 @@ int main(void)
                     }
 
                     printf("Digite um número real!\n");
-                    continue;
                 }
-
-                if (deposito < 0)
+                else if (deposito < 0)
                 {
                     printf("Digite um número positivo!\n");
-                    continue;
                 }
-
-                break;
-            } while (true);
+                else
+                {
+                    leitura_valida = true;
+                }
+            } while (!leitura_valida);
 
             saldo += deposito;
         }
         else if (opcao == 3)
         {
-            break;
+            caixa_esta_ligado = false;
         }
 
         printf("\n");
