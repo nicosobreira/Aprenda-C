@@ -8,7 +8,7 @@ Essas regras são válidas para toda a linguagem C, não somente para variáveis
 - Não é permitido começar com um dígito.
 - Não é permitido ter acento
 - A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o compilador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
-- Você não pode usar nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções, por exemplo.
+- Você não pode usar nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções.
 
 ### Boas práticas
 
