@@ -552,11 +552,11 @@ Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que n
 ``` c
     if (opcao == 1)
     {
-        // ...
+        // Opção 1
     }
     else if (opcao == 2)
     {
-        // ...
+        // Opção 2
     }
     else if (opcao == 3)
     {
@@ -569,12 +569,14 @@ Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que n
 Implementar a opção `1` é fácil, é só exibir o saldo atual:
 
 ``` c
+        // Opção 1
         printf("Seu saldo é de R$ %.2f\n", saldo);
 ```
 
 Para a opção `2` temos que (1) ler um valor `double` do usuário e (2) somar esse valor a variável `saldo`. Fazemos isso no código a seguir:
 
 ``` c
+        // Opção 2
         printf("\n"); // Quebra linha visual
         printf("Deseja depositar quanto? [Digite 0 para sair]\n");
 
