@@ -1,21 +1,13 @@
 # Variáveis I
 
-As variáveis servem para armazenar valores. Esses valores são armazenados na memória RAM do computador.
-
----
+> As variáveis servem para armazenar valores. Esses valores são armazenados na memória RAM do computador.
 
 Para entendermos as variáveis em C, primeiro precisamos destrinchar a frase: "O computador só entende 0 e 1". Essa frase diferencia o modo com que os humanos e as máquinas interpretam informações. Enquanto nós temos uma consciência, a máquina está limitada a lidar com níveis baixos e altos de voltagem para representar informações, 0 e 1 respectivamente.
 
 Entender que no final das contas toda a informação que passa pelo computador é representada na forma de 0 e 1 explica o por quê precisamos declarar o tipo das variáveis.
 
-Tomamos o binário `0011 0101` como exemplo. Se o computador olhar apenas para esse binário, ele não tem a menor ideia do que ele significa.
-Para a máquina, a sequência `0011 0101` é apenas um dado bruto. No entanto:
-
-- Se o computador interpretar isso como um número inteiro, o valor é 53.
-
-- Mas, se ele interpretar isso usando algum tipo de **lógica de conversão**, usando uma tabela que mapeia números para caracteres, seu **significado muda**. Por exemplo, se o computador usar o binário `0011 0101` como um índice na Tabela de Conversão ASCII, o binário passa a representar o carácter '5'.
-
-> Não se preocupe se não tenha entendido, mais para frente iremos voltar nesse exemplo.
+Tomamos o binário `0011 0101` como exemplo. Quando o computador olha para o binário, ele não tem a menor ideia do que ele significa.
+Para a máquina, a sequência `0011 0101` é apenas um dado bruto. No entanto, se nos mandarmos o computador interpretar isso como um número inteiro, o valor é 53.
 
 É por isso que demos que deixar claro para o computador como a informação deve ser processada
 
@@ -29,7 +21,7 @@ Em C, usamos:
 int numero;
 ```
 
-Esse `int` mostra para o computador que o valor armazenado na variável de nome `numero` é do tipo inteiro.
+O `int` mostra ao computador que o valor armazenado na variável de nome `numero` é do tipo inteiro.
 
 Note que o código a seguir também é válido:
 
@@ -67,9 +59,9 @@ int idade = 18;
 
 Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada no *header* `stdio`.
 
-A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é uma string, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis no terminal.
+A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é um texto, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis no terminal.
 
-Por exemplo, no código abaixo estamos imprimindo o valor da variável `idade`:
+No código abaixo imprimimos o valor da variável `idade`:
 
 ``` c
 #include <stdio.h>
@@ -153,7 +145,7 @@ Até podemos arrendondar o número com:
 printf("Média: %.0f", media_d);
 ```
 
-Também existem outros formatadores para `float` e `double`. Caso você queira ignorar todos zeros a direita do número, use o `%g`. Esse formatador apenas mostrará o mínimo possível.
+Também existem outros formatadores para `float` e `double`. Caso você queira ignorar todos zeros a direita do número, use o `%g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `15.00`, usando o `%g`, será exibido apenas `15`.
 
 #### Qual tipo usar?
 
@@ -203,3 +195,49 @@ O motivo disso ficará claro em [Condicionais](../condicional/README.md)
 Nós também não temos como imprimir um `bool` do mesmo jeito temos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação uma maneira de converter o `bool` para uma string, ou seja, não definir um código como `d` para tal. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
 
 Chamamos os estados **verdadeiro** e **falso** de `true` e `false`, respectivamente.
+
+## Regras de Nomenclatura
+
+Essas regras são válidas para todos **indentificadores** da linguagem C, não somente para variáveis.
+
+- São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
+- Não é permitido começar com um dígito.
+- Não é permitido ter acento
+- A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o compilador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
+- Você não pode usar nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções.
+
+## Constantes
+
+São valores que, ao serem declarados, não podem mudar de valor.
+
+Por exemplo, vamos declarar o valor aproximado da constante `pi`.
+
+> Não se esqueça de importar `#include <stdio.h>` e declarar a função `main`!
+
+``` c
+const double pi = 3.14;
+
+printf("Pi vale aproximadamente %f\n", pi);
+```
+
+Se tentarmos alterar o valor de `pi`, teremos um erro na compilação:
+
+``` c
+const double pi = 3.14;
+
+pi = 30.1;
+
+printf("Pi vale aproximadamente %f\n", pi);
+```
+
+Usamos variáveis constantes para dar um **nome compreensível**, evitando o uso de comentários. Além disso, se amanhã nos precisarmos aumentar a presição da constante `pi`, isso é, aumentar o número de casas depois da vírgula, nos só precisamos alterar em **um lugar** - se não usassemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo.
+
+### Boas práticas
+
+Evite nomes misteriosos para as suas variáveis. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve transmitir parte da sua função dentro do código.
+
+Evite o encurtamento dos nomes, como escrever `int vfinal;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar, daqui a um mês, quando precisar mudar o código denovo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
+
+Ao longo do guia, veremos ainda mais casos de como melhorar a sua nomenclatura. Enquanto estava aprendendo a programar, achava difícil pensar em bons nomes para as coisas. Se você se sente assim, recomendo utilizar Inteligência Artificial para ter ideias de como nomear.
+
+Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão. Nesse caso, inicializamos a variável `numero` com o valor `0`. Escreva apenas `int numero;` e rode o programa **mais de uma vez**. Você verá que a variável `numero` armazena valores aleatórios. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por ora, sempre inicialize suas variáveis para evitar usar valores aleatórios acidentalmente.
