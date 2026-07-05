@@ -251,6 +251,9 @@ Chamamos o `void saudar(char *nome);` de **declaração** da função, e o bloco
 
 Lembra do problema de copia e cola que apontamos nos exercícios anteriores? Agora podemos esconder a leitura de dados em diferentes funções.
 
+<!--
+TODO: Completar esses pontos!
+-->
 - Criar uma "família" de funções `leia_<tipo>_<restrição>`, mas não falar como separar em múltiplos arquivos. Isso fica para o próximo capítulo (eu acho).
 - Ao final mostrar como o último exercício fica um pouco mais legível.
 
@@ -309,13 +312,11 @@ int temperatura = sensor_obter_temperatura();
 
 Uma única função, `sensor_obter_temperatura`, esconde toda essa sequência. Se um dia o sensor mudar (por exemplo, deixar de precisar verificar a energia), só precisamos alterar o **interior** dessa função, sem tocar em nenhum outro lugar do código que a utiliza.
 
-Um erro comum é pensar que modularizar significa apenas "dividir os processos em pedaços menores". Mas o critério mais importante não é o tamanho dos pedaços, e sim **o que cada pedaço esconde**. Devemos isolar primeiro aquilo que é **complicado** e aquilo que **pode mudar com frequência**, escondendo esses detalhes de quem não precisa deles.
+Um erro comum é pensar que modularizar significa apenas "dividir os processos em pedaços menores". Mas o critério mais importante não é o tamanho dos pedaços, e sim **o que cada pedaço esconde**. Devemos isolar aquilo que é **complicado** e o que **pode mudar com frequência**, escondendo esses detalhes de quem usará o módulo.
 
-- Eu quero trazer um caso a favor da flexibilidade do código, mas não consigo pensar.
+Falar sobre esses dois aspectos da modularização vai além do escopo desse guia, e sinceramente do meu domino sobre o assunto, caso tenha interesse, recomendo ler o artigo [On the Criteria To Be Used in Decomposing Systems into Modules](https://wstomv.win.tue.nl/edu/2ip30/references/criteria_for_modularization.pdf), escrito por David Parnas, que foi da onde tirei alguns critérios para modularizar o código:
 
-Alguns critérios ajudam a decidir **o que** deve virar um módulo (uma função, ou um conjunto delas):
-
-- **Sequência de um processo**: os passos necessários para executar um processo devem ficar junto com o próprio processo, e não espalhados pelo código que apenas os utiliza. Foi exatamente isso que fizemos ao mover a validação de entrada para dentro de `leia_int_entre`.
+- **Sequência de um processo**: os passos necessários para executar um processo devem ficar junto com o próprio processo, e não espalhados pelo código que apenas os utiliza. Foi exatamente isso que fizemos ao mover a leitura do sensor para a função `sensor_obter_temperatura`.
 - **Acesso indireto**: no futuro, quando estudarmos [Structs](../variaveis/struct.md), veremos que não devemos acessar diretamente os membros de uma estrutura de dados de fora dela, preferindo funções auxiliares para isso.
 - **Flexibilidade**: alguns módulos existem apenas para permitir que uma parte do código mude no futuro sem afetar o resto, mesmo que hoje pareçam "código a mais".
 - **Esconder o como**: quem usa uma função não precisa saber **como** ela faz o que faz, apenas **o que** ela faz. É por isso que conseguimos usar `scanf` e `printf` sem entender como elas foram implementadas por dentro.
@@ -324,4 +325,4 @@ Alguns critérios ajudam a decidir **o que** deve virar um módulo (uma função
 
 Perceba que, quanto mais o nosso programa cresce, mais importante fica a organização em funções. Elas não servem apenas para economizar linhas de código, mas para **isolar responsabilidades**: cada função deve fazer bem uma única coisa, e esconder de quem a chama os detalhes de como ela faz isso.
 
-Nos próximos capítulos, vamos aprofundar essa ideia de organização, principalmente quando falarmos sobre múltiplos arquivos, onde veremos como espalhar nossas funções entre diferentes módulos de um mesmo projeto.
+Nos próximos capítulos, vamos aprofundar essa ideia de organização, principalmente quando falarmos sobre múltiplos arquivos, onde veremos como espalhar nossas funções entre diferentes módulos em um projeto.
