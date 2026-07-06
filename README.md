@@ -25,23 +25,24 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 ## Conteúdos
 
 1. [O que é C?](./intro/linguagem-c.md)
-2. [Olá, Mundo](./intro/ola-mundo.md)
-3. [Variáveis I](./variaveis/variaveis-1.md)
-4. [Variáveis II](./variaveis/variaveis-2.md)
-5. [Condicionais](./condicional/README.md)
-6. [Estruturas de Repetição](./repeticao/README.md)
-7. [Exercícios I](./repeticao/exercicios.md)
-8. ~~[Funções](./funcoes/README.md)~~
-9. ~~[Memória I](./memoria/um.md)~~
-10. ~~[Listas](./variaveis/lista.md)~~
-11. ~~[Matrizes](./variaveis/matriz.md)~~
-12. ~~[Strings](./variaveis/string.md)~~
-13. ~~[Structs](./variaveis/struct.md)~~
-14. ~~[Enums](./variaveis/enum.md)~~
-15. ~~[Projeto 2](./projeto/dois.md)~~
-16. ~~[Compilador](./arquivos/compilador.md)~~
-17. ~~[Múltiplos arquivos](./arquivos/header.md)~~
-18. ~~[Projeto 3](./projeto/tres.md)~~
+2. [Instalando o C](./intro/instalacao.md)
+3. [Olá, Mundo](./intro/ola-mundo.md)
+4. [Variáveis I](./variaveis/variaveis-1.md)
+5. [Variáveis II](./variaveis/variaveis-2.md)
+6. [Condicionais](./condicional/README.md)
+7. [Estruturas de Repetição](./repeticao/README.md)
+8. [Exercícios I](./repeticao/exercicios.md)
+9. ~~[Funções](./funcoes/README.md)~~
+10. ~~[Memória I](./memoria/um.md)~~
+11. ~~[Listas](./variaveis/lista.md)~~
+12. ~~[Matrizes](./variaveis/matriz.md)~~
+13. ~~[Strings](./variaveis/string.md)~~
+14. ~~[Structs](./variaveis/struct.md)~~
+15. ~~[Enums](./variaveis/enum.md)~~
+16. ~~[Projeto 2](./projeto/dois.md)~~
+17. ~~[Compilador](./arquivos/compilador.md)~~
+18. ~~[Múltiplos arquivos](./arquivos/header.md)~~
+19. ~~[Projeto 3](./projeto/tres.md)~~
 <!-- 18. [Build System]() -->
 
 ## Referência
