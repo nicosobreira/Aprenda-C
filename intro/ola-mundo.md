@@ -1,8 +1,8 @@
 # Olá, Mundo
 
-O programa "Olá, Mundo!" é a iniciação de todo programador. Ele nos mostra algumas regras básicas da linguagem.
+O programa "Olá, Mundo!" é a iniciação de todo programador. Ele vai nos mostrar algumas regras básicas da linguagem C.
 
-Primeiro, vamos ver como ele é escrito e logo em seguida vamos entender o código linha a linha.
+Primeiro, vamos ver como ele é escrito, logo em seguida vamos entender o código linha a linha.
 
 ## Código
 
@@ -11,7 +11,7 @@ Em um arquivo chamado `main.c` escreva:
 ```c
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     printf("Olá, Mundo!\n");
 
@@ -19,29 +19,28 @@ int main()
 }
 ```
 
+Execute o programa antes de continuar.
+
 ## include
 
-O `#include <stdio.h>` serve para importar as declarações das funções de entrada e saída padrão (como o `printf` e o `scanf`), permitindo que o programa exibe e peça informações ao usuário. É a partir do *header* `stdio.h` que importamos a função `printf`.
+O `#include <stdio.h>` nos permite usar as chamadas: **funções de entrada e saída**. Essas funções permitem **mostrar** textos no terminal, assim como **pedir** informações para o usuário.
 
-O `#include <stdio.h>` avisa o compilador que essas funções existem, enquanto o código real que as executa fica armazenado na Biblioteca Padrão do C (chamado de *C Standard*) fornecida pelo sistema operacional.
+O `.h` é um apelido para *header*, em português **cabeçalho**. Veremos o conteúdo desse tipo de arquivo mais para frente.
 
-### Biblioteca Padrão
-
-É uma biblioteca cuja a funcionalidade é definida pela linguagem C, mas sua implementação muda de plataforma para plataforma, isso é, cada plataforma tem um jeito diferente de como executar a mesma lógica. As plataformas são como o Windows, Linux e Android.
-
-As funcionalidades da Biblioteca Padrão estão espalhadas por vários arquivos no formato `.h`, chamados de *header files* ou só *headers*. Primeiro, precisamos usar o `#include <header>` para importar as funcionalidades do *header*. Falaremos do porque usamos `<>` mais para frente.
+É a partir do `#include <stdio.h>` que podemos usar a função `printf`, que nos permite **exibir** o texto `Olá, Mundo!` no terminal.
 
 ## main
 
-Essa é a função em que o nosso programa começa a executar. É o **ponto inicial** de toda a nossa aplicação, por isso do nome "main", do inglês, principal.
+É uma função especial dentro do C; ela é o **ponto inicial** de nosso programa, por isso do nome "main", do inglês, principal.
 
-O `int` é usado para indicar que essa função retornará um valor do tipo inteiro ao final de sua execução. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1`. O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, o programa fechará imediatamente e o texto nunca será exibido.
+O `int` é usado para indicar que essa função retornará um valor do tipo inteiro em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números normalmente indicam diferentes erros.
+O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, o programa fechará imediatamente e o texto nunca será exibido.
 
-Dentro dos parênteses são colocados os argumentos da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um argumento da função `f`. Nesse caso, o parênteses está vazio, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber argumentos, mas vamos ver isso mais para frente.
+Dentro dos parênteses são colocados os parâmetros da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado ao chamarmos `main`. Diferentemente das outras funções, o `main` é executado automaticamente ao rodarmos o nosso programa.
+Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando o programa iniciar. Diferentemente das outras funções, o `main` é executado automaticamente ao rodarmos o nosso programa.
 
-### Formtação do código
+### Formatação do código
 
 Você pode escrever a função da seguinte maneira:
 
@@ -57,8 +56,8 @@ E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemo
 
 A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nos veremos os diferentes tipos de formatação em [Variáveis](./../variaveis/primitivas.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
 
-Nos precisamos colocar esse `\n`, lido como "barra *new line*", no final para quebrar a linha. Tire ele e veja como a saída sai meio esquisita.
+Nos precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
 
-Temos que colocar esse bendito ponto e vírgula no final para indicar o fim de comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro.
+O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro.
 
-Lembre-se que nós só podemos executar a função `printf` depois que importamos sua definição com o uso do `#include` em `#include <stdio.h>`.
+Lembre-se que nós só podemos executar a função `printf` **depois** que importamos sua definição com o uso do `#include <stdio.h>`.
