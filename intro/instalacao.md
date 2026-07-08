@@ -12,7 +12,7 @@ Siga os passos dependendo do sistema operacional que está usando: Windows, Linu
 
 > Não confunda com o "Prompt de Comando". O PowerShell é o terminal mais atualizado do Windows, e portanto, vou usá-lo para instalar o GCC e Visual Studio Code.
 
-Ao invés de baixar instaladores manualmente e clicar em "próximo" várias vezes, também é possível instalar o compilador C inteiramente por comandos, direto do terminal PowerShell, usando o `winget`, o gerenciador de pacotes que já vem instalado no Windows 10 e 11.
+Vamos usar o PowerShell, o terminal padrão do Windows, para instalar o GCC. A Microsoft oferece `winget`, um gerenciador de pacotes que já vem instalado no Windows 10 e 11 por padrão.
 
 #### Passo 1: Verificando o winget
 
@@ -34,13 +34,13 @@ winget install --id BrechtSanders.WinLibs.POSIX.UCRT -e
 
 > O `-e` (de "exact") garante que o winget instale exatamente esse pacote, e não outro parecido.
 
-Esse comando baixa e extrai o compilador em uma pasta do seu computador, normalmente em `C:\Program Files\WinLibs\...`. Dentro dessa pasta, procure por uma subpasta chamada `mingw64\bin` (ou `mingw32\bin`, dependendo da versão baixada) — é ela que contém o arquivo `gcc.exe`. **Anote o caminho para essa pasta.**
+Esse comando baixa e extrai o compilador em uma pasta do seu computador, **normalmente** em `C:\Program Files\WinLibs\...`. Dentro dessa pasta, procure por uma subpasta chamada `mingw64\bin` (ou `mingw32\bin`, dependendo da versão baixada) — é ela que contém o arquivo `gcc.exe`. **Anote o caminho para essa pasta.**
 
 #### Passo 3: Adicionando o compilador ao PATH
 
 Diferente de outros programas, o `gcc.exe` não fica disponível automaticamente em qualquer lugar do terminal. Precisamos avisar ao Windows onde encontrá-lo, adicionando a pasta `bin` do compilador à variável de ambiente PATH.
 
-Ainda no PowerShell, rode o comando abaixo, trocando o caminho pelo caminho da pasta `bin` que você anotou no passo anterior:
+Ainda no PowerShell, rode o comando abaixo, trocando o caminho pelo caminho da pasta `bin` que você anotou no passo anterior, caso eles sejam diferentes:
 
 ``` powershell
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\WinLibs\mingw64\bin", "User")
@@ -74,8 +74,6 @@ winget install --id Microsoft.VisualStudioCode -e
 
 > Assim como no GCC, o `-e` garante que estamos instalando exatamente esse pacote.
 
-O winget vai baixar e instalar o VS Code automaticamente, sem precisar abrir nenhuma janela ou clicar em "próximo".
-
 #### Passo 2: Verificando a instalação
 
 Feche a janela do PowerShell e abra uma nova, para garantir que o terminal reconheça o comando recém-instalado. Depois, rode:
@@ -98,7 +96,7 @@ code --install-extension ms-vscode.cpptools
 
 #### Passo 4: Abrindo uma pasta de projeto
 
-Para testar se tudo está funcionando junto, crie uma pasta para os seus exercícios e abra ela diretamente no VS Code, pelo terminal:
+Para testar se tudo está funcionando junto, crie uma pasta para praticar e abra ela diretamente no VS Code, pelo terminal:
 
 ``` powershell
 mkdir aprenda-c
