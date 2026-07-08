@@ -1,6 +1,6 @@
 # Funções
 
-Já estamos usando diversas funções, como a `main`, a `printf` e a `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](../condicional/README.md). Agora, vamos entender como criar as nossas próprias funções e, principalmente, **por que** elas são tão importantes.
+Já estamos usando diversas funções, como a `main`, a `printf` e a `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](../condicional/README.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
 
 ## Declarando uma função
 
@@ -24,13 +24,13 @@ int main(void)
 
 O `void` antes do nome `saudar` indica que essa função **não devolve nenhum valor**. Depois, o `(void)` indica que ela **não recebe nenhum parâmetro**. Entre as chaves (`{}`), fica o **corpo** da função, ou seja, tudo que será executado quando ela for chamada.
 
-Falamos que a função `saudar` foi **chamada** dentro de `main`, usando `saudar();`. Se chamarmos a função `saudar` da seguinte forma: `saudar(3)`, o compilador vai avisar que estamos passando muitos argumentos para a função `saudar`, o esperado são zero argumentos, ou seja, nenhum.
+Falamos que a função `saudar` foi **chamada** dentro de `main`, por meio da linha `saudar();`. Se chamarmos a função `saudar` da seguinte forma: `saudar(3)`, o compilador vai avisar que estamos passando muitos argumentos para a função `saudar`, o esperado são zero argumentos, ou seja, nenhum.
 
 ## Parâmetros
 
 Uma função que não recebe nenhuma entrada tem uma utilidade limitada. Para tornarmos nossas funções mais flexíveis, usamos **parâmetros**: variáveis que a função recebe como entrada.
 
-Vamos alterar a função `saudar` para que ela receba o nome da pessoa a ser saudada. Para isso vamos utilizar de um parâmetro chamado `nome`, que tem um tipo que ainda não vimos: `char *`. Por ora, saiba que esse tipo indica que estamos passando um texto, no caso um nome, para a função `saudar` - chamos isso de *string*. Veremos esse tipo com mais detalhe em [Strings](../variaveis/string.md).
+Vamos alterar a função `saudar` para que ela receba o nome da pessoa a ser saudada. Para isso vamos utilizar de um parâmetro chamado `nome`, que possui um tipo que ainda não vimos, o `char *`. Por ora, saiba que esse tipo indica que estamos passando um **texto**, no caso um nome, para a função `saudar` - chamos isso de *string*. Veremos esse tipo com mais detalhe em [Strings](../variaveis/string.md).
 Também utilizamos do formatador `%s` para indicar ao `printf` que queremos exibir a variável do tipo `char *`.
 
 ``` c
@@ -50,7 +50,7 @@ int main()
 }
 ```
 
-Perceba que o parâmtro `nome` funciona como qualquer outra variável **dentro** da função `saudar`, mas seu valor muda a cada chamada, de acordo com o que passamos entre os parênteses, como `"Maria"` e `"João"`, que são chamados de **argumentos** da função. Podemos ter quantos parâmetros quisermos, bastando separá-los por vírgula, como já fizemos com a função `print_divisao(double numero, double divisor)`.
+Perceba que o parâmtro `nome` funciona como qualquer outra variável **dentro** da função `saudar`, mas seu valor muda a cada chamada, de acordo com o que passamos entre os parênteses, como `"Maria"` e `"João"` - que são chamados de **argumentos** da função. Podemos ter quantos parâmetros quisermos, bastando separá-los por vírgula, como já fizemos com a função `print_divisao(double numero, double divisor)`.
 
 ## Retorno de valores
 
@@ -76,7 +76,7 @@ int main()
 }
 ```
 
-Diferente do `return` que usamos dentro de `main` (onde `return 0;` avisa o sistema operacional que tudo ocorreu bem), aqui o `return a + b;` devolve o valor calculado para quem chamou a função, nesse caso, a variável `resultado`, dentro de `main`. O `return` também **encerra a execução da função na hora**, então qualquer código escrito depois dele, dentro da mesma função, nunca vai rodar.
+A linha `return a + b;` devolve o valor calculado para quem chamou a função, nesse caso, a variável `resultado`, dentro de `main`. O `return` também **encerra a execução da função na hora**, então qualquer código escrito depois dele, dentro da mesma função, nunca vai rodar.
 
 Reescreva a função `somar` da seguinte forma, e veja que a mensagem nunca será exibida:
 
@@ -88,6 +88,8 @@ int somar(int a, int b)
     printf("Eu não vou aparecer!\n");
 }
 ```
+
+É
 
 ## Escopos
 
