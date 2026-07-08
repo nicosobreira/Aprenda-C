@@ -107,7 +107,8 @@ else
 
 Para explicar o uso da negação, vamos pensar em uma festa: uma pessoa só pode entrar nela se possuir um convite, senão ela é barrada na entrada.
 
-Primeiro, vamos resolver esse problema usando um `if` junto a um `else`. Logo em seguida, veremos um jeito melhor, usando apenas um `if`. Vamos criar uma função chamada `entrar_na_festa` que *retorna nada* e tem como argumento uma variável do tipo `bool` chamada `tem_convite`.
+Primeiro, vamos resolver esse problema usando um `if` junto a um `else`. Logo em seguida, veremos um jeito melhor, usando apenas um `if`.
+Para tal, vamos criar nossa própria função - conteúdo que veremos com mais detalhes em [Funções](../funcoes/README.md) - chamada `entrar_na_festa` que *retorna nada* e tem como argumento uma variável do tipo `bool` chamada `tem_convite`.
 
 > O `void` é um termo que possui vários significados na linguagem C. **Nesse caso**, ele indica que a função vai retornar nenhum valor.
 
@@ -154,9 +155,9 @@ Se você rodar o programa, verá que a primeira pessoa entrou na festa e a segun
 
 Para chegar a uma resposta, precisamos entender realmente o que significa "entrar em uma festa". Para uma pessoa entrar em uma festa, é **obrigatório** que ela tenha um convite, caso ela não tenha, ela será expulsa **na hora**, logo no **começo**. Pense que ter o convite é algo **válido** para entrar na festa, já não ter um, é **inválido**.
 
-O nosso código atual não traz essa ideia de **válido** e **inválido** em sua construção. Note que é diferente do nosso primeiro exemplo, no começo do capítulo, onde chuver ou não são **dois caminhos válidos** para um dia.
+O nosso código atual não traz essa ideia de **válido** e **inválido** em sua construção. Note que é diferente do nosso primeiro exemplo, no começo do capítulo, onde chover ou não são **dois caminhos válidos** para um dia.
 
-Sendo assim, o problema está no *design* de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplemente sair no começo da função, caso algo inválido aconteça.
+Sendo assim, o problema está no *design* de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplesmente sair no começo da função, caso algo inválido aconteça.
 
 Vamos **negar** o valor da variável `tem_convite` com o uso da exclamação `!` e analisar o código logo em seguida.
 
@@ -196,7 +197,8 @@ void print_divisao(double numero, double divisor)
 }
 ```
 
-Teste com diferentes valores para `numero` e `divisor`, mas sempre que o `divisor` valer 0, o valor será `inf`. Esse valor de `inf` está relacionado com o padrão IEEE 754. Esse padrão determina a divisão por 0 como uma operação válida, com um valor especial chamado de `inf`. Mas como poderíamos fazer a divisão se tornar inválida? Podemos usar um **Retorno Antecipado** para tal.
+Teste com diferentes valores para `numero` e `divisor`, mas sempre que o `divisor` valer 0, o valor será `inf`. Esse valor de `inf` está relacionado com o padrão IEEE 754, usado pela linguagem C.
+Esse padrão determina a divisão por 0 como uma operação válida, com um valor especial chamado de `inf`. Mas como poderíamos fazer a divisão se tornar inválida? Podemos usar um **Retorno Antecipado** para tal.
 
 ``` c
 void print_divisao(double numero, double divisor)
@@ -213,7 +215,7 @@ void print_divisao(double numero, double divisor)
 
 Com isso, garantimos que o valor de `divisor` sempre será diferente de 0.
 
-> Note que, devido as imprecisões do padrão IEEE 754, não é recomendado comparar diretamente valores `float` ou `double` com o `==`, prefira as desigualdade, como `<` e `>=`. A única excecão é o `0.0`.
+> Note que, devido as imprecisões do padrão IEEE 754, não é recomendado comparar diretamente valores `float` ou `double` com o `==`, prefira as desigualdade, como `<` e `>=`. A única exceção é o `0.0`.
 
 ## O bool por debaixo dos panos
 
@@ -233,4 +235,4 @@ int main()
 
 No primeiro caso, o resultado da condição `3 == 3` é 1, já que de fato, 3 é igual a 3. Já no segundo, como 1 não é maior que 10, o resultado é 0.
 
-A linguagem C define o valor 0 como falso, qualquer outro valor é verdadeiro. Dessa forma, o tipo `bool` e os valores `true` e `false` são apenas números. Utilizamos desse tipo para trazer clareza em nosso código.
+A linguagem C define o valor `0` como **falso**, qualquer outro valor é verdadeiro. Dessa forma, o tipo `bool` e os valores `true` e `false` são apenas números. Utilizamos desse tipo para trazer clareza em nosso código.

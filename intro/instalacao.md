@@ -1,8 +1,8 @@
 # Instalando o C
 
-Quando falo em "instalar o C", me refiro a instalar um **compilador** da linguagem. Ao longo do guia, vamos usar o compilador GCC.
+Quando falo em "instalar o C", me refiro a instalar um **compilador** da linguagem - que é um programa usado para rodarmos nossos programas escritos em C. Ao longo do guia, vamos usar o compilador chamado GCC.
 
-Também recomendo instalar o Visual Studio Code, também chamado de VS Code, para escrever os códigos.
+Também vamos instalar o Visual Studio Code, também chamado de VS Code, para escrever os códigos ao longo do guia.
 
 Siga os passos dependendo do sistema operacional que está usando: Windows, Linux ou macOS.
 

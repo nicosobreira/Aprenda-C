@@ -227,7 +227,7 @@ void saudar(char *nome)
 
 Esse código **não compila**. Isso acontece porque o compilador lê o arquivo de **cima para baixo** (devido a uma regra da linguagem C), e quando encontra `saudar("Ana");` dentro de `main`, ele ainda não sabe que essa função existe, muito menos qual o seu tipo de retorno ou quais parâmetros ela espera.
 
-Para resolver isso, sem precisar mover o código de lugar, usamos uma **declaração antecipada**, também chamada de **protótipo**. Ela é apenas a "assinatura" da função (tipo de retorno, nome e parâmetros), seguida de um ponto e vírgula, sem o corpo.
+Para resolver isso, sem precisar mover o código de lugar, usamos uma **declaração antecipada**, também chamada de **protótipo** da função. Ela é apenas a "assinatura" da função (tipo de retorno, nome e parâmetros), seguida de um ponto e vírgula, sem o corpo.
 
 ``` c
 #include <stdio.h>
@@ -247,7 +247,9 @@ void saudar(char *nome) // Definição
 }
 ```
 
-Chamamos o `void saudar(char *nome);` de **declaração** da função, e o bloco com o corpo completo de **definição** ou **implementação** da função. Isso permite organizar nosso código na ordem que fizer mais sentido para a leitura, geralmente deixando a `main` no topo do arquivo, como o ponto de partida.
+Chamamos o `void saudar(char *nome);` de **declaração** da função, e o bloco com o corpo completo de **definição** ou **implementação** da função. Isso permite organizar nosso código na ordem que fizer mais sentido para a leitura, geralmente dessa forma:
+
+1. Os diversos `#include <>`
 
 ## Retomando a leitura de números
 
@@ -255,9 +257,10 @@ Lembra do problema de copia e cola que apontamos nos exercícios anteriores? Ago
 
 <!--
 TODO: Completar esses pontos!
--->
+
 - Criar uma "família" de funções `leia_<tipo>_<restrição>`, mas não falar como separar em múltiplos arquivos. Isso fica para o próximo capítulo (eu acho).
 - Ao final mostrar como o último exercício fica um pouco mais legível.
+-->
 
 ## Módulos
 

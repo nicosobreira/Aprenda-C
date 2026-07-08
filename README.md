@@ -1,8 +1,8 @@
 # Aprenda C
 
-Bem-vindo ao guia definitivo de programação em C. Este repositório foi criado com um propósito claro: **ensinar a linguagem C sem esconder o que acontece debaixo dos panos.**
+Bem-vindo a um guia de programação em C. Este repositório foi criado com um propósito claro: **ensinar a linguagem C sem esconder o que acontece debaixo dos panos.**
 
-A maioria dos materias modernos **simplificam demais** os comportamentos da linguagem, e consequentemente, de como um computador funciona. Já os materias antigos **complicam o que é simples** e trazem um rigor que afasta os iniciantes. Isso faz com que o estudante decore muita coisa, mas sem responder essas duas perguntas: **porque** as coisas são assim? E **como** elas funcionam?
+A maioria dos materiais modernos **simplificam demais** os comportamentos da linguagem, e consequentemente, de como um computador funciona. Já os materiais antigos **complicam o que é simples** e trazem um rigor que afasta os iniciantes. Isso faz com que o estudante decore muita coisa, mas sem responder essas duas perguntas: **porque** as coisas são assim? E **como** elas funcionam?
 
 Além disso, os módulos introduzem conceitos de **Arquitetura de Software** e **boas práticas**, que te guiaram a escrever melhores códigos.
 
@@ -24,25 +24,24 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 
 ## Conteúdos
 
+1. [Instalando o C](./intro/instalacao.md)
+2. [Olá, Mundo](./intro/ola-mundo.md)
 1. [O que é C?](./intro/linguagem-c.md)
-2. [Instalando o C](./intro/instalacao.md)
-3. [Olá, Mundo](./intro/ola-mundo.md)
 4. [Variáveis I](./variaveis/variaveis-1.md)
-5. [Variáveis II](./variaveis/variaveis-2.md)
-6. [Condicionais](./condicional/README.md)
-7. [Estruturas de Repetição](./repeticao/README.md)
-8. [Exercícios I](./repeticao/exercicios.md)
-9. ~~[Funções](./funcoes/README.md)~~
-10. ~~[Memória I](./memoria/um.md)~~
-11. ~~[Listas](./variaveis/lista.md)~~
-12. ~~[Matrizes](./variaveis/matriz.md)~~
-13. ~~[Strings](./variaveis/string.md)~~
-14. ~~[Structs](./variaveis/struct.md)~~
-15. ~~[Enums](./variaveis/enum.md)~~
-16. ~~[Projeto 2](./projeto/dois.md)~~
-17. ~~[Compilador](./arquivos/compilador.md)~~
-18. ~~[Múltiplos arquivos](./arquivos/header.md)~~
-19. ~~[Projeto 3](./projeto/tres.md)~~
+5. [Condicionais](./condicional/README.md)
+6. [Estruturas de Repetição](./repeticao/README.md)
+7. [Exercícios I](./repeticao/exercicios.md)
+8. ~~[Funções](./funcoes/README.md)~~
+9. ~~[Memória I](./memoria/um.md)~~
+10. ~~[Listas](./variaveis/lista.md)~~
+11. ~~[Matrizes](./variaveis/matriz.md)~~
+12. ~~[Strings](./variaveis/string.md)~~
+13. ~~[Structs](./variaveis/struct.md)~~
+14. ~~[Enums](./variaveis/enum.md)~~
+15. ~~[Projeto 2](./projeto/dois.md)~~
+16. ~~[Compilador](./arquivos/compilador.md)~~
+17. ~~[Múltiplos arquivos](./arquivos/header.md)~~
+18. ~~[Projeto 3](./projeto/tres.md)~~
 <!-- 18. [Build System]() -->
 
 ## Referência

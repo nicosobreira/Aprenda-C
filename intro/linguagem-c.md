@@ -1,5 +1,9 @@
 # O que é C?
 
+Após você ter aprendido a escrever o seu primeiro programa em C (o "Olá, Mundo!"), agora é o momento certo de entender de fato **o que é a linguagem C**, e por que ela é importante.
+
+Mas primeiro precisamos saber **o que é uma linguagem de programação**.
+
 ## Linguagem de Programação
 
 Nos, humanos, temos a capacidade de interpretar e executar diferentes tarefas, de diferentes formas, graças à nossa razão e lógica. Em contraste, o computador está limitado a lidar com apenas: zeros e uns, e um número reduzido de operações.
