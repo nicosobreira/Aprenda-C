@@ -32,7 +32,6 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 6. [Estruturas de Repetição](./repeticao/README.md)
 7. [Exercícios I](./repeticao/exercicios.md)
 8. ~~[Funções](./funcoes/README.md)~~
-9. ~~[Memória I](./memoria/um.md)~~
 10. ~~[Listas](./variaveis/lista.md)~~
 11. ~~[Matrizes](./variaveis/matriz.md)~~
 12. ~~[Strings](./variaveis/string.md)~~
