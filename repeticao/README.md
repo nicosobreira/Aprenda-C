@@ -185,7 +185,7 @@ Primeiro, tente digitar esses casos, depois veremos uma explicação.
 
 Se a entrada do usuário for algo diferente de um número inteiro, o resultado é `2`. Contudo, algo interessante acontece se substituirmos o valor inicial da variável `numero` por outro, como por exemplo `4`. Agora o resultado é `6`, ou seja, `4 + 2`.
 
-Caso a leitura do `scanf` falhar, a variável `numero` não é alterada. Com essa informação nos já poderiamos pensar em validar a entrada do usuário: se o valor inicial continuar o mesmo, então peça outra entrada para o usuário. Mas existe um jeito ainda melhor de fazer a verificação.
+Caso a leitura do `scanf` falhar, a variável `numero` não é alterada. Com essa informação nos já poderíamos pensar em validar a entrada do usuário: se o valor inicial continuar o mesmo, então peça outra entrada para o usuário. Mas existe um jeito ainda melhor de fazer a verificação.
 
 Até agora, nos ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem sucedidas**, isso é, o **total de variáveis que foram alteradas** pela função.
 
@@ -277,7 +277,7 @@ A ultima versão do código usando do `getchar` junto ao `while` *loop* para val
 
 Para tal, vamos juntar os possíveis erros de entrada em **uma única linha**, usando do operador lógico **OU**. Caso **qualquer das condições** sejam verdadeiras, o `while` *loop* vai continuar.
 
-> Usamos o `%lf` por que a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo". Se nota você `float` usariamos `%f`.
+> Usamos o `%lf` por que a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo". Se nota você `float` usaríamos `%f`.
 
 ``` c
 double nota;
@@ -299,7 +299,7 @@ printf("Parabéns por tirar %g!\n", nota);
 
 Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Nos temos que usar vários **OU**s juntos, o que dificulta a leitura. Caso seja preciso adicionar mensagens de erros mais claras, como "Digite um número maior que 0" se `numero` for menor que `0`, teríamos que verificar a condição novamente.
 
-Para resolver esse problema vamos usar outra estrutura de repetição, o **`do while`**. Primeiro vou mostrar a substuição do `while` pelo `do while`, **sem o limite de 0 a 10**:
+Para resolver esse problema vamos usar outra estrutura de repetição, o **`do while`**. Primeiro vou mostrar a substituição do `while` pelo `do while`, **sem o limite de 0 a 10**:
 
 > Não se esqueça de importar o *header* `stdbool.h`
 
@@ -372,7 +372,7 @@ printf("Parabéns por tirar %g!\n", nota);
 
 ### Retomando o exemplo da senha
 
-Por fim, vamos analisar o nosso primeiro exemplo do uso do `while` e ver como o `do while` é a estrutura de repetição ideial para **leitura de dados**.
+Por fim, vamos analisar o nosso primeiro exemplo do uso do `while` e ver como o `do while` é a estrutura de repetição ideal para **leitura de dados**.
 Retomando:
 
 ``` c
@@ -396,6 +396,8 @@ Mas como estamos lendo uma entrada do usuário, nos não temos **nada para verif
 
 O `do while` surge como uma forma de **inverter a lógica do while**, ou seja "**fazer, depois verificar**".
 O código final fica assim:
+
+> Note que a variável `resultado` foi renomeada para `r`, por simplicidade apenas.
 
 ``` c
 const int senha = 1234;
@@ -427,6 +429,3 @@ do
 
 printf("A senha está correta!\n");
 ```
-
-> Note que a variável `resultado` foi renomeada para `r`, por simplicidade apenas.
-
