@@ -52,6 +52,8 @@ O valor da variável `numero` deixa de ser `10` e passa a ser `2`.
 
 São os tipos de variáveis que são definidas por padrão pela linguagem.
 
+Nesse módulo, veremos esses tipos **sem muitos detalhes**. No entanto, no módulo [Memória 1](../memoria/um.md), veremos como o computador interpreta esses valores de verdade.
+
 ### int
 
 Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
@@ -80,11 +82,11 @@ int main()
 ```
 
 Esse `%` é o padrão adotado pela função `printf` para lidar com os diferentes tipos de variáveis que podem ser exibidas. Ele indica que o valor a ser imprimido vem de uma variável de um tipo específico.
-O caracter ao lado do `%` representa o tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
+O carácter ao lado do `%` representa o tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
 
 #### Operações
 
-Nos também podemos fazer **operações aritiméticas** entre variáveis e números. São elas:
+Nos também podemos fazer **operações aritméticas** entre variáveis e números. São elas:
 
 - **Soma**: `int resultado = 20 + 10`
 - **Subtração**: `int resultado = 1 - 10`
@@ -96,28 +98,15 @@ Nos também usamos parênteses `( )` para indicar a ordem de importância das op
 
 ### float / double
 
-Tanto o `float` quanto o `double` representam números reais. Ambos utilizam do padrão IEEE 754 para a representação em binário.
+Tanto o `float` quanto o `double` representam números reais, aqueles com casas depois da vírgula.
 
-Esse padrão divide um binário com 32 ou 64 bits em três partes, são elas:
-- Sinal, 0 para positivo e 1 para negativo.
-- Expoente, expoente da notação científica.
-- Mantissa, valor em notação científica.
-
-#### Single Precision
-
-São usados 32 bits para armazenar o valor de um número real.
-Em C esse tipo é chamado de `float`.
+O tipo `float` usa menos bits representar um número real, e por isso apresentam menor precisão.
 
 ```c
 float media_f = 6.72;
 ```
 
-Note que usamos o ponto ao invés da vírgula para separar as casas decimais.
-
-#### Double Precision
-
-Ao invés de 32 bits, são usados 64 bits.
-Em C esse tipo é chamado de `double`.
+Já o `double` apresenta uma maior precisão, por usar mais bits.
 
 ```c
 double media_d = 3.2;
@@ -148,9 +137,9 @@ Até podemos arrendondar o número com:
 printf("Média: %.0f", media_d);
 ```
 
-Também existem outros formatadores para `float` e `double`. Caso você queira ignorar todos zeros a direita do número, use o `%g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `15.00`, usando o `%g`, será exibido apenas `15`.
+Também existem outros formatadores para `float` e `double`. Caso você queira ignorar os zeros desnecessários (que ficam a esquerda do número), use o `%g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `15.00`, usando o `%g`, será exibido apenas `15`.
 
-#### Qual tipo usar?
+#### Qual tipo usar: float ou double?
 
 Se você estiver trabalhando em um projeto para computadores modernos (64 bits), prefira o `double`, já que ele apresenta uma maior precisão por um custo desprezível de performance.
 
@@ -162,7 +151,7 @@ Representa um único carácter, como uma letra do alfabeto ou um sinal de pontua
 char caracter = 'a';
 ```
 
-Ao invés de usarmos aspas duplas, usamos as aspas simples, mas por quê? Veremos isso com mais detalhes em [Strings](../variaveis/string.md), mas já pincelando, a linguagem C diferencia um único carácter de uma string com o uso das aspas simples.
+Ao invés de usarmos aspas duplas, usamos as aspas simples, mas por quê? Veremos isso com mais detalhes em [Strings](../variaveis/string.md), mas já pincelando, a linguagem C diferencia um único carácter de um texto - conjunto de caracteres - com o uso das aspas simples.
 
 Tá lembrado no começo do capítulo, quando discutimos como o binário `0011 0101` (ou 53 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
 
@@ -201,13 +190,13 @@ Chamamos os estados **verdadeiro** e **falso** de `true` e `false`, respectivame
 
 ## Regras de Nomenclatura
 
-Essas regras são válidas para todos **indentificadores** da linguagem C, não somente para variáveis.
+Essas regras são válidas para todos **identificadores** da linguagem C, não somente para variáveis.
 
 - São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
 - Não é permitido começar com um dígito.
 - Não é permitido ter acento
-- A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, o compilador vê as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
-- Você não pode usar nomes de comandos internos da linguagem. Palavras como `int`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções.
+- A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
+- Você não pode usar nomes de comandos internos da linguagem. Palavras como `int`, `double`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções.
 
 ## Constantes
 
@@ -223,24 +212,38 @@ const double pi = 3.14;
 printf("Pi vale aproximadamente %f\n", pi);
 ```
 
-Se tentarmos alterar o valor de `pi`, teremos um erro na compilação:
+Se tentarmos alterar o valor de `pi` após sua declaração, teremos um erro na compilação:
 
 ``` c
 const double pi = 3.14;
 
-pi = 30.1;
+pi = 3.14159;
 
 printf("Pi vale aproximadamente %f\n", pi);
 ```
 
-Usamos variáveis constantes para dar um **nome compreensível**, evitando o uso de comentários. Além disso, se amanhã nos precisarmos aumentar a presição da constante `pi`, isso é, aumentar o número de casas depois da vírgula, nos só precisamos alterar em **um lugar** - se não usassemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo.
+Usamos variáveis constantes para dar um **nome compreensível**, evitando o uso de comentários. Além disso, se amanhã nos precisarmos aumentar a precisão da constante `pi`, isso é, aumentar o número de casas depois da vírgula, nos só precisamos alterar em **um lugar** - se não usássemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo.
 
 ### Boas práticas
 
 Evite nomes misteriosos para as suas variáveis. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve transmitir parte da sua função dentro do código.
 
-Evite o encurtamento dos nomes, como escrever `int vfinal;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar, daqui a um mês, quando precisar mudar o código denovo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
+Evite o encurtamento dos nomes, como escrever `int v_final;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar, daqui a um mês, quando precisar mudar o código de novo, os nomes mais claros te ajudaram a relembrar a lógica do código. Por isso, não se prenda a regra de apenas 8 caracteres!
 
 Ao longo do guia, veremos ainda mais casos de como melhorar a sua nomenclatura. Enquanto estava aprendendo a programar, achava difícil pensar em bons nomes para as coisas. Se você se sente assim, recomendo utilizar Inteligência Artificial para ter ideias de como nomear.
 
-Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão. Nesse caso, inicializamos a variável `numero` com o valor `0`. Escreva apenas `int numero;` e rode o programa **mais de uma vez**. Você verá que a variável `numero` armazena valores aleatórios. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por ora, sempre inicialize suas variáveis para evitar usar valores aleatórios acidentalmente.
+Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão. Como `0` ou `1` para o tipo `int`. Escreva esse programa e **rode ele mais de uma vez**:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    int numero;
+
+    printf("número = %d\n", numero);
+    return 0;
+}
+```
+
+Você verá que a variável `numero` armazena valores aleatórios. O motivo disso ficará claro em [Ponteiros](../ponteiros/README.md), por ora, sempre inicialize suas variáveis para evitar usar valores aleatórios acidentalmente.
