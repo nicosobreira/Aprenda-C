@@ -1,6 +1,6 @@
 # Variáveis I
 
-> As variáveis servem para armazenar valores. Esses valores são armazenados na memória RAM do computador.
+> São usadas para **armazenar** valores.
 
 Para entendermos as variáveis em C, primeiro precisamos destrinchar a frase: "O computador só entende 0 e 1". Essa frase diferencia o modo com que os humanos e as máquinas interpretam informações. Enquanto nós temos uma consciência, a máquina está limitada a lidar com níveis baixos e altos de voltagem para representar informações, 0 e 1 respectivamente.
 
@@ -9,11 +9,11 @@ Entender que no final das contas toda a informação que passa pelo computador �
 Tomamos o binário `0011 0101` como exemplo. Quando o computador olha para o binário, ele não tem a menor ideia do que ele significa.
 Para a máquina, a sequência `0011 0101` é apenas um dado bruto. No entanto, se nos mandarmos o computador interpretar isso como um número inteiro, o valor é 53.
 
-É por isso que demos que deixar claro para o computador como a informação deve ser processada
+É por isso que demos que deixar claro para o computador como a informação deve ser processada a partir dos **tipos**.
 
 ## Declaração
 
-Declarar o tipo da variável nada mais é do que mostrar para o computador como um binário deve ser chamado (nome) e como teve ser interpretado (tipo).
+Declarar a variável nada mais é do que mostrar para o computador como um número binário deve ser chamado (nome) e como teve ser interpretado (tipo).
 
 Em C, usamos:
 
@@ -33,7 +33,8 @@ O nome da variável mudou de `numero` para `palavra`, mas o seu tipo continua se
 
 ## Atribuição
 
-Para **alterar o valor** de um variável usamos do `=`. Por exemplo:
+Para **alterar o valor** de um variável usamos do `=`.
+A seguir nos **inicializamos** a variável `numero` com o valor `10`:
 
 ``` c
 int numero = 10;
@@ -44,6 +45,8 @@ int numero = 10;
 ``` c
 numero = 2;
 ```
+
+O valor da variável `numero` deixa de ser `10` e passa a ser `2`.
 
 ## Tipos Primitivos
 
@@ -57,7 +60,7 @@ Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
 int idade = 18;
 ```
 
-Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada no *header* `stdio`.
+Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `<stdio.h>`.
 
 A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é um texto, mas os outros podem ser variáveis de qualquer tipo primitivo e são usados para imprimir os valores das variáveis no terminal.
 
