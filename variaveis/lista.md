@@ -6,3 +6,4 @@
     - `int array[30]`, por que `array[100]` não retorna um erro?
     - Conectar o operador `&` com o `scanf` do capítulo [Repetição](../repeticao/README.md)
 - O array é uma alavanca para entender a memória
+

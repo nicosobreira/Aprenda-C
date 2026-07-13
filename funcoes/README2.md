@@ -249,15 +249,68 @@ void saudar(char *nome) // Definição
 
 Chamamos o `void saudar(char *nome);` de **declaração** da função, e o bloco com o corpo completo de **definição** ou **implementação** da função. Isso permite organizar nosso código na ordem que fizer mais sentido para a leitura, geralmente dessa forma:
 
-1. Os diversos `#include <>`
+1. Importação dos header files com `#include <>`.
+2. Variáveis globais e constantes.
+3. Declaração das funções.
+4. Função `main`.
+5. E por último, as definições das funções.
 
 ## Retomando a leitura de números
 
-Lembra do problema de copia e cola que apontamos nos exercícios anteriores? Agora podemos esconder a leitura de dados em diferentes funções.
+Lembra do problema de copia e cola que apontamos nos exercícios anteriores? Agora, podemos **centralizar** a leitura de dados do usuário em algumas funções, e usá-las em nossos programas.
+
+Primeiro, vamos criar uma função muito simples, chamada `leia_int`, que vai apenas validar se o número que o usuário digitou é um inteiro, e não um texto. A definição da função fica assim:
+
+``` c
+int leia_int(void)
+{
+    int numero;
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%d", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+```
+
+Note que não exibimos nenhuma mensagem instruindo o usuário o que ele deve digitar. O motivo disso é para permitir mensagens personalizadas que **utilizam os formatadores do `printf`** na hora em que **chamamos** a função, por exemplo:
+
+
+``` c
+char *nome = "Pedro";
+
+printf("Qual é a sua idade %s?\n", nome);
+int idade = leia_int();
+```
+
+Ou sem nenhum formatador:
+
+``` c
+printf("Digite um número inteiro.\n");
+int inteiro = leia_int();
+```
+
+
 
 <!--
 TODO: Completar esses pontos!
-
+- Falar do por que é necessário colocar o tipo na declaração (sem overloading)
 - Criar uma "família" de funções `leia_<tipo>_<restrição>`, mas não falar como separar em múltiplos arquivos. Isso fica para o próximo capítulo (eu acho).
 - Ao final mostrar como o último exercício fica um pouco mais legível.
 -->

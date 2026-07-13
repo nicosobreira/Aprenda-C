@@ -222,7 +222,7 @@ pi = 3.14159;
 printf("Pi vale aproximadamente %f\n", pi);
 ```
 
-Usamos variáveis constantes para dar um **nome compreensível**, evitando o uso de comentários. Além disso, se amanhã nos precisarmos aumentar a precisão da constante `pi`, isso é, aumentar o número de casas depois da vírgula, nos só precisamos alterar em **um lugar** - se não usássemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo.
+Se amanhã nos precisarmos aumentar a precisão da constante `pi`, isso é, aumentar o número de casas depois da vírgula, nos só precisamos alterar em **um lugar** - se não usássemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo.
 
 ### Boas práticas
 

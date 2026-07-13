@@ -1,6 +1,35 @@
 # Condicionais: Exercícios
 
-* Explicar o padrão de Entrada e Saída nos exercícios a seguir.
+Como ainda não sabemos como pedir dados para os usuários enquanto o programa está em execução, vamos utilizar um padrão de **entrada** e **saída** para os exercícios.
+
+Os exercícios vão **dar as entradas** e pedir para você criar uma solução entre o comentário `// Saída:` e o `return 0;`.
+
+## Exemplo
+
+> Enunciado.
+
+Exiba a soma de dois números inteiros `a` e `b`.
+
+> O que o exerício vai dar.
+
+``` c
+int main(void)
+{
+    // Entrada:
+
+    int a = 0;
+    int b = 0;
+
+    // Saída:
+
+    return 0;
+}
+```
+
+> A resposta do exercício.
+
+<details>
+<summary>Clique aqui para ver a resposta</summary>
 
 ``` c
 int main(void)
@@ -20,16 +49,32 @@ int main(void)
 }
 ```
 
+</details>
+
 ## 1. Classificador de Idade
 
-Crie um programa que:
+Crie um programa que receba a idade de uma pessoa como entrada e classifique a categoria correspondente, como saída, de acordo com as regras a seguir:
 
-1. Receba a idade de uma pessoa como entrada.
-2. Classifique e imprima a categoria correspondente, como saída, de acordo com as regras a seguir:
-    - **Infantil**: Menor que 12 anos.
-    - **Juvenil**: De 12 a 17 anos.
-    - **Adulto**: De 18 a 59 anos.
-    - **Idoso**: De 60 anos ou mais.
+- **Infantil**: Menor que 12 anos.
+- **Juvenil**: De 12 a 17 anos.
+- **Adulto**: De 18 a 59 anos.
+- **Idoso**: De 60 anos ou mais.
+
+``` c
+int main(void)
+{
+    // Entrada:
+
+    int idade = 0;
+
+    // Saída:
+
+    return 0;
+}
+```
+
+<details>
+<summary>Clique aqui para ver a resposta</summary>
 
 ``` c
 #include <stdio.h>
@@ -67,7 +112,42 @@ int main(void)
 }
 ```
 
+</details>
+
 ## 2. Aprovação Escolar
+
+Crie um programa que receba quatro notas de um aluno, calcule a **média ponderada** das notas, seguindo os seguintes pesos:
+
+| Nota | Peso |
+| :-:  | :-   |
+| 1    | 4    |
+| 2    | 2    |
+| 3    | 2    |
+| 4    | 1    |
+
+Mostre essa média e depois informe se esse aluno:
+
+1. Passou, caso a média seja maior ou igual a 6.
+2. Reprovou, caso a média seja menor ou igual a 4.
+3. Está de recuperação, caso contrário.
+
+> Pulei a definição da função `main`, mas você deve colocar.
+
+``` c
+// Entrada:
+
+double nota1 = 0.0;
+double nota2 = 0.0;
+double nota3 = 0.0;
+double nota4 = 0.0;
+
+// Saída:
+
+return 0;
+```
+
+<details>
+<summary>Clique aqui para ver a resposta</summary>
 
 > Não se esqueça de colocar `#include <stdio.h>` para usar a função `printf`!
 
@@ -83,12 +163,12 @@ int main(void)
 
     // Saída:
 
-    const double nota_aprovado = 7.0;
-    const double nota_reprovado = 5.0;
+    const double media_aprovado = 6.0;
+    const double media_reprovado = 4.0;
 
     const double peso1 = 4;
     const double peso2 = 2;
-    const double peso3 = 3;
+    const double peso3 = 2;
     const double peso4 = 1;
 
     double pesos = peso1 + peso2 + peso3 + peso4;
@@ -97,11 +177,11 @@ int main(void)
 
     printf("A média do aluno foi: %.2f\n", media);
 
-    if (media >= nota_aprovado)
+    if (media >= media_aprovado)
     {
         printf("Aprovado.\n");
     }
-    else if (media <= nota_reprovado)
+    else if (media <= media_reprovado)
     {
         printf("Reprovado.\n");
     }
@@ -114,17 +194,36 @@ int main(void)
 }
 ```
 
+</details>
+
 ## 3. Triângulo
 
-> Coloque o código dentro da função `main`, não se esqueça do `return 0;` ao final.
+Crie um programa que verifique se três retas formam um triângulo, seguindo a seguinte regra: **para todo lado do triângulo, a soma de dois lados deve ser maior que o terceiro**. As retas são valores inteiros.
 
-```c
+Caso as retas **não formem** um triângulo, mostre uma mensagem de erro e retorne `-1` da função `main`.
+
+Caso as retas **formem** um triângulo, classifique-o seguindo essas regras:
+
+- Se todos os lados são iguais, então o triângulo é equilátero.
+- Se pelo menos dois dos lados são iguais, então ele é isósceles.
+- Senão, ele é escaleno.
+
+> Não se esqueça de criar a função `main`!
+
+``` c
 // Entrada
 
 int a = 0;
 int b = 0;
 int c = 0;
+```
 
+<details>
+<summary>Clique aqui para ver a resposta</summary>
+
+> Coloque o código dentro da função `main`, não se esqueça do `return 0;` ao final.
+
+```c
 // Saída
 
 if (a + b > c && a + c > b && b + c > a)
@@ -150,3 +249,5 @@ else
     printf("É um triângulo Escaleno!\n");
 }
 ```
+
+</details>

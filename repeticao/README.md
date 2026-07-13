@@ -375,6 +375,8 @@ printf("Parabéns por tirar %g!\n", nota);
 Por fim, vamos analisar o nosso primeiro exemplo do uso do `while` e ver como o `do while` é a estrutura de repetição ideal para **leitura de dados**.
 Retomando:
 
+> Lembre-se de que o `//` é um comentário. Aqui ele serve para indicar o resto do while loop.
+
 ``` c
 const int senha = 1234;
 int tentativa = 0;
