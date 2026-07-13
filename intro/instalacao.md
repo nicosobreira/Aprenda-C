@@ -1,8 +1,8 @@
 # Instalando o C
 
-Quando falo em "instalar o C", me refiro a instalar um **compilador** da linguagem - que é um programa usado para rodarmos nossos programas escritos em C. Ao longo do guia, vamos usar o compilador chamado GCC.
+Quando falo em "instalar o C", me refiro a instalar um **compilador** da linguagem (veremos o que é um compilador em [O que é C?](./linguagem-c.md)). Ao longo do guia, vamos usar o compilador chamado GCC.
 
-Também vamos instalar o Visual Studio Code, também chamado de VS Code, para escrever os códigos ao longo do guia.
+Também vamos instalar o Visual Studio Code, também chamado de VS Code, para escrever os códigos.
 
 Siga os passos dependendo do sistema operacional que está usando: Windows, Linux ou macOS.
 
@@ -10,7 +10,7 @@ Siga os passos dependendo do sistema operacional que está usando: Windows, Linu
 
 ### Instalando o GCC pelo PowerShell
 
-> Não confunda com o "Prompt de Comando". O PowerShell é o terminal mais atualizado do Windows, e portanto, vou usá-lo para instalar o GCC e Visual Studio Code.
+> Não confunda com o "Prompt de Comando". O PowerShell é o terminal mais atualizado do Windows.
 
 Vamos usar o PowerShell, o terminal padrão do Windows, para instalar o GCC. A Microsoft oferece `winget`, um gerenciador de pacotes que já vem instalado no Windows 10 e 11 por padrão.
 
@@ -26,13 +26,11 @@ Se aparecer um número de versão, como `v1.7.10582`, pode seguir para o próxim
 
 #### Passo 2: Instalando o GCC
 
-Vamos instalar o **WinLibs**, uma distribuição do GCC e do MinGW-w64 - os **compiladores** que vamos usar.
+Vamos instalar o **WinLibs**.
 
 ``` powershell
 winget install --id BrechtSanders.WinLibs.POSIX.UCRT -e
 ```
-
-> O `-e` (de "exact") garante que o winget instale exatamente esse pacote, e não outro parecido.
 
 Esse comando baixa e extrai o compilador em uma pasta do seu computador, **normalmente** em `C:\Program Files\WinLibs\...`. Dentro dessa pasta, procure por uma subpasta chamada `mingw64\bin` (ou `mingw32\bin`, dependendo da versão baixada) — é ela que contém o arquivo `gcc.exe`. **Anote o caminho para essa pasta.**
 
@@ -62,17 +60,15 @@ Se aparecer o número da versão do GCC instalado, a instalação deu certo, e o
 
 ### Instalando o VS Code pelo PowerShell
 
-O processo é parecido com o do GCC, só que mais simples, já que o VS Code é um instalador de verdade (não um pacote "portátil"), e por isso ele mesmo já cuida de se adicionar ao PATH.
+O processo é parecido com o do GCC, só que mais simples.
 
 #### Passo 1: Instalando o Visual Studio Code
 
-Após verificar se a instalação do GCC ocorreu corretamente, ainda no PowerShell, rode:
+Ainda no PowerShell, rode:
 
 ``` powershell
 winget install --id Microsoft.VisualStudioCode -e
 ```
-
-> Assim como no GCC, o `-e` garante que estamos instalando exatamente esse pacote.
 
 #### Passo 2: Verificando a instalação
 
