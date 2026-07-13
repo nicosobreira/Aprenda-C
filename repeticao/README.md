@@ -277,7 +277,7 @@ A ultima versão do código usando do `getchar` junto ao `while` *loop* para val
 
 Para tal, vamos juntar os possíveis erros de entrada em **uma única linha**, usando do operador lógico **OU**. Caso **qualquer das condições** sejam verdadeiras, o `while` *loop* vai continuar.
 
-> Usamos o `%lf` por que a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo". Se nota você `float` usaríamos `%f`.
+> Usamos o `%lf` por que a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo". Se nota fosse `float` usaríamos `%f`.
 
 ``` c
 double nota;
