@@ -14,6 +14,8 @@ Siga os passos dependendo do sistema operacional que está usando: Windows, Linu
 
 Vamos usar o PowerShell, o terminal padrão do Windows, para instalar o GCC. A Microsoft oferece `winget`, um gerenciador de pacotes que já vem instalado no Windows 10 e 11 por padrão.
 
+Cole os comandos com o atalho `Ctrl + Shift + v`.
+
 #### Passo 1: Verificando o winget
 
 Abra o PowerShell (aperte a tecla `Win`, digite "PowerShell" e aperte `Enter`). Para conferir se o `winget` está disponível, rode:
@@ -70,9 +72,9 @@ Dentro do bloco de notas (*notepad*) coloque:
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 
-### Instalando o VS Code pelo PowerShell
+Feche o terminal atual e abre um novo PowerShell.
 
-O processo é parecido com o do GCC, só que mais simples.
+### Instalando o VS Code pelo PowerShell
 
 #### Passo 1: Instalando o Visual Studio Code
 
@@ -92,8 +94,6 @@ code --version
 
 Se aparecerem três linhas (a versão do VS Code, um código de commit e a arquitetura, como `x64`), a instalação deu certo.
 
-> Diferente do GCC, aqui você não precisa mexer manualmente no PATH: o instalador do VS Code já se encarrega disso, adicionando o comando `code` automaticamente durante a instalação.
-
 #### Passo 3: Instalando a extensão de C/C++
 
 Já que estamos no terminal, também é possível instalar a extensão de C/C++ (da Microsoft) sem precisar abrir o VS Code e navegar até a loja de extensões:
@@ -104,17 +104,17 @@ code --install-extension ms-vscode.cpptools
 
 #### Passo 4: Abrindo uma pasta de projeto
 
-Para testar se tudo está funcionando junto, crie uma pasta para praticar e abra ela diretamente no VS Code, pelo terminal:
+Para testar se tudo está funcionando, vamos criar uma pasta chamada `aprenda-c`, em `Documents`. Vamos usar essa pasta ao longo do guia.
 
 ``` powershell
-mkdir aprenda-c
-cd aprenda-c
+mkdir ~/Documents/aprenda-c
+cd ~/Documents/aprenda-c
 code .
 ```
 
 > O `code .` abre a pasta atual (representada pelo `.`) no VS Code. Essa pasta se torna o seu **workspace**, e é dentro dela que o VS Code vai guardar as configurações de compilação que criamos mais para frente, na pasta `.vscode`.
 
-Se o VS Code abrir mostrando a pasta `aprenda-c` no Explorador de Arquivos, à esquerda, está tudo certo: o compilador e o editor já estão prontos para o restante do guia.
+Se o VS Code abrir mostrando a pasta `aprenda-c` no Explorador de Arquivos, à esquerda, está tudo certo: o compilador e o editor já estão prontos para o restante do guia. A partir de agora, use o PowerShell **dentro do VS Code**.
 
 ## No Linux
 
