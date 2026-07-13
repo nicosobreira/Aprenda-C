@@ -31,7 +31,7 @@ code main.c
 
 Se o arquivo `main.c` ainda não existir, o VS Code o cria automaticamente e já abre ele para edição. Esse comando, `code <arquivo>`, vai valer para o resto do guia: sempre que um capítulo pedir para criar um arquivo, use-o dentro da pasta certa.
 
-Por ora, escreva isso dentro de `main.c`:
+Por ora, copie e cole isso dentro de `main.c`:
 
 ``` c
 int main(void)
@@ -44,43 +44,37 @@ Esse é um programa que **não faz nada**, só é necessário para o próximo pa
 
 ## Compilando com o GCC
 
-Escrever o código é só metade do caminho: o computador não entende C diretamente, então precisamos **traduzir** o arquivo `main.c` para um executável, usando o compilador instalado anteriormente, o `gcc`.
+O computador não entende C diretamente, então precisamos **traduzir** o arquivo `main.c` para um executável, usando o compilador instalado anteriormente, o `gcc`.
 
 Ainda no terminal, dentro da pasta `intro`, e com o `main.c` já salvo, rode:
 
 ``` bash
-gcc -o app main.c
+gcc -o main main.c
 ```
 
 Vamos entender essa linha, pedaço por pedaço:
 
 - `gcc`: é o programa que vai compilar o código.
 - `main.c`: é o arquivo de código-fonte que queremos compilar.
-- `-o app`: diz ao `gcc` qual nome deve ser dado ao **executável gerado**. Sem essa opção, o `gcc` usaria um nome genérico. Aqui, escolhemos chamar o nosso de `app`.
+- `-o main`: diz ao `gcc` qual nome deve ser dado ao **executável gerado**. Sem essa opção, o `gcc` usaria um nome genérico. Aqui, escolhemos chamar o nosso de `main`, mas poderia ser qualquer outro.
 
-> No Windows, o `gcc` adiciona a extensão `.exe` automaticamente ao nome escolhido, então o executável se chamará `app.exe`, mesmo você tendo digitado só `app` no comando.
+> No Windows, o `gcc` adiciona a extensão `.exe` automaticamente ao nome escolhido, então o executável se chamará `main.exe`, mesmo você tendo digitado só `main` no comando.
 
-Se tudo ocorrer bem, esse comando **não imprime nada** no terminal, apenas cria o arquivo executável na mesma pasta. Se houver algum erro no seu código, o gcc vai mostrar mensagens indicando a linha e o motivo do erro — leia-as com calma, é assim que vamos aprender a interpretar erros de compilação ao longo do guia.
+Se tudo ocorrer bem, esse comando **não imprime nada** no terminal, apenas cria o arquivo executável na mesma pasta. Se houver algum erro no seu código, o `gcc` vai mostrar mensagens indicando a linha e o motivo do erro.
 
 ## Executando o Programa
 
 Por fim, para rodar o programa que acabamos de compilar:
 
-No Linux e no macOS:
-
 ``` bash
-./app
+./main
 ```
 
-No Windows (PowerShell):
+> Repare no `./` antes do nome do executável. Isso indica ao terminal que o programa está na **pasta atual**, e não em algum outro lugar do sistema. Sem esse prefixo, o terminal não vai encontrar o `main`.
 
-``` powershell
-.\app.exe
-```
+Nesse caso, o nosso programa **deve fazer nada** mesmo.
 
-> Repare no `./` (ou `.\`) antes do nome do executável. Isso indica ao terminal que o programa está na **pasta atual**, e não em algum outro lugar do sistema. Sem esse prefixo, o terminal não vai encontrar o `app`.
-
-Esse ciclo — **editar com `code`, compilar com `gcc`, executar com `./app`** — vai se repetir em praticamente todo capítulo do guia, então vale a pena se acostumar com ele desde já.
+O ciclo de **editar com `code`, compilar com `gcc`, executar com `./main`** — vai se repetir em praticamente todo capítulo do guia, então vale a pena se acostumar com ele desde já.
 
 ---
 
@@ -113,12 +107,12 @@ O `.h` é um apelido para *header*, em português **cabeçalho**. Veremos o cont
 
 É uma função especial dentro do C; ela é o **ponto inicial** de nosso programa, por isso do nome "main", do inglês, principal.
 
-O `int` é usado para indicar que essa função retornará um valor do tipo inteiro em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números normalmente indicam diferentes erros.
+O `int` é usado para indicar que essa função retornará um valor do tipo inteiro em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
 O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, o programa fechará imediatamente e o texto nunca será exibido.
 
 Dentro dos parênteses são colocados os parâmetros da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando o programa iniciar. Diferentemente das outras funções, o `main` é executado automaticamente ao rodarmos o nosso programa.
+Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando função ser chamada, ou seja, o programa ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
 
 ### Formatação do código
 
@@ -134,13 +128,32 @@ E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemo
 
 ## printf
 
-A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nos veremos os diferentes tipos de formatação em [Variáveis](./../variaveis/primitivas.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
+A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nos veremos os diferentes tipos de formatação em [Variáveis](../variaveis/variaveis-1.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
 
 Nos precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
 
 O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro.
 
-Lembre-se que nós só podemos executar a função `printf` **depois** que importamos sua definição com o uso do `#include <stdio.h>`.
+Vamos ver a saída do comando `gcc -o main main.c` quando esquecemos de colocar o `;` ao final do `printf`:
+
+> O símbolo `$` representa o comando que acabou de ser executado, abaixo é a sua saída.
+
+```
+$ gcc -o main main.c
+main.c: In function ‘main’:
+main.c:5:28: error: expected ‘;’ before ‘return’
+    5 |     printf("Olá, Mundo!\n")
+      |                            ^
+      |                            ;
+    6 |
+    7 |     return 0;
+      |     ~~~~~~
+
+```
+
+A primeira linha indica que tem algo de estranho dentro da função `main` no arquivo `main.c`. Em seguida, existe um erro na linha 5, coluna 28, do arquivo `main.c`, indicado pelo `main.c:5:28: error`. Após o `error`, temos a explicação do erro, que no caso é o ponto e vírgula (`;`) esperado antes do `return`.
+
+Na saída do comando, entre o `printf` (`5 |`) e o `return` (`7 |`), o compilador nos sugere adicionar um `;` ao final do `printf`, o que corrige o erro.
 
 ### Biblioteca Padrão
 
@@ -148,8 +161,30 @@ Você deve estar se perguntando: de onde vem a função `printf`? Nós não escr
 
 A resposta é a **Biblioteca Padrão do C**: um conjunto de funções prontas que já vêm junto com a linguagem, para tarefas comuns, como exibir texto na tela ou ler dados do usuário. Pense nela como uma caixa de ferramentas: ao invés de cada programador precisar inventar sua própria forma de escrever no terminal, a Biblioteca Padrão já oferece essa ferramenta pronta, chamada `printf`, para todo mundo usar.
 
-Essas ferramentas ficam organizadas em arquivos chamados de ***headers*** (do inglês, "cabeçalhos"), reconhecidos pela extensão `.h`. Cada header guarda um grupo de funções parecidas entre si. O header `stdio.h`, por exemplo, guarda as funções de entrada e saída (*i*nput/*o*utput), como o `printf` e o `scanf`.
+Essas ferramentas ficam organizadas em arquivos chamados de ***headers*** (do inglês, "cabeçalhos"), reconhecidos pela extensão `.h`. Cada header guarda um grupo de funções parecidas entre si. O header `stdio.h`, por exemplo, guarda as funções de entrada e saída (**i**nput/**o**utput), como o `printf` e o `scanf`.
 
 O `#include <stdio.h>` é o que **libera o uso** dessas funções no nosso código. Sem essa linha, o compilador não saberia o que é `printf`, e o programa não compilaria.
 
 > Falaremos sobre o porquê de usarmos os símbolos `<>` mais para frente.
+
+Vamos ver o erro que o compilador ira dar caso o `#include <stdio.h>` não esteja presente em `main.c`:
+
+```
+$ gcc -o main main.c
+main.c: In function ‘main’:
+main.c:3:5: error: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
+    3 |     printf("Olá, Mundo!\n");
+      |     ^~~~~~
+main.c:1:1: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+  +++ |+#include <stdio.h>
+    1 | int main(void)
+main.c:3:5: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
+    3 |     printf("Olá, Mundo!\n");
+      |     ^~~~~~
+main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+
+```
+
+O compilador notifica um erro na linha 3, coluna 5 (`main.c:3:5`), falando que a função `printf` foi **implicitamente declarada**. Veja que logo abaixo, o próprio compilador já nos dá a solução do problema em `note: include ‘<stdio.h>‘`
+
+> O que é uma função implicitamente declarada ficará claro em [Funções](../funcoes/README.md).
