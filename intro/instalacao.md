@@ -24,31 +24,27 @@ winget --version
 
 Se aparecer um número de versão, como `v1.7.10582`, pode seguir para o próximo passo. Caso apareça um erro dizendo que o comando não foi encontrado, você precisa instalar o aplicativo "App Installer" pela Microsoft Store antes de continuar.
 
-#### Passo 2: Instalando o GCC
+#### Passo 2: Atualizando o PowerShell
 
-Vamos instalar o **WinLibs**.
-
-``` powershell
-winget install --id BrechtSanders.WinLibs.POSIX.UCRT -e
-```
-
-Esse comando baixa e extrai o compilador em uma pasta do seu computador, **normalmente** em `C:\Program Files\WinLibs\...`. Dentro dessa pasta, procure por uma subpasta chamada `mingw64\bin` (ou `mingw32\bin`, dependendo da versão baixada) — é ela que contém o arquivo `gcc.exe`. **Anote o caminho para essa pasta.**
-
-#### Passo 3: Adicionando o compilador ao PATH
-
-Diferente de outros programas, o `gcc.exe` não fica disponível automaticamente em qualquer lugar do terminal. Precisamos avisar ao Windows onde encontrá-lo, adicionando a pasta `bin` do compilador à variável de ambiente PATH.
-
-Ainda no PowerShell, rode o comando abaixo, trocando o caminho pelo caminho da pasta `bin` que você anotou no passo anterior, caso eles sejam diferentes:
+A versão do PowerShell deve ser a 7, esse comando vai atualizar o PowerShell.
 
 ``` powershell
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\WinLibs\mingw64\bin", "User")
+winget install --id Microsoft.PowerShell --exact
 ```
 
-> Repare no último argumento, `"User"`. Ele indica que a mudança vale apenas para a sua conta de usuário, e não para o sistema inteiro, o que significa que você **não precisa de permissões de administrador** para rodar esse comando. Além disso, essa mudança é permanente: continua valendo mesmo depois de reiniciar o computador.
+Feche o terminal atual e abre um novo PowerShell.
+
+#### Passo 3: Instalando o GCC
+
+``` powershell
+winget install --id BrechtSanders.WinLibs.POSIX.UCRT --exact
+```
+
+Caso tudo der certo, no final da instalação, deve-se falar que diversos "alias" foram criados.
 
 #### Passo 4: Verificando a instalação
 
-Feche a janela do PowerShell e abra uma nova — o PATH atualizado só é reconhecido em terminais abertos **depois** da mudança. Em seguida, rode:
+Feche o terminal atual e abre um novo PowerShell.
 
 ``` powershell
 gcc --version
@@ -56,7 +52,23 @@ gcc --version
 
 Se aparecer o número da versão do GCC instalado, a instalação deu certo, e o compilador já está pronto para ser usado, inclusive dentro do VS Code.
 
-> Se o comando não for reconhecido, revise o caminho usado no Passo 3. É comum errar o nome exato da subpasta (`mingw64` em vez de `mingw32`, por exemplo), então volte na pasta de instalação e confirme o caminho certo.
+### Configurando o PowerShell
+
+Para que nossos programas consigam mostrar **caracteres com acentos** dentro do PowerShell, é necessário configurá-lo.
+
+#### Passo 1: Abrindo o Profile
+
+``` powershell
+notepad $PROFILE
+```
+
+#### Passo 2: Editando o Profile
+
+Dentro do bloco de notas (*notepad*) coloque:
+
+``` powershell
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+```
 
 ### Instalando o VS Code pelo PowerShell
 
@@ -67,7 +79,7 @@ O processo é parecido com o do GCC, só que mais simples.
 Ainda no PowerShell, rode:
 
 ``` powershell
-winget install --id Microsoft.VisualStudioCode -e
+winget install --id Microsoft.VisualStudioCode --exact
 ```
 
 #### Passo 2: Verificando a instalação
