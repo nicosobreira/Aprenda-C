@@ -4,94 +4,120 @@ Já estamos usando diversas funções, como a `main`, a `printf` e a `scanf`, e 
 
 ## Declarando uma função
 
-Toda função possui três partes: um **tipo de retorno**, um **nome** e uma lista de **parâmetros**, entre parênteses. Vamos começar com o caso mais simples: uma função que não recebe nada e não retorna nada.
+Agora, vamos entender o exemplo da **entrada da festa** que vimos em [Negação](../condicional/README.md#negacao). Aqui está a função `entrar_na_festa`, caso tenha esquecido.
 
 ``` c
 #include <stdio.h>
+#include <stdbool.h>
 
-void saudar(void)
+void entrar_na_festa(bool tem_convite)
 {
-    printf("Olá! Seja bem-vindo(a)!\n");
-}
+    if (!tem_convite)
+    {
+        printf("Você não tem convite! Rala!\n");
+        return;
+    }
 
+    printf("Seja bem-vindo!\n");
+    printf("Pode escolher uma mesa aqui.\n");
+    printf("O banheiro fica a direita.\n");
+    printf("Tenha uma boa noite!\n");
+}
+```
+
+A linha `void entrar_na_festa(bool tem_convite)` é chamada de **assinatura** da função `entrar_na_festa`. A assinatura é separada em partes: primeiro vem o **tipo de retorno**, depois o **nome** da função, por último - entre parênteses - ficam os **parâmetros**.
+
+Após a assinatura, entre as chaves (`{}`), fica a **declaração** da função - tudo aquilo que será executado ao usarmos a função. Essa parte também é chamada de **corpo** da função.
+
+## Tipo de Retorno
+
+O primeiro termo do exemplo é o `void`. O tipo `void` tem alguns usos na linguagem C, o que nos interessa é quando ele indica o **tipo de retorno** da função. Isso significa que **nenhum valor será retornado** da função.
+
+Note o uso do `return;` na função `entrar_na_festa`, não existe **nenhum valor** entre o `return` e `;`. Agora, na função `main` que escrevemos:
+
+``` c
 int main(void)
 {
-    saudar();
+    return 0;
+}
+```
+
+Existe um `0` após o `return`, que é um valor do tipo `int` - como indicado pela assinatura da função.
+
+É importante saber que quando o `void` vem antes de um asterisco (`*`), ou seja, `void *`, seu significado muda. Veremos esse significado mais para frente.
+
+<!-- TODO: Preciso falar qual capítulo o `void *` será apresentado -->
+
+---
+
+Agora vamos olhar para uma função muito simples: que retorna o valor `2`. Vamos criar uma função chamada `retorna_dois`, que vai retornar o inteiro `2`.
+
+``` c
+int retorna_dois(void)
+{
+    return 2;
+}
+```
+
+Vamos usá-la em `main`:
+
+``` c
+int main(void)
+{
+    int numero = retorna_dois();
+
+    printf("O número retornado é %d.\n", numero);
 
     return 0;
 }
 ```
 
-O `void` antes do nome `saudar` indica que essa função **não devolve nenhum valor**. Depois, o `(void)` indica que ela **não recebe nenhum parâmetro**. Entre as chaves (`{}`), fica o **corpo** da função, ou seja, tudo que será executado quando ela for chamada.
+Usamos a função quando escrevemos `retorna_dois()`, ou seja, colocamos parênteses depois do nome da função. Esse "uso" também é conhecido como uma **chamada da função**.
 
-Falamos que a função `saudar` foi **chamada** dentro de `main`, por meio da linha `saudar();`. Se chamarmos a função `saudar` da seguinte forma: `saudar(3)`, o compilador vai avisar que estamos passando muitos argumentos para a função `saudar`, o esperado são zero argumentos, ou seja, nenhum.
+É importante salientar que os valores retornados das funções são **copias**. Trago um exemplo mais a frente em [Escopos](#escopos).
+
+## Nomes das funções
+
+Os nomes das funções, também chamados de **identificadores** das funções, seguem as mesmas regras das variáveis. Veja [Regras de Nomenclatura](../variaveis/variaveis-1.md#regras-de-nomenclatura) caso tenha esquecido.
 
 ## Parâmetros
 
-Uma função que não recebe nenhuma entrada tem uma utilidade limitada. Para tornarmos nossas funções mais flexíveis, usamos **parâmetros**: variáveis que a função recebe como entrada.
+Os parâmetros são variáveis que passamos para as funções quando chamamos elas. Como exemplo vamos usar a função `print_divisao`, que vimos em [Negação](../condicional/README.md#negacao), só que dessa vez vamos colocar um **erro proposital** dentro da declaração da função.
 
-Vamos alterar a função `saudar` para que ela receba o nome da pessoa a ser saudada. Para isso vamos utilizar de um parâmetro chamado `nome`, que possui um tipo que ainda não vimos, o `char *`. Por ora, saiba que esse tipo indica que estamos passando um **texto**, no caso um nome, para a função `saudar` - chamos isso de *string*. Veremos esse tipo com mais detalhe em [Strings](../variaveis/string.md).
-Também utilizamos do formatador `%s` para indicar ao `printf` que queremos exibir a variável do tipo `char *`.
+> A partir de agora, os lembretes para incluir os headers ficaram menos frequentes.
 
 ``` c
-#include <stdio.h>
-
-void saudar(char *nome)
+void print_divisao(double numero, double divisor)
 {
-    printf("Olá, %s! Seja bem-vindo(a)!\n", nome);
+    if (divisor == 0.0)
+    {
+        printf("ERRO, a divisão por zero é inválida!\n");
+        return;
+    }
+
+    printf("O resultado é: %f\n", numero / divisor);
 }
+```
 
-int main()
+As variáveis `numero` e `divisor` são os **parâmetros** da função `print_divisao`.
+
+Agora vamos chamar a função com as variáveis `soma_das_notas` e `total`. O valor exibido por `print_divisao` é a média de uma aluno.
+
+``` c
+int main(void)
 {
-    saudar("Maria");
-    saudar("João");
+    double soma_das_notas = 23.0;
+    double total = 3.0;
+
+    print_divisao(numero, divisor);
 
     return 0;
 }
 ```
 
-Perceba que o parâmtro `nome` funciona como qualquer outra variável **dentro** da função `saudar`, mas seu valor muda a cada chamada, de acordo com o que passamos entre os parênteses, como `"Maria"` e `"João"` - que são chamados de **argumentos** da função. Podemos ter quantos parâmetros quisermos, bastando separá-los por vírgula, como já fizemos com a função `print_divisao(double numero, double divisor)`.
+<!--TODO: Continuar o exemplo até falar que os parâmetros são copias dos argumentos -->
 
-## Retorno de valores
-
-Até agora, nossas funções apenas **imprimem** algo na tela, mas nunca **devolveram** um valor para quem as chamou. Para isso, trocamos o tipo `void` por algum outro, e usamos a palavra-chave `return` para devolvê-lo.
-
-Vamos criar uma função chamada `somar`, que recebe dois números inteiros e devolve a soma entre eles.
-
-``` c
-#include <stdio.h>
-
-int somar(int a, int b)
-{
-    return a + b;
-}
-
-int main()
-{
-    int resultado = somar(5, 3);
-
-    printf("O resultado da soma é %d.\n", resultado);
-
-    return 0;
-}
-```
-
-A linha `return a + b;` devolve o valor calculado para quem chamou a função, nesse caso, a variável `resultado`, dentro de `main`. O `return` também **encerra a execução da função na hora**, então qualquer código escrito depois dele, dentro da mesma função, nunca vai rodar.
-
-Reescreva a função `somar` da seguinte forma, e veja que a mensagem nunca será exibida:
-
-``` c
-int somar(int a, int b)
-{
-    return a + b;
-
-    printf("Eu não vou aparecer!\n");
-}
-```
-
-É
-
-## Escopos
+### Escopos
 
 Os escopos delimitam a região em nosso código que uma variável fica disponível.
 
