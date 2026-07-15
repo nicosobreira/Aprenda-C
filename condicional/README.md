@@ -6,7 +6,7 @@ As condicionais são estruturas que nos possibilitam avaliar condições e execu
 
 Para resolvermos o nosso problema do guarda chuva, vamos escrever um programa que irá fazer essa decisão! Primeiro iremos declarar uma variável do tipo `bool`, chamada `vai_chover`. Nós podemos dar o valor de `true` ou `false` para ela, você escolhe. Depois iremos implementar essa lógica do "se e senão".
 
-> Não se esqueça de importar a definição do tipo bool.
+> Não se esqueça de importar a definição do tipo `bool` com o header `<stdbool.h>`.
 
 ``` c
 #include <stdbool.h>
@@ -39,7 +39,7 @@ Mude o valor da variável `vai_chover` para `false` e veja como a saída muda.
 
 Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia. Utilizamos de valores arbitrários para decidir quais faixas de temperaturas são frias, quentes e a ideais.
 
-Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores** de comparação, como `>` e `<` da matemática junto a duas condicionais.
+Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores de comparação**, o "maior que" (`>`) e o "menor que" (`<`) da matemática, junto a dois condicionais.
 
 ``` c
 #include <stdio.h>
@@ -79,7 +79,7 @@ Teste com diversos valores de temperatura, alterando o valor da variável `tempe
 
 Agora, veja o que acontece com os valores exatos de `temp_baixa` e `temp_alta`. Você percebeu que a mensagem indica um clima perfeito? Isso é um erro lógico em nosso programa, já que a variável `temp_alta` e `temp_baixa` deveriam representar **o ponto de mudança das temperaturas**, ou seja, esses valores **também fazem parte de suas respectivas faixas de temperatura**.
 
-Para corrigir isso, devemos usar os operadores `>=` e `<=`.
+Para corrigir isso, devemos usar os operadores `>=` e `<=`, lidos como "maior ou igual" e "menor ou igual", respectivamente.
 
 > Na escrita do código, vou focar apenas nas mudanças do `if`, mas você deve escrever tudo!
 
@@ -110,7 +110,7 @@ Para explicar o uso da negação, vamos pensar em uma festa: uma pessoa só pode
 Primeiro, vamos resolver esse problema usando um `if` junto a um `else`. Logo em seguida, veremos um jeito melhor, usando apenas um `if`.
 Para tal, vamos criar nossa própria função - conteúdo que veremos com mais detalhes em [Funções](../funcoes/README.md) - chamada `entrar_na_festa` que *retorna nada* e tem como argumento uma variável do tipo `bool` chamada `tem_convite`.
 
-> O `void` é um termo que possui vários significados na linguagem C. **Nesse caso**, ele indica que a função vai retornar nenhum valor.
+> O `void` é um termo que possui **vários significados** na linguagem C. **Nesse caso**, ele indica que a função vai retornar nenhum valor.
 
 ``` c
 #include <stdio.h>
