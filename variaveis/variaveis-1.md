@@ -279,7 +279,6 @@ int main(void)
 
 Você saberia dizer o que os valores `0.1` e `15.0` representam? Pelo contexto talvez você consiga adivinhar, mas só depois de gastar um tempo decifrando o código. No caso, eles representam a **taxa de serviço** e o **preço da reserva por pessoa**, respectivamente.
 
-
 Esses valores "soltos" são chamados de **valores mágicos**. Eles diminuem muito a clareza do nosso código. Uma solução é usar duas variáveis constantes chamadas `taxa_servico` e `preco_reserva` para deixar claro as suas funções no código:
 
 ``` c
