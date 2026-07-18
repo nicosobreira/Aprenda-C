@@ -6,7 +6,7 @@ Mas primeiro precisamos saber **o que é uma linguagem de programação**.
 
 ## Linguagem de Programação
 
-Nos, humanos, temos a capacidade de interpretar e executar diferentes tarefas, de diferentes formas, graças à nossa razão e lógica. Em contraste, o computador está limitado a lidar com apenas: zeros e uns, e um número reduzido de operações.
+Nos, humanos, temos a capacidade de interpretar e executar diferentes tarefas, de diferentes formas, graças à nossa razão, lógica e memória. Em contraste, o computador está limitado a lidar com apenas: zeros e uns, um número reduzido de operações e uma memória de tamanho restrita.
 Mas são essas limitações que fazem os computadores serem tão poderosos, pois, ao focar em um conjunto muito restrito de operações básicas, as máquinas conseguem executá-las com velocidades absurdas — na casa de bilhões de operações por segundo.
 
 No entanto, essa velocidade bruta é inútil por si só, pois os computadores carecem de raciocínio e capacidade de dedução. Eles não têm a habilidade de interpretar detalhes, deduzir contextos ou decidir como resolver um problema por si só; eles apenas executam ordens literais de forma cega, exata e sequencial.
