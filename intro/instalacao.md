@@ -56,20 +56,10 @@ Se aparecer o número da versão do GCC instalado, a instalação deu certo, e o
 
 ### Configurando o PowerShell
 
-Para que nossos programas consigam mostrar **caracteres com acentos** dentro do PowerShell, é necessário configurá-lo.
-
-#### Passo 1: Abrindo o Profile
+Para que nossos programas consigam mostrar **caracteres com acentos** dentro do PowerShell, é necessário configurá-lo. O comando a seguir vai criar um arquivo de configuração do PowerShell, se ele ainda não existir; depois vai permitir carácteres:
 
 ``` powershell
-notepad $PROFILE
-```
-
-#### Passo 2: Editando o Profile
-
-Dentro do bloco de notas (*notepad*) coloque:
-
-``` powershell
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }; Add-Content -Path $PROFILE -Value "`n[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"   
 ```
 
 Feche o terminal atual e abre um novo PowerShell.
