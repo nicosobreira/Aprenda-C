@@ -83,8 +83,6 @@ Com isso, ao chegarmos na **segunda verificação** em `else if (temperatura < t
 
 No código a seguir, vou apenas escrever as possíveis faixas de temperatura **antes** de fazer as verificações, usando comentários e a notação matématica de intervalos, que é uma outra forma de escrever o que acabamos de ver. Não se preocupe se não conhecer essa notação, você pode ignorá-la e ler apenas os textos ao lado nos comentários.
 
-> Se não conhecer essa notação, pode ignorar e ler os textos ao lados nos comentários.
-
 ``` c
 // (-inf, +inf) todos os números reais
 if (temperatura > temp_alta)
