@@ -136,7 +136,7 @@ Mostre essa média e depois informe se esse aluno:
 
 1. Passou, caso a média seja maior ou igual a 6.
 2. Reprovou, caso a média seja menor ou igual a 4.
-3. Está de recuperação, caso contrário.
+3. Está de recuperação, caso a média esteja entre 4 e 6.
 
 > Pulei a definição da função `main`, mas você deve colocar.
 
