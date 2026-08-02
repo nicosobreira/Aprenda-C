@@ -74,6 +74,13 @@ int main(void)
 ```
 
 <details>
+<summary>Precisa de uma dica? Clique aqui.</summary>
+
+Lembre-se de que as verificações vão **alterando as faixas de possíveis valores**. Releia o capítulo [else if](../condicional/README.md#else-if) se preciso.
+
+</details>
+
+<details>
 <summary>Clique aqui para ver a resposta</summary>
 
 ``` c
