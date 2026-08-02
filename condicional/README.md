@@ -81,7 +81,9 @@ Note que **depois** de cada verificação que fazemos na variável `temperatura`
 É só depois de verificar se `temperatura > temp_alta` é que podemos indicar uma nova **faixa de temperatura** da variável `temperatura`. Veja, para `temp_alta` valendo `32.0`, se a `temperatura` for maior que `32.0` sabemos que seu valor vai de `32.0` - não incluindo - para cima (como `35.0` e `50.0`), **caso contrário** a `temperatura` com toda certeza é menor ou igual a `32.0`.
 Com isso, ao chegarmos na **segunda verificação** em `else if (temperatura < temp_baixa)` temos **certeza** que a `temperatura` é menor ou igual a `32.0`; e denovo, após verificarmos esta condição, podemos definir uma nova faixa de temperatura para a variável `temperatura`.
 
-No código a seguir, vou apenas escrever as possíveis faixas de temperatura **antes** de fazer as verificações, usando comentários e a notação matématica de intervalos; onde as **chaves** (`[` e `]`) incluem o número e os `parenteses` excluem ele (`(` e `)`):
+No código a seguir, vou apenas escrever as possíveis faixas de temperatura **antes** de fazer as verificações, usando comentários e a notação matématica de intervalos, que é uma outra forma de escrever o que acabamos de ver. Não se preocupe se não conhecer essa notação, você pode ignorá-la e ler apenas os textos ao lado nos comentários.
+
+> Se não conhecer essa notação, pode ignorar e ler os textos ao lados nos comentários.
 
 ``` c
 // (-inf, +inf) todos os números reais
@@ -90,13 +92,13 @@ if (temperatura > temp_alta)
     printf("Hoje vai fazer muito calor!\n");
     printf("Use uma regata e se hidrate.\n");
 }
-// (-inf, 32.0] todos os reais negativos até 32.0
+// (-inf, 32.0] todos os reais negativos, nulos e positivos até 32.0
 else if (temperatura < temp_baixa)
 {
     printf("Hoje vai fazer frio!\n");
     printf("É melhor levar o casaco e passar hidratante.\n");
 }
-// [13.0, 32.0] todos os reais entre 13.0 e 32.0
+// [13.0, 32.0] todos os reais de 13.0 a 32.0
 else
 {
     printf("Hoje o clima está perfeito!\n");
@@ -104,9 +106,11 @@ else
 }
 ```
 
-Agora, veja o que acontece com os valores exatos de `temp_baixa` e `temp_alta`. Você percebeu que a mensagem indica um clima perfeito? Isso é um erro lógico em nosso programa, já que a variável `temp_alta` e `temp_baixa` deveriam representar **o ponto de mudança das temperaturas**, ou seja, esses valores **também fazem parte de suas respectivas faixas de temperatura**.
+Agora, veja o que acontece com os valores exatos de `temp_baixa` e `temp_alta`. Você percebeu que a mensagem indica um clima perfeito? Como esses pontos indicam as **mudanças de temperatura**, eles devem ser **incluídos** em suas respectivas faixas de temperatura, mas por que este não é o caso?
 
-Para corrigir isso, devemos usar os operadores `>=` e `<=`, lidos como "maior ou igual" e "menor ou igual", respectivamente.
+O problema é que ao final das verificações, no bloco do `else`, a faixa de `temperatura` **incluí** esses valores. O erro está nas **verificações passadas**, que não incluíram os valores de `temp_baixa` e `temp_alta` em suas faixas.
+
+Para corrigir o erro, devemos usar os operadores `>=` e `<=`, lidos como "maior ou igual" e "menor ou igual", respectivamente, nas verificações `if` e `else if`.
 
 > Na escrita do código, vou focar apenas nas mudanças do `if`, mas você deve escrever tudo!
 
