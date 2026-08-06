@@ -1,0 +1,71 @@
+# Diretrizes de Estilo, Didática e Padrões de Código (.clinerules)
+
+Este repositório contém o guia **Aprenda C**, cujo objetivo é ensinar a linguagem C **sem esconder o que acontece debaixo dos panos**, conectando conceitos de baixo nível (memória, compilador, binário) a boas práticas de Arquitetura de Software e Clean Code.
+
+---
+
+## 1. Filosofia Didática e Tom de Escrita
+
+- **Sem caixa-preta**: Sempre explique **por que** algo funciona e **como** a máquina/compilador processa a instrução.
+- **Tom Amigável e Prático**: Português brasileiro (PT-BR), direto, engajante e focado no aprendizado ativo. Incentive o leitor a testar, alterar variáveis e rodar os comandos no terminal.
+- **Progressão Didática**:
+  - Introduza o conceito com analogias do dia a dia (ex: guarda-chuva para `if/else`, festa para *early return*).
+  - Apresente o código básico e expanda gradualmente.
+  - Explique o comportamento de memória/sistema ("por debaixo dos panos").
+  - Mostre saídas reais de erros do GCC (`$ gcc -o main main.c`) para ensinar a ler e interpretar o compilador.
+  - Finalize com seções de **Boas Práticas** (*Clean Code*).
+
+---
+
+## 2. Estrutura dos Módulos e Exercícios (Markdown)
+
+### Estrutura de Módulos (`modulos/*.md`):
+- **Título principal**: `# Nome do Módulo`
+- **Subseções de conceitos**: `## Nome do Conceito` / `### Subconceito`
+- **Uso de Destaques**:
+  - **Negrito** (`**termo**`) para conceitos-chave e termos técnicos de impacto.
+  - *Itálico* (`*termo*`) para nomes em inglês ou traduzidos (ex: *header*, *early return*).
+  - Bloco de citação (`> `) para dicas rápidas, avisos do sistema/SO (PowerShell, GCC) e lembretes de compilação.
+- **Seção de Boas Práticas**: Sempre incluir `## Boas práticas` ao final dos capítulos para discutir nomenclatura, inicialização, mitigação de *magic numbers*, etc.
+
+### Estrutura de Exercícios (`exercicios/*.md`):
+- **Dicas**: caso seja necessário, forneça referências de trechos dos capítulos passado que podem ajudar na resolução.
+- **Gabarito Oculto**:
+  - As soluções devem ficar dentro de blocos sanfona HTML `<details>`:
+    ```markdown
+    <details>
+    <summary>Clique aqui para ver a resposta</summary>
+
+    ```c
+    // Código da solução aqui
+    ```
+
+    </details>
+    ```
+
+---
+
+## 3. Padrões de Código C
+
+### Formatação e Estilo de Chaves (Allman Style):
+- **Chaves em nova linha**: Abertura e fechamento de chaves (`{` e `}`) ficam em suas próprias linhas, tanto para funções quanto para blocos (`if`, `else`, `while`, `for`, `do-while`).
+- **Indentação**: 4 espaços por nível.
+
+### Assinatura e Estrutura de Arquivo:
+- **Ponto de Entrada**: Usar explicitamente `int main(void)` com `return 0;` ao final (ou `return -1;` para erros de execução).
+- **Organização Padrão do Arquivo `.c`**:
+  1. Inclusão de *headers* (`#include <stdio.h>`, `#include <stdbool.h>`, etc.)
+  2. Declaração de constantes (`const double ...`)
+  3. Declaração de variáveis globais (`g_...`)
+  4. Protótipos/Declarações de funções (`void minha_funcao(int parametro);`)
+  5. Função `main` (`int main(void)`)
+  6. Definições de funções
+
+### Nomenclatura e Boas Práticas:
+- **Snake Case em PT-BR**: Usar `snake_case` descritivo para variáveis e funções (ex: `temperatura_alta`, `entrar_na_festa`, `leia_double_entre`).
+- **Variáveis Globais**: Adicionar o prefixo `g_` (ex: `g_numero`).
+- **Sem Nomes Misteriosos**: Evitar abreviações obscuras (ex: usar `pontuacao` em vez de `p`, `valor_final` em vez de `v_final`).
+- **Inicialização Obrigatória**: Toda variável local deve ser inicializada na declaração (ex: `int numero = 0;`).
+- **Evitar Valores Mágicos**: Usar variáveis `const` com nomes autoexplicativos para coeficientes e limites.
+- **Retorno Antecipado (*Early Return*)**: Preferir checar condições inválidas no início da função com `if (!condicao) return;` em vez de aninhar múltiplos `if/else`.
+- **Família de Funções (Sem Sobrecarga em C)**: Como o C não possui *function overloading*, usar padrão explícito de nomes (ex: `leia_int()`, `leia_double()`, `leia_double_entre()`).
