@@ -75,6 +75,7 @@ Por fim, para rodar o programa que acabamos de compilar:
 Nesse caso, o nosso programa **deve fazer nada** mesmo.
 
 O ciclo de **editar com `code`, compilar com `gcc`, executar com `./main`** — vai se repetir em praticamente todo capítulo do guia, então vale a pena se acostumar com ele desde já.
+Você também pode usar as teclas "Seta para Cima" e "Seta para Baixo" para navegar pelo **histórico de comandos** - que são os últimos comandos executados.
 
 ---
 
@@ -94,6 +95,8 @@ int main(void)
     return 0;
 }
 ```
+
+<!-- FIX: Eu devo primeiro introduzir o que são funções, para alguém novato na programação pode ficar muito abstrato. Mover o que é o include para baixo. -->
 
 ## include
 
