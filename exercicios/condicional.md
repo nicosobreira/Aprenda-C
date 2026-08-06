@@ -10,7 +10,7 @@ Os exercícios vão **dar as entradas** e pedir para você criar uma solução e
 
 Exiba a soma de dois números inteiros `a` e `b`.
 
-> O que o exerício vai dar.
+> O que o exercício vai dar.
 
 ``` c
 int main(void)
@@ -50,6 +50,57 @@ int main(void)
 ```
 
 </details>
+
+## Comentários
+
+Repare que, no parágrafo anterior, eu falei em um "comentário `// Saída:`". Mas o que isso quer dizer? Se `Saída` não é uma variável, nem uma função, por que o compilador não reclama dele?
+
+A resposta é que aquela linha é um **comentário**: um texto que existe apenas para quem **lê** o código, não para o computador. O compilador simplesmente **ignora** tudo o que está dentro de um comentário, como se ele nem estivesse ali.
+
+Em C, existem duas formas de escrever comentários:
+
+``` c
+// Isso é um comentário de uma linha só.
+
+/*
+Isso é um comentário
+que pode ocupar
+várias linhas.
+*/
+```
+
+Comentários servem para explicar o **porquê** de alguma parte do código, ou para deixar anotações para você mesmo (ou para quem for ler seu código depois). Teste o código a seguir, depois **apague** a linha do comentário e rode de novo - você vai ver que nada muda na execução:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    // Essa linha só existe para explicar o próximo printf, o compilador a ignora.
+    printf("Olá, Mundo!\n");
+
+    return 0;
+}
+```
+
+Agora, faça o oposto: pegue uma linha de código de verdade, como o `printf`, e coloque ela dentro de `/* */`:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    /* printf("Olá, Mundo!\n"); */
+
+    return 0;
+}
+```
+
+Rode o programa de novo. Percebeu que o `printf` não é mais executado? Isso porque, para o compilador, aquela linha deixou de existir. Esse é um uso bem comum de comentários no dia a dia: **desativar temporariamente** um trecho de código, sem precisar apagá-lo — útil quando você está testando ou depurando algo.
+
+> Mais para frente, em [Funções](../funcoes/README.md), veremos um tipo especial de comentário usado para documentar o que uma função faz.
+
+Voltando aos exercícios: é exatamente esse **comentário de uma linha** (`//`) que vamos usar para marcar onde fica a **entrada** e a **saída** de cada exercício.
 
 ## 1. Classificador de Idade
 
