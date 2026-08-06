@@ -1,6 +1,6 @@
 # Funções
 
-Já estamos usando diversas funções, como a `main`, a `printf` e a `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](../condicional/README.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
+Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](../condicional/README.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
 
 ## Declarando uma função
 
@@ -46,7 +46,7 @@ Na sequência, veremos cada parte da função com mais detalhes.
 
 ## Tipo de Retorno
 
-O primeiro termo do exemplo é o `void`. O tipo `void` tem alguns usos na linguagem C, o que nos interessa é quando ele indica o **tipo de retorno** da função. Nesse caso, ele mostra que **nenhum valor será retornado** da função.
+O primeiro termo do exemplo é o `void`. Esse tipo tem diversos usos na linguagem C, o que nos interessa é quando ele indica o **tipo de retorno** da função. Nesse caso, ele mostra que **nenhum valor será retornado** da função.
 
 Note o uso do `return;` na função `entrar_na_festa`, não existe **nenhum valor** entre o `return` e `;`.
 Agora, na função `main` mais básica, escrevemos:
@@ -66,7 +66,7 @@ Existe um `0` após o `return`, que é um valor do tipo `int` - como indicado pe
 
 ## Nomes das funções
 
-Os nomes das funções, também chamados de **identificadores** das funções, seguem as mesmas regras das variáveis. Veja [Regras de Nomenclatura](../variaveis/variaveis-1.md#regras-de-nomenclatura) caso tenha esquecido.
+Os nomes das funções seguem as mesmas regras de nomenclatura que **todos os outros** identificadores na linguagem C. Veja [Regras de Nomenclatura](../variaveis/variaveis-1.md#regras-de-nomenclatura) caso tenha esquecido.
 
 ## Parâmetros
 
@@ -96,7 +96,7 @@ int main(void)
 }
 ```
 
-Nesse caso, os valores `20.0` e `2.0` são os argumentos. Se passarmos alguma variável, falamos que **seus valores são os argumentos**. Por exemplo:
+Nesse caso, os valores `20.0` e `2.0` são os argumentos. Se passarmos alguma variável como argumento, falamos que **seus valores são os argumentos**. Por exemplo:
 
 ``` c
 int main(void)
@@ -140,7 +140,7 @@ int main(void)
 }
 ```
 
-A variável `divisor` dentro da função passa a valer `4.0`, depois de `divisor += 2;`, com isso o resultado da divisão é `5.0` (`20.0 / 4.0`). Depois da função, exibimos o argumento `pessoas` do parâmetro `divisor`, que no caso é `2.0` - que foi inalterado.
+A variável `divisor` dentro da função passa a valer `4.0`, depois de `divisor += 2;`, com isso o resultado da divisão é `5.0` (`20.0 / 4.0`). Depois da função, exibimos o argumento `pessoas` que passamos para o parâmetro `divisor`, que no caso é `2.0` - que foi inalterado.
 
 Veremos em um outro módulo como usar parâmetros que **mudam** os argumentos.
 
@@ -304,10 +304,42 @@ main.c:6:5: note: previous implicit declaration of ‘entrar_na_festa’ with ty
 
 ```
 
-É a segunda linha da saída do `gcc` que nos interessa: `error: implict declaration of function ‘entrar_na_festa’`. 
+É a segunda linha da saída do `gcc` que nos interessa: `error: implicit declaration of function ‘entrar_na_festa’`. Esse erro indica que a função foi **implicitamente** declarada, ou seja, o compilador não conhece a **assinatura** da função para conseguir usá-la em `main`. Para resolver esse problema, devemos deixar explícito a declaração da função - declarando a função antes do uso. Para isso, **copiamos e colamos** a assinatura da função na parte da definição, e colocamos um `;` ao final da linha. Veja:
 
+> Outro nome para a declaração é **protótipo**.
 
-1. Importação dos header files com `#include <>`.
+``` c
+#include <stdio.h>
+#include <stdbool.h>
+
+// Declaração da função entrar_na_festa
+void entrar_na_festa(bool tem_convite);
+
+int main(void)
+{
+    entrar_na_festa(true);
+
+    return 0;
+}
+
+// Definição da função entrar_na_festa
+void entrar_na_festa(bool tem_convite)
+{
+    if (!tem_convite)
+    {
+        printf("Você não tem convite! Rala!\n");
+        return;
+    }
+
+    printf("Seja bem-vindo!\n");
+}
+```
+
+Se certifique que a assinatura da declaração e definição são as **mesmas**, ou seja, possuem os mesmos tipos de retorno, nomes e parâmetros. Se tudo estiver certo, então o programa será executado com sucesso.
+
+Com isso, vamos organizar os nossos programas da seguinte forma:
+
+1. Importação dos *headers* (arquivos `.h`) com o `#include`.
 2. Variáveis constantes.
 3. Variáveis globais
 4. Declaração das funções.
@@ -318,10 +350,11 @@ main.c:6:5: note: previous implicit declaration of ‘entrar_na_festa’ with ty
 
 Lembra do problema de copia e cola que apontamos nos exercícios anteriores? Agora, podemos **centralizar** a leitura de dados do usuário em algumas funções, e usá-las em nossos programas.
 
-Primeiro, vamos criar uma função muito simples, chamada `leia_int`, que vai apenas validar se o número que o usuário digitou é um inteiro, e não um texto. A definição da função fica assim:
+Sabemos que existem diversas restrições que podemos aplicar a leitura de dados **numéricos**, como estar entre dois números e ser maior que outro. Mas para toda leitura de números, temos uma coisa em comum: caso a entrada **não seja um número**, então **pedimos por outro**.
+A leitura falha quando o `scanf` retorna um inteiro diferente de `1` e perguntamos por outro número por meio de um `do while`. Sabendo disso, vamos criar a função de leitura mais básica: uma que lê um inteiro qualquer. Chamamos essa função de `leia`:
 
 ``` c
-int leia_int(void)
+int leia(void)
 {
     int numero;
     bool leitura_valida = false;
@@ -348,98 +381,225 @@ int leia_int(void)
 }
 ```
 
-Note que não exibimos nenhuma mensagem instruindo o usuário o que ele deve digitar. O motivo disso é para permitir mensagens personalizadas que **utilizam os formatadores do `printf`** na hora em que **chamamos** a função, por exemplo:
-
-
-``` c
-char *nome = "Pedro";
-
-printf("Qual é a sua idade %s?\n", nome);
-int idade = leia_int();
-```
-
-Ou sem nenhum formatador:
+E usamos dentro de `main`:
 
 ``` c
-printf("Digite um número inteiro.\n");
-int inteiro = leia_int();
+#include <stdio.h>
+
+int leia(void);
+
+int main(void)
+{
+    printf("Digite sua idade.\n");
+    int idade = leia();
+
+    printf("A sua idade é: %d.\n", idade);
+}
+
+int leia(void)
+{
+    int numero;
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%d", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
 ```
 
+### Sem Sobrecarga
 
+Agora que temos a função `leia` para `int`, vamos criar outra função que também se chama `leia`, só que para o tipo `double`:
+
+``` c
+int leia(void)
+{
+    int numero;
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%d", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+
+double leia(void)
+{
+    double numero;
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%lf", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número real!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+```
+
+A diferença entre as funções é clara: ambas fazem "a mesma coisa", só que para tipos diferentes, então por que não usar o mesmo nome?
+Tente compilar esse código e veja o que acontece:
+
+```
+$ gcc -o main main.c
+main.c:14:8: error: conflicting types for ‘leia’; have ‘double(void)’
+   14 | double leia(void)
+      |        ^~~~
+main.c:1:5: note: previous declaration of ‘leia’ with type ‘int(void)’
+    1 | int leia(void)
+      |     ^~~~
+```
+
+O compilador reclama de **tipos conflitantes** (`conflicting types`) para o identificador `leia`.
+
+### Por que isso acontece
+
+Algumas linguagens permitem que várias funções compartilhem o mesmo nome, desde que seus parâmetros sejam diferentes — isso se chama **sobrecarga de funções** (*function overloading*). A linguagem C **não tem esse recurso**.
+
+Em C, o **tipo de uma função** não é definido só pelos seus parâmetros, mas sim pela combinação entre o **tipo de retorno** e os **tipos dos parâmetros**. E cada identificador só pode ter **um único tipo** dentro do mesmo escopo — nem um a mais. Ao escrever `int leia(void)` e depois `double leia(void)`, você está dizendo ao compilador duas coisas diferentes sobre o mesmo nome `leia`, e ele não tem como decidir qual delas é a verdadeira.
+
+Por outro lado, repetir a **mesma** assinatura, não é um erro:
+
+``` c
+int leia(void);
+int leia(void); // Ok, apenas repete a mesma promessa
+```
+
+O problema nunca foi declarar duas vezes, e sim prometer **coisas diferentes** com o mesmo nome.
+
+### A solução: nomes diferentes
+
+Já que o C não distingue funções pelos parâmetros ou pelo retorno, a única coisa que resta para diferenciá-las é o **nome**. É por isso que, ao invés de uma única `leia`, vamos criar uma **família de funções**, uma para cada tipo e cada regra de validação, seguindo o padrão `leia_<tipo>_<restrição>`:
+
+> Note que esse é o padrão que **eu** escolhi. Você pode escolher qualquer outro, o importante é ser consistente e usá-lo sempre.
+
+``` c
+int leia_int(void);
+
+double leia_double(void);
+double leia_double_entre(double min, double max);
+```
+
+Cada nome já entrega, sozinho, uma pista de **o que a função faz** — muito mais claro do que ficar só no `leia`.
+
+### Com restrições
+
+Agora vamos implementar a função `leia_double_entre`:
+
+``` c
+double leia_double_entre(double min, double max);
+{
+    double numero;
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%lf", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número real!\n");
+        }
+        else if (numero < min)
+        {
+
+            printf("Digite um número maior ou igual a %d!\n", min);
+        }
+        else if (numero > max)
+        {
+            printf("Digite um número menor ou igual a %d!\n", max);
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+```
+
+Compare esta função com a `leia_double`, você percebe alguma coisa em comum entre elas? Ambas fazem a mesma lógica que apontamos no início: se a entrada não for um número, peça por outra. A única diferença é que limitar a entrada precisa de Com isso podemos reescrever a função `leia_double_entre` para usar a `leia_double`, ficando assim:
+
+``` c
+double leia_double_entre(double min, double max)
+{
+    double numero;
+    bool leitura_valida = false;
+    do {
+        numero = leia_double();
+
+        if (numero < min)
+        {
+            printf("Digite um número maior ou igual a %d!\n", min);
+        }
+        else if (numero > max)
+        {
+            printf("Digite um número menor ou igual a %d!\n", max);
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while(!leitura_valida);
+
+    return numero
+}
+```
 
 <!--
 TODO: Completar esses pontos!
-- Falar do por que é necessário colocar o tipo na declaração (sem overloading)
-- Criar uma "família" de funções `leia_<tipo>_<restrição>`, mas não falar como separar em múltiplos arquivos. Isso fica para o próximo capítulo (eu acho).
-- Ao final mostrar como o último exercício fica um pouco mais legível.
+- [x] Falar do por que é necessário colocar o tipo na declaração (sem overloading)
+- [ ] Criar uma "família" de funções `leia_<tipo>_<restrição>`, mas não falar como separar em múltiplos arquivos. Isso fica para o próximo capítulo (eu acho).
+- [ ] Ao final mostrar como o último exercício fica um pouco mais legível.
+- [ ] Tomar cuidado o DRY (Don't Repeat Yourself). Usar como base o caso do caixa. Adicionar uma funcionalidade de retirar e colocar dinheiro em uma função, do exercício 3 anterior. Mostrar que com o crescimento do programa, essas duas operações perdem o sentido de ficar juntas.
 -->
 
-## Módulos
-
-Você pode pensar que a única vantagem das funções é evitar a repetição de código, mas essa é apenas a ponta do iceberg. A vantagem mais importante das funções é nos permitir **organizar** o código em **módulos**: uma ou mais funções que **escondem a complexidade interna** de um sistema, e mostram para o resto do código apenas o que é **necessário**.
-
-Para elucidar essa ideia, vamos pensar em um exemplo: um sensor de temperatura.
-O código a seguir faz a leitura da temperatura atual desse sensor:
-
-``` c
-if (sensor_esta_pronto() && sensor_verificar_energia())
-{
-    sensor_acionar_hardware();
-
-    int bruto = sensor_ler_dados_brutos();
-    int dado = sensor_aplicar_filtro(bruto);
-}
-```
-
-Quem lê o código precisa entender **todos os passos** necessários para ler o sensor:
-
-- verificar se está pronto,
-- verificar sua energia,
-- acionar o hardware,
-- ler os dados brutos, e
-- aplicar um filtro de tratamento.
-
-Uma abordagem melhor seria **esconder** toda essa lógica em uma função, chamamos ela de `sensor_obter_temperatura`, que retornará `-1` em caso de erro:
-
-``` c
-int sensor_obter_temperatura(void)
-{
-    if (sensor_esta_pronto() && sensor_verificar_energia())
-    {
-        sensor_acionar_hardware();
-
-        int bruto = sensor_ler_dados_brutos();
-        int dado = sensor_aplicar_filtro(bruto);
-
-        return dado;
-    }
-    else
-    {
-        return -1;
-    }
-}
-```
-> Como esse código é pequeno, não usei o retorno antecipado.
-
-Agora, para obter o dado do sensor, só chamamos a função:
-
-``` c
-int temperatura = sensor_obter_temperatura();
-```
-
-Uma única função, `sensor_obter_temperatura`, esconde toda essa sequência. Se um dia o sensor mudar (por exemplo, deixar de precisar verificar a energia), só precisamos alterar o **interior** dessa função, sem tocar em nenhum outro lugar do código que a utiliza.
-
-Um erro comum é pensar que modularizar significa apenas "dividir os processos em pedaços menores". Mas o critério mais importante não é o tamanho dos pedaços, e sim **o que cada pedaço esconde**. Devemos isolar aquilo que é **complicado** e o que **pode mudar com frequência**, escondendo esses detalhes de quem usará o módulo.
-
-Falar sobre esses dois aspectos da modularização vai além do escopo desse guia, e sinceramente do meu domino sobre o assunto, caso tenha interesse, recomendo ler o artigo [On the Criteria To Be Used in Decomposing Systems into Modules](https://wstomv.win.tue.nl/edu/2ip30/references/criteria_for_modularization.pdf), escrito por David Parnas, que foi da onde tirei alguns critérios para modularizar o código:
-
-- **Sequência de um processo**: os passos necessários para executar um processo devem ficar junto com o próprio processo, e não espalhados pelo código que apenas os utiliza. Foi exatamente isso que fizemos ao mover a leitura do sensor para a função `sensor_obter_temperatura`.
-- **Acesso indireto**: no futuro, quando estudarmos [Structs](../variaveis/struct.md), veremos que não devemos acessar diretamente os membros de uma estrutura de dados de fora dela, preferindo funções auxiliares para isso.
-- **Flexibilidade**: alguns módulos existem apenas para permitir que uma parte do código mude no futuro sem afetar o resto, mesmo que hoje pareçam "código a mais".
-- **Esconder o como**: quem usa uma função não precisa saber **como** ela faz o que faz, apenas **o que** ela faz. É por isso que conseguimos usar `scanf` e `printf` sem entender como elas foram implementadas por dentro.
-
-## Reflexão
-
-Perceba que, quanto mais o nosso programa cresce, mais importante fica a organização em funções. Elas não servem apenas para economizar linhas de código, mas para **isolar responsabilidades**: cada função deve fazer bem uma única coisa, e esconder de quem a chama os detalhes de como ela faz isso.
-
-Nos próximos capítulos, vamos aprofundar essa ideia de organização, principalmente quando falarmos sobre múltiplos arquivos, onde veremos como espalhar nossas funções entre diferentes módulos em um projeto.
