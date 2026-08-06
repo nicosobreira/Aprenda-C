@@ -1,20 +1,24 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+int leia(void);
+
+double leia(void);
+
 int main(void)
 {
-    entrar_na_festa(true);
+    printf("Digite sua idade.");
+    int idade = leia();
 
+    printf("A sua idade é: %d.\n", idade);
+}
+
+int leia(void)
+{
     return 0;
 }
 
-void entrar_na_festa(bool tem_convite)
+double leia(void)
 {
-    if (!tem_convite)
-    {
-        printf("Você não tem convite! Rala!\n");
-        return;
-    }
-
-    printf("Seja bem-vindo!\n");
+    return 0.0;
 }
