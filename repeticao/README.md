@@ -30,10 +30,10 @@ O primeiro argumento da função é uma string, que indica que tipo de informaç
 > As funções `printf` e `scanf` possuem muitos formatadores, como o `%d`, em comum, mas existem alguns diferentes. Pesquise qual formatador é necessário antes de usar!
 
 Depois utilizamos desse `&` (chamado de "e") junto ao nome de uma variável para indicar que o valor da entrada do usuário deve ser armazenado nessa variável.
-Nós veremos o que esse símbolo realmente significa mais para frente, por ora, pense nele como a forma com que a função `scanf` muda o valor da variável `numero` para o valor de entrada do usuário.
+Veremos o que esse símbolo realmente significa mais para frente, por ora, pense nele como a forma com que a função `scanf` muda o valor da variável `numero` para o valor de entrada do usuário.
 
 Antes de recebermos a entrada em si, temos que dizer qual informação queremos que o usuário digite. Para isso, usamos do `printf`.
-Diferente do que vinhamos fazendo, nos não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário para frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
+Diferente do que vinhamos fazendo, não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário para frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
 
 - Retire esse espaço final, e execute o programa.
 - Depois, coloque um `\n` no final da mensagem.
@@ -70,7 +70,7 @@ Saiba que se você pressionar a tecla "CTRL" junto a tecla "c" você sairá for�
 Agora, remova a linha `scanf("%d", &tentativa);` do código, e rode o programa para ver o que acontece. O programa compila, mas quando roda nunca para!
 
 A estrutura de repetição `while` verifica se a condição é verdadeira no **começo** de cada *loop*. Primeiro, o `while` vai verificar se o valor inicial da variável `tentativa` é diferente do valor da variável `senha`, ou seja, se `0 != 1234`, o que é verdade. Como retiramos a linha do `scanf`, ao final do *loop* o valor da variável `tentativa` **não mudou**, e por isso continua sendo `0`. Sendo assim, na próxima verificação da condição `tentativa != senha`, temos que `0 != 1234`, o que continua sendo verdade.
-E assim vai, até nos forçarmos a saída do programa usando `CTRL + c`.
+E assim vai, até forçarmos a saída do programa usando `CTRL + c`.
 
 Esse é um **erro lógico**, chamado de **loop infinito**, e é causado quando nossa condição sempre é verdadeira.
 
@@ -177,7 +177,7 @@ scanf("%d", &numero);
 printf("O seu número mais 2 vale %d.\n", numero + 2);
 ```
 
-Nos vimos que esse código lê um número inteiro do usuário. Mas o que acontece se o usuário acidentalmente digitar um número real (com vírgula) ou uma letra?
+Vimos que esse código lê um número inteiro do usuário. Mas o que acontece se o usuário acidentalmente digitar um número real (com vírgula) ou uma letra?
 
 Primeiro, tente digitar esses casos, depois veremos uma explicação.
 
@@ -185,9 +185,9 @@ Primeiro, tente digitar esses casos, depois veremos uma explicação.
 
 Se a entrada do usuário for algo diferente de um número inteiro, o resultado é `2`. Contudo, algo interessante acontece se substituirmos o valor inicial da variável `numero` por outro, como por exemplo `4`. Agora o resultado é `6`, ou seja, `4 + 2`.
 
-Caso a leitura do `scanf` falhar, a variável `numero` não é alterada. Com essa informação nos já poderíamos pensar em validar a entrada do usuário: se o valor inicial continuar o mesmo, então peça outra entrada para o usuário. Mas existe um jeito ainda melhor de fazer a verificação.
+Caso a leitura do `scanf` falhar, a variável `numero` não é alterada. Com essa informação já poderíamos pensar em validar a entrada do usuário: se o valor inicial continuar o mesmo, então peça outra entrada para o usuário. Mas existe um jeito ainda melhor de fazer a verificação.
 
-Até agora, nos ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem sucedidas**, isso é, o **total de variáveis que foram alteradas** pela função.
+Até agora, ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem sucedidas**, isso é, o **total de variáveis que foram alteradas** pela função.
 
 Vamos ver esse valor no código a seguir:
 
@@ -251,7 +251,7 @@ No código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
 3. A mensagem avisando o erro ao usuário é exibida;
 4. O buffer ainda possui o `A`, a conversão falha e a mensagem é exibida;
 
-Para limpar esse buffer, nos vamos usar a função `getchar`, declarada no header `stdio`. Essa função navega pelo buffer de entrada e limpa um caracter de cada vez. Seu valor de retorno e justamente esse caracter que acabou de ser limpo.
+Para limpar esse buffer, vamos usar a função `getchar`, declarada no header `stdio`. Essa função navega pelo buffer de entrada e limpa um carácter de cada vez. Seu valor de retorno e justamente esse carácter que acabou de ser limpo.
 
 Portanto, **enquanto** o valor de retorno do `getchar` for diferente de `\n`, o buffer ainda precisa ser limpo:
 
@@ -297,7 +297,7 @@ printf("Parabéns por tirar %g!\n", nota);
 
 > É importante salientar que a **ordem das condições** importa! Em C elas são lidas da esquerda para a direita.
 
-Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Nos temos que usar vários **OU**s juntos, o que dificulta a leitura. Caso seja preciso adicionar mensagens de erros mais claras, como "Digite um número maior que 0" se `numero` for menor que `0`, teríamos que verificar a condição novamente.
+Você concorda que adicionar essa simples checagem já deixou o código mais confuso? Temos que usar vários **OU**s juntos, o que dificulta a leitura. Caso seja preciso adicionar mensagens de erros mais claras, como "Digite um número maior que 0" se `numero` for menor que `0`, teríamos que verificar a condição novamente.
 
 Para resolver esse problema vamos usar outra estrutura de repetição, o **`do while`**. Primeiro vou mostrar a substituição do `while` pelo `do while`, **sem o limite de 0 a 10**:
 
@@ -375,8 +375,6 @@ printf("Parabéns por tirar %g!\n", nota);
 Por fim, vamos analisar o nosso primeiro exemplo do uso do `while` e ver como o `do while` é a estrutura de repetição ideal para **leitura de dados**.
 Retomando:
 
-> Lembre-se de que o `//` é um comentário. Aqui ele serve para indicar o resto do while loop.
-
 ``` c
 const int senha = 1234;
 int tentativa = 0;
@@ -387,14 +385,14 @@ while (tentativa != senha)
 }
 ```
 
-Nós precisamos criar a variável `tentativa` com o valor `0` apenas para garantir que a condição `0 != 1234` fosse verdadeira e o *loop* **pudesse começar**.
+Precisamos criar a variável `tentativa` com o valor `0` apenas para garantir que a condição `0 != 1234` fosse verdadeira e o *loop* **pudesse começar**.
 
 Mas e se a senha real do sistema fosse exatamente `0`? Como o valor inicial da tentativa seria igual à senha, a condição `0 != 0` seria falsa.
 O programa simplesmente pularia o *loop* inteiro e diria que a senha está correta sem o usuário ter digitado absolutamente nada!
-Nós poderíamos usar outro valor, como `1` e o programa passaria a funcionar, mas vamos por outro caminho.
+Poderíamos usar outro valor, como `1` e o programa passaria a funcionar, mas vamos por outro caminho.
 
 O `while` segue a seguinte lógica: "**verificar, depois fazer**", ou seja, ele vai verificar se `tentativa != senha` para aí começar o *loop*.
-Mas como estamos lendo uma entrada do usuário, nos não temos **nada para verificar** no começo do *loop*, é apenas **dentro dele** que a entrada é armazenada na variável `tentativa`.
+Mas como estamos lendo uma entrada do usuário, não temos **nada para verificar** no começo do *loop*, é apenas **dentro dele** que a entrada é armazenada na variável `tentativa`.
 
 O `do while` surge como uma forma de **inverter a lógica do while**, ou seja "**fazer, depois verificar**".
 O código final fica assim:
