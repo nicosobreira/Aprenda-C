@@ -16,3 +16,7 @@
 ## Modularização
 
 - Falar sobre o Parnas e modularização quando terminal de falar sobre arquivos `.c` e `.h`, bem mais para frente, depois de structs.
+
+## Matrizes
+
+- Eu devo falar depois de Listas, mas será que eu não junto para explicar o que são ponteiros? Aí eu iria falar oque são ponteiros de ponteiros?

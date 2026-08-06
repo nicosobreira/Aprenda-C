@@ -1,2 +1,0 @@
-- Diferença entre '' e ""
-- Null termitated
