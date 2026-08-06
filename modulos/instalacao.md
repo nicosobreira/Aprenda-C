@@ -34,7 +34,7 @@ A versão do PowerShell deve ser a 7, esse comando vai atualizar o PowerShell.
 winget install --id Microsoft.PowerShell --exact
 ```
 
-Feche o terminal atual e abre um novo PowerShell.
+Feche o terminal atual e abra um novo PowerShell.
 
 #### Passo 3: Instalando o GCC
 
@@ -42,11 +42,11 @@ Feche o terminal atual e abre um novo PowerShell.
 winget install --id BrechtSanders.WinLibs.POSIX.UCRT --exact
 ```
 
-Caso tudo der certo, no final da instalação, deve-se falar que diversos "alias" foram criados.
+Caso tudo dê certo, no final da instalação, deve-se falar que diversos "alias" foram criados.
 
 #### Passo 4: Verificando a instalação
 
-Feche o terminal atual e abre um novo PowerShell.
+Feche o terminal atual e abra um novo PowerShell.
 
 ``` powershell
 gcc --version
@@ -72,7 +72,7 @@ Dentro do bloco de notas (*notepad*) coloque:
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 
-Feche o terminal atual e abre um novo PowerShell.
+Feche o terminal atual e abra um novo PowerShell.
 
 ### Instalando o VS Code pelo PowerShell
 

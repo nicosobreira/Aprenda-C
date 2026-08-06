@@ -33,7 +33,7 @@ Depois utilizamos desse `&` (chamado de "e") junto ao nome de uma variável para
 Veremos o que esse símbolo realmente significa mais para frente, por ora, pense nele como a forma com que a função `scanf` muda o valor da variável `numero` para o valor de entrada do usuário.
 
 Antes de recebermos a entrada em si, temos que dizer qual informação queremos que o usuário digite. Para isso, usamos do `printf`.
-Diferente do que vinhamos fazendo, não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário para frente do dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
+Diferente do que vínhamos fazendo, não colocamos o `\n` no final da string, mas sim um espaço. Isso é porque queremos mover o cursor do usuário para frente dos dois pontos. Faça as seguintes modificações no código, e veja o que acontece:
 
 - Retire esse espaço final, e execute o programa.
 - Depois, coloque um `\n` no final da mensagem.
@@ -94,7 +94,7 @@ Antes de corrigirmos um erro lógico em nosso contador, vamos ver do que ele é 
 2. **Condição** dentro do `while`. É quando comparamos o valor atual da variável `indice` com `10`.
 3. **Atualização** ao final do `while`. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` em um. Essa parte é essencial para impedir um **loop infinito**. Note que poderíamos ter usado `indice += 1` também.
 
-O erro está aqui: o contador só vai até nove! Para entendermos o por quê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só ira **mostrar o indice** atual **se a condição for verdaderia**, caso contrário, nada será impresso o no terminal.
+O erro está aqui: o contador só vai até nove! Para entendermos o porquê disso, vamos verificar o resultado da condição `indice != 10` para todos os valores de `indice`, até que a condição se torne falsa. Lembre-se de que o `printf` só irá **mostrar o índice** atual **se a condição for verdadeira**, caso contrário, nada será impresso no terminal.
 
 | indice | indice != 10            |
 | :-:    | :-                      |
@@ -124,7 +124,7 @@ return 0;
 
 Lemos o `while` da seguinte maneira: enquanto o `indice` for **menor ou igual** a 10 imprima o índice atual e incremente a variável `indice` em 1.
 
-Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um `for` *loop*. Essa estrutura de repetição junta a  **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros, como esquecer de incrementar o indice ao final do *loop*.
+Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um `for` *loop*. Essa estrutura de repetição junta a  **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros, como esquecer de incrementar o índice ao final do *loop*.
 O mesmo programa acima pode ser escrito nesse novo formato:
 
 ``` c
@@ -187,7 +187,7 @@ Se a entrada do usuário for algo diferente de um número inteiro, o resultado �
 
 Caso a leitura do `scanf` falhar, a variável `numero` não é alterada. Com essa informação já poderíamos pensar em validar a entrada do usuário: se o valor inicial continuar o mesmo, então peça outra entrada para o usuário. Mas existe um jeito ainda melhor de fazer a verificação.
 
-Até agora, ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem sucedidas**, isso é, o **total de variáveis que foram alteradas** pela função.
+Até agora, ignoramos o **valor de retorno** da função `scanf`. Esse valor é do tipo `int` e indica o número de **leituras bem-sucedidas**, isso é, o **total de variáveis que foram alteradas** pela função.
 
 Vamos ver esse valor no código a seguir:
 
@@ -242,7 +242,7 @@ Se não digitarmos um número inteiro, caímos em um **loop infinito**. Para ent
 
 Quando você digita algo no terminal e aperta `Enter`, o que você digitou não vai direto para a variável. Primeiro, esses dados vão para uma área de memória temporária chamada **buffer de entrada**, conhecida em C como *stdin* (apelido para *standard input*).
 
-Por exemplo, se você digitar a letra `A` e depois `Enter`, o buffer de entrada vai ficar parecido com isso: \[`A`, `\n`\], como uma **fila de espera**, aguardando ser lida. O papel da função `scanf` é ler esse buffer até encontrar um `\n`. Quando isso acontece, essa parte do buffer é convertida para o formatador. Caso a conversão der certo o buffer de entrada é esvaziado, mas se der errado, o buffer **não é esvaziado**, isso é, **ele continua o mesmo**.
+Por exemplo, se você digitar a letra `A` e depois `Enter`, o buffer de entrada vai ficar parecido com isso: \[`A`, `\n`\], como uma **fila de espera**, aguardando ser lida. O papel da função `scanf` é ler esse buffer até encontrar um `\n`. Quando isso acontece, essa parte do buffer é convertida para o formatador. Caso a conversão dê certo o buffer de entrada é esvaziado, mas se der errado, o buffer **não é esvaziado**, isso é, **ele continua o mesmo**.
 
 No código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
 
@@ -251,7 +251,7 @@ No código acima, caso digitemos `A` e `Enter`, o `scanf` funcionaria assim:
 3. A mensagem avisando o erro ao usuário é exibida;
 4. O buffer ainda possui o `A`, a conversão falha e a mensagem é exibida;
 
-Para limpar esse buffer, vamos usar a função `getchar`, declarada no header `stdio`. Essa função navega pelo buffer de entrada e limpa um carácter de cada vez. Seu valor de retorno e justamente esse carácter que acabou de ser limpo.
+Para limpar esse buffer, vamos usar a função `getchar`, declarada no header `stdio`. Essa função navega pelo buffer de entrada e limpa um caractere de cada vez. Seu valor de retorno é justamente esse caractere que acabou de ser limpo.
 
 Portanto, **enquanto** o valor de retorno do `getchar` for diferente de `\n`, o buffer ainda precisa ser limpo:
 
@@ -273,11 +273,11 @@ Felizmente, formatadores de números como o `%d` e `%f` ignoram esses espaços e
 
 ## do while
 
-A ultima versão do código usando do `getchar` junto ao `while` *loop* para validar a entrada do usuário é funcional, mas apresenta problemas em sua construção. Vamos tentar usar uma estratégia similar para limitar a entrada do usuário entre 0 e 10, para valores de notas, por exemplo.
+A última versão do código usando o `getchar` junto ao `while` *loop* para validar a entrada do usuário é funcional, mas apresenta problemas em sua construção. Vamos tentar usar uma estratégia similar para limitar a entrada do usuário entre 0 e 10, para valores de notas, por exemplo.
 
-Para tal, vamos juntar os possíveis erros de entrada em **uma única linha**, usando do operador lógico **OU**. Caso **qualquer das condições** sejam verdadeiras, o `while` *loop* vai continuar.
+Para tal, vamos juntar os possíveis erros de entrada em **uma única linha**, usando o operador lógico **OU**. Caso **qualquer uma das condições** seja verdadeira, o `while` *loop* vai continuar.
 
-> Usamos o `%lf` por que a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo". Se nota fosse `float` usaríamos `%f`.
+> Usamos o `%lf` porque a variável `nota` é do tipo `double`. Pode ser lido como **l**ong **f**loat, do inglês "float longo". Se nota fosse `float` usaríamos `%f`.
 
 ``` c
 double nota;
@@ -328,7 +328,7 @@ do
 printf("Parabéns por tirar %g!\n", nota);
 ```
 
-Com o `do while(!leitura_valida)`, a validação da entrada do usuário se dá através da *flag* booleana chamada `leitura_valida`. Esse *flag* é uma variável do tipo booleana que começa como `false` e só se torna `true` quando o `scanf` lê um número real com sucesso, momento em que o laço para.
+Com o `do while(!leitura_valida)`, a validação da entrada do usuário se dá através da *flag* booleana chamada `leitura_valida`. Essa *flag* é uma variável do tipo booleana que começa como `false` e só se torna `true` quando o `scanf` lê um número real com sucesso, momento em que o laço para.
 
 Você pode estar pensando que o código ficou maior, e é verdade. A troca é intencional: ganhamos clareza na estrutura em troca de algumas linhas a mais. Conforme o código crescer, com verificações de intervalo e mensagens de erro específicas, essa clareza vai compensar.
 Veja como adicionar o limite entre 0 e 10 ficou mais fácil.

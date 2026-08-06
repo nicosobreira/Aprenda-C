@@ -122,7 +122,7 @@ void entrar_na_festa(bool tem_convite)
     {
         printf("Seja bem-vindo!\n");
         printf("Pode escolher uma mesa aqui.\n");
-        printf("O banheiro fica a direita.\n");
+        printf("O banheiro fica à direita.\n");
         printf("Tenha uma boa noite!\n");
     }
     else
@@ -175,7 +175,7 @@ void entrar_na_festa(bool tem_convite)
 
     printf("Seja bem-vindo!\n");
     printf("Pode escolher uma mesa aqui.\n");
-    printf("O banheiro fica a direita.\n");
+    printf("O banheiro fica à direita.\n");
     printf("Tenha uma boa noite!\n");
 }
 ```
@@ -215,7 +215,7 @@ void print_divisao(double numero, double divisor)
 
 Com isso, garantimos que o valor de `divisor` sempre será diferente de 0.
 
-> Note que, devido as imprecisões do padrão IEEE 754, não é recomendado comparar diretamente valores `float` ou `double` com o `==`, prefira as desigualdade, como `<` e `>=`. A única exceção é o `0.0`.
+> Note que, devido às imprecisões do padrão IEEE 754, não é recomendado comparar diretamente valores `float` ou `double` com o `==`, prefira as desigualdade, como `<` e `>=`. A única exceção é o `0.0`.
 
 ## O bool por debaixo dos panos
 

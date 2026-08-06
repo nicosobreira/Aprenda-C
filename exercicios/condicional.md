@@ -224,7 +224,7 @@ int main(void)
 
     double pesos = peso1 + peso2 + peso3 + peso4;
 
-    double media = (nota1 * peso1 + nota2 * peso2 + nota3 + peso3 + nota4 + peso4) / pesos;
+    double media = (nota1 * peso1 + nota2 * peso2 + nota3 * peso3 + nota4 * peso4) / pesos;
 
     printf("A média do aluno foi: %.2f\n", media);
 

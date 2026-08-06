@@ -3,7 +3,7 @@
 ## Fluência de teoria x Fluência de produção
 
 - O capítulo de Condicionais não deixa explícito que dentro de um if else todas as verificações já estão sendo consideradas. Isso é um problema, já que no primeiro exercício essa ideia pode não ficar clara.
-**Solução**: dentro do exemplo de temperatura, deixar claro como o valor as restrições vão sendo aplicadas.
+**Solução**: dentro do exemplo de temperatura, deixar claro como as restrições vão sendo aplicadas.
 
 - Posso dividir as soluções de exercícios em partes.
 
@@ -19,4 +19,4 @@
 
 ## Matrizes
 
-- Eu devo falar depois de Listas, mas será que eu não junto para explicar o que são ponteiros? Aí eu iria falar oque são ponteiros de ponteiros?
+- Eu devo falar depois de Listas, mas será que eu não junto para explicar o que são ponteiros? Aí eu iria falar o que são ponteiros de ponteiros?

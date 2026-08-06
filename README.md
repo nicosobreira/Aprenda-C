@@ -2,9 +2,9 @@
 
 Bem-vindo a um guia de programação em C. Este guia busca te **ensinar a linguagem C sem esconder o que acontece debaixo dos panos.**
 
-A maioria dos materiais modernos **simplificam demais** os comportamentos da linguagem, e consequentemente, de como um computador funciona. Já os materiais antigos **complicam o que é simples** e trazem um rigor que afasta os iniciantes. Isso faz com que o estudante decore muita coisa, mas sem responder essas duas perguntas: **porque** as coisas são assim? E **como** elas funcionam?
+A maioria dos materiais modernos **simplificam demais** os comportamentos da linguagem, e consequentemente, de como um computador funciona. Já os materiais antigos **complicam o que é simples** e trazem um rigor que afasta os iniciantes. Isso faz com que o estudante decore muita coisa, mas sem responder essas duas perguntas: **por que** as coisas são assim? E **como** elas funcionam?
 
-Além disso, os módulos introduzem conceitos de **Arquitetura de Software** e **boas práticas**, que te guiaram a escrever melhores códigos.
+Além disso, os módulos introduzem conceitos de **Arquitetura de Software** e **boas práticas**, que te guiarão a escrever melhores códigos.
 
 ## Uso de AI na produção do guia
 
@@ -49,7 +49,7 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 Alguns sites úteis que vão te ajudar:
 
 - [Geeks for Geeks](https://www.geeksforgeeks.org/) para o funcionamento da linguagem e funções da Biblioteca Padrão.
-- [Stack Overflow](https://stackoverflow.com/questions) para dúvidas mais especificas. Pode digitar a dúvida no google que esse site provavelmente já aparece.
+- [Stack Overflow](https://stackoverflow.com/questions) para dúvidas mais específicas. Pode digitar a dúvida no google que esse site provavelmente já aparece.
 
 ## Colaboração
 

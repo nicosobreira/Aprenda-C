@@ -79,8 +79,8 @@ int main()
 }
 ```
 
-Esse `%` é o padrão adotado pela função `printf` para lidar com os diferentes tipos de variáveis que podem ser exibidas. Ele indica que o valor a ser imprimido vem de uma variável de um tipo específico.
-O carácter ao lado do `%` representa o tipo da variável que será imprimida. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
+Esse `%` é o padrão adotado pela função `printf` para lidar com os diferentes tipos de variáveis que podem ser exibidas. Ele indica que o valor a ser impresso vem de uma variável de um tipo específico.
+O caractere ao lado do `%` representa o tipo da variável que será impressa. Nesse caso, usamos o `d` para indicar que estamos passando uma variável do tipo `int`.
 
 #### Operações
 
@@ -143,10 +143,10 @@ Se você estiver trabalhando em um projeto para computadores modernos (64 bits),
 
 ### char
 
-Representa um único carácter, como uma letra do alfabeto ou um sinal de pontuação.
+Representa um único caractere, como uma letra do alfabeto ou um sinal de pontuação.
 
 ``` c
-char caracter = 'a';
+char caractere = 'a';
 ```
 
 Tá lembrado no começo do capítulo, quando discutimos como o binário `0100 0011` (ou 67 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
@@ -154,20 +154,20 @@ Tá lembrado no começo do capítulo, quando discutimos como o binário `0100 00
 ``` c
 char letra_C = 'C';
 
-printf("Carácter: %c\n", letra_C);
+printf("Caractere: %c\n", letra_C);
 
 printf("Índice:   %d\n", letra_C);
 ```
 
-Primeiro, declaramos uma variável do tipo `char` chamada `letra_C`. Depois, usamos o `%c` para imprimir o carácter no terminal. Mas fazemos algo esquisito em seguida: imprimimos a variável `letra_C` como um `int`?! Por que o código funciona, e por que ele exibe 67?
+Primeiro, declaramos uma variável do tipo `char` chamada `letra_C`. Depois, usamos o `%c` para imprimir o caractere no terminal. Mas fazemos algo esquisito em seguida: imprimimos a variável `letra_C` como um `int`?! Por que o código funciona, e por que ele exibe 67?
 
-Isso se deve ao modo como os carácteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 1 byte, que é **traduzido para um carácter** por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
+Isso se deve ao modo como os caracteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 1 byte, que é **traduzido para um caractere** por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
 
 > O valor de 1 byte na **esmagadora maioria** dos dispositivos é 8 bits.
 
-Se você abrir essa tabela, notará duas coisas: o *código ASCII* do carácter `C` é 67; e que não existem carácteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada pra a língua inglesa, por isso eles não colocaram acentos nela. Isso explica o por quê os acentos podem estar meio esquisitos quando exibidos.
+Se você abrir essa tabela, notará duas coisas: o *código ASCII* do caractere `C` é 67; e que não existem caracteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada pra a língua inglesa, por isso eles não colocaram acentos nela. Isso explica por que os acentos podem estar meio esquisitos quando exibidos.
 
-Ao invés de usarmos aspas duplas, usamos as aspas simples, mas por quê? Veremos isso com mais detalhes em [Strings](./string.md), mas já pincelando, a linguagem C diferencia um único carácter de um texto - conjunto de caracteres - com o uso das aspas simples.
+Ao invés de usarmos aspas duplas, usamos as aspas simples, mas por quê? Veremos isso com mais detalhes em [Strings](./string.md), mas já pincelando, a linguagem C diferencia um único caractere de um texto - conjunto de caracteres - com o uso das aspas simples.
 
 
 ### bool
@@ -183,7 +183,7 @@ bool estou_feliz = false;
 Diferente dos outros tipos primitivos, para declararmos uma variável booleana, precisamos primeiro importar sua definição na Biblioteca Padrão, com o `#include <stdbool.h>`.
 O motivo disso ficará claro em [Condicionais](../condicional/README.md)
 
-Nós também não temos como imprimir um `bool` do mesmo jeito temos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação uma maneira de converter o `bool` para uma string, ou seja, não definir um código como `d` para tal. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
+Nós também não temos como imprimir um `bool` do mesmo jeito que vínhamos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação uma maneira de converter o `bool` para uma string, ou seja, não definir um código como `d` para tal. Mas nós veremos em [Condicionais](../condicional/README.md) um jeito de fazer isso.
 
 Chamamos os estados **verdadeiro** e **falso** de `true` e `false`, respectivamente.
 
@@ -293,7 +293,7 @@ int main(void)
 
 Você saberia dizer o que os valores `0.1` e `15.0` representam? Pelo contexto talvez você consiga adivinhar, mas só depois de gastar um tempo decifrando o código. No caso, eles representam a **taxa de serviço** e o **preço da reserva por pessoa**, respectivamente.
 
-Esses valores "soltos" são chamados de **valores mágicos**. Eles diminuem muito a clareza do nosso código. Uma solução é usar duas variáveis constantes chamadas `taxa_servico` e `preco_reserva` para deixar claro as suas funções no código:
+Esses valores "soltos" são chamados de **valores mágicos**. Eles diminuem muito a clareza do nosso código. Uma solução é usar duas variáveis constantes chamadas `taxa_servico` e `preco_reserva` para deixar claras as suas funções no código:
 
 ``` c
 int main(void)

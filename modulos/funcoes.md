@@ -29,7 +29,7 @@ A linha `void entrar_na_festa(bool tem_convite)` é chamada de **assinatura** da
 
 Após a assinatura, entre as chaves (`{}`), fica a **declaração** da função - tudo aquilo que será executado ao usarmos a função. Essa parte também é chamada de **corpo** da função.
 
-Para usarmos a função, devemos **chama-la** em outra função. Por exemplo, podemos **chamar** a função `entrar_na_festa` dentro da função `main` da seguinte forma:
+Para usarmos a função, devemos **chamá-la** em outra função. Por exemplo, podemos **chamar** a função `entrar_na_festa` dentro da função `main` da seguinte forma:
 
 ``` c
 int main(void)
@@ -110,7 +110,7 @@ int main(void)
 }
 ```
 
-Aqui, passamos como argumentos os valores da variáveis `total_da_conta` e `pessoas`, que no caso são `20.0` e `2.0`. Na linguagem C, os argumentos são **copiados** para os parâmetros. Veja o que acontece se alterarmos a variável `divisor` e exibir o seu valor antes e depois de chamarmos a função `print_divisao`:
+Aqui, passamos como argumentos os valores das variáveis `total_da_conta` e `pessoas`, que no caso são `20.0` e `2.0`. Na linguagem C, os argumentos são **copiados** para os parâmetros. Veja o que acontece se alterarmos a variável `divisor` e exibir o seu valor antes e depois de chamarmos a função `print_divisao`:
 
 ``` c
 void print_divisao(double numero, double divisor)
@@ -163,7 +163,7 @@ int main()
 }
 ```
 
-Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma **copia** do valor armazenado na variável **global** `numero` e recebe nenhum argumento:
+Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma **copia** do valor armazenado na variável **global** `numero` e não recebe nenhum argumento:
 
 ``` c
 #include <stdio.h>
@@ -230,7 +230,7 @@ int main()
 }
 ```
 
-Esse código não irá compilar devido a uma regra da linguagem C: é permitido a declaração de variáveis com o mesmo nome, contanto que as variáveis fiquem em **escopos diferentes**. Como ambas as variáveis `numero` fazem parte do escopo da função `main`, elas violam a regra.
+Esse código não irá compilar devido a uma regra da linguagem C: é permitida a declaração de variáveis com o mesmo nome, contanto que as variáveis fiquem em **escopos diferentes**. Como ambas as variáveis `numero` fazem parte do escopo da função `main`, elas violam a regra.
 
 Tente remover o `int` quando a variável `numero` recebe 2, ou seja, em `int numero = 2;`. Agora, o programa irá compilar e mostrará dois valores distintos.
 
@@ -304,7 +304,7 @@ main.c:6:5: note: previous implicit declaration of ‘entrar_na_festa’ with ty
 
 ```
 
-É a segunda linha da saída do `gcc` que nos interessa: `error: implicit declaration of function ‘entrar_na_festa’`. Esse erro indica que a função foi **implicitamente** declarada, ou seja, o compilador não conhece a **assinatura** da função para conseguir usá-la em `main`. Para resolver esse problema, devemos deixar explícito a declaração da função - declarando a função antes do uso. Para isso, **copiamos e colamos** a assinatura da função na parte da definição, e colocamos um `;` ao final da linha. Veja:
+É a segunda linha da saída do `gcc` que nos interessa: `error: implicit declaration of function ‘entrar_na_festa’`. Esse erro indica que a função foi **implicitamente** declarada, ou seja, o compilador não conhece a **assinatura** da função para conseguir usá-la em `main`. Para resolver esse problema, devemos deixar explícita a declaração da função - declarando a função antes do uso. Para isso, **copiamos e colamos** a assinatura da função na parte da definição, e colocamos um `;` ao final da linha. Veja:
 
 > Outro nome para a declaração é **protótipo**.
 
@@ -567,7 +567,7 @@ double leia_double_entre(double min, double max);
 }
 ```
 
-Compare esta função com a `leia_double`, você percebe alguma coisa em comum entre elas? Ambas fazem a mesma lógica que apontamos no início: se a entrada não for um número, peça por outra. A única diferença é que limitar a entrada precisa de Com isso podemos reescrever a função `leia_double_entre` para usar a `leia_double`, ficando assim:
+Compare esta função com a `leia_double`, você percebe alguma coisa em comum entre elas? Ambas fazem a mesma lógica que apontamos no início: se a entrada não for um número, peça por outra. A única diferença é que limitar a entrada exige mais validações. Com isso, podemos reescrever a função `leia_double_entre` para usar a `leia_double`, ficando assim:
 
 ``` c
 double leia_double_entre(double min, double max)
@@ -591,7 +591,7 @@ double leia_double_entre(double min, double max)
         }
     } while(!leitura_valida);
 
-    return numero
+    return numero;
 }
 ```
 

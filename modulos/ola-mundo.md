@@ -115,7 +115,7 @@ O comando `return` encerra a função na mesma hora. Se você colocar o `return 
 
 Dentro dos parênteses são colocados os parâmetros da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando função ser chamada, ou seja, o programa ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
+Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando a função for chamada, ou seja, o programa ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
 
 ### Formatação do código
 
@@ -127,13 +127,13 @@ int main() {
 }
 ```
 
-E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemos formatar o nosso código. Quebrar uma linha para a abertura das chave é um costume meu, e é o que vou usar ao longo desse guia.
+E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemos formatar o nosso código. Quebrar uma linha para a abertura das chaves é um costume meu, e é o que vou usar ao longo desse guia.
 
 ## printf
 
-A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nos veremos os diferentes tipos de formatação em [Variáveis](../variaveis/variaveis-1.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
+A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](../variaveis/variaveis-1.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
 
-Nos precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
+Nós precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
 
 O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro.
 

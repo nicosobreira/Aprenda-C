@@ -13,7 +13,7 @@ Baseado no artigo: [On the Criteria To Be Used in Decomposing Systems into Modul
 
 - Decompor o código é transformar ele em módulos.
 - Não olhar a decomposição do código como um *flowchart*, mas sim como um conjunto de módulos ligados.
-- A **primeira coisa** que um novato pode pensar é que: módularizar significa **dividir os processos**. O artigo argumenta contra esse ponto de vista, nos oferencendo uma nova perspectiva - de que devemos pensar em **isolar a parte complicada primeiro**, aquela que pode mudar, e trabalhar apartir dai.
+- A **primeira coisa** que um novato pode pensar é que: modularizar significa **dividir os processos**. O artigo argumenta contra esse ponto de vista, nos oferecendo uma nova perspectiva - de que devemos pensar em **isolar a parte complicada primeiro**, aquela que pode mudar, e trabalhar a partir daí.
 - A decomposição, segundo Parnas, deve se basear em **isolar as partes do design**. Deve-se ocultar o que pode mudar com frequencia e o que é complicado
 
 ## Critérios para a Decomposição
