@@ -4,7 +4,7 @@ Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida
 
 ## Formato da entrada
 
-Nesses exercícios vamos usar uma formatação diferente para pedir dados do usuário. Primeiro vou mostrar como ela é, depois como implementa-la:
+Nesses exercícios vamos usar uma formatação diferente para pedir dados do usuário. Primeiro vou mostrar como ela é, depois como implementá-la:
 
 > Esse bloco indica como a entrada e saída do programa deve funcionar.
 ```
@@ -295,7 +295,7 @@ int main(void)
 }
 ```
 
-Conseguimos mudar a **seed**, mas se rodarmos o programa mais de uma vez o mesmo valor aparece. Assim como a seed padrão da função `rand`, o nosso novo valor continua sendo **constante**. Para resolvermos esse problema vamos utilizar do **tempo atual** em segundos, a partir da função `time`, declarada no *header* `time.h`.
+Conseguimos mudar a **seed**, mas se rodarmos o programa mais de uma vez o mesmo valor aparece. Assim como a seed padrão da função `rand`, o nosso novo valor continua sendo **constante**. Para resolvermos esse problema vamos utilizar o **tempo atual** em segundos, a partir da função `time`, declarada no *header* `time.h`.
 
 ``` c
 #include <stdio.h>   // Para o printf
@@ -326,7 +326,7 @@ Se dividirmos qualquer número por 100, o resto dessa divisão sempre será algo
 int aleatorio = 1 + rand() % 100
 ```
 
-De forma mais genêrica, podemos limitar um número aletório entre dois inteiros `min` e `max` dessa forma:
+De forma mais genérica, podemos limitar um número aleatório entre dois inteiros `min` e `max` dessa forma:
 
 ``` c
 const int min = 5;
@@ -547,7 +547,7 @@ Agora, pedimos por um valor de 1 a 3, ou seja, de `primeira_opcao` até `ultima_
     } while (!leitura_valida);
 ```
 
-Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que não fazem nada - com exeção da opção `3`, que muda a variável `caixa_esta_ligado` para `false`, desligando o caixa:
+Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que não fazem nada - com exceção da opção `3`, que muda a variável `caixa_esta_ligado` para `false`, desligando o caixa:
 
 ``` c
     if (opcao == 1)
@@ -573,7 +573,7 @@ Implementar a opção `1` é fácil, é só exibir o saldo atual:
         printf("Seu saldo é de R$ %.2f\n", saldo);
 ```
 
-Para a opção `2` temos que (1) ler um valor `double` do usuário e (2) somar esse valor a variável `saldo`. Fazemos isso no código a seguir:
+Para a opção `2` temos que (1) ler um valor `double` do usuário e (2) somar esse valor à variável `saldo`. Fazemos isso no código a seguir:
 
 ``` c
         // Opção 2
@@ -732,7 +732,7 @@ int main(void)
 Em todos os exercícios, nos pedimos para o usuário digitar algum valor com restrições; como um inteiro no intervalo de 1 a 100 ou um inteiro maior que 0.
 Perceba que o código praticamente **não muda** de exercício para exercício. A lógica é a mesma, a única diferença é a mensagem que informa ao usuário o que ele deve digitar.
 
-A medida que o programa cresce, temos que ficar copiando e colando o **mesmo código**, o que torna o código difícil de entender - como no exercício 3.
+À medida que o programa cresce, temos que ficar copiando e colando o **mesmo código**, o que torna o código difícil de entender - como no exercício 3.
 
 No próximo capítulo veremos as **funções**, que vão nos permitir reutilizar as lógicas de leitura em diversos lugares, eliminando o copia e cola.
 
