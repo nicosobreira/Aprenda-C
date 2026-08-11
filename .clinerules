@@ -5,7 +5,7 @@ Este repositório contém o guia **Aprenda C**, cujo objetivo é ensinar a lingu
 ---
 
 ## 1. Filosofia Didática e Tom de Escrita
-
+- **Capítulo Ouro**: o módulo `capitulos/repeticao.md` é o padrão-ouro de escrita e didática.
 - **Sem caixa-preta**: Sempre explique **por que** algo funciona e **como** a máquina/compilador processa a instrução.
 - **Tom Amigável e Prático**: Português brasileiro (PT-BR), direto, engajante e focado no aprendizado ativo. Incentive o leitor a testar, alterar variáveis e rodar os comandos no terminal.
 - **Progressão Didática**:
