@@ -32,8 +32,8 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 6. [Exercícios: Condicionais](./exercicios/condicional.md)
 7. [Estruturas de Repetição](./modulos/repeticao.md)
 8. [Exercícios: Estruturas de Repetição](./exercicios/repeticao.md)
-9. [Funções](./modulos/funcoes.md)
-10. [Listas](./modulos/lista.md)
+9. ~~[Funções](./modulos/funcoes.md)~~
+10. ~~[Listas](./modulos/lista.md)~~
 12. ~~[Matrizes](./variaveis/matriz.md)~~
 13. ~~[Strings](./variaveis/string.md)~~
 14. ~~[Structs](./variaveis/struct.md)~~
