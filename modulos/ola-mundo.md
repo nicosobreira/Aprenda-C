@@ -79,7 +79,7 @@ Você também pode usar as teclas "Seta para Cima" e "Seta para Baixo" para nave
 
 ---
 
-Agora sim, vamos escrever o programa "Olá, Mundo!", e depois analisá-lo linha a linha.
+Agora sim, vamos escrever o programa "Olá, Mundo!".
 
 ## Código
 
@@ -96,26 +96,20 @@ int main(void)
 }
 ```
 
-<!-- FIX: Eu devo primeiro introduzir o que são funções, para alguém novato na programação pode ficar muito abstrato. Mover o que é o include para baixo. -->
+Vamos entender esse código começando pela função `main` — o coração de todo programa em C.
 
-## include
-
-O `#include <stdio.h>` nos permite usar as chamadas: **funções de entrada e saída**. Essas funções permitem **mostrar** textos no terminal, assim como **pedir** informações para o usuário.
-
-O `.h` é um apelido para *header*, em português **cabeçalho**. Veremos o conteúdo desse tipo de arquivo mais para frente.
-
-É a partir do `#include <stdio.h>` que podemos usar a função `printf`, que nos permite **exibir** o texto `Olá, Mundo!` no terminal.
+> Não se esqueça de compilar o programa e executá-lo antes de continuar!
 
 ## main
 
 É uma função especial dentro do C; ela é o **ponto inicial** de nosso programa, por isso do nome "main", do inglês, principal.
 
-O `int` é usado para indicar que essa função retornará um valor do tipo inteiro em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
+Primeiro vem o `int`, que é usado para indicar que essa função **retornará** um valor do tipo *inteiro* em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
 O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, o programa fechará imediatamente e o texto nunca será exibido.
 
 Dentro dos parênteses são colocados os parâmetros da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando a função for chamada, ou seja, o programa ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
+Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando função ser chamada, ou seja, o programa ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
 
 ### Formatação do código
 
@@ -127,7 +121,17 @@ int main() {
 }
 ```
 
-E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemos formatar o nosso código. Quebrar uma linha para a abertura das chaves é um costume meu, e é o que vou usar ao longo desse guia.
+E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemos formatar o nosso código. Quebrar uma linha para a abertura das chave é um costume meu, e é o que vou usar ao longo desse guia.
+
+## include
+
+Agora que já entendemos a função `main`, vamos voltar para a primeira linha do nosso código.
+
+O `#include <stdio.h>` nos permite usar as chamadas: **funções de entrada e saída**. Essas funções permitem **mostrar** textos no terminal, assim como **pedir** informações para o usuário.
+
+O `.h` é um apelido para *header*, em português **cabeçalho**. Veremos o conteúdo desse tipo de arquivo mais para frente.
+
+É a partir do `#include <stdio.h>` que podemos usar a função `printf`, que nos permite **exibir** o texto `Olá, Mundo!` no terminal.
 
 ## printf
 
