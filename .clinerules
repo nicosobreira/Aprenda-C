@@ -52,6 +52,7 @@ Este repositório contém o guia **Aprenda C**, cujo objetivo é ensinar a lingu
 - **Indentação**: 4 espaços por nível.
 
 ### Assinatura e Estrutura de Arquivo:
+- Sempre use o C11
 - **Ponto de Entrada**: Usar explicitamente `int main(void)` com `return 0;` ao final (ou `return -1;` para erros de execução).
 - **Organização Padrão do Arquivo `.c`**:
   1. Inclusão de *headers* (`#include <stdio.h>`, `#include <stdbool.h>`, etc.)
