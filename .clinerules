@@ -70,3 +70,9 @@ Este repositório contém o guia **Aprenda C**, cujo objetivo é ensinar a lingu
 - **Evitar Valores Mágicos**: Usar variáveis `const` com nomes autoexplicativos para coeficientes e limites.
 - **Retorno Antecipado (*Early Return*)**: Preferir checar condições inválidas no início da função com `if (!condicao) return;` em vez de aninhar múltiplos `if/else`.
 - **Família de Funções (Sem Sobrecarga em C)**: Como o C não possui *function overloading*, usar padrão explícito de nomes (ex: `leia_int()`, `leia_double()`, `leia_double_entre()`).
+
+---
+
+## 4. Papel da IA
+
+Atue como co-piloto e revisor. Não altere o tom do autor, apenas aprimore clareza, concisão e exatidão técnica.
