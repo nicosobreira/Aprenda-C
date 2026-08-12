@@ -364,10 +364,10 @@ void entrar_na_festa(bool);
 
 > E claro, mantendo o nome do parâmetro na **definição**.
 
-Por enquanto, nossos programas estão bem pequenos, as funções são consicas e bem simples - mas pense: e quando os programas aumentarem? A tendência é que o número de funções aumente muito. Veremos em \[...\] que é possível **separar** a definição e declaração das funções em arquivos diferentes. Isso nos possibilita ignorar a declaração da função e apenas ler a definição para entender o que a função faz, ou seja, ignorar todas as complexidades do funcionamento interno e focar apenas na entrada e saída.
-Ao nomearmos os parâmetros, facilitamos
+Por enquanto, nossos programas estão bem pequenos, as funções são concisas e bem simples - mas pense: e quando os programas aumentarem? A tendência é que o número de funções aumente muito. Veremos em \[...\] que é possível **separar** a definição e declaração das funções em arquivos diferentes. Isso nos possibilita ignorar a declaração da função e apenas ler a definição para entender o que a função faz, ou seja, ignorar todas as complexidades do funcionamento interno e focar apenas na entrada e saída.
+Ao nomearmos os parâmetros, facilitamos a leitura de quem só tem acesso ao arquivo de declarações — algo que vai fazer ainda mais sentido quando falarmos em separar código em múltiplos arquivos.
 
-<!-- TODO: Será que eu devo falar que os arquivos .h possuem variás declarações? Isso deixaria mais claro do porque os nomes dos parâmetros são necessários. -->
+<!-- TODO: Adicionar referência ao capítulo específico -->
 
 ## Retomando a leitura de números
 
