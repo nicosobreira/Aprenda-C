@@ -1,7 +1,5 @@
 # Estruturas de Repetições: Exercícios
 
-Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
-
 ## Formato da entrada
 
 Nesses exercícios vamos usar uma formatação diferente para pedir dados do usuário. Primeiro vou mostrar como ela é, depois como implementá-la:

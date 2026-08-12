@@ -1,5 +1,7 @@
 # Condicionais: Exercícios
 
+Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
+
 Como ainda não sabemos como pedir dados para os usuários enquanto o programa está em execução, vamos utilizar um padrão de **entrada** e **saída** para os exercícios.
 
 Os exercícios vão **dar as entradas** e pedir para você criar uma solução entre o comentário `// Saída:` e o `return 0;`.
