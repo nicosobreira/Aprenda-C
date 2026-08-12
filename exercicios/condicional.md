@@ -2,11 +2,13 @@
 
 Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
 
+## Entrada e Saída
+
 Como ainda não sabemos como pedir dados para os usuários enquanto o programa está em execução, vamos utilizar um padrão de **entrada** e **saída** para os exercícios.
 
 Os exercícios vão **dar as entradas** e pedir para você criar uma solução entre o comentário `// Saída:` e o `return 0;`.
 
-## Exemplo
+### Exemplo
 
 > Enunciado.
 
@@ -53,7 +55,7 @@ int main(void)
 
 </details>
 
-## Comentários
+### Comentários
 
 Repare que, no parágrafo anterior, eu falei em um "comentário `// Saída:`". Mas o que isso quer dizer? Se `Saída` não é uma variável, nem uma função, por que o compilador não reclama dele?
 
