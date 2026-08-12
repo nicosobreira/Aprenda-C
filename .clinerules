@@ -12,7 +12,7 @@ Guia **Aprenda C**: ensina C sem esconder o que acontece por debaixo dos panos, 
 
 ## 2. Estrutura Markdown
 
-**Módulos** (`modulos/*.md`): `# Título` / `## Conceito` / `### Subconceito`. **Negrito** para conceitos-chave; *itálico* para termos em inglês/traduzidos; `> ` para dicas e avisos de sistema/compilador. Sempre terminar com `## Boas práticas`.
+**Módulos** (`modulos/*.md`): `# Título` / `## Conceito` / `### Subconceito`. **Negrito** para conceitos-chave; *itálico* para termos em inglês/traduzidos; `> ` para dicas e avisos de sistema/compilador.
 
 **Exercícios** (`exercicios/*.md`): dicas com referência a capítulos passados quando útil; gabarito dentro de `<details><summary>Clique aqui para ver a resposta</summary>` com bloco de código, seguido de `</details>`.
 
