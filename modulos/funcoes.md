@@ -25,7 +25,7 @@ void entrar_na_festa(bool tem_convite)
 }
 ```
 
-A linha `void entrar_na_festa(bool tem_convite)` é chamada de **assinatura** da função `entrar_na_festa`. A assinatura é separada em partes: primeiro vem o **tipo de retorno**, depois o **nome** da função, por último - entre parênteses - ficam os **parâmetros**.
+A linha `void entrar_na_festa(bool tem_convite)` é chamada de **assinatura** da função chamada de `entrar_na_festa`. A assinatura é separada em partes: primeiro vem o **tipo de retorno**, depois o **nome** da função, por último - entre parênteses - ficam os **parâmetros**.
 
 Após a assinatura, entre as chaves (`{}`), fica a **declaração** da função - tudo aquilo que será executado ao usarmos a função. Essa parte também é chamada de **corpo** da função.
 
@@ -40,7 +40,7 @@ int main(void)
 }
 ```
 
-Colocamos o nome da função seguido por parênteses que contém os valores que vamos passar.
+Escrevemos o nome da função seguido por - entre parênteses - os valores que vamos passar.
 
 Na sequência, veremos cada parte da função com mais detalhes.
 
@@ -96,7 +96,7 @@ int main(void)
 }
 ```
 
-Nesse caso, os valores `20.0` e `2.0` são os argumentos. Se passarmos alguma variável como argumento, falamos que **seus valores são os argumentos**. Por exemplo:
+Nesse caso, os valores `20.0` e `2.0` são os argumentos. Também podemos passar variáveis como argumentos, por exemplo:
 
 ``` c
 int main(void)
@@ -110,7 +110,7 @@ int main(void)
 }
 ```
 
-Aqui, passamos como argumentos os valores das variáveis `total_da_conta` e `pessoas`, que no caso são `20.0` e `2.0`. Na linguagem C, os argumentos são **copiados** para os parâmetros. Veja o que acontece se alterarmos a variável `divisor` e exibir o seu valor antes e depois de chamarmos a função `print_divisao`:
+Aqui, passamos como argumentos os valores das variáveis `total_da_conta` e `pessoas`, que no caso são `20.0` e `2.0`. Na linguagem C, os argumentos são **copiados** para os parâmetros - em todos os casos. Veja o que acontece se alterarmos a variável `divisor` e exibir o seu valor antes e depois de chamarmos a função `print_divisao`:
 
 ``` c
 void print_divisao(double numero, double divisor)
@@ -144,7 +144,11 @@ A variável `divisor` dentro da função passa a valer `4.0`, depois de `divisor
 
 Veremos em um outro módulo como usar parâmetros que **mudam** os argumentos.
 
+<!-- TODO: Adicionar referência a ponteiros aqui! Qual capítulo? -->
+
 ### Escopos
+
+<!-- FIX: A transição entre escopos e parâmetros está muito truncada. Como posso deixa-la mais suave? -->
 
 Os escopos delimitam a região em nosso código que uma variável fica disponível.
 
@@ -304,9 +308,7 @@ main.c:6:5: note: previous implicit declaration of ‘entrar_na_festa’ with ty
 
 ```
 
-É a segunda linha da saída do `gcc` que nos interessa: `error: implicit declaration of function ‘entrar_na_festa’`. Esse erro indica que a função foi **implicitamente** declarada, ou seja, o compilador não conhece a **assinatura** da função para conseguir usá-la em `main`. Para resolver esse problema, devemos deixar explícita a declaração da função - declarando a função antes do uso. Para isso, **copiamos e colamos** a assinatura da função na parte da definição, e colocamos um `;` ao final da linha. Veja:
-
-> Outro nome para a declaração é **protótipo**.
+É a segunda linha da saída do `gcc` que nos interessa: `error: implicit declaration of function ‘entrar_na_festa’`. Esse erro indica que a função foi **implicitamente** declarada, ou seja, o compilador não conhece a **assinatura** da função para conseguir usá-la em `main`. Para resolver esse problema, devemos deixar explícita a declaração da função. Fazemos isso declarando a função antes do uso. Para isso, **copiamos e colamos** a assinatura da função na parte da definição, e colocamos um `;` ao final da linha. Veja:
 
 ``` c
 #include <stdio.h>
@@ -335,7 +337,12 @@ void entrar_na_festa(bool tem_convite)
 }
 ```
 
+> Outro nome para a declaração é **protótipo**.
+
 Se certifique que a assinatura da declaração e definição são as **mesmas**, ou seja, possuem os mesmos tipos de retorno, nomes e parâmetros. Se tudo estiver certo, então o programa será executado com sucesso.
+
+<!-- TODO: mostrar que isso resolver o problema de duas funções chamarem uma a outra. -->
+<!-- TODO: informar que as declarações organizam melhor o código. -->
 
 Com isso, vamos organizar os nossos programas da seguinte forma:
 
@@ -345,6 +352,22 @@ Com isso, vamos organizar os nossos programas da seguinte forma:
 4. Declaração das funções.
 5. Função `main`.
 6. E por último, as definições das funções.
+
+
+### Boas Práticas
+
+Não é obrigatório informar o **nome** dos parâmetros na **declaração**, apenas o tipo basta. Podemos reescrever `void entrar_na_festa(bool tem_convite)` como:
+
+``` c
+void entrar_na_festa(bool);
+```
+
+> E claro, mantendo o nome do parâmetro na **definição**.
+
+Por enquanto, nossos programas estão bem pequenos, as funções são consicas e bem simples - mas pense: e quando os programas aumentarem? A tendência é que o número de funções aumente muito. Veremos em \[...\] que é possível **separar** a definição e declaração das funções em arquivos diferentes. Isso nos possibilita ignorar a declaração da função e apenas ler a definição para entender o que a função faz, ou seja, ignorar todas as complexidades do funcionamento interno e focar apenas na entrada e saída.
+Ao nomearmos os parâmetros, facilitamos
+
+<!-- TODO: Será que eu devo falar que os arquivos .h possuem variás declarações? Isso deixaria mais claro do porque os nomes dos parâmetros são necessários. -->
 
 ## Retomando a leitura de números
 
@@ -500,7 +523,7 @@ O compilador reclama de **tipos conflitantes** (`conflicting types`) para o iden
 
 Algumas linguagens permitem que várias funções compartilhem o mesmo nome, desde que seus parâmetros sejam diferentes — isso se chama **sobrecarga de funções** (*function overloading*). A linguagem C **não tem esse recurso**.
 
-Em C, o **tipo de uma função** não é definido só pelos seus parâmetros, mas sim pela combinação entre o **tipo de retorno** e os **tipos dos parâmetros**. E cada identificador só pode ter **um único tipo** dentro do mesmo escopo — nem um a mais. Ao escrever `int leia(void)` e depois `double leia(void)`, você está dizendo ao compilador duas coisas diferentes sobre o mesmo nome `leia`, e ele não tem como decidir qual delas é a verdadeira.
+Em C, o **tipo de uma função** não é definido só pelos seus parâmetros, mas sim pela combinação entre o **tipo de retorno** e os **tipos dos parâmetros**. E cada identificador só pode ter **um único tipo** dentro do mesmo escopo. Ao escrever `int leia(void)` e depois `double leia(void)`, você está dizendo ao compilador duas coisas diferentes sobre o mesmo nome `leia`, e ele não tem como decidir qual delas é a verdadeira.
 
 Por outro lado, repetir a **mesma** assinatura, não é um erro:
 
@@ -594,6 +617,195 @@ double leia_double_entre(double min, double max)
     return numero;
 }
 ```
+
+Usamos as funções, nesse caso, para eliminar a **repetição** do nosso código: se precisarmos alterar a mensagem de erro fazemos isso em um único lugar.
+Reescreva o exercício [Menu de Caixa Eletrônico](../exercicios/repeticao.md#3.-menu-de-caixa-eletrônico), agora usando as funções `leia_int_entre` e `leia_double_positivo`, implemente essas funções usando `leia_int` e `leia_double` como bases.
+
+<details>
+<summary>Clique aqui para ver a resposta</summary>
+
+Separei cada seção do arquivo em títulos diferentes, mas você teve colocar tudo em no mesmo arquivo e de forma sequencial.
+
+#### Importação e Declaração
+
+``` c
+#include <stdbool.h>
+#include <stdio.h>
+
+int leia_int(void);
+int leia_int_entre(int min, int max);
+
+double leia_double(void);
+double leia_double_positivo(void);
+```
+
+#### Função `main`
+
+```c
+int main(void)
+{
+    const int primeira_opcao = 1;
+    const int ultima_opcao = 3;
+
+    double saldo = 1000.0;
+
+    printf("--- OPÇÕES ---\n");
+    printf("1. Ver Saldo\n");
+    printf("2. Depositar\n");
+    printf("3. Sair\n");
+    printf("\n");
+
+    bool caixa_esta_ligado = true;
+    while (caixa_esta_ligado)
+    {
+        int opcao = leia_int_entre(primeira_opcao, ultima_opcao);
+
+        if (opcao == 1)
+        {
+            printf("Seu saldo é de R$ %.2f\n", saldo);
+        }
+        else if (opcao == 2)
+        {
+            printf("\n");
+            printf("Deseja depositar quanto? [Digite 0 para sair]\n");
+
+            double deposito = leia_double_positivo();
+
+            saldo += deposito;
+        }
+        else if (opcao == 3)
+        {
+            caixa_esta_ligado = false;
+        }
+
+        printf("\n");
+    }
+
+    printf("Até mais!\n");
+
+    return 0;
+}
+```
+
+Antes de continuar, perceba como essa parte do código está muito mais **autoexplicativa** do que a solução original do exercício. Ao ler este código, não precisamos saber **como** a função `leia_int_entre` funciona, mas sim apenas do que ela *precisa* e *o que* ela faz, informações que os **parâmetros** e o **nome** da função já nos dão. Isso é vantajoso já que a medida que o número de funções aumentam podemos variar o modo como analisamos nosso programa, de maneira mais detalhada a partir das definições ou mais geral, com as definições - não nos prendendo aos mínimos detalhes.
+
+#### Definição
+
+```c
+int leia_int(void)
+{
+    int numero;
+
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%d", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+
+int leia_int_entre(int min, int max)
+{
+    int numero;
+
+    bool leitura_valida = false;
+    do
+    {
+        numero = leia_int();
+
+        if (numero < min)
+        {
+            printf("Digite um número maior ou igual a %d!\n", min);
+        }
+        else if (numero > max)
+        {
+            printf("Digite um número menor ou igual a %d!\n", max);
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+
+    } while (!leitura_valida);
+
+    return numero;
+}
+
+double leia_double(void)
+{
+    double numero;
+
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%lf", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+
+double leia_double_positivo(void)
+{
+    double numero;
+
+    bool leitura_valida = false;
+    do
+    {
+        numero = leia_double();
+
+        if (numero < 0)
+        {
+            printf("Digite um número positivo!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+```
+
+</details>
+
+O código foi de, aproximadamente, 95 linhas para 155! À primeira vista parece muito, mas ao olharmos apenas para a função `main`, temos uma redução de 41 linhas.
+
+<!-- TODO: Convençer o leitor de que a mudança foi benéfica: pela redução de linhas, facilitando a leitura do código, e outros motivos. -->
+
+## Caixa Eletrônico
+
+
+
 
 <!--
 TODO: Completar esses pontos!
