@@ -1,10 +1,10 @@
 # Funções
 
-Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](../condicional/README.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
+Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](./condicional.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
 
 ## Declarando uma função
 
-Vamos usar como base o exemplo da **entrada da festa** que vimos em [Negação](../condicional/README.md#negacao). Aqui está a função `entrar_na_festa`, caso tenha esquecido:
+Vamos usar como base o exemplo da **entrada da festa** que vimos em [Negação](./condicional.md#negacao). Aqui está a função `entrar_na_festa`, caso tenha esquecido:
 
 ``` c
 #include <stdio.h>
@@ -66,11 +66,11 @@ Existe um `0` após o `return`, que é um valor do tipo `int` - como indicado pe
 
 ## Nomes das funções
 
-Os nomes das funções seguem as mesmas regras de nomenclatura que **todos os outros** identificadores na linguagem C. Veja [Regras de Nomenclatura](../variaveis/variaveis-1.md#regras-de-nomenclatura) caso tenha esquecido.
+Os nomes das funções seguem as mesmas regras de nomenclatura que **todos os outros** identificadores na linguagem C. Veja [Regras de Nomenclatura](./variaveis.md#regras-de-nomenclatura) caso tenha esquecido.
 
 ## Parâmetros
 
-Os parâmetros são **variáveis** que passamos para as funções quando chamamos elas. Veja a função `print_divisao`, que vimos em [Negação](../condicional/README.md#negacao):
+Os parâmetros são **variáveis** que passamos para as funções quando chamamos elas. Veja a função `print_divisao`, que vimos em [Negação](../condicional.md#negacao):
 
 ``` c
 void print_divisao(double numero, double divisor)
@@ -619,7 +619,7 @@ double leia_double_entre(double min, double max)
 ```
 
 Usamos as funções, nesse caso, para eliminar a **repetição** do nosso código: se precisarmos alterar a mensagem de erro fazemos isso em um único lugar.
-Reescreva o exercício [Menu de Caixa Eletrônico](../exercicios/repeticao.md#menu-de-caixa-eletrônico), agora usando as funções `leia_int_entre` e `leia_double_positivo`, implemente essas funções usando `leia_int` e `leia_double` como bases.
+Reescreva o exercício [Menu de Caixa Eletrônico](../exercicios/repeticao.md#menu-de-caixa-eletronico), agora usando as funções `leia_int_entre` e `leia_double_positivo`, implemente essas funções usando `leia_int` e `leia_double` como bases.
 
 > Quando reescrevemos o código de uma forma diferente mas sem mudar a lógica falamos na programação que: **refatoramos** o código.
 
