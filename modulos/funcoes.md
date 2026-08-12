@@ -800,10 +800,12 @@ double leia_double_positivo(void)
 
 O código foi de, aproximadamente, 95 linhas para 155! À primeira vista parece muito, mas ao olharmos apenas para a função `main`, temos uma redução de 41 linhas.
 
-<!-- TODO: Convencer o leitor de que a mudança foi benéfica: pela redução de linhas, facilitando a leitura do código, e outros motivos. -->
+Repare que essas linhas a mais não sumiram, elas só **mudaram de lugar**. Antes, a lógica de validação — o `do while`, o `scanf` e o tratamento de cada erro — ficava **misturada** com a lógica do próprio caixa eletrônico: saber se era hora de ver o saldo, depositar ou sair. Agora essa validação mora isolada dentro de `leia_int`, `leia_int_entre`, `leia_double` e `leia_double_positivo`, e a main só decide **o que fazer** com o número, não **como conseguir** esse número.
 
+Isso traz pelo menos duas vantagens que a contagem de linhas sozinha não mostra:
 ## Caixa Eletrônico
 
+Se um dia você quiser trocar a mensagem "Digite um número inteiro!" por algo mais gentil, ou adicionar uma nova regra de validação, você mexe em **um único lugar** — a função `leia_int`, por exemplo — e o programa inteiro se beneficia da mudança.
 
 
 
