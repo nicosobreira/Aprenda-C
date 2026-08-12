@@ -803,17 +803,7 @@ O código foi de, aproximadamente, 95 linhas para 155! À primeira vista parece 
 Repare que essas linhas a mais não sumiram, elas só **mudaram de lugar**. Antes, a lógica de validação — o `do while`, o `scanf` e o tratamento de cada erro — ficava **misturada** com a lógica do próprio caixa eletrônico: saber se era hora de ver o saldo, depositar ou sair. Agora essa validação mora isolada dentro de `leia_int`, `leia_int_entre`, `leia_double` e `leia_double_positivo`, e a main só decide **o que fazer** com o número, não **como conseguir** esse número.
 
 Isso traz pelo menos duas vantagens que a contagem de linhas sozinha não mostra:
-## Caixa Eletrônico
 
 Se um dia você quiser trocar a mensagem "Digite um número inteiro!" por algo mais gentil, ou adicionar uma nova regra de validação, você mexe em **um único lugar** — a função `leia_int`, por exemplo — e o programa inteiro se beneficia da mudança.
 
-
-
-<!--
-TODO: Completar esses pontos!
-- [x] Falar do por que é necessário colocar o tipo na declaração (sem overloading)
-- [ ] Criar uma "família" de funções `leia_<tipo>_<restrição>`, mas não falar como separar em múltiplos arquivos. Isso fica para o próximo capítulo (eu acho).
-- [ ] Ao final mostrar como o último exercício fica um pouco mais legível.
-- [ ] Tomar cuidado o DRY (Don't Repeat Yourself). Usar como base o caso do caixa. Adicionar uma funcionalidade de retirar e colocar dinheiro em uma função, do exercício 3 anterior. Mostrar que com o crescimento do programa, essas duas operações perdem o sentido de ficar juntas.
--->
-
+E o mais importante: essas 155 linhas pagam um preço **uma única vez**. Da próxima vez que você precisar ler um número validado, em outro exercício ou em outro programa, as funções leia_* já estarão prontas — zero linhas extras. A pergunta certa não é "quantas linhas o arquivo tem hoje?", mas sim "quantas vezes eu teria que reescrever essa validação se ela não estivesse isolada em funções?".
