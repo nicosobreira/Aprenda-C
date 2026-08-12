@@ -685,7 +685,7 @@ int main(void)
 }
 ```
 
-Antes de continuar, perceba como essa parte do código está muito mais **autoexplicativa** do que a solução original do exercício. Ao ler este código, não precisamos saber **como** a função `leia_int_entre` funciona, mas sim apenas do que ela *precisa* e *o que* ela faz, informações que os **parâmetros** e o **nome** da função já nos dão. Isso é vantajoso já que a medida que o número de funções aumentam podemos variar o modo como analisamos nosso programa, de maneira mais detalhada a partir das definições ou mais geral, com as definições - não nos prendendo aos mínimos detalhes.
+Antes de continuar, perceba como essa parte do código está muito mais **autoexplicativa** do que a solução original do exercício. Ao ler este código, não precisamos saber **como** a função `leia_int_entre` funciona, mas sim apenas do que ela *precisa* e *o que* ela faz, informações que os **parâmetros** e o **nome** da função já nos dão. Isso é vantajoso, já que a medida que o número de funções aumentam podemos variar o modo como analisamos nosso programa: de maneira mais detalhada a partir das definições ou mais geral, com as definições - não nos prendendo aos mínimos detalhes.
 
 #### Definição
 
@@ -804,4 +804,4 @@ Isso traz pelo menos duas vantagens que a contagem de linhas sozinha não mostra
 
 Se um dia você quiser trocar a mensagem "Digite um número inteiro!" por algo mais gentil, ou adicionar uma nova regra de validação, você mexe em **um único lugar** — a função `leia_int`, por exemplo — e o programa inteiro se beneficia da mudança.
 
-E o mais importante: essas 155 linhas pagam um preço **uma única vez**. Da próxima vez que você precisar ler um número validado, em outro exercício ou em outro programa, as funções leia_* já estarão prontas — zero linhas extras. A pergunta certa não é "quantas linhas o arquivo tem hoje?", mas sim "quantas vezes eu teria que reescrever essa validação se ela não estivesse isolada em funções?".
+E o mais importante: essas 155 linhas pagam um preço **uma única vez**. Da próxima vez que você precisar ler um número validado, em outro exercício ou em outro programa, as funções `leia_<tipo>_<restrição>` já estarão prontas — zero linhas extras.
