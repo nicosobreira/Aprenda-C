@@ -20,7 +20,7 @@ void entrar_na_festa(bool tem_convite)
 
     printf("Seja bem-vindo!\n");
     printf("Pode escolher uma mesa aqui.\n");
-    printf("O banheiro fica a direita.\n");
+    printf("O banheiro fica à direita.\n");
     printf("Tenha uma boa noite!\n");
 }
 ```
@@ -415,6 +415,8 @@ int main(void)
     int idade = leia();
 
     printf("A sua idade é: %d.\n", idade);
+
+    return 0;
 }
 
 int leia(void)
@@ -552,7 +554,7 @@ Cada nome já entrega, sozinho, uma pista de **o que a função faz** — muito 
 Agora vamos implementar a função `leia_double_entre`:
 
 ``` c
-double leia_double_entre(double min, double max);
+double leia_double_entre(double min, double max)
 {
     double numero;
     bool leitura_valida = false;
@@ -572,11 +574,11 @@ double leia_double_entre(double min, double max);
         else if (numero < min)
         {
 
-            printf("Digite um número maior ou igual a %d!\n", min);
+            printf("Digite um número maior ou igual a %g!\n", min);
         }
         else if (numero > max)
         {
-            printf("Digite um número menor ou igual a %d!\n", max);
+            printf("Digite um número menor ou igual a %g!\n", max);
         }
         else
         {
@@ -762,7 +764,7 @@ double leia_double(void)
             {
             }
 
-            printf("Digite um número inteiro!\n");
+            printf("Digite um número real!\n");
         }
         else
         {
