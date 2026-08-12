@@ -106,7 +106,7 @@ Rode o programa de novo. Percebeu que o `printf` não é mais executado? Isso po
 
 Voltando aos exercícios: é exatamente esse **comentário de uma linha** (`//`) que vamos usar para marcar onde fica a **entrada** e a **saída** de cada exercício.
 
-## 1. Classificador de Idade
+## Classificador de Idade
 
 Crie um programa que receba a idade de uma pessoa como entrada e classifique a categoria correspondente, como saída, de acordo com as regras a seguir:
 
@@ -176,7 +176,7 @@ int main(void)
 
 </details>
 
-## 2. Aprovação Escolar
+## Aprovação Escolar
 
 Crie um programa que receba quatro notas de um aluno, calcule a **média ponderada** das notas, seguindo os seguintes pesos:
 
@@ -258,7 +258,7 @@ int main(void)
 
 </details>
 
-## 3. Triângulo
+## Triângulo
 
 Crie um programa que verifique se três retas formam um triângulo, seguindo a seguinte regra: **para todo lado do triângulo, a soma de dois lados deve ser maior que o terceiro**. As retas são valores inteiros.
 
