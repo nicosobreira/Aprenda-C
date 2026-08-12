@@ -72,16 +72,14 @@ printf("\n");
 printf("Você digitou 5.\n");
 ```
 
-## Exercícios
-
-### 1. Contador de Pares
+## Contador de Pares
 
 Crie um programa que:
 
 1. Leia um inteiro **positivo** chamado `numero` do usuário.
 2. Imprima **todos os números pares** entre 0 e `numero` (incluindo o `numero`, caso ele seja par).
 
-#### Exemplo
+### Exemplo
 
 Sem erros na entrada:
 
@@ -112,7 +110,7 @@ Digite um número maior ou igual a 0!
 
 ```
 
-#### Incremento
+### Incremento
 
 Vimos na seção passada que poderíamos usar o `++` para incrementar uma variável em 1.
 Mas também podemos usar da seguinte sintaxe:
@@ -124,12 +122,12 @@ numero += 1;
 
 Note que é possível **trocar o 1 por outro número**, como o 2, por exemplo.
 
-#### Resposta
+---
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-#### Usando o while
+### Usando o while
 
 ``` c
 #include <stdbool.h>
@@ -178,7 +176,7 @@ int main(void)
 }
 ```
 
-#### Usando o for
+### Usando o for
 
 Aqui, vou apenas trocar o `while` pelo `for`, mas você deve colocar a leitura da entrada do usuário.
 
@@ -201,7 +199,7 @@ for (int i = 0; i <= numero; i += 2)
 
 </details>
 
-### 2. Jogo da Adivinhação
+## Jogo da Adivinhação
 
 Crie um programa que:
 
@@ -210,7 +208,7 @@ Crie um programa que:
 
 Cada tentativa deve ser **contada** em uma variável chamada `jogadas`. Em caso de **erro de digitação** a variável `jogadas` **não deve ser incrementada**.
 
-#### Exemplo
+### Exemplo
 
 Sem erros na entrada:
 
@@ -249,7 +247,7 @@ Você acertou! Foram 2 jogada(s)!
 
 ```
 
-#### Gerando números aleatórios
+### Gerando números aleatórios
 
 Para gerar um número aleatório em C, usamos a função `rand`, declarada no *header* `stdlib.h`, que gera um valor inteiro não negativo.
 
@@ -331,7 +329,7 @@ const int max = 10;
 int aleatorio = min + rand() % (max - min + 1);
 ```
 
-#### Resposta
+---
 
 <details>
 <summary>Dica 1</summary>
@@ -416,7 +414,7 @@ int main(void)
 
 </details>
 
-### 3. Menu de Caixa Eletrônico
+## Menu de Caixa Eletrônico
 
 Por último, crie um programa que **simule um caixa eletrônico**.
 
@@ -428,7 +426,7 @@ Primeiro, será um exibido um **menu**, explicando o uso do caixa. Ele vai conta
 
 O usuário deve **começar** o programa com **R$ 1000.00** na conta.
 
-#### Exemplos
+### Exemplos
 
 Sem erros na entrada:
 
