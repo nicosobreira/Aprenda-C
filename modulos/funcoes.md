@@ -148,7 +148,7 @@ Veremos em um outro módulo como usar parâmetros que **mudam** os argumentos.
 
 ### Escopos
 
-<!-- FIX: A transição entre escopos e parâmetros está muito truncada. Como posso deixa-la mais suave? -->
+Assim como os parâmetros, toda variável em C só existe dentro de uma região específica do código. Essa região se chama escopo, e é isso que vamos entender agora.
 
 Os escopos delimitam a região em nosso código que uma variável fica disponível.
 
