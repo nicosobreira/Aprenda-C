@@ -14,6 +14,7 @@ Este repositório contém o guia **Aprenda C**, cujo objetivo é ensinar a lingu
   - Explique o comportamento de memória/sistema ("por debaixo dos panos").
   - Mostre saídas reais de erros do GCC (`$ gcc -o main main.c`) para ensinar a ler e interpretar o compilador.
   - Finalize com seções de **Boas Práticas** (*Clean Code*).
+  - Considere apenas que o leitor domina os assuntos dos módulos passados ao que atual.
 
 ---
 
