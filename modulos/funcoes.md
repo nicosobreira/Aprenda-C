@@ -364,10 +364,8 @@ void entrar_na_festa(bool);
 
 > E claro, mantendo o nome do parâmetro na **definição**.
 
-Por enquanto, nossos programas estão bem pequenos, as funções são concisas e bem simples - mas pense: e quando os programas aumentarem? A tendência é que o número de funções aumente muito. Veremos em \[...\] que é possível **separar** a definição e declaração das funções em arquivos diferentes. Isso nos possibilita ignorar a declaração da função e apenas ler a definição para entender o que a função faz, ou seja, ignorar todas as complexidades do funcionamento interno e focar apenas na entrada e saída.
+Por enquanto, nossos programas estão bem pequenos, as funções são concisas e bem simples - mas pense: e quando os programas aumentarem? A tendência é que o número de funções aumente muito. Veremos em [Modularização](./modularizacao.md) que é possível **separar** a definição e declaração das funções em arquivos diferentes. Isso nos possibilita ignorar a declaração da função e apenas ler a definição para entender o que a função faz, ou seja, ignorar todas as complexidades do funcionamento interno e focar apenas na entrada e saída.
 Ao nomearmos os parâmetros, facilitamos a leitura de quem só tem acesso ao arquivo de declarações — algo que vai fazer ainda mais sentido quando falarmos em separar código em múltiplos arquivos.
-
-<!-- TODO: Adicionar referência ao capítulo específico -->
 
 ## Retomando a leitura de números
 
@@ -620,6 +618,8 @@ double leia_double_entre(double min, double max)
 
 Usamos as funções, nesse caso, para eliminar a **repetição** do nosso código: se precisarmos alterar a mensagem de erro fazemos isso em um único lugar.
 Reescreva o exercício [Menu de Caixa Eletrônico](../exercicios/repeticao.md#3.-menu-de-caixa-eletrônico), agora usando as funções `leia_int_entre` e `leia_double_positivo`, implemente essas funções usando `leia_int` e `leia_double` como bases.
+
+> Quando reescrevemos o código de uma forma diferente mas sem mudar a lógica falamos na programação que: **refatoramos** o código.
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
