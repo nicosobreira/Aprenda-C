@@ -60,9 +60,7 @@ int main(void)
 
 Existe um `0` após o `return`, que é um valor do tipo `int` - como indicado pela assinatura da função.
 
-É importante saber que quando o `void` vem antes de um asterisco (`*`), ou seja, `void *`, seu significado muda. Veremos esse significado em um outro módulo.
-
-<!-- TODO: Preciso falar qual capítulo o `void *` será apresentado -->
+É importante saber que quando o `void` vem antes de um asterisco (`*`), ou seja, `void *`, seu significado muda. Veremos esse significado em [Memória](./memoria.md)
 
 ## Nomes das funções
 
@@ -142,9 +140,7 @@ int main(void)
 
 A variável `divisor` dentro da função passa a valer `4.0`, depois de `divisor += 2;`, com isso o resultado da divisão é `5.0` (`20.0 / 4.0`). Depois da função, exibimos o argumento `pessoas` que passamos para o parâmetro `divisor`, que no caso é `2.0` - que foi inalterado.
 
-Veremos em um outro módulo como usar parâmetros que **mudam** os argumentos.
-
-<!-- TODO: Adicionar referência a ponteiros aqui! Qual capítulo? -->
+Veremos em [Memória](./memoria.md) como usar parâmetros que **mudam** os argumentos.
 
 ### Escopos
 
