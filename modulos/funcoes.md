@@ -342,7 +342,8 @@ void entrar_na_festa(bool tem_convite)
 Se certifique que a assinatura da declaração e definição são as **mesmas**, ou seja, possuem os mesmos tipos de retorno, nomes e parâmetros. Se tudo estiver certo, então o programa será executado com sucesso.
 
 <!-- TODO: mostrar que isso resolver o problema de duas funções chamarem uma a outra. -->
-<!-- TODO: informar que as declarações organizam melhor o código. -->
+
+Colocar as declarações logo no início funciona como um índice do arquivo: dá pra saber quais funções existem e o que cada uma espera, sem precisar procurar pelo meio das definições.
 
 Com isso, vamos organizar os nossos programas da seguinte forma:
 
