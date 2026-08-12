@@ -725,8 +725,6 @@ int main(void)
 
 </details>
 
-</details>
-
 ## Reflexões
 
 Em todos os exercícios, nos pedimos para o usuário digitar algum valor com restrições; como um inteiro no intervalo de 1 a 100 ou um inteiro maior que 0.
