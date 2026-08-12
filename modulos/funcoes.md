@@ -341,6 +341,7 @@ void entrar_na_festa(bool tem_convite)
 
 Se certifique que a assinatura da declaração e definição são as **mesmas**, ou seja, possuem os mesmos tipos de retorno, nomes e parâmetros. Se tudo estiver certo, então o programa será executado com sucesso.
 
+### Organização dos arquivos
 
 Colocar as declarações logo no início funciona como um índice do arquivo: dá pra saber quais funções existem e o que cada uma espera, sem precisar procurar pelo meio das definições.
 
@@ -348,11 +349,10 @@ Com isso, vamos organizar os nossos programas da seguinte forma:
 
 1. Importação dos *headers* (arquivos `.h`) com o `#include`.
 2. Variáveis constantes.
-3. Variáveis globais
+3. Variáveis globais.
 4. Declaração das funções.
 5. Função `main`.
 6. E por último, as definições das funções.
-
 
 ### Boas Práticas
 
