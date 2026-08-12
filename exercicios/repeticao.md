@@ -620,7 +620,7 @@ printf("Até mais!\n");
 return 0;
 ```
 
-O código final, com tudo junto, está abaixo
+O código final, com tudo junto, está aqui em baixo.
 
 <details>
 <summary>Clique aqui para ver o código final</summary>
