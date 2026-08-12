@@ -622,7 +622,7 @@ Reescreva o exercício [Menu de Caixa Eletrônico](../exercicios/repeticao.md#me
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-Separei cada seção do arquivo em títulos diferentes, mas você teve colocar tudo em no mesmo arquivo e de forma sequencial.
+Separei cada seção do arquivo em títulos diferentes, mas você teve colocar tudo no mesmo arquivo e de forma sequencial.
 
 #### Importação e Declaração
 
