@@ -210,8 +210,6 @@ Crie um programa que:
 
 Cada tentativa deve ser **contada** em uma variável chamada `jogadas`. Em caso de **erro de digitação** a variável `jogadas` **não deve ser incrementada**.
 
-Separe a lógica em **dois** `do while`, um **externo** e outro **interior**, de modo que o interior apenas valide a entrada, sem nenhuma comparação com a variável `aleatorio`.
-
 #### Exemplo
 
 Sem erros na entrada:
@@ -334,6 +332,13 @@ int aleatorio = min + rand() % (max - min + 1);
 ```
 
 #### Resposta
+
+<details>
+<summary>Dica 1</summary>
+
+Separe a lógica em **dois** `do while`, um **externo** e outro **interior**, de modo que o interior apenas valide a entrada, sem nenhuma comparação com a variável `aleatorio`.
+
+</details>
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
