@@ -371,7 +371,7 @@ Ao nomearmos os parâmetros, facilitamos a leitura de quem só tem acesso ao arq
 
 ## Retomando a leitura de números
 
-Lembra do problema de copia e cola que apontamos nos exercícios anteriores? Agora, podemos **centralizar** a leitura de dados do usuário em algumas funções, e usá-las em nossos programas.
+Lembra do problema de copia e cola que apontamos no exercício anterior? Agora, podemos **centralizar** a leitura de dados do usuário em algumas funções, e usá-las em nossos programas.
 
 Sabemos que existem diversas restrições que podemos aplicar a leitura de dados **numéricos**, como estar entre dois números e ser maior que outro. Mas para toda leitura de números, temos uma coisa em comum: caso a entrada **não seja um número**, então **pedimos por outro**.
 A leitura falha quando o `scanf` retorna um inteiro diferente de `1` e perguntamos por outro número por meio de um `do while`. Sabendo disso, vamos criar a função de leitura mais básica: uma que lê um inteiro qualquer. Chamamos essa função de `leia`:
@@ -800,7 +800,7 @@ double leia_double_positivo(void)
 
 O código foi de, aproximadamente, 95 linhas para 155! À primeira vista parece muito, mas ao olharmos apenas para a função `main`, temos uma redução de 41 linhas.
 
-<!-- TODO: Convençer o leitor de que a mudança foi benéfica: pela redução de linhas, facilitando a leitura do código, e outros motivos. -->
+<!-- TODO: Convencer o leitor de que a mudança foi benéfica: pela redução de linhas, facilitando a leitura do código, e outros motivos. -->
 
 ## Caixa Eletrônico
 
