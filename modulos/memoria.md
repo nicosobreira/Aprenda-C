@@ -5,3 +5,5 @@
     - Pesquisar quais são os comportamentos indefinidos e requerimentos da linguagem C quanto ao modo como a memória do programa deve funcionar
 - O poder do C é ser extremamente flexível - escreve o código 1 vez para vários sistemas. Isso vez a diferença quando ele foi inventado (não sei se devo falar disso agora).
 - Talvez explicar o que são matrizes?
+- Mostrar que uma função `void swap(int x, int y)` não altera os valores, é necessário passar `void (int *px, int *py)`.
+- Faz sentido falar sobre o que são listas, como elas são organizadas para depois falar de ponteiros.
