@@ -97,7 +97,103 @@ int leia_int_positivo(void)
 <summary>Resposta do Jogo da Adivinhação</summary>
 
 ``` c
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int leia_int(void);
+int leia_int_entre(int min, int max);
+
+int main(void)
+{
+    srand(time(NULL));
+
+    const int min = 1;
+    const int max = 100;
+
+    int aleatorio = min + rand() % (max - min + 1);
+
+    printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
+    printf("Tente adivinhar o número.\n");
+
+    int jogadas = 0;
+
+    int tentativa;
+    do
+    {
+        tentativa = leia_int_entre(min, max);
+
+        printf("\n");
+
+        if (tentativa > aleatorio)
+        {
+            printf("O número é menor.\n");
+        }
+        else if (tentativa < aleatorio)
+        {
+            printf("O número é maior.\n");
+        }
+
+        jogadas += 1;
+    } while (tentativa != aleatorio);
+
+    printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
+
+    return 0;
+}
+
+int leia_int(void)
+{
+    int numero;
+
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%d", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+
+int leia_int_entre(int min, int max)
+{
+    int numero;
+
+    bool leitura_valida = false;
+    do {
+        numero = leia_int();
+
+        if (numero < min)
+        {
+            printf("Digite um número maior ou igual a %d!\n", min);
+        }
+        else if (numero > max)
+        {
+            printf("Digite um número menor ou igual a %d!\n", max);
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while(!leitura_valida);
+
+    return numero;
+}
 ```
 
 </details>
