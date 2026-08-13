@@ -805,3 +805,7 @@ Isso traz pelo menos duas vantagens que a contagem de linhas sozinha não mostra
 Se um dia você quiser trocar a mensagem "Digite um número inteiro!" por algo mais gentil, ou adicionar uma nova regra de validação, você mexe em **um único lugar** — a função `leia_int`, por exemplo — e o programa inteiro se beneficia da mudança.
 
 E o mais importante: essas 155 linhas pagam um preço **uma única vez**. Da próxima vez que você precisar ler um número validado, em outro exercício ou em outro programa, as funções `leia_<tipo>_<restrição>` já estarão prontas — zero linhas extras.
+
+## Boas Práticas
+
+- Falar sobre como nomear as funções e parâmetros melhor.
