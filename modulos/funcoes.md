@@ -598,11 +598,11 @@ double leia_double_entre(double min, double max)
 
         if (numero < min)
         {
-            printf("Digite um número maior ou igual a %d!\n", min);
+            printf("Digite um número maior ou igual a %g!\n", min);
         }
         else if (numero > max)
         {
-            printf("Digite um número menor ou igual a %d!\n", max);
+            printf("Digite um número menor ou igual a %g!\n", max);
         }
         else
         {
