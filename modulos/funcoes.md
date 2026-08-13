@@ -119,7 +119,7 @@ void print_divisao(double numero, double divisor)
         return;
     }
 
-    divisor += 2; // ALTERAÇÃO
+    divisor += 2.0; // ALTERAÇÃO
 
     printf("O divisor em print_divisao é: %f\n", divisor);
     printf("O resultado é: %f\n", numero / divisor);
@@ -138,7 +138,7 @@ int main(void)
 }
 ```
 
-A variável `divisor` dentro da função passa a valer `4.0`, depois de `divisor += 2;`, com isso o resultado da divisão é `5.0` (`20.0 / 4.0`). Depois da função, exibimos o argumento `pessoas` que passamos para o parâmetro `divisor`, que no caso é `2.0` - que foi inalterado.
+A variável `divisor` dentro da função passa a valer `4.0`, depois de `divisor += 2.0;`, com isso o resultado da divisão é `5.0` (`20.0 / 4.0`). Depois da função, exibimos o argumento `pessoas` que passamos para o parâmetro `divisor`, que no caso é `2.0` - que foi inalterado.
 
 Veremos em [Memória](./memoria.md) como usar parâmetros que **mudam** os argumentos.
 
@@ -780,7 +780,7 @@ double leia_double_positivo(void)
     {
         numero = leia_double();
 
-        if (numero < 0)
+        if (numero < 0.0)
         {
             printf("Digite um número positivo!\n");
         }
