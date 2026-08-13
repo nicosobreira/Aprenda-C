@@ -19,7 +19,76 @@ Agora que você já conhece as funções, primeiro refatore o exercício [Contad
 <summary>Resposta do Contador de Pares</summary>
 
 ``` c
+#include <stdbool.h>
+#include <stdio.h>
 
+int leia_int(void);
+int leia_int_positivo(void);
+
+int main(void)
+{
+    printf("Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!\n");
+
+    int numero = leia_int_positivo();
+
+    printf("\n");
+
+    for (int i = 0; i <= numero; i += 2)
+    {
+        printf("%d\n", i);
+    }
+
+    return 0;
+}
+
+int leia_int(void)
+{
+    int numero;
+
+    bool leitura_valida = false;
+    do
+    {
+        printf("> ");
+
+        int r = scanf("%d", &numero);
+        if (r != 1)
+        {
+            while (getchar() != '\n')
+            {
+            }
+
+            printf("Digite um número inteiro!\n");
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while (!leitura_valida);
+
+    return numero;
+}
+
+int leia_int_positivo(void)
+{
+    int numero;
+
+    bool leitura_valida = false;
+    do
+    {
+        numero = leia_int();
+
+        if (numero < 0)
+        {
+            printf("Digite um número maior ou igual a %d!\n", 0);
+        }
+        else
+        {
+            leitura_valida = true;
+        }
+    } while(!leitura_valida);
+
+    return numero;
+}
 ```
 
 </details>
