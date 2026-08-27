@@ -1,8 +1,8 @@
-# Variáveis I
+# Variáveis
 
 As variáveis servem para **armazenar** valores na **memória do computador**. Elas nos permitem guardar informações bem diferentes, como: idade de uma pessoa, preço de um produto e se um usuário está logado ou não.
 O primeiro é um número inteiro, o outro tem casas depois da vírgula, e o último só pode ser verdadeiro ou falso.
-Lembra que em [O que é C?](../intro/linguagem-c.md) vimos que o computador só lida com zeros e uns? Mas como o computador guarda dados tão diferentes entre si, se ele só entende 0 e 1?
+Lembra que em [O que é C?](./linguagem-c.md) vimos que o computador só lida com zeros e uns? Mas como o computador guarda dados tão diferentes entre si, se ele só entende 0 e 1?
 
 A verdade é que o computador interpreta os zeros e uns da maneira que nós, programadores, mandamos. Tomamos o número binário `0100 0011` como exemplo. Quando o computador olha para o binário, ele não tem a menor ideia do que ele significa.
 Para a máquina, a sequência `0100 0011` é apenas um dado bruto. No entanto, se nós mandarmos o computador interpretar isso como um número inteiro, o valor é 67. Ao final do módulo, veremos que esse mesmo binário representa um outro tipo de informação: uma letra.
