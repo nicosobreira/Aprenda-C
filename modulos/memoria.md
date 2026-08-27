@@ -7,3 +7,5 @@
 - Talvez explicar o que são matrizes?
 - Mostrar que uma função `void swap(int x, int y)` não altera os valores, é necessário passar `void (int *px, int *py)`.
 - Faz sentido falar sobre o que são listas, como elas são organizadas para depois falar de ponteiros.
+- Retomar como o funcionamento da memória RAM foi explicado em [Lista](./lista.md) e expandir para qualquer variável.
+- Será que explico a diferença entre stack e heap?
