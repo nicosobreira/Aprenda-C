@@ -163,7 +163,7 @@ Execute o programa várias vezes e perceberá que o valor do endereço muda cons
 
 > Caso queira saber mais, pesquise por [Endereçamento Virtual](https://en-wikipedia-org.translate.goog/wiki/Virtual_address_space?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc).
 
-Você pode ter se assustado com o tamanho do endereço, mas pense que um computador moderno, que possui no mínimo uns 4GB de RAM (Giga ou *G* é um prefixo que indica $10^9$ e *B* significa bytes), tem capacidade de armazenar $4 * 10^9$ bytes, ou seja, $4000000000$ bytes. Lembre-se de que não é apenas o seu programa que está em execução, aplicativos no fundo e até o próprio sistema operacional utilizam a RAM, favorecendo aparecer endereços maiores.
+Você pode ter se assustado com o tamanho do endereço, mas pense que um computador moderno, que possui no mínimo uns 4GB de RAM (Giga ou *G* é um prefixo que indica $10^9$ e *B* significa bytes), tem capacidade de armazenar $4 \times 10^9$ bytes, ou seja, $4000000000$ bytes. Lembre-se de que não é apenas o seu programa que está em execução, aplicativos no fundo e até o próprio sistema operacional utilizam a RAM, favorecendo aparecer endereços maiores.
 
 ### Alocação Contígua na Memória
 
