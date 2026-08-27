@@ -2,7 +2,7 @@
 
 Até agora, quando precisávamos armazenar informações, criávamos variáveis individuais para cada dado: uma variável para a idade, outra para a nota de uma prova ou para o saldo de uma conta.
 
-Mas o que acontece quando precisamos guardar as notas de 50 alunos de uma turma? Criar `nota1`, `nota2`, `nota3`... até `nota50` seria extremamente trabalhoso, impossível de manter e tornaria o nosso código gigante sem nenhuma necessidade.
+Mas o que acontece quando precisamos guardar as notas de 50 alunos de uma turma? Criar `nota1`, `nota2`, `nota3` ... `nota50` seria extremamente trabalhoso, impossível de manter e tornaria o nosso código gigante sem nenhuma necessidade.
 
 Para resolver esse problema, a linguagem C nos oferece as **listas** (tecnicamente chamadas de ***arrays* ou vetores**): uma estrutura que nos permite guardar **múltiplos valores do mesmo tipo** dentro de uma **única variável**.
 
@@ -64,6 +64,12 @@ int notas[5] = {0};
 
 > Quando você fornece menos valores do que o tamanho total da lista, o compilador preenche automaticamente as posições restantes com `0`.
 
+Ainda é possível omitir o tamanho da lista entre `[]` ao inicializar o array da seguinte maneira:
+
+``` c
+int notas[] = {5, 8, 1};
+```
+
 ## Percorrendo uma Lista com `for`
 
 A verdadeira força das listas surge quando as combinamos com **estruturas de repetição**. Em vez de acessar cada posição manualmente, usamos a variável de controle do `for` loop como o **índice** da lista.
@@ -75,17 +81,17 @@ Vamos ver um programa que calcula a média de 5 notas:
 
 int main(void)
 {
-    const int quantidade_notas = 5;
-    int notas[5] = {10, 8, 7, 9, 6};
+    const int total_notas = 5;
+    int notas[total_notas] = {10, 8, 7, 9, 6};
 
     int soma = 0;
 
-    for (int i = 0; i < quantidade_notas; i++)
+    for (int i = 0; i < total_notas; i++)
     {
         soma += notas[i];
     }
 
-    double media = (double)soma / quantidade_notas;
+    double media = (double)soma / total_notas;
 
     printf("A soma das notas é: %d\n", soma);
     printf("A média da turma é: %.2f\n", media);
@@ -94,7 +100,7 @@ int main(void)
 }
 ```
 
-Repare no trecho `i < quantidade_notas`: como o índice vai de `0` até `4`, a condição `< 5` garante que o laço pare exatamente após processar a última posição válida (`4`).
+Repare no trecho `i < total_notas`: como o índice vai de `0` até `4`, para `i = 5`, a condição `5 < 5` garante que o laço pare exatamente após processar a última posição válida (`4`).
 
 ## O que acontece por debaixo dos panos?
 
@@ -114,7 +120,7 @@ Por hora, pense na memória RAM como uma sequência de blocos bem pequenos que, 
 Assim como as listas, cada byte possui um **endereço** único, que é literalmente um **número** usado para identificar esse byte na memória. O tamanho do endereço também depende do *hardware*; você provavelmente já ouviu falar em "computadores de 32 bits" e "de 64 bits", esses 32 e 64 indicam o tamanho de cada endereço.
 
 Para vermos o endereço de uma variável em C, usamos do operador `&` (o "e comercial") da seguinte forma: `&variavel` - apenas se `variavel` já foi declarada!
-Agora, vamos exibir esse endereço, mas antes, veja se o seu computador é 32 ou 64 bits e siga os passos adequados:
+Agora, vamos exibir esse endereço de forma numérica, mas antes, veja se o seu computador é 32 ou 64 bits e siga os passos adequados:
 
 <!-- TODO: Será que eu devo explicar por que usamos os formatadores `%d` e `$lu` em cada caso? -->
 
@@ -161,26 +167,47 @@ Você pode ter se assustado com o tamanho do endereço, mas pense que um computa
 
 ### Alocação Contígua na Memória
 
-Quando você declara `int notas[5];`, o compilador não espalha esses 5 números em lugares aleatórios da memória. Ele reserva 5 **blocos contínuos (lado a lado)** na memória RAM - padrão determinado pela linguagem C.
+Quando você declara `int notas[5];`, o compilador não espalha esses 5 números em lugares aleatórios da memória. Ele reserva 20 **blocos contínuos (lado a lado)** na memória RAM - isso mesmo 20!
 
-Como cada variável do tipo `int` ocupa **4 bytes** na esmagadora maioria dos computadores modernos, uma lista de 5 inteiros ocupará **20 bytes seguidos** (5 $\times$ 4 bytes).
+Cada variável do tipo `int` não ocupa apenas 1 byte, mas sim **4 bytes** (na esmagadora maioria dos computadores modernos). Uma lista de 5 inteiros ocupará **20 bytes seguidos** (5 $\times$ 4 bytes). Já uma lista com 10 inteiros, 40 bytes (10 $\times$ 4 bytes).
 
-Imagine a memória RAM como uma rua com várias casas numeradas por endereços em hexadecimal:
+Podemos ver o valor exato de uma variável com operador `sizeof`, de dois jeitos:
 
+1. Pelo tipo:
+
+``` c
+int main(void)
+{
+    printf("Tamanho do tipo int: %d\n", sizeof(int));
+
+    return 0;
+}
 ```
-    Endereço de Memória      Elemento       Índice
-   +--------------------+---------------+------------+
-   |   0x7fff5fbff000   |   notas[0]    |  Índice 0  |  (4 bytes)
-   +--------------------+---------------+------------+
-   |   0x7fff5fbff004   |   notas[1]    |  Índice 1  |  (4 bytes)
-   +--------------------+---------------+------------+
-   |   0x7fff5fbff008   |   notas[2]    |  Índice 2  |  (4 bytes)
-   +--------------------+---------------+------------+
-   |   0x7fff5fbff00c   |   notas[3]    |  Índice 3  |  (4 bytes)
-   +--------------------+---------------+------------+
-   |   0x7fff5fbff010   |   notas[4]    |  Índice 4  |  (4 bytes)
-   +--------------------+---------------+------------+
+
+2. Pelo nome de uma variável de determinado tipo:
+
+``` c
+int main(void)
+{
+    int idade = 18;
+
+    printf("Tamanho da variável idade (ou seja, do tipo int): %d\n", sizeof(idade));
+
+    return 0;
+}
 ```
+
+Podemos representar a organização da lista `int notas[5] = {10, 8, 7, 9, 6}` na memória RAM em uma tabela.
+
+> Não temos como saber o endereço de memória, por isso escolhi um valor qualquer, que foi o `1000`.
+
+| Endereço de Memória | Elemento   | Valor |
+| :-:                 | :-:        | :-    |
+| 1000                | `notas[0]` | 10    |
+| 1004                | `notas[1]` | 8     |
+| 1008                | `notas[2]` | 7     |
+| 1012                | `notas[3]` | 9     |
+| 1016                | `notas[4]` | 6     |
 
 ### Por que o índice começa em 0?
 
@@ -192,13 +219,15 @@ A fórmula para calcular o endereço de qualquer elemento é:
 
 $$\text{Endereço do Elemento} = \text{Endereço Base} + (\text{Índice} \times \text{Tamanho do Tipo})$$
 
-Veja o cálculo para cada índice considerando o endereço base `0x1000` e `sizeof(int) = 4 bytes`:
+Veja o cálculo para cada índice considerando o endereço base `1000` e `sizeof(int) = 4 bytes`:
 
-- Para o **primeiro elemento**: $\text{Endereço} = 0x1000 + (0 \times 4) = 0x1000$ (deslocamento **zero**!).
-- Para o **segundo elemento**: $\text{Endereço} = 0x1000 + (1 \times 4) = 0x1004$.
-- Para o **terceiro elemento**: $\text{Endereço} = 0x1000 + (2 \times 4) = 0x1008$.
+- Para o **primeiro elemento**: $\text{Endereço} = 1000 + (0 \times 4) = 1000$ (deslocamento **zero**!).
+- Para o **segundo elemento**: $\text{Endereço} = 1000 + (1 \times 4) = 1004$.
+- Para o **terceiro elemento**: $\text{Endereço} = 1000 + (2 \times 4) = 1008$.
 
-Se o primeiro índice fosse `1`, o processador teria que fazer uma subtração extra `(índice - 1)` em **toda leitura de memória**, o que deixaria os programas mais lentos! Começar em `0` elimina essa operação desnecessária.
+Se o primeiro índice fosse `1`, o processador teria que fazer uma subtração extra `(índice - 1)` em **toda leitura de memória**, o que deixaria os programas (um pouco mais) lentos! Começar em `0` elimina essa operação desnecessária.
+
+Note que o compilador do C **já faz essa operação**. Ao acessarmos o segundo elemento de `notas` em `notas[2]`, o compilador já multiplica o tamanho da variável `int` pelo índice e soma ao endereço base.
 
 ### Por que `array[100]` não gera erro de compilação?
 
@@ -222,7 +251,9 @@ O C foi projetado focado em **velocidade máxima**. Fazer uma verificação de l
 Ao executar `notas[100]`, o C aplica a mesma fórmula matemática: pega o endereço base de `notas`, avança $100 \times 4 = 400$ bytes na memória RAM e lê o valor que estiver guardado lá.
 
 Isso pode gerar dois cenários perigosos:
+
 1. **Lixo de memória**: O programa lê um valor aleatório que pertencia a outra variável do sistema.
+
 2. ***Segmentation Fault* (Falha de Segmentação)**: Se o endereço calculado invadir uma área de memória protegida do Sistema Operacional, o SO interrompe e encerra seu programa imediatamente.
 
 Esse comportamento imprevisível é chamado de **Comportamento Indefinido (*Undefined Behavior*)**. É responsabilidade do programador garantir que o código nunca acesse índices inválidos!
@@ -236,7 +267,7 @@ int numero;
 scanf("%d", &numero);
 ```
 
-O operador `&` significa **"endereço de memória de"**. Ele informa ao `scanf` em qual gaveta da memória RAM o valor lido do teclado deve ser guardado.
+O operador `&` significa **"endereço de memória de"**. Ele informa ao `scanf` em qual endereço de memória o valor lido do teclado deve ser guardado.
 
 Agora veja que curioso: quando queremos ler um valor direto para uma posição da lista, passamos o endereço daquela posição específica:
 
@@ -285,8 +316,6 @@ int main(void)
 }
 ```
 
-> Note que na declaração `int valores[] = {10, 20, 30, 40, 50, 60};` omitimos o tamanho dentro dos colchetes. Quando inicializamos a lista imediatamente com valores entre chaves, o compilador é inteligente o suficiente para contar a quantidade de elementos e definir o tamanho sozinho!
-
 ## Boas Práticas
 
 ### 1. Nunca use Valores Mágicos para o tamanho da lista
@@ -301,7 +330,29 @@ for (int i = 0; i < 5; i++) { ... }
 // Bom
 const int total_notas = 5;
 int notas[total_notas];
+
 for (int i = 0; i < total_notas; i++) { ... }
+```
+
+Isso também se aplica quando passamos uma lista como argumento para uma função. Na assinatura da função escrevemos:
+
+``` c
+void print_int(int tamanho, int lista[tamanho]);
+```
+
+E na hora de chamar a função:
+
+``` c
+int main(void)
+{
+    const int total_notas = 5;
+
+    int notas[total_notas] = {10, 8, 2};
+
+    print_int(total_notas, notas);
+
+    return 0;
+}
 ```
 
 ### 2. Sempre Inicialize suas Listas
