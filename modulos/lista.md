@@ -56,7 +56,7 @@ Podemos inicializar uma lista no momento de sua declaração usando chaves (`{}`
 int notas[5] = {10, 8, 7, 9, 6};
 ```
 
-Se você quiser inicializar **todos os elementos com o valor zero**, pode usar a seguinte atalho:
+Se você quiser inicializar **todos os elementos com o valor zero**, pode usar o seguinte atalho:
 
 ``` c
 int notas[5] = {0};
@@ -106,23 +106,23 @@ Repare no trecho `i < total_notas`: como o índice vai de `0` até `4`, para `i 
 
 Agora que entendemos a sintaxe básica, vamos entender **como o computador gerencia uma lista na memória RAM**.
 
-Primeiro, vamos ver uma visão um pouco **abstrata** de como as memória funciona. Entenderemos a memória de verdade no módulo [Memória](./memoria.md).
+Primeiro, vamos ver uma visão um pouco **abstrata** de como a memória funciona. Entenderemos a memória de verdade no módulo [Memória](./memoria.md).
 
 ### O que é memória
 
-Pare e pense: a onde os valores das variáveis ficam armazenados?
+Pare e pense: onde os valores das variáveis ficam armazenados?
 Talvez sua resposta seja que "elas ficam na memória RAM do computador", mas o que é exatamente essa memória RAM?
 
-Por hora, pense na memória RAM como uma sequência de blocos bem pequenos que, juntos, formam uma grande lista. Cada bloco possui um **tamanho fixo**, determinado pelo *hardware*, mas que na esmagadora maioria dos computadores (incluindo celulares) possui **1 byte**.
+Por ora, pense na memória RAM como uma sequência de blocos bem pequenos que, juntos, formam uma grande lista. Cada bloco possui um **tamanho fixo**, determinado pelo *hardware*, mas que na esmagadora maioria dos computadores (incluindo celulares) possui **1 byte**.
 
-> Lembre-se que **1 bit** é um valor que pode ser `0` ou `1`; **1 byte** nada mais é do que um conjunto de 8 zeros ou uns.
+> Lembre-se de que **1 bit** é um valor que pode ser `0` ou `1`; **1 byte** nada mais é do que um conjunto de 8 zeros ou uns.
 
 Assim como as listas, cada byte possui um **endereço** único, que é literalmente um **número** usado para identificar esse byte na memória. O tamanho do endereço também depende do *hardware*; você provavelmente já ouviu falar em "computadores de 32 bits" e "de 64 bits", esses 32 e 64 indicam o tamanho de cada endereço.
 
-Para vermos o endereço de uma variável em C, usamos do operador `&` (o "e comercial") da seguinte forma: `&variavel` - apenas se `variavel` já foi declarada!
+Para vermos o endereço de uma variável em C, usamos o operador `&` (o "e comercial") da seguinte forma: `&variavel` - apenas se `variavel` já foi declarada!
 Agora, vamos exibir esse endereço de forma numérica, mas antes, veja se o seu computador é 32 ou 64 bits e siga os passos adequados:
 
-<!-- TODO: Será que eu devo explicar por que usamos os formatadores `%d` e `$lu` em cada caso? -->
+<!-- TODO: Será que eu devo explicar por que usamos os formatadores `%d` e `%lu` em cada caso? -->
 
 <details>
 <summary>Para computadores de <strong>32 bits</strong></summary>
@@ -167,11 +167,11 @@ Você pode ter se assustado com o tamanho do endereço, mas pense que um computa
 
 ### Alocação Contígua na Memória
 
-Quando você declara `int notas[5];`, o compilador não espalha esses 5 números em lugares aleatórios da memória. Ele reserva 20 **blocos contínuos (lado a lado)** na memória RAM - isso mesmo 20!
+Quando você declara `int notas[5];`, o compilador não espalha esses 5 números em lugares aleatórios da memória. Ele reserva 20 **blocos contíguos (lado a lado)** na memória RAM - isso mesmo: 20!
 
 Cada variável do tipo `int` não ocupa apenas 1 byte, mas sim **4 bytes** (na esmagadora maioria dos computadores modernos). Uma lista de 5 inteiros ocupará **20 bytes seguidos** (5 $\times$ 4 bytes). Já uma lista com 10 inteiros, 40 bytes (10 $\times$ 4 bytes).
 
-Podemos ver o tamanho de uma variável com operador `sizeof`, de dois jeitos:
+Podemos ver o tamanho de uma variável com o operador `sizeof`, de dois jeitos:
 
 1. Pelo tipo:
 
