@@ -125,7 +125,7 @@ Agora, vamos exibir esse endereço de forma numérica, mas antes, veja se o seu 
 <!-- TODO: Será que eu devo explicar por que usamos os formatadores `%d` e `$lu` em cada caso? -->
 
 <details>
-<sumarry>Para computadores de **32 bits**</sumarry>
+<summary>Para computadores de **32 bits**</summary>
 
 ``` c
 #include <stdio.h>
@@ -143,7 +143,7 @@ int main(void)
 </details>
 
 <details>
-<sumarry>Para computadores de **64 bits**</sumarry>
+<summary>Para computadores de **64 bits**</summary>
 
 ``` c
 #include <stdio.h>
