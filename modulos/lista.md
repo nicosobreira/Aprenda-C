@@ -1,12 +1,10 @@
 # Listas
 
-Até agora, quando precisávamos armazenar informações, criávamos variáveis individuais para cada dado: uma variável para a idade, outra para a nota de uma prova ou para o saldo de uma conta. 
+Até agora, quando precisávamos armazenar informações, criávamos variáveis individuais para cada dado: uma variável para a idade, outra para a nota de uma prova ou para o saldo de uma conta.
 
 Mas o que acontece quando precisamos guardar as notas de 50 alunos de uma turma? Criar `nota1`, `nota2`, `nota3`... até `nota50` seria extremamente trabalhoso, impossível de manter e tornaria o nosso código gigante sem nenhuma necessidade.
 
 Para resolver esse problema, a linguagem C nos oferece as **listas** (tecnicamente chamadas de ***arrays* ou vetores**): uma estrutura que nos permite guardar **múltiplos valores do mesmo tipo** dentro de uma **única variável**.
-
----
 
 ## Declaração e Acesso
 
@@ -48,11 +46,9 @@ int main(void)
 }
 ```
 
----
-
 ## Inicialização
 
-Assim como variáveis normais, se você declarar uma lista e não atribuir valores aos seus elementos, ela conterá **valores aleatórios** (o famoso "lixo de memória").
+Assim como variáveis normais, se você declarar uma lista e não atribuir valores aos seus elementos, ela conterá **valores aleatórios** (o "lixo de memória").
 
 Podemos inicializar uma lista no momento de sua declaração usando chaves (`{}`):
 
@@ -68,11 +64,9 @@ int notas[5] = {0};
 
 > Quando você fornece menos valores do que o tamanho total da lista, o compilador preenche automaticamente as posições restantes com `0`.
 
----
-
 ## Percorrendo uma Lista com `for`
 
-A verdadeira força das listas surge quando as combinamos com **estruturas de repetição**. Em vez de acessar cada posição manualmente, usamos a variável de controle do laço `for` como o **índice** da lista.
+A verdadeira força das listas surge quando as combinamos com **estruturas de repetição**. Em vez de acessar cada posição manualmente, usamos a variável de controle do `for` loop como o **índice** da lista.
 
 Vamos ver um programa que calcula a média de 5 notas:
 
@@ -102,15 +96,72 @@ int main(void)
 
 Repare no trecho `i < quantidade_notas`: como o índice vai de `0` até `4`, a condição `< 5` garante que o laço pare exatamente após processar a última posição válida (`4`).
 
----
-
 ## O que acontece por debaixo dos panos?
 
-Agora que entendemos a sintaxe básica, vamos entender **como o computador gerencia uma lista na memória RAM de verdade**.
+Agora que entendemos a sintaxe básica, vamos entender **como o computador gerencia uma lista na memória RAM**.
+
+Primeiro, vamos ver uma visão um pouco **abstrata** de como as memória funciona. Entenderemos a memória de verdade no módulo [Memória](./memoria.md).
+
+### O que é memória
+
+Pare e pense: a onde os valores das variáveis ficam armazenados?
+Talvez sua resposta seja que "elas ficam na memória RAM do computador", mas o que é exatamente essa memória RAM?
+
+Por hora, pense na memória RAM como uma sequência de blocos bem pequenos que, juntos, formam uma grande lista. Cada bloco possui um **tamanho fixo**, determinado pelo *hardware*, mas que na esmagadora maioria dos computadores (incluindo celulares) possui **1 byte**.
+
+> Lembre-se que **1 bit** é um valor que pode ser `0` ou `1`; **1 byte** nada mais é do que um conjunto de 8 zeros ou uns.
+
+Assim como as listas, cada byte possui um **endereço** único, que é literalmente um **número** usado para identificar esse byte na memória. O tamanho do endereço também depende do *hardware*; você provavelmente já ouviu falar em "computadores de 32 bits" e "de 64 bits", esses 32 e 64 indicam o tamanho de cada endereço.
+
+Para vermos o endereço de uma variável em C, usamos do operador `&` (o "e comercial") da seguinte forma: `&variavel` - apenas se `variavel` já foi declarada!
+Agora, vamos exibir esse endereço, mas antes, veja se o seu computador é 32 ou 64 bits e siga os passos adequados:
+
+<!-- TODO: Será que eu devo explicar por que usamos os formatadores `%d` e `$lu` em cada caso? -->
+
+<details>
+<sumarry>Para computadores de **32 bits**</sumarry>
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    int idade = 18;
+
+    printf("Endereço da variável idade: %d\n", &idade);
+
+    return 0;
+}
+```
+
+</details>
+
+<details>
+<sumarry>Para computadores de **64 bits**</sumarry>
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    int idade = 18;
+
+    printf("Endereço da variável idade: %lu\n", &idade);
+
+    return 0;
+}
+```
+</details>
+
+Execute o programa várias vezes e perceberá que o valor do endereço muda constantemente, isso é devido a como o sistema operacional reserva a memória para o programa - detalhe que não falaremos no curso.
+
+> Caso queira saber mais, pesquise por [Endereçamento Virtual](https://en-wikipedia-org.translate.goog/wiki/Virtual_address_space?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc).
+
+Você pode ter se assustado com o tamanho do endereço, mas pense que um computador moderno, que possui no mínimo uns 4GB de RAM (Giga ou *G* é um prefixo que indica $10^9$ e *B* significa bytes), tem capacidade de armazenar $4 * 10^9$ bytes, ou seja, $4000000000$ bytes. Lembre-se de que não é apenas o seu programa que está em execução, aplicativos no fundo e até o próprio sistema operacional utilizam a RAM, favorecendo aparecer endereços maiores.
 
 ### Alocação Contígua na Memória
 
-Quando você declara `int notas[5];`, o compilador não espalha esses 5 números em lugares aleatórios da memória. Ele reserva um **bloco contínuo (lado a lado)** na memória RAM.
+Quando você declara `int notas[5];`, o compilador não espalha esses 5 números em lugares aleatórios da memória. Ele reserva 5 **blocos contínuos (lado a lado)** na memória RAM - padrão determinado pela linguagem C.
 
 Como cada variável do tipo `int` ocupa **4 bytes** na esmagadora maioria dos computadores modernos, uma lista de 5 inteiros ocupará **20 bytes seguidos** (5 $\times$ 4 bytes).
 
@@ -149,8 +200,6 @@ Veja o cálculo para cada índice considerando o endereço base `0x1000` e `size
 
 Se o primeiro índice fosse `1`, o processador teria que fazer uma subtração extra `(índice - 1)` em **toda leitura de memória**, o que deixaria os programas mais lentos! Começar em `0` elimina essa operação desnecessária.
 
----
-
 ### Por que `array[100]` não gera erro de compilação?
 
 O que acontece se declararmos uma lista de 5 elementos e tentarmos acessar a posição `100`?
@@ -178,11 +227,9 @@ Isso pode gerar dois cenários perigosos:
 
 Esse comportamento imprevisível é chamado de **Comportamento Indefinido (*Undefined Behavior*)**. É responsabilidade do programador garantir que o código nunca acesse índices inválidos!
 
----
-
 ### Conectando o operador `&` e o `scanf`
 
-Lembra que no módulo de [Estruturas de Repetição](../repeticao/README.md) usamos o operador `&` para ler valores no `scanf`?
+Lembra que no módulo de [Estruturas de Repetição](./repeticao.md) usamos o operador `&` para ler valores no `scanf`?
 
 ``` c
 int numero;
@@ -212,8 +259,6 @@ int main(void)
 
 O `&numeros[i]` entrega ao `scanf` o endereço exato do byte onde o elemento da posição `i` está alocado na RAM!
 
----
-
 ## Descobrindo o tamanho de uma Lista com `sizeof`
 
 O operador `sizeof` nos dá o tamanho em **bytes** de um tipo ou de uma variável.
@@ -241,8 +286,6 @@ int main(void)
 ```
 
 > Note que na declaração `int valores[] = {10, 20, 30, 40, 50, 60};` omitimos o tamanho dentro dos colchetes. Quando inicializamos a lista imediatamente com valores entre chaves, o compilador é inteligente o suficiente para contar a quantidade de elementos e definir o tamanho sozinho!
-
----
 
 ## Boas Práticas
 
