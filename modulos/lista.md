@@ -171,7 +171,7 @@ Quando você declara `int notas[5];`, o compilador não espalha esses 5 números
 
 Cada variável do tipo `int` não ocupa apenas 1 byte, mas sim **4 bytes** (na esmagadora maioria dos computadores modernos). Uma lista de 5 inteiros ocupará **20 bytes seguidos** (5 $\times$ 4 bytes). Já uma lista com 10 inteiros, 40 bytes (10 $\times$ 4 bytes).
 
-Podemos ver o valor exato de uma variável com operador `sizeof`, de dois jeitos:
+Podemos ver o tamanho de uma variável com operador `sizeof`, de dois jeitos:
 
 1. Pelo tipo:
 
