@@ -290,32 +290,6 @@ int main(void)
 
 O `&numeros[i]` entrega ao `scanf` o endereço exato do byte onde o elemento da posição `i` está alocado na RAM!
 
-## Descobrindo o tamanho de uma Lista com `sizeof`
-
-O operador `sizeof` nos dá o tamanho em **bytes** de um tipo ou de uma variável.
-
-Se quisermos descobrir quantos elementos uma lista possui sem precisar digitar a quantidade manualmente, podemos dividir o **tamanho total da lista em bytes** pelo **tamanho de um único elemento**:
-
-``` c
-#include <stdio.h>
-
-int main(void)
-{
-    int valores[] = {10, 20, 30, 40, 50, 60};
-
-    int tamanho_total_bytes = sizeof(valores);
-    int tamanho_elemento_bytes = sizeof(valores[0]);
-
-    int quantidade_elementos = sizeof(valores) / sizeof(valores[0]);
-
-    printf("Tamanho total em bytes: %d\n", tamanho_total_bytes);     // 24 bytes (6 * 4)
-    printf("Tamanho de 1 elemento:  %d\n", tamanho_elemento_bytes);  // 4 bytes
-    printf("Quantidade de elementos: %d\n", quantidade_elementos);   // 6 elementos
-
-    return 0;
-}
-```
-
 ## Boas Práticas
 
 ### 1. Nunca use Valores Mágicos para o tamanho da lista
