@@ -135,7 +135,7 @@ O `.h` é um apelido para *header*, em português **cabeçalho**. Veremos o cont
 
 ## printf
 
-A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](../variaveis/variaveis-1.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
+A função `printf` **imprime** (*print*) textos **formatados** (*f*) para o terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](./variaveis.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
 
 Nós precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
 
@@ -194,4 +194,4 @@ main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf�
 
 O compilador notifica um erro na linha 3, coluna 5 (`main.c:3:5`), falando que a função `printf` foi **implicitamente declarada**. Veja que logo abaixo, o próprio compilador já nos dá a solução do problema em `note: include ‘<stdio.h>‘`
 
-> O que é uma função implicitamente declarada ficará claro em [Funções](../funcoes/README.md).
+> O que é uma função implicitamente declarada ficará claro em [Funções](./funcoes.md).
