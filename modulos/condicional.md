@@ -2,6 +2,8 @@
 | :- | -: |
 | ← [Variáveis](./variaveis.md) | [Exercícios: Condicionais](../exercicios/condicional.md) → |
 
+<p align="center"><a href="./variaveis.md">Variáveis</a> | <a href="../exercicios/condicional.md">Exercícios: Condicionais</a></p>
+
 ---
 
 # Condicionais
