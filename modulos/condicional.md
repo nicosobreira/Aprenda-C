@@ -1,3 +1,9 @@
+| | |
+| :- | -: |
+| ← [Variáveis](./variaveis.md) | [Exercícios: Condicionais](../exercicios/condicional.md) → |
+
+---
+
 # Condicionais
 
 As condicionais são estruturas que nos possibilitam avaliar condições e executar diferentes códigos dependendo de seus resultados. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda chuva, **senão** deixamos ele em casa.
@@ -265,3 +271,9 @@ int main()
 No primeiro caso, o resultado da condição `3 == 3` é 1, já que de fato, 3 é igual a 3. Já no segundo, como 1 não é maior que 10, o resultado é 0.
 
 A linguagem C define o valor `0` como **falso**, qualquer outro valor é verdadeiro. Dessa forma, o tipo `bool` e os valores `true` e `false` são apenas números. Utilizamos desse tipo para trazer clareza em nosso código.
+
+---
+
+| | |
+| :- | -: |
+| ← [Variáveis](./variaveis.md) | [Exercícios: Condicionais](../exercicios/condicional.md) → |
