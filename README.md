@@ -54,3 +54,11 @@ Alguns sites úteis que vão te ajudar:
 ## Colaboração
 
 Caso encontre um erro em algum módulo ou tenha alguma sugestão, sinta-se livre para abrir um _issue_ aqui no GitHub. Eu não sou um especialista em C, por isso suas contribuições são muito valiosas!
+
+## Agradecimentos
+
+Algumas pessoas que ajudarem no desenvolvimento do projeto.
+
+### Testadores
+
+- [Lucas Leme](https://github.com/lemelinha)
