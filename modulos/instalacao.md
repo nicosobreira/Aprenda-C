@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="./ola-mundo.md.md">Olá, Mundo! →</a>
+  <a href="./ola-mundo.md">Olá, Mundo →</a>
 </p>
 
 ---
@@ -298,5 +298,5 @@ Se o VS Code abrir mostrando a pasta `aprenda-c` no Explorador de Arquivos, o co
 ---
 
 <p align="center">
-  <a href="./ola-mundo.md.md">Olá, Mundo! →</a>
+  <a href="./ola-mundo.md">Olá, Mundo →</a>
 </p>
