@@ -58,8 +58,53 @@ Se aparecer o número da versão do GCC instalado, a instalação deu certo, e o
 
 Para que nossos programas consigam mostrar **caracteres com acentos** dentro do PowerShell, é necessário configurá-lo. O comando a seguir vai criar um arquivo de configuração do PowerShell, se ele ainda não existir; depois vai permitir carácteres:
 
+<!--
+
+$OutputEncoding=[Console]::InputEncoding=[Console]::OutputEncoding=New-Object System.Text.UTF8Encoding;$PSDefaultParameterValues['*:Encoding']='utf8';if($PSVersionTable.PSEdition -eq 'Desktop'){chcp 65001>$null};$s="# UTF-8`n`$OutputEncoding=[Console]::InputEncoding=[Console]::OutputEncoding=New-Object System.Text.UTF8Encoding`n`$PSDefaultParameterValues['*:Encoding']='utf8'`nif(`$PSVersionTable.PSEdition -eq 'Desktop'){chcp 65001>`$null}`n# Fim UTF-8";foreach($p in @("$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1","$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1")){$d=Split-Path $p -Parent;if(-not(Test-Path $d)){New-Item -Path $d -ItemType Directory -Force|Out-Null};$e=if(Test-Path $p){Get-Content -Raw $p}else{''};if($e -notmatch 'Fim UTF-8'){$e+"`n"+$s|Set-Content -Path $p -Encoding utf8;Write-Host "  [ok] $p" -ForegroundColor Cyan}else{Write-Host "  [skip] $p" -ForegroundColor Yellow}}   
+
+-->
+
 ```powershell
-if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }; Add-Content -Path $PROFILE -Value "`n[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+$OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+$PSDefaultParameterValues['*:Encoding'] = 'utf8'
+
+if ($PSVersionTable.PSEdition -eq 'Desktop')
+{
+    chcp 65001 > $null
+}
+
+$s = "# UTF-8`n" +
+     "`$OutputEncoding=[Console]::InputEncoding=[Console]::OutputEncoding=New-Object System.Text.UTF8Encoding`n" +
+     "`$PSDefaultParameterValues['*:Encoding']='utf8'`n" +
+     "if(`$PSVersionTable.PSEdition -eq 'Desktop'){chcp 65001>`$null}`n" +
+     "# Fim UTF-8"
+
+$perfis = @(
+    "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1",
+    "$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+)
+
+foreach ($p in $perfis)
+{
+    $d = Split-Path $p -Parent
+
+    if (-not (Test-Path $d))
+    {
+        New-Item -Path $d -ItemType Directory -Force | Out-Null
+    }
+
+    $e = if (Test-Path $p) { Get-Content -Raw $p } else { '' }
+
+    if ($e -notmatch 'Fim UTF-8')
+    {
+        $e + "`n" + $s | Set-Content -Path $p -Encoding utf8
+        Write-Host "  [ok] $p" -ForegroundColor Cyan
+    }
+    else
+    {
+        Write-Host "  [skip] $p" -ForegroundColor Yellow
+    }
+}
 ```
 
 Feche o terminal atual e abra um novo PowerShell.
