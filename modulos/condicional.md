@@ -4,6 +4,12 @@
 
 <p align="center"><a href="./variaveis.md">Variáveis</a> | <a href="../exercicios/condicional.md">Exercícios: Condicionais</a></p>
 
+<p align="center">
+  <a href="./instalacao.md">← Instalando o C</a>
+  &nbsp;|&nbsp;
+  <a href="./linguagem-c.md">O que é C? →</a>
+</p>
+
 ---
 
 # Condicionais
