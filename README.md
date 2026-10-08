@@ -35,7 +35,7 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 9. [Exercícios: Estruturas de Repetição](./exercicios/repeticao.md)
 10. [Funções](./modulos/funcoes.md)
 11. [Exercícios: Funções](./exercicios/funcoes.md)
-12. ~~[Listas](./modulos/lista.md)~~
+12. ~~[Listas](./modulos/listas.md)~~
 13. ~~[Matrizes](./variaveis/matriz.md)~~
 14. ~~[Strings](./variaveis/string.md)~~
 15. ~~[Structs](./variaveis/struct.md)~~

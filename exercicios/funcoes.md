@@ -1,7 +1,7 @@
 <p align="center">
   <a href="../modulos/funcoes.md">← Funções</a>
   &nbsp;|&nbsp;
-  <a href="../modulos/lista.md">Listas →</a>
+  <a href="../modulos/listas.md">Listas →</a>
 </p>
 
 ---
@@ -238,5 +238,5 @@ Faça as seguintes alterações no exercício [Triângulo](./exercicios/condicio
 <p align="center">
   <a href="../modulos/funcoes.md">← Funções</a>
   &nbsp;|&nbsp;
-  <a href="../modulos/lista.md">Listas →</a>
+  <a href="../modulos/listas.md">Listas →</a>
 </p>
