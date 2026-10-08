@@ -28,20 +28,22 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 2. [Olá, Mundo](./modulos/ola-mundo.md)
 3. [O que é C?](./modulos/linguagem-c.md)
 4. [Variáveis](./modulos/variaveis.md)
-5. [Condicionais](./modulos/condicional.md)
-6. [Exercícios: Condicionais](./exercicios/condicional.md)
-7. [Estruturas de Repetição](./modulos/repeticao.md)
-8. [Exercícios: Estruturas de Repetição](./exercicios/repeticao.md)
-9. [Funções](./modulos/funcoes.md)
-10. ~~[Listas](./modulos/lista.md)~~
-11. ~~[Matrizes](./variaveis/matriz.md)~~
-12. ~~[Strings](./variaveis/string.md)~~
-13. ~~[Structs](./variaveis/struct.md)~~
-14. ~~[Enums](./variaveis/enum.md)~~
-15. ~~[Projeto 2](./projeto/dois.md)~~
-16. ~~[Compilador](./arquivos/compilador.md)~~
-17. ~~[Múltiplos arquivos](./arquivos/header.md)~~
-18. ~~[Projeto 3](./projeto/tres.md)~~
+5. [Exercícios: Variáveis](./exercicios/variaveis.md)
+6. [Condicionais](./modulos/condicional.md)
+7. [Exercícios: Condicionais](./exercicios/condicional.md)
+8. [Estruturas de Repetição](./modulos/repeticao.md)
+9. [Exercícios: Estruturas de Repetição](./exercicios/repeticao.md)
+10. [Funções](./modulos/funcoes.md)
+11. [Exercícios: Funções](./exercicios/funcoes.md)
+12. ~~[Listas](./modulos/lista.md)~~
+13. ~~[Matrizes](./variaveis/matriz.md)~~
+14. ~~[Strings](./variaveis/string.md)~~
+15. ~~[Structs](./variaveis/struct.md)~~
+16. ~~[Enums](./variaveis/enum.md)~~
+17. ~~[Projeto 2](./projeto/dois.md)~~
+18. ~~[Compilador](./arquivos/compilador.md)~~
+19. ~~[Múltiplos arquivos](./arquivos/header.md)~~
+20. ~~[Projeto 3](./projeto/tres.md)~~
 <!-- 18. [Build System]() -->
 
 ## Referências
