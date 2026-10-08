@@ -8,7 +8,7 @@ Para resolvermos o nosso problema do guarda chuva, vamos escrever um programa qu
 
 > Não se esqueça de importar a definição do tipo `bool` com o header `<stdbool.h>`.
 
-``` c
+```c
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -41,7 +41,7 @@ Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vest
 
 Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores de comparação**, o "maior que" (`>`) e o "menor que" (`<`) da matemática, junto a dois condicionais.
 
-``` c
+```c
 #include <stdio.h>
 
 int main()
@@ -83,7 +83,7 @@ Com isso, ao chegarmos na **segunda verificação** em `else if (temperatura < t
 
 No código a seguir, vou apenas escrever as possíveis faixas de temperatura **antes** de fazer as verificações, usando comentários e a notação matématica de intervalos, que é uma outra forma de escrever o que acabamos de ver. Não se preocupe se não conhecer essa notação, você pode ignorá-la e ler apenas os textos ao lado nos comentários.
 
-``` c
+```c
 // (-inf, +inf) todos os números reais
 if (temperatura > temp_alta)
 {
@@ -112,7 +112,7 @@ Para corrigir o erro, devemos usar os operadores `>=` e `<=`, lidos como "maior 
 
 > Na escrita do código, vou focar apenas nas mudanças do `if`, mas você deve escrever tudo!
 
-``` c
+```c
 if (temperatura >= temp_alta)
 {
     printf("Hoje vai fazer muito calor!\n");
@@ -137,11 +137,11 @@ else
 Para explicar o uso da negação, vamos pensar em uma festa: uma pessoa só pode entrar nela se possuir um convite, senão ela é barrada na entrada.
 
 Primeiro, vamos resolver esse problema usando um `if` junto a um `else`. Logo em seguida, veremos um jeito melhor, usando apenas um `if`.
-Para tal, vamos criar nossa própria função - conteúdo que veremos com mais detalhes em [Funções](../funcoes/README.md) - chamada `entrar_na_festa` que *retorna nada* e tem como argumento uma variável do tipo `bool` chamada `tem_convite`.
+Para tal, vamos criar nossa própria função - conteúdo que veremos com mais detalhes em [Funções](../funcoes/README.md) - chamada `entrar_na_festa` que _retorna nada_ e tem como argumento uma variável do tipo `bool` chamada `tem_convite`.
 
 > O `void` é um termo que possui **vários significados** na linguagem C. **Nesse caso**, ele indica que a função vai retornar nenhum valor.
 
-``` c
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -163,7 +163,7 @@ void entrar_na_festa(bool tem_convite)
 
 Logo abaixo, na função `main`:
 
-``` c
+```c
 int main()
 {
     printf("-- Pessoa 1\n");
@@ -186,11 +186,11 @@ Para chegar a uma resposta, precisamos entender realmente o que significa "entra
 
 O nosso código atual não traz essa ideia de **válido** e **inválido** em sua construção. Note que é diferente do nosso primeiro exemplo, no começo do capítulo, onde chover ou não são **dois caminhos válidos** para um dia.
 
-Sendo assim, o problema está no *design* de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplesmente sair no começo da função, caso algo inválido aconteça.
+Sendo assim, o problema está no _design_ de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplesmente sair no começo da função, caso algo inválido aconteça.
 
 Vamos **negar** o valor da variável `tem_convite` com o uso da exclamação `!` e analisar o código logo em seguida.
 
-``` c
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -219,7 +219,7 @@ Para isso, vamos criar uma função chamada `print_divisao` que retorna nada e t
 
 > Não se esqueça de adicionar o `#include <stdio.h>` e usar `print_divisao` em `main`!
 
-``` c
+```c
 void print_divisao(double numero, double divisor)
 {
     printf("O resultado é: %f\n", numero / divisor);
@@ -229,7 +229,7 @@ void print_divisao(double numero, double divisor)
 Teste com diferentes valores para `numero` e `divisor`, mas sempre que o `divisor` valer 0, o valor será `inf`. Esse valor de `inf` está relacionado com o padrão IEEE 754, usado pela linguagem C.
 Esse padrão determina a divisão por 0 como uma operação válida, com um valor especial chamado de `inf`. Mas como poderíamos fazer a divisão se tornar inválida? Podemos usar um **Retorno Antecipado** para tal.
 
-``` c
+```c
 void print_divisao(double numero, double divisor)
 {
     if (divisor == 0.0)
@@ -250,7 +250,7 @@ Com isso, garantimos que o valor de `divisor` sempre será diferente de 0.
 
 As condições em C sempre resultam em valores numéricos. Vejamos um exemplo:
 
-``` c
+```c
 #include <stdio.h>
 
 int main()

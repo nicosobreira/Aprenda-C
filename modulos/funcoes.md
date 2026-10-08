@@ -6,7 +6,7 @@ Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até
 
 Vamos usar como base o exemplo da **entrada da festa** que vimos em [Negação](./condicional.md#Negação). Aqui está a função `entrar_na_festa`, caso tenha esquecido:
 
-``` c
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -31,7 +31,7 @@ Após a assinatura, entre as chaves (`{}`), fica a **declaração** da função 
 
 Para usarmos a função, devemos **chamá-la** em outra função. Por exemplo, podemos **chamar** a função `entrar_na_festa` dentro da função `main` da seguinte forma:
 
-``` c
+```c
 int main(void)
 {
     entrar_na_festa(true);
@@ -51,7 +51,7 @@ O primeiro termo do exemplo é o `void`. Esse tipo tem diversos usos na linguage
 Note o uso do `return;` na função `entrar_na_festa`, não existe **nenhum valor** entre o `return` e `;`.
 Agora, na função `main` mais básica, escrevemos:
 
-``` c
+```c
 int main(void)
 {
     return 0;
@@ -70,7 +70,7 @@ Os nomes das funções seguem as mesmas regras de nomenclatura que **todos os ou
 
 Os parâmetros são **variáveis** que passamos para as funções quando chamamos elas. Veja a função `print_divisao`, que vimos em [Negação](./condicional.md#negação):
 
-``` c
+```c
 void print_divisao(double numero, double divisor)
 {
     if (divisor == 0.0)
@@ -85,7 +85,7 @@ void print_divisao(double numero, double divisor)
 
 As variáveis `numero` e `divisor`, declaradas na assinatura da função, são os parâmetros da função. Quando chamamos a função, falamos que estamos passando argumentos para a função. Veja:
 
-``` c
+```c
 int main(void)
 {
     print_divisao(20.0, 2.0);
@@ -96,7 +96,7 @@ int main(void)
 
 Nesse caso, os valores `20.0` e `2.0` são os argumentos. Também podemos passar variáveis como argumentos, por exemplo:
 
-``` c
+```c
 int main(void)
 {
     double total_da_conta = 20.0;
@@ -110,7 +110,7 @@ int main(void)
 
 Aqui, passamos como argumentos os valores das variáveis `total_da_conta` e `pessoas`, que no caso são `20.0` e `2.0`. Na linguagem C, os argumentos são **copiados** para os parâmetros - em todos os casos. Veja o que acontece se alterarmos a variável `divisor` e exibir o seu valor antes e depois de chamarmos a função `print_divisao`:
 
-``` c
+```c
 void print_divisao(double numero, double divisor)
 {
     if (divisor == 0.0)
@@ -150,7 +150,7 @@ Os escopos delimitam a região em nosso código que uma variável fica disponív
 
 Por exemplo, no programa a seguir, a variável `numero` foi criada no **escopo global**, e portanto, fica disponível tanto para a função `main` quanto para qualquer outra função declarada no mesmo arquivo.
 
-``` c
+```c
 #include <stdio.h>
 
 int numero = 0;
@@ -165,7 +165,7 @@ int main()
 
 Agora, vamos declarar outra função, chamada `retorna_numero`, que retorna uma **copia** do valor armazenado na variável **global** `numero` e não recebe nenhum argumento:
 
-``` c
+```c
 #include <stdio.h>
 
 int numero = 0;
@@ -185,7 +185,7 @@ int main()
 
 Agora vamos adicionar outra variável chamada `numero`, só que dentro da função `main`, e ver como o programa vai se comportar:
 
-``` c
+```c
 #include <stdio.h>
 
 int numero = 0;
@@ -215,7 +215,7 @@ Exclua a linha que declara a **variável global** `numero` e verá que o compila
 
 O próximo exemplo mostra o que acontece quando declaramos duas variáveis com o mesmo nome no mesmo escopo:
 
-``` c
+```c
 #include <stdio.h>
 
 int main()
@@ -240,7 +240,7 @@ Tente remover o `int` quando a variável `numero` recebe 2, ou seja, em `int num
 
 No exemplo a seguir, deixamos claro que estamos incrementando a variável global `g_numero` por 1:
 
-``` c
+```c
 #include <stdio.h>
 
 int g_numero = 0;
@@ -263,7 +263,7 @@ int main()
 
 Até agora, sempre declaramos nossas funções **antes** da `main`. Mas o que acontece se quisermos colocá-las **depois**? Vamos ver o que acontece com uma versão **reduzida** da função `entrar_na_festa`:
 
-``` c
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -306,7 +306,7 @@ main.c:6:5: note: previous implicit declaration of ‘entrar_na_festa’ with ty
 
 É a segunda linha da saída do `gcc` que nos interessa: `error: implicit declaration of function ‘entrar_na_festa’`. Esse erro indica que a função foi **implicitamente** declarada, ou seja, o compilador não conhece a **assinatura** da função para conseguir usá-la em `main`. Para resolver esse problema, devemos deixar explícita a declaração da função. Fazemos isso declarando a função antes do uso. Para isso, **copiamos e colamos** a assinatura da função na parte da definição, e colocamos um `;` ao final da linha. Veja:
 
-``` c
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -343,7 +343,7 @@ Colocar as declarações logo no início funciona como um índice do arquivo: d�
 
 Com isso, vamos organizar os nossos programas da seguinte forma:
 
-1. Importação dos *headers* (arquivos `.h`) com o `#include`.
+1. Importação dos _headers_ (arquivos `.h`) com o `#include`.
 2. Variáveis constantes.
 3. Variáveis globais.
 4. Declaração das funções.
@@ -354,7 +354,7 @@ Com isso, vamos organizar os nossos programas da seguinte forma:
 
 Não é obrigatório informar o **nome** dos parâmetros na **declaração**, apenas o tipo basta. Podemos reescrever `void entrar_na_festa(bool tem_convite)` como:
 
-``` c
+```c
 void entrar_na_festa(bool);
 ```
 
@@ -370,7 +370,7 @@ Lembra do problema de copia e cola que apontamos no exercício anterior? Agora, 
 Sabemos que existem diversas restrições que podemos aplicar a leitura de dados **numéricos**, como estar entre dois números e ser maior que outro. Mas para toda leitura de números, temos uma coisa em comum: caso a entrada **não seja um número**, então **pedimos por outro**.
 A leitura falha quando o `scanf` retorna um inteiro diferente de `1` e perguntamos por outro número por meio de um `do while`. Sabendo disso, vamos criar a função de leitura mais básica: uma que lê um inteiro qualquer. Chamamos essa função de `leia`:
 
-``` c
+```c
 int leia(void)
 {
     int numero;
@@ -400,7 +400,7 @@ int leia(void)
 
 E usamos dentro de `main`:
 
-``` c
+```c
 #include <stdio.h>
 
 int leia(void);
@@ -446,7 +446,7 @@ int leia(void)
 
 Agora que temos a função `leia` para `int`, vamos criar outra função que também se chama `leia`, só que para o tipo `double`:
 
-``` c
+```c
 int leia(void)
 {
     int numero;
@@ -517,13 +517,13 @@ O compilador reclama de **tipos conflitantes** (`conflicting types`) para o iden
 
 ### Por que isso acontece
 
-Algumas linguagens permitem que várias funções compartilhem o mesmo nome, desde que seus parâmetros sejam diferentes — isso se chama **sobrecarga de funções** (*function overloading*). A linguagem C **não tem esse recurso**.
+Algumas linguagens permitem que várias funções compartilhem o mesmo nome, desde que seus parâmetros sejam diferentes — isso se chama **sobrecarga de funções** (_function overloading_). A linguagem C **não tem esse recurso**.
 
 Em C, o **tipo de uma função** não é definido só pelos seus parâmetros, mas sim pela combinação entre o **tipo de retorno** e os **tipos dos parâmetros**. E cada identificador só pode ter **um único tipo** dentro do mesmo escopo. Ao escrever `int leia(void)` e depois `double leia(void)`, você está dizendo ao compilador duas coisas diferentes sobre o mesmo nome `leia`, e ele não tem como decidir qual delas é a verdadeira.
 
 Por outro lado, repetir a **mesma** assinatura, não é um erro:
 
-``` c
+```c
 int leia(void);
 int leia(void); // Ok, apenas repete a mesma promessa
 ```
@@ -536,7 +536,7 @@ Já que o C não distingue funções pelos parâmetros ou pelo retorno, a única
 
 > Note que esse é o padrão que **eu** escolhi. Você pode escolher qualquer outro, o importante é ser consistente e usá-lo sempre.
 
-``` c
+```c
 int leia_int(void);
 
 double leia_double(void);
@@ -549,7 +549,7 @@ Cada nome já entrega, sozinho, uma pista de **o que a função faz** — muito 
 
 Agora vamos implementar a função `leia_double_entre`:
 
-``` c
+```c
 double leia_double_entre(double min, double max)
 {
     double numero;
@@ -588,7 +588,7 @@ double leia_double_entre(double min, double max)
 
 Compare esta função com a `leia_double`, você percebe alguma coisa em comum entre elas? Ambas fazem a mesma lógica que apontamos no início: se a entrada não for um número, peça por outra. A única diferença é que limitar a entrada exige mais validações. Com isso, podemos reescrever a função `leia_double_entre` para usar a `leia_double`, ficando assim:
 
-``` c
+```c
 double leia_double_entre(double min, double max)
 {
     double numero;
@@ -626,7 +626,7 @@ Separei cada seção do arquivo em títulos diferentes, mas você teve colocar t
 
 #### Importação e Declaração
 
-``` c
+```c
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -685,7 +685,7 @@ int main(void)
 }
 ```
 
-Antes de continuar, perceba como essa parte do código está muito mais **autoexplicativa** do que a solução original do exercício. Ao ler este código, não precisamos saber **como** a função `leia_int_entre` funciona, mas sim apenas do que ela *precisa* e *o que* ela faz, informações que os **parâmetros** e o **nome** da função já nos dão. Isso é vantajoso, já que a medida que o número de funções aumentam podemos variar o modo como analisamos nosso programa: de maneira mais detalhada a partir das definições ou mais geral, com as definições - não nos prendendo aos mínimos detalhes.
+Antes de continuar, perceba como essa parte do código está muito mais **autoexplicativa** do que a solução original do exercício. Ao ler este código, não precisamos saber **como** a função `leia_int_entre` funciona, mas sim apenas do que ela _precisa_ e _o que_ ela faz, informações que os **parâmetros** e o **nome** da função já nos dão. Isso é vantajoso, já que a medida que o número de funções aumentam podemos variar o modo como analisamos nosso programa: de maneira mais detalhada a partir das definições ou mais geral, com as definições - não nos prendendo aos mínimos detalhes.
 
 #### Definição
 

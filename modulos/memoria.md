@@ -2,10 +2,11 @@
 
 - Explicar como o tipo `int` é debaixo dos panos; a mesma coisa com os tipos `float` e `double` (explicar o padrão IEEE 754).
 - Explicar como muitas coisas sobre a memória do C é específico de como um **computador moderno** funciona.
-    - Pesquisar quais são os comportamentos indefinidos e requerimentos da linguagem C quanto ao modo como a memória do programa deve funcionar
+  - Pesquisar quais são os comportamentos indefinidos e requerimentos da linguagem C quanto ao modo como a memória do programa deve funcionar
 - O poder do C é ser extremamente flexível - escreve o código 1 vez para vários sistemas. Isso vez a diferença quando ele foi inventado (não sei se devo falar disso agora).
 - Talvez explicar o que são matrizes?
 - Mostrar que uma função `void swap(int x, int y)` não altera os valores, é necessário passar `void (int *px, int *py)`.
 - Faz sentido falar sobre o que são listas, como elas são organizadas para depois falar de ponteiros.
 - Retomar como o funcionamento da memória RAM foi explicado em [Lista](./lista.md) e expandir para qualquer variável.
 - Será que explico a diferença entre stack e heap?
+- Falar sobre segmentation fault.

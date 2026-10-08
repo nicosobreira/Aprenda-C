@@ -20,7 +20,7 @@ Cole os comandos com o atalho `Ctrl + Shift + v`.
 
 Abra o PowerShell (aperte a tecla `Win`, digite "PowerShell" e aperte `Enter`). Para conferir se o `winget` está disponível, rode:
 
-``` powershell
+```powershell
 winget --version
 ```
 
@@ -30,7 +30,7 @@ Se aparecer um número de versão, como `v1.7.10582`, pode seguir para o próxim
 
 A versão do PowerShell deve ser a 7, esse comando vai atualizar o PowerShell.
 
-``` powershell
+```powershell
 winget install --id Microsoft.PowerShell --exact
 ```
 
@@ -38,7 +38,7 @@ Feche o terminal atual e abra um novo PowerShell.
 
 #### Passo 3: Instalando o GCC
 
-``` powershell
+```powershell
 winget install --id BrechtSanders.WinLibs.POSIX.UCRT --exact
 ```
 
@@ -48,7 +48,7 @@ Caso tudo dê certo, no final da instalação, deve-se falar que diversos "alias
 
 Feche o terminal atual e abra um novo PowerShell.
 
-``` powershell
+```powershell
 gcc --version
 ```
 
@@ -58,8 +58,8 @@ Se aparecer o número da versão do GCC instalado, a instalação deu certo, e o
 
 Para que nossos programas consigam mostrar **caracteres com acentos** dentro do PowerShell, é necessário configurá-lo. O comando a seguir vai criar um arquivo de configuração do PowerShell, se ele ainda não existir; depois vai permitir carácteres:
 
-``` powershell
-if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }; Add-Content -Path $PROFILE -Value "`n[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"   
+```powershell
+if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }; Add-Content -Path $PROFILE -Value "`n[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
 ```
 
 Feche o terminal atual e abra um novo PowerShell.
@@ -70,7 +70,7 @@ Feche o terminal atual e abra um novo PowerShell.
 
 Ainda no PowerShell, rode:
 
-``` powershell
+```powershell
 winget install --id Microsoft.VisualStudioCode --exact
 ```
 
@@ -78,7 +78,7 @@ winget install --id Microsoft.VisualStudioCode --exact
 
 Feche a janela do PowerShell e abra uma nova, para garantir que o terminal reconheça o comando recém-instalado. Depois, rode:
 
-``` powershell
+```powershell
 code --version
 ```
 
@@ -88,7 +88,7 @@ Se aparecerem três linhas (a versão do VS Code, um código de commit e a arqui
 
 Já que estamos no terminal, também é possível instalar a extensão de C/C++ (da Microsoft) sem precisar abrir o VS Code e navegar até a loja de extensões:
 
-``` powershell
+```powershell
 code --install-extension ms-vscode.cpptools
 ```
 
@@ -96,7 +96,7 @@ code --install-extension ms-vscode.cpptools
 
 Para testar se tudo está funcionando, vamos criar uma pasta chamada `aprenda-c`, em `Documents`. Vamos usar essa pasta ao longo do guia.
 
-``` powershell
+```powershell
 mkdir ~/Documents/aprenda-c
 cd ~/Documents/aprenda-c
 code .
@@ -118,15 +118,15 @@ A maioria das distribuições Linux já vem com um gerenciador de pacotes. No ca
 
 Abra o terminal e rode:
 
-``` bash
+```bash
 sudo apt update
 ```
 
-> O `sudo` (*super user do*) pede a sua senha de usuário para executar o comando com privilégios administrativos, necessário para instalar programas no sistema.
+> O `sudo` (_super user do_) pede a sua senha de usuário para executar o comando com privilégios administrativos, necessário para instalar programas no sistema.
 
 #### Passo 2: Instalando o GCC
 
-``` bash
+```bash
 sudo apt install build-essential
 ```
 
@@ -134,7 +134,7 @@ sudo apt install build-essential
 
 #### Passo 3: Verificando a instalação
 
-``` bash
+```bash
 gcc --version
 ```
 
@@ -144,12 +144,13 @@ Se aparecer o número da versão instalada, deu tudo certo.
 
 #### Passo 1: Instalando o VS Code
 
-``` bash
+```bash
 sudo apt install code
 ```
 
 > Dependendo da distribuição, o pacote `code` pode não estar disponível de cara no `apt`. Caso o comando acima retorne um erro dizendo que o pacote não foi encontrado, use o instalador via Snap, que já vem pronto na maioria das instalações do Ubuntu:
-> ``` bash
+>
+> ```bash
 > sudo snap install code --classic
 > ```
 
@@ -157,7 +158,7 @@ sudo apt install code
 
 Feche e abra um novo terminal, depois rode:
 
-``` bash
+```bash
 code --version
 ```
 
@@ -167,13 +168,13 @@ Se aparecerem três linhas (versão, commit e arquitetura), a instalação deu c
 
 Esse passo é igual nos dois sistemas, e também no Windows:
 
-``` bash
+```bash
 code --install-extension ms-vscode.cpptools
 ```
 
 ### Passo 4: Abrindo uma pasta de projeto
 
-``` bash
+```bash
 mkdir aprenda-c
 cd aprenda-c
 code .
@@ -189,7 +190,7 @@ O macOS não vem com um gerenciador de pacotes de fábrica, então o primeiro pa
 
 #### Passo 1: Instalando o Homebrew
 
-``` bash
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -199,13 +200,13 @@ O macOS não vem com um gerenciador de pacotes de fábrica, então o primeiro pa
 
 O macOS já vem com o **Clang** pré-instalado (disfarçado de `gcc`, veremos isso já já), mas caso você prefira instalar o GCC de verdade, use:
 
-``` bash
+```bash
 brew install gcc
 ```
 
 #### Passo 3: Verificando a instalação
 
-``` bash
+```bash
 gcc --version
 ```
 
@@ -217,7 +218,7 @@ gcc --version
 
 Com o Homebrew já instalado (do tutorial do GCC), rode:
 
-``` bash
+```bash
 brew install --cask visual-studio-code
 ```
 
@@ -225,7 +226,7 @@ brew install --cask visual-studio-code
 
 #### Passo 2: Verificando a instalação
 
-``` bash
+```bash
 code --version
 ```
 
@@ -235,13 +236,13 @@ Caso a versão seja retornada, deu tudo certo.
 
 Esse passo é igual nos dois sistemas, e também no Windows:
 
-``` bash
+```bash
 code --install-extension ms-vscode.cpptools
 ```
 
 ### Passo 4: Abrindo uma pasta de projeto
 
-``` bash
+```bash
 mkdir aprenda-c
 cd aprenda-c
 code .

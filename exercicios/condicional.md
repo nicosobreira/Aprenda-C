@@ -16,7 +16,7 @@ Exiba a soma de dois números inteiros `a` e `b`.
 
 > O que o exercício vai dar.
 
-``` c
+```c
 int main(void)
 {
     // Entrada:
@@ -35,7 +35,7 @@ int main(void)
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-``` c
+```c
 int main(void)
 {
     // Entrada:
@@ -63,7 +63,7 @@ A resposta é que aquela linha é um **comentário**: um texto que existe apenas
 
 Em C, existem duas formas de escrever comentários:
 
-``` c
+```c
 // Isso é um comentário de uma linha só.
 
 /*
@@ -75,7 +75,7 @@ várias linhas.
 
 Comentários servem para explicar o **porquê** de alguma parte do código, ou para deixar anotações para você mesmo (ou para quem for ler seu código depois). Teste o código a seguir, depois **apague** a linha do comentário e rode de novo - você vai ver que nada muda na execução:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -89,7 +89,7 @@ int main(void)
 
 Agora, faça o oposto: pegue uma linha de código de verdade, como o `printf`, e coloque ela dentro de `/* */`:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -115,7 +115,7 @@ Crie um programa que receba a idade de uma pessoa como entrada e classifique a c
 - **Adulto**: De 18 a 59 anos.
 - **Idoso**: De 60 anos ou mais.
 
-``` c
+```c
 int main(void)
 {
     // Entrada:
@@ -138,7 +138,7 @@ Lembre-se de que as verificações vão **alterando as faixas de possíveis valo
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -181,11 +181,11 @@ int main(void)
 Crie um programa que receba quatro notas de um aluno, calcule a **média ponderada** das notas, seguindo os seguintes pesos:
 
 | Nota | Peso |
-| :-:  | :-   |
-| 1    | 4    |
-| 2    | 2    |
-| 3    | 2    |
-| 4    | 1    |
+| :--: | :--- |
+|  1   | 4    |
+|  2   | 2    |
+|  3   | 2    |
+|  4   | 1    |
 
 Mostre essa média e depois informe se esse aluno:
 
@@ -195,7 +195,7 @@ Mostre essa média e depois informe se esse aluno:
 
 > Pulei a definição da função `main`, mas você deve colocar.
 
-``` c
+```c
 // Entrada:
 
 double nota1 = 0.0;
@@ -213,7 +213,7 @@ return 0;
 
 > Não se esqueça de colocar `#include <stdio.h>` para usar a função `printf`!
 
-``` c
+```c
 int main(void)
 {
     // Entrada:
@@ -272,7 +272,7 @@ Caso as retas **formem** um triângulo, classifique-o seguindo essas regras:
 
 > Não se esqueça de criar a função `main`!
 
-``` c
+```c
 // Entrada
 
 int a = 0;

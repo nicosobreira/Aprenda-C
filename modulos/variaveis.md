@@ -15,7 +15,7 @@ Declarar a variável nada mais é do que mostrar para o computador como um núme
 
 Para declarar uma variável em C, escrevemos:
 
-``` c
+```c
 int numero;
 ```
 
@@ -23,7 +23,7 @@ O `int` mostra ao computador que o valor armazenado na variável de nome `numero
 
 Note que o código a seguir também é válido:
 
-``` c
+```c
 int palavra;
 ```
 
@@ -34,13 +34,13 @@ O nome da variável mudou de `numero` para `palavra`, mas o seu tipo continua se
 Para **alterar o valor** de um variável usamos do `=`.
 A seguir nós **inicializamos** a variável `numero` com o valor `10`:
 
-``` c
+```c
 int numero = 10;
 ```
 
 **Depois que declaramos** uma variável, podemos mudar o seu valor novamente, fazendo:
 
-``` c
+```c
 numero = 2;
 ```
 
@@ -56,7 +56,7 @@ Nesse módulo, veremos esses tipos **sem muitos detalhes**. No entanto, no módu
 
 Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
 
-``` c
+```c
 int idade = 18;
 ```
 
@@ -66,7 +66,7 @@ A função `printf` pode receber mais de um argumento, separados por ",". O prim
 
 No código abaixo, imprimimos o valor da variável `idade`:
 
-``` c
+```c
 #include <stdio.h>
 
 int main()
@@ -114,9 +114,9 @@ double media_d = 3.2;
 
 Para imprimir o valor da média, vamos usar o `%f` em ambos:
 
-> Declare a função main e importe o *header* `stdio`.
+> Declare a função main e importe o _header_ `stdio`.
 
-``` c
+```c
 printf("Média Float: %f", media_f);
 printf("Média Double: %f", media_d);
 ```
@@ -125,13 +125,13 @@ O `printf` interpreta o `float` e `double` como reais em sua implementação int
 
 Dependendo do tipo da variável que passamos para o `printf` nós podemos mudar como o valor será exibido. Por exemplo, para exibirmos apenas duas casas depois da vírgula, usamos:
 
-``` c
+```c
 printf("Média: %.2f", media_f);
 ```
 
 Até podemos arrendondar o número com:
 
-``` c
+```c
 printf("Média: %.0f", media_d);
 ```
 
@@ -145,13 +145,13 @@ Se você estiver trabalhando em um projeto para computadores modernos (64 bits),
 
 Representa um único caractere, como uma letra do alfabeto ou um sinal de pontuação.
 
-``` c
+```c
 char caractere = 'a';
 ```
 
 Tá lembrado no começo do capítulo, quando discutimos como o binário `0100 0011` (ou 67 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
 
-``` c
+```c
 char letra_C = 'C';
 
 printf("Caractere: %c\n", letra_C);
@@ -165,16 +165,15 @@ Isso se deve ao modo como os caracteres funcionam em C. Por debaixo dos panos, o
 
 > O valor de 1 byte na **esmagadora maioria** dos dispositivos é 8 bits.
 
-Se você abrir essa tabela, notará duas coisas: o *código ASCII* do caractere `C` é 67; e que não existem caracteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada pra a língua inglesa, por isso eles não colocaram acentos nela. Isso explica por que os acentos podem estar meio esquisitos quando exibidos.
+Se você abrir essa tabela, notará duas coisas: o _código ASCII_ do caractere `C` é 67; e que não existem caracteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada pra a língua inglesa, por isso eles não colocaram acentos nela. Isso explica por que os acentos podem estar meio esquisitos quando exibidos.
 
 Ao invés de usarmos aspas duplas, usamos as aspas simples, mas por quê? Veremos isso com mais detalhes em [Strings](./string.md), mas já pincelando, a linguagem C diferencia um único caractere de um texto - conjunto de caracteres - com o uso das aspas simples.
-
 
 ### bool
 
 Os valores booleanos são aqueles que podem ser ou **verdadeiro** ou **falso**, mas nunca os dois ao mesmo tempo. São usados principalmente para estabelecer condições.
 
-``` c
+```c
 #include <stdbool.h>
 
 bool estou_feliz = false;
@@ -191,8 +190,7 @@ Chamamos os estados **verdadeiro** e **falso** de `true` e `false`, respectivame
 
 Essas regras são válidas para todos **identificadores** da linguagem C, não somente para nomes de variáveis.
 
-
-- São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de *underline*.
+- São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de _underline_.
 - Não é permitido começar com um dígito. Exemplos de identificadores errados: `1pessoa` e `02_vida`.
 - Não é permitido ter acento. Exemplo: `cabeça`.
 - A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, as variáveis `Vida`, `vida` e `VIDA` como coisas diferentes.
@@ -208,7 +206,7 @@ Por exemplo, vamos declarar a variável `pi`, com o valor aproximado da constant
 
 > Não se esqueça de importar `#include <stdio.h>` e declarar a função `main`!
 
-``` c
+```c
 const double pi = 3.14;
 
 printf("Pi vale aproximadamente %f\n", pi);
@@ -216,7 +214,7 @@ printf("Pi vale aproximadamente %f\n", pi);
 
 Vamos tentar aumentar o valor da aproximação do `pi` **após** a declaração da variável:
 
-``` c
+```c
 const double pi = 3.14;
 
 pi = 3.14159;
@@ -236,11 +234,11 @@ main.c:8:8: error: assignment of read-only variable ‘pi’
 ```
 
 É a segunda linha da saída do comando que nos interessa: `error: assignment of read-only variable ‘pi’`.
-Ela fala que ocorreu um erro ao atribuir algum valor à uma variável *read-only*, do inglês "apenas de leitura", chamada `pi`. Esse erro é uma garantia do compilador de que não podemos alterar variáveis constantes.
+Ela fala que ocorreu um erro ao atribuir algum valor à uma variável _read-only_, do inglês "apenas de leitura", chamada `pi`. Esse erro é uma garantia do compilador de que não podemos alterar variáveis constantes.
 
 Se amanhã nós precisarmos aumentar a precisão da constante `pi`, isso é, aumentar o número de casas depois da vírgula, nós só precisamos alterar em **um lugar** - se não usássemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo. Por exemplo, para atualizar a constante:
 
-``` c
+```c
 const double pi = 3.1415926;
 
 printf("Pi vale aproximadamente %f\n", pi);
@@ -260,7 +258,7 @@ Ao longo do guia, veremos ainda mais casos de como melhorar a sua nomenclatura. 
 
 Sempre que declarar uma variável, é recomendado que você inicialize ela com um valor padrão. Como `0` ou `1` para o tipo `int`. Escreva esse programa e **rode ele mais de uma vez**:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -278,7 +276,7 @@ Você verá que a variável `numero` armazena valores aleatórios. O motivo diss
 
 Outra vantagem das variáveis constantes é dar um **nome claro** a **um valor** "solto". No código a seguir, vamos calcular a conta final de 4 amigos em um restaurante?
 
-``` c
+```c
 int main(void)
 {
     int pessoas = 4;
@@ -295,7 +293,7 @@ Você saberia dizer o que os valores `0.1` e `15.0` representam? Pelo contexto t
 
 Esses valores "soltos" são chamados de **valores mágicos**. Eles diminuem muito a clareza do nosso código. Uma solução é usar duas variáveis constantes chamadas `taxa_servico` e `preco_reserva` para deixar claras as suas funções no código:
 
-``` c
+```c
 int main(void)
 {
     const double taxa_servico = 0.1;
@@ -312,4 +310,3 @@ int main(void)
 ```
 
 Agora, conseguimos ler o cálculo da variável `total` da seguinte forma: o total é a soma da conta, com a taxa de serviço e as reservas de cada pessoa. E de novo, se precisarmos diminuir a taxa de serviço, por exemplo, só precisamos mudar em um lugar só.
-

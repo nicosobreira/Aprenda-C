@@ -19,7 +19,7 @@ Eu me limitei a usar AI para:
 Esse é o jeito **correto** de se usar o material. Se você não seguir essas regras, eu não garanto o seu aprendizado:
 
 - Execute **todos os códigos** de exemplo. Pode pular apenas se você **já sabe o conteúdo**.
-- Não copie e cole os códigos, **digite cada um deles**.
+- Copie e cole código de forma **consciente**. Saiba que digitar possui importância e evita leitura passiva.
 - Não faça uma leitura passiva, sempre **teste suas ideias** e **tire suas dúvidas** com a Internet ou Inteligências Artificiais.
 
 ## Módulos
@@ -27,21 +27,21 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 1. [Instalando o C](./modulos/instalacao.md)
 2. [Olá, Mundo](./modulos/ola-mundo.md)
 3. [O que é C?](./modulos/linguagem-c.md)
-4. [Variáveis I](./modulos/variaveis.md)
+4. [Variáveis](./modulos/variaveis.md)
 5. [Condicionais](./modulos/condicional.md)
 6. [Exercícios: Condicionais](./exercicios/condicional.md)
 7. [Estruturas de Repetição](./modulos/repeticao.md)
 8. [Exercícios: Estruturas de Repetição](./exercicios/repeticao.md)
-9. ~~[Funções](./modulos/funcoes.md)~~
+9. [Funções](./modulos/funcoes.md)
 10. ~~[Listas](./modulos/lista.md)~~
-12. ~~[Matrizes](./variaveis/matriz.md)~~
-13. ~~[Strings](./variaveis/string.md)~~
-14. ~~[Structs](./variaveis/struct.md)~~
-15. ~~[Enums](./variaveis/enum.md)~~
-16. ~~[Projeto 2](./projeto/dois.md)~~
-17. ~~[Compilador](./arquivos/compilador.md)~~
-18. ~~[Múltiplos arquivos](./arquivos/header.md)~~
-19. ~~[Projeto 3](./projeto/tres.md)~~
+11. ~~[Matrizes](./variaveis/matriz.md)~~
+12. ~~[Strings](./variaveis/string.md)~~
+13. ~~[Structs](./variaveis/struct.md)~~
+14. ~~[Enums](./variaveis/enum.md)~~
+15. ~~[Projeto 2](./projeto/dois.md)~~
+16. ~~[Compilador](./arquivos/compilador.md)~~
+17. ~~[Múltiplos arquivos](./arquivos/header.md)~~
+18. ~~[Projeto 3](./projeto/tres.md)~~
 <!-- 18. [Build System]() -->
 
 ## Referências
@@ -53,4 +53,4 @@ Alguns sites úteis que vão te ajudar:
 
 ## Colaboração
 
-Caso encontre um erro em algum módulo ou tenha alguma sugestão, sinta-se livre para abrir um *issue* aqui no GitHub. Eu não sou um especialista em C, por isso suas contribuições são muito valiosas!
+Caso encontre um erro em algum módulo ou tenha alguma sugestão, sinta-se livre para abrir um _issue_ aqui no GitHub. Eu não sou um especialista em C, por isso suas contribuições são muito valiosas!

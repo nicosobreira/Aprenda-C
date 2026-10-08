@@ -12,7 +12,7 @@ Fonte: [Pointer Tricks that Leveled Up my Programming](https://youtu.be/-q6slaYw
 Baseado no artigo: [On the Criteria To Be Used in Decomposing Systems into Modules](https://wstomv.win.tue.nl/edu/2ip30/references/criteria_for_modularization.pdf)
 
 - Decompor o código é transformar ele em módulos.
-- Não olhar a decomposição do código como um *flowchart*, mas sim como um conjunto de módulos ligados.
+- Não olhar a decomposição do código como um _flowchart_, mas sim como um conjunto de módulos ligados.
 - A **primeira coisa** que um novato pode pensar é que: modularizar significa **dividir os processos**. O artigo argumenta contra esse ponto de vista, nos oferecendo uma nova perspectiva - de que devemos pensar em **isolar a parte complicada primeiro**, aquela que pode mudar, e trabalhar a partir daí.
 - A decomposição, segundo Parnas, deve se basear em **isolar as partes do design**. Deve-se ocultar o que pode mudar com frequencia e o que é complicado
 
@@ -22,7 +22,7 @@ Baseado no artigo: [On the Criteria To Be Used in Decomposing Systems into Modul
 
 ### 2. A **sequência** de passos (funções) para executar uma **processo** e o próprio processo devem ficar no mesmo módulo
 
-``` c
+```c
 // Antes
 if (sensor_is_ready() && sensor_check_power()) {
     sensor_trigger_hardware();

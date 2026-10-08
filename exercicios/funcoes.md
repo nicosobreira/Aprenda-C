@@ -2,7 +2,7 @@
 
 Ao testar os programas, você não precisa ficar digitando os valores das funções `leia` toda vez no terminal, mas pode **comentar** a linha com o `leia` e colocar um valor de teste abaixo. Exemplo:
 
-``` c
+```c
 // int idade = leia_int();
 int idade = 18;
 ```
@@ -16,7 +16,7 @@ Agora que você já conhece as funções, primeiro refatore o exercício [Contad
 <details>
 <summary>Resposta do Contador de Pares</summary>
 
-``` c
+```c
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -94,7 +94,7 @@ int leia_int_positivo(void)
 <details>
 <summary>Resposta do Jogo da Adivinhação</summary>
 
-``` c
+```c
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -204,6 +204,7 @@ int leia_int_entre(int min, int max)
 <summary>Clique aqui para ver a resposta</summary>
 
 ```c
+
 ```
 
 </details>
@@ -213,12 +214,13 @@ int leia_int_entre(int min, int max)
 Faça as seguintes alterações no exercício [Triângulo](./exercicios/condicional.md#triângulo):
 
 1. Troque o padrão de entrada e saída que tínhamos adotado (usando comentários) por funções do tipo `leia`.
-2. Crie **duas novas funções**, uma que vai **apenas verificar** se esses lados formam um triângulo e outra que imprime a *classificação* do triângulo - **assumindo** que os lados formam um triângulo.
+2. Crie **duas novas funções**, uma que vai **apenas verificar** se esses lados formam um triângulo e outra que imprime a _classificação_ do triângulo - **assumindo** que os lados formam um triângulo.
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
 ```c
+
 ```
 
 </details>

@@ -5,6 +5,7 @@
 Nesses exercícios vamos usar uma formatação diferente para pedir dados do usuário. Primeiro vou mostrar como ela é, depois como implementá-la:
 
 > Esse bloco indica como a entrada e saída do programa deve funcionar.
+
 ```
 Digite um número de 1 a 10.
 > 5
@@ -32,7 +33,7 @@ Você digitou 5.
 
 Em C fica assim:
 
-``` c
+```c
 const int min = 1;
 const int max = 10;
 
@@ -115,7 +116,7 @@ Digite um número maior ou igual a 0!
 Vimos na seção passada que poderíamos usar o `++` para incrementar uma variável em 1.
 Mas também podemos usar da seguinte sintaxe:
 
-``` c
+```c
 int numero = 10;
 numero += 1;
 ```
@@ -129,7 +130,7 @@ Note que é possível **trocar o 1 por outro número**, como o 2, por exemplo.
 
 ### Usando o while
 
-``` c
+```c
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -180,7 +181,7 @@ int main(void)
 
 Aqui, vou apenas trocar o `while` pelo `for`, mas você deve colocar a leitura da entrada do usuário.
 
-``` c
+```c
 for (int contador = 0; contador <= numero; contador += 2)
 {
     printf("%d\n", contador);
@@ -190,7 +191,7 @@ for (int contador = 0; contador <= numero; contador += 2)
 Variáveis que são incrementadas, chamadas de **contadores**, normalmente possuem **nomes menores** quando o contexto permite.
 É mais comum o uso de nomes como: `i`, `j` e `k`.
 
-``` c
+```c
 for (int i = 0; i <= numero; i += 2)
 {
     printf("%d\n", i);
@@ -249,9 +250,9 @@ Você acertou! Foram 2 jogada(s)!
 
 ### Gerando números aleatórios
 
-Para gerar um número aleatório em C, usamos a função `rand`, declarada no *header* `stdlib.h`, que gera um valor inteiro não negativo.
+Para gerar um número aleatório em C, usamos a função `rand`, declarada no _header_ `stdlib.h`, que gera um valor inteiro não negativo.
 
-``` c
+```c
 #include <stdio.h>   // Para o printf
 #include <stdlib.h>  // Para o rand
 
@@ -270,10 +271,10 @@ Rode esse programa várias vezes e perceberá duas coisas:
 1. Os números **não são aleatórios**; e
 2. Eles são **grandes**.
 
-O motivo disso está em como os computadores geram números aleatórios. Os computadores, por serem máquinas lógicas e determinísticas, não conseguem gerar números **verdadeiramente aleatórios**, mas sim usam de fórmulas matemáticas complexas onde o número atual depende do anterior, a fim de gerar números **pseudoaleatórios**. Sendo assim, é necessário um **ponto de partida** para que essas fórmulas comecem. Esse ponto é chamado de ***seed***.
-A função `rand` já vem com uma *seed* padrão, por isso temos que mudá-la **dentro da nossa função main**. Mudamos a *seed* com outra função também declarada em `stdlib.h`, chamada `srand`.
+O motivo disso está em como os computadores geram números aleatórios. Os computadores, por serem máquinas lógicas e determinísticas, não conseguem gerar números **verdadeiramente aleatórios**, mas sim usam de fórmulas matemáticas complexas onde o número atual depende do anterior, a fim de gerar números **pseudoaleatórios**. Sendo assim, é necessário um **ponto de partida** para que essas fórmulas comecem. Esse ponto é chamado de **_seed_**.
+A função `rand` já vem com uma _seed_ padrão, por isso temos que mudá-la **dentro da nossa função main**. Mudamos a _seed_ com outra função também declarada em `stdlib.h`, chamada `srand`.
 
-``` c
+```c
 #include <stdio.h>   // Para o printf
 #include <stdlib.h>  // Para o rand e srand
 
@@ -289,9 +290,9 @@ int main(void)
 }
 ```
 
-Conseguimos mudar a **seed**, mas se rodarmos o programa mais de uma vez o mesmo valor aparece. Assim como a seed padrão da função `rand`, o nosso novo valor continua sendo **constante**. Para resolvermos esse problema vamos utilizar o **tempo atual** em segundos, a partir da função `time`, declarada no *header* `time.h`.
+Conseguimos mudar a **seed**, mas se rodarmos o programa mais de uma vez o mesmo valor aparece. Assim como a seed padrão da função `rand`, o nosso novo valor continua sendo **constante**. Para resolvermos esse problema vamos utilizar o **tempo atual** em segundos, a partir da função `time`, declarada no _header_ `time.h`.
 
-``` c
+```c
 #include <stdio.h>   // Para o printf
 #include <stdlib.h>  // Para o rand e srand
 #include <time.h>    // Para o time
@@ -316,13 +317,13 @@ Agora que temos números imprevisíveis, precisamos resolver o problema de serem
 
 Se dividirmos qualquer número por 100, o resto dessa divisão sempre será algo entre 0 e 99. Somando 1 a esse resultado, garantimos que o número gerado estará exatamente entre 1 e 100:
 
-``` c
+```c
 int aleatorio = 1 + rand() % 100
 ```
 
 De forma mais genérica, podemos limitar um número aleatório entre dois inteiros `min` e `max` dessa forma:
 
-``` c
+```c
 const int min = 5;
 const int max = 10;
 
@@ -341,7 +342,7 @@ Separe a lógica em **dois** `do while`, um **externo** e outro **interior**, de
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-``` c
+```c
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -483,18 +484,18 @@ Até mais!
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-> Não se esqueça de importar os *headers* caso necessário!
+> Não se esqueça de importar os _headers_ caso necessário!
 
 Vamos criar duas variáveis constantes que vão nos dizer a primeira opção e a última.
 
-``` c
+```c
 const int primeira_opcao = 1;
 const int ultima_opcao = 3;
 ```
 
 Em seguida, declaramos a variável `saldo` com o valor de R$ 1000.0 e mostramos as opções disponíveis.
 
-``` c
+```c
 double saldo = 1000.0;
 
 printf("--- OPÇÕES ---\n");
@@ -504,9 +505,9 @@ printf("3. Sair\n");
 printf("\n");
 ```
 
-Para sair do caixa, o usuário deve digitar o número `3`, caso contrário o caixa deve continuar ligado. Implementamos essa lógica com um *while loop* junto a uma variável booleana chamada `caixa_esta_ligado`, com o valor `true`.
+Para sair do caixa, o usuário deve digitar o número `3`, caso contrário o caixa deve continuar ligado. Implementamos essa lógica com um _while loop_ junto a uma variável booleana chamada `caixa_esta_ligado`, com o valor `true`.
 
-``` c
+```c
 bool caixa_esta_ligado = true;
 while (caixa_esta_ligado)
 {
@@ -514,9 +515,9 @@ while (caixa_esta_ligado)
 }
 ```
 
-Agora, pedimos por um valor de 1 a 3, ou seja, de `primeira_opcao` até `ultima_opcao`, dentro do *while loop*.
+Agora, pedimos por um valor de 1 a 3, ou seja, de `primeira_opcao` até `ultima_opcao`, dentro do _while loop_.
 
-``` c
+```c
     int opcao;
 
     bool leitura_valida = false;
@@ -550,7 +551,7 @@ Agora, pedimos por um valor de 1 a 3, ou seja, de `primeira_opcao` até `ultima_
 
 Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que não fazem nada - com exceção da opção `3`, que muda a variável `caixa_esta_ligado` para `false`, desligando o caixa:
 
-``` c
+```c
     if (opcao == 1)
     {
         // Opção 1
@@ -569,14 +570,14 @@ Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que n
 
 Implementar a opção `1` é fácil, é só exibir o saldo atual:
 
-``` c
+```c
         // Opção 1
         printf("Seu saldo é de R$ %.2f\n", saldo);
 ```
 
 Para a opção `2` temos que (1) ler um valor `double` do usuário e (2) somar esse valor à variável `saldo`. Fazemos isso no código a seguir:
 
-``` c
+```c
         // Opção 2
         printf("\n"); // Quebra linha visual
         printf("Deseja depositar quanto? [Digite 0 para sair]\n");
@@ -612,7 +613,7 @@ Para a opção `2` temos que (1) ler um valor `double` do usuário e (2) somar e
 
 Ao final exibimos uma mensagem de despedida e retornamos `0`:
 
-``` c
+```c
 printf("Até mais!\n");
 
 return 0;
@@ -623,7 +624,7 @@ O código final, com tudo junto, está aqui em baixo.
 <details>
 <summary>Clique aqui para ver o código final</summary>
 
-``` c
+```c
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -734,4 +735,3 @@ Perceba que o código praticamente **não muda** de exercício para exercício. 
 À medida que o programa cresce, temos que ficar copiando e colando o **mesmo código**, o que torna o código difícil de entender - como no exercício 3.
 
 No próximo capítulo veremos as **funções**, que vão nos permitir reutilizar as lógicas de leitura em diversos lugares, eliminando o copia e cola.
-
