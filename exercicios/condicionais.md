@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="../modulos/condicional.md">← Condicionais</a>
+  <a href="../modulos/condicionais.md">← Condicionais</a>
   &nbsp;|&nbsp;
   <a href="../modulos/repeticao.md">Estruturas de Repetição →</a>
 </p>
@@ -325,7 +325,7 @@ else
 ---
 
 <p align="center">
-  <a href="../modulos/condicional.md">← Condicionais</a>
+  <a href="../modulos/condicionais.md">← Condicionais</a>
   &nbsp;|&nbsp;
   <a href="../modulos/repeticao.md">Estruturas de Repetição →</a>
 </p>

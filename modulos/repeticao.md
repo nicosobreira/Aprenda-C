@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="../exercicios/condicional.md">← Exercícios: Condicionais</a>
+  <a href="../exercicios/condicionais.md">← Exercícios: Condicionais</a>
   &nbsp;|&nbsp;
   <a href="../exercicios/repeticao.md">Exercícios: Estruturas de Repetição →</a>
 </p>
@@ -441,7 +441,7 @@ printf("A senha está correta!\n");
 ---
 
 <p align="center">
-  <a href="../exercicios/condicional.md">← Exercícios: Condicionais</a>
+  <a href="../exercicios/condicionais.md">← Exercícios: Condicionais</a>
   &nbsp;|&nbsp;
   <a href="../exercicios/repeticao.md">Exercícios: Estruturas de Repetição →</a>
 </p>

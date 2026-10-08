@@ -1,7 +1,7 @@
 <p align="center">
   <a href="../modulos/variaveis.md">← Variáveis</a>
   &nbsp;|&nbsp;
-  <a href="../modulos/condicional.md">Condicionais →</a>
+  <a href="../modulos/condicionais.md">Condicionais →</a>
 </p>
 
 ---
@@ -15,5 +15,5 @@
 <p align="center">
   <a href="../modulos/variaveis.md">← Variáveis</a>
   &nbsp;|&nbsp;
-  <a href="../modulos/condicional.md">Condicionais →</a>
+  <a href="../modulos/condicionais.md">Condicionais →</a>
 </p>

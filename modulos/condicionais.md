@@ -1,7 +1,7 @@
 <p align="center">
   <a href="./variaveis.md">← Variaveis</a>
   &nbsp;|&nbsp;
-  <a href="../exercicios/condicional.md">Exercícios: Condicionais →</a>
+  <a href="../exercicios/condicionais.md">Exercícios: Condicionais →</a>
 </p>
 
 ---
@@ -279,5 +279,5 @@ A linguagem C define o valor `0` como **falso**, qualquer outro valor é verdade
 <p align="center">
   <a href="./variaveis.md">← Variaveis</a>
   &nbsp;|&nbsp;
-  <a href="../exercicios/condicional.md">Exercícios: Condicionais →</a>
+  <a href="../exercicios/condicionais.md">Exercícios: Condicionais →</a>
 </p>

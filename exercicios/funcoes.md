@@ -219,7 +219,7 @@ int leia_int_entre(int min, int max)
 
 ## É triângulo?
 
-Faça as seguintes alterações no exercício [Triângulo](./exercicios/condicional.md#triângulo):
+Faça as seguintes alterações no exercício [Triângulo](./exercicios/condicionais.md#triângulo):
 
 1. Troque o padrão de entrada e saída que tínhamos adotado (usando comentários) por funções do tipo `leia`.
 2. Crie **duas novas funções**, uma que vai **apenas verificar** se esses lados formam um triângulo e outra que imprime a _classificação_ do triângulo - **assumindo** que os lados formam um triângulo.

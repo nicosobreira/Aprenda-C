@@ -8,11 +8,11 @@
 
 # Funções
 
-Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](./condicional.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
+Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](./condicionais.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
 
 ## Declarando uma função
 
-Vamos usar como base o exemplo da **entrada da festa** que vimos em [Negação](./condicional.md#Negação). Aqui está a função `entrar_na_festa`, caso tenha esquecido:
+Vamos usar como base o exemplo da **entrada da festa** que vimos em [Negação](./condicionais.md#Negação). Aqui está a função `entrar_na_festa`, caso tenha esquecido:
 
 ```c
 #include <stdio.h>
@@ -76,7 +76,7 @@ Os nomes das funções seguem as mesmas regras de nomenclatura que **todos os ou
 
 ## Parâmetros
 
-Os parâmetros são **variáveis** que passamos para as funções quando chamamos elas. Veja a função `print_divisao`, que vimos em [Negação](./condicional.md#negação):
+Os parâmetros são **variáveis** que passamos para as funções quando chamamos elas. Veja a função `print_divisao`, que vimos em [Negação](./condicionais.md#negação):
 
 ```c
 void print_divisao(double numero, double divisor)
