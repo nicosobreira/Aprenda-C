@@ -52,9 +52,11 @@ Esse é um programa que **não faz nada**, só é necessário para o próximo pa
 
 ## Compilando com o GCC
 
+Antes do compilar os programas, não se esqueça de **salvá-los**! Para isso use o atalho `Ctrl + s` ou, ainda melhor, ative a opção de *Salvar Automaticamente* dentro do VS Code da seguinte maneira: abra o menu de **Configurações** apertando `Ctrl + ,`, pesquise por "*Auto Save*" e selecione a opção "*After Delay*".
+
 O computador não entende C diretamente, então precisamos **traduzir** o arquivo `main.c` para um executável, usando o compilador instalado anteriormente, o `gcc`.
 
-Ainda no terminal, dentro da pasta `intro`, e com o `main.c` já salvo, rode:
+Ainda no terminal, **dentro da pasta `intro`**, e com o `main.c` **já salvo**, rode:
 
 ```bash
 gcc -o main main.c
