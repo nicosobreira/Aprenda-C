@@ -1,4 +1,4 @@
-# Funções: Exercícios
+# Exercícios: Funções
 
 Ao testar os programas, você não precisa ficar digitando os valores das funções `leia` toda vez no terminal, mas pode **comentar** a linha com o `leia` e colocar um valor de teste abaixo. Exemplo:
 

@@ -1,4 +1,4 @@
-# Estruturas de Repetições: Exercícios
+# Exercícios: Estruturas de Repetições
 
 ## Formato da entrada
 

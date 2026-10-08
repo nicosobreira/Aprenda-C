@@ -1,4 +1,4 @@
-# Condicionais: Exercícios
+# Exercícios: Condicionais
 
 Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
 
