@@ -14,7 +14,7 @@ Siga os passos dependendo do sistema operacional que está usando: Windows, Linu
 
 Vamos usar o PowerShell, o terminal padrão do Windows, para instalar o GCC. A Microsoft oferece `winget`, um gerenciador de pacotes que já vem instalado no Windows 10 e 11 por padrão.
 
-Cole os comandos com o atalho `Ctrl + Shift + v`.
+**Cole os comandos** com o atalho `Ctrl + Shift + v`.
 
 #### Passo 1: Verificando o winget
 
