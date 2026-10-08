@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="../exercicios/funcoes.md">← Exercícios: Funções</a>
+  &nbsp;|&nbsp;
+  <a href="./?.md">? →</a>
+</p>
+
+---
+
 # Listas
 
 Até agora, quando precisávamos armazenar informações, criamos variáveis _individuais_ para cada dado: uma variável para a idade, outra para a nota de uma prova ou para o saldo de uma conta. Mas pense em uma situação em que tenhamos que **agrupar valores do mesmo tipo**, como na hora de calcular a **média de temperatura** nos dias úteis da **semana** e notas de um aluno, como faríamos isso? Nesse módulo veremos o conceito de **listas** (formalmente chamadas de **arrays** ou **vetores**), que vai nos possibilitar agrupar vários valores do mesmo tipo.
@@ -621,3 +629,11 @@ int main(void)
 ```
 
 O valor do índice 4 é exibido, mas ele não existe. A correção é usar o `<`.
+
+---
+
+<p align="center">
+  <a href="../exercicios/funcoes.md">← Exercícios: Funções</a>
+  &nbsp;|&nbsp;
+  <a href="./?.md">? →</a>
+</p>

@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="./linguagem-c.md">← O que é C?</a>
+  &nbsp;|&nbsp;
+  <a href="../exercicios/variaveis.md">Exercícios: Variáveis →</a>
+</p>
+
+---
+
 # Variáveis
 
 As variáveis servem para **armazenar** valores na **memória do computador**. Elas nos permitem guardar informações bem diferentes, como: idade de uma pessoa, preço de um produto e se um usuário está logado ou não.
@@ -310,3 +318,11 @@ int main(void)
 ```
 
 Agora, conseguimos ler o cálculo da variável `total` da seguinte forma: o total é a soma da conta, com a taxa de serviço e as reservas de cada pessoa. E de novo, se precisarmos diminuir a taxa de serviço, por exemplo, só precisamos mudar em um lugar só.
+
+---
+
+<p align="center">
+  <a href="./linguagem-c.md">← O que é C?</a>
+  &nbsp;|&nbsp;
+  <a href="../exercicios/variaveis.md">Exercícios: Variáveis →</a>
+</p>

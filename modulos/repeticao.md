@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="../exercicios/condicional.md">← Exercícios: Condicionais</a>
+  &nbsp;|&nbsp;
+  <a href="../exercicios/repeticao.md"> Exercícios: Repetição→</a>
+</p>
+
+---
+
 # Estruturas de Repetição
 
 São usadas para **repetir** partes do código, baseado em uma condição.
@@ -429,3 +437,11 @@ do
 
 printf("A senha está correta!\n");
 ```
+
+---
+
+<p align="center">
+  <a href="../exercicios/condicional.md">← Exercícios: Condicionais</a>
+  &nbsp;|&nbsp;
+  <a href="../exercicios/repeticao.md"> Exercícios: Repetição→</a>
+</p>

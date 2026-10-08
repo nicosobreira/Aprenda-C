@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="./instalacao.md">← Instalando o C</a>
+  &nbsp;|&nbsp;
+  <a href="./linguagem-c.md">O que é C? →</a>
+</p>
+
+---
+
 # Olá, Mundo
 
 O programa "Olá, Mundo!" é a iniciação de todo programador. Ele vai nos mostrar algumas regras básicas da linguagem C.
@@ -195,3 +203,11 @@ main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf�
 O compilador notifica um erro na linha 3, coluna 5 (`main.c:3:5`), falando que a função `printf` foi **implicitamente declarada**. Veja que logo abaixo, o próprio compilador já nos dá a solução do problema em `note: include ‘<stdio.h>‘`
 
 > O que é uma função implicitamente declarada ficará claro em [Funções](./funcoes.md).
+
+---
+
+<p align="center">
+  <a href="./instalacao.md">← Instalando o C</a>
+  &nbsp;|&nbsp;
+  <a href="./linguagem-c.md">O que é C? →</a>
+</p>

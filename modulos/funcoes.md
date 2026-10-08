@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="../exercicios/repeticao.md">← Exercícios: Estruturas de Repetição</a>
+  &nbsp;|&nbsp;
+  <a href="../exercicios/funcoes.md">Exercícios: Funções →</a>
+</p>
+
+---
+
 # Funções
 
 Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](./condicional.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
@@ -805,3 +813,11 @@ Isso traz pelo menos duas vantagens que a contagem de linhas sozinha não mostra
 Se um dia você quiser trocar a mensagem "Digite um número inteiro!" por algo mais gentil, ou adicionar uma nova regra de validação, você mexe em **um único lugar** — a função `leia_int`, por exemplo — e o programa inteiro se beneficia da mudança.
 
 E o mais importante: essas 155 linhas pagam um preço **uma única vez**. Da próxima vez que você precisar ler um número validado, em outro exercício ou em outro programa, as funções `leia_<tipo>_<restrição>` já estarão prontas — zero linhas extras.
+
+---
+
+<p align="center">
+  <a href="../exercicios/repeticao.md">← Exercícios: Estruturas de Repetição</a>
+  &nbsp;|&nbsp;
+  <a href="../exercicios/funcoes.md">Exercícios: Funções →</a>
+</p>

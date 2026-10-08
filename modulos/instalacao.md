@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="./ola-mundo.md.md">Olá, Mundo! →</a>
+</p>
+
+---
+
 # Instalando o C
 
 Quando falo em "instalar o C", me refiro a instalar um **compilador** da linguagem (veremos o que é um compilador em [O que é C?](./linguagem-c.md)). Ao longo do guia, vamos usar o compilador chamado GCC.
@@ -288,3 +294,9 @@ code .
 ```
 
 Se o VS Code abrir mostrando a pasta `aprenda-c` no Explorador de Arquivos, o compilador e o editor já estão prontos para o restante do guia.
+
+---
+
+<p align="center">
+  <a href="./ola-mundo.md.md">Olá, Mundo! →</a>
+</p>

@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="./instalacao.md">← Instalando o C</a>
+  <a href="./variaveis.md">← Variaveis</a>
   &nbsp;|&nbsp;
-  <a href="./linguagem-c.md">O que é C? →</a>
+  <a href="../exercicios/condicional.md">Exercícios: Condicionais →</a>
 </p>
 
 ---
@@ -276,6 +276,8 @@ A linguagem C define o valor `0` como **falso**, qualquer outro valor é verdade
 
 ---
 
-| | |
-| :- | -: |
-| ← [Variáveis](./variaveis.md) | [Exercícios: Condicionais](../exercicios/condicional.md) → |
+<p align="center">
+  <a href="./variaveis.md">← Variaveis</a>
+  &nbsp;|&nbsp;
+  <a href="../exercicios/condicional.md">Exercícios: Condicionais →</a>
+</p>
