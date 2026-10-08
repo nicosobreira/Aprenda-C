@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="../modulos/condicional.md">← Condicionais</a>
+  &nbsp;|&nbsp;
+  <a href="../modulos/repeticao.md">Estruturas de Repetição →</a>
+</p>
+
+---
+
 # Exercícios: Condicionais
 
 Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
@@ -313,3 +321,11 @@ else
 ```
 
 </details>
+
+---
+
+<p align="center">
+  <a href="../modulos/condicional.md">← Condicionais</a>
+  &nbsp;|&nbsp;
+  <a href="../modulos/repeticao.md">Estruturas de Repetição →</a>
+</p>

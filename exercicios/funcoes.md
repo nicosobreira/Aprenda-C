@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="../modulos/funcoes.md">← Funções</a>
+  &nbsp;|&nbsp;
+  <a href="../modulos/lista.md">Listas →</a>
+</p>
+
+---
+
 # Exercícios: Funções
 
 Ao testar os programas, você não precisa ficar digitando os valores das funções `leia` toda vez no terminal, mas pode **comentar** a linha com o `leia` e colocar um valor de teste abaixo. Exemplo:
@@ -224,3 +232,11 @@ Faça as seguintes alterações no exercício [Triângulo](./exercicios/condicio
 ```
 
 </details>
+
+---
+
+<p align="center">
+  <a href="../modulos/funcoes.md">← Funções</a>
+  &nbsp;|&nbsp;
+  <a href="../modulos/lista.md">Listas →</a>
+</p>

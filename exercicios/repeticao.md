@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="../modulos/repeticao.md">← Estruturas de Repetição</a>
+  &nbsp;|&nbsp;
+  <a href="../modulos/funcoes.md">Funções →</a>
+</p>
+
+---
+
 # Exercícios: Estruturas de Repetições
 
 ## Formato da entrada
@@ -735,3 +743,11 @@ Perceba que o código praticamente **não muda** de exercício para exercício. 
 À medida que o programa cresce, temos que ficar copiando e colando o **mesmo código**, o que torna o código difícil de entender - como no exercício 3.
 
 No próximo capítulo veremos as **funções**, que vão nos permitir reutilizar as lógicas de leitura em diversos lugares, eliminando o copia e cola.
+
+---
+
+<p align="center">
+  <a href="../modulos/repeticao.md">← Estruturas de Repetição</a>
+  &nbsp;|&nbsp;
+  <a href="../modulos/funcoes.md">Funções →</a>
+</p>
