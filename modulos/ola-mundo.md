@@ -89,7 +89,7 @@ Você também pode usar as teclas "Seta para Cima" e "Seta para Baixo" para nave
 
 ---
 
-Agora sim, vamos escrever o programa "Olá, Mundo!".
+Agora sim, vamos escrever o programa "Olá, Mundo!". Ao final, vamos ver erros de compilação comuns e como resolvê-los.
 
 ## Código
 
@@ -114,12 +114,23 @@ Vamos entender esse código começando pela função `main` — o coração de t
 
 É uma função especial dentro do C; ela é o **ponto inicial** de nosso programa, por isso do nome "main", do inglês, principal.
 
-Primeiro vem o `int`, que é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
-O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, o programa fechará imediatamente e o texto nunca será exibido.
+As funções em C são semelhantes as da matemática. Dentro dos parênteses são colocados os parâmetros da função, quando escrevemos `f(x)`, dizemos que `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-Dentro dos parênteses são colocados os parâmetros da função, igual na matemática quando escrevemos `f(x)`, onde a variável `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
+O `int` é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
+O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, como no código a seguir, o programa fechará imediatamente e o texto nunca será exibido. Faça esse teste antes de continuar.
 
-Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando função ser chamada, ou seja, o programa ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    return 0;
+
+    printf("Olá, Mundo!\n");
+}
+```
+
+Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando função ser chamada, ou seja, o programa a ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
 
 ### Formatação do código
 
@@ -135,45 +146,6 @@ E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemo
 
 ## include
 
-Agora que já entendemos a função `main`, vamos voltar para a primeira linha do nosso código.
-
-O `#include <stdio.h>` nos permite usar as chamadas: **funções de entrada e saída**. Essas funções permitem **mostrar** textos no terminal, assim como **pedir** informações para o usuário.
-
-O `.h` é um apelido para _header_, em português **cabeçalho**. Veremos o conteúdo desse tipo de arquivo mais para frente.
-
-É a partir do `#include <stdio.h>` que podemos usar a função `printf`, que nos permite **exibir** o texto `Olá, Mundo!` no terminal.
-
-## printf
-
-A função `printf` **imprime** (_print_) textos **formatados** (_f_) para o terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](./variaveis.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
-
-Nós precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
-
-O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro.
-
-Vamos ver a saída do comando `gcc -o main main.c` quando esquecemos de colocar o `;` ao final do `printf`:
-
-> O símbolo `$` representa o comando que acabou de ser executado, abaixo é a sua saída.
-
-```
-$ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:5:28: error: expected ‘;’ before ‘return’
-    5 |     printf("Olá, Mundo!\n")
-      |                            ^
-      |                            ;
-    6 |
-    7 |     return 0;
-      |     ~~~~~~
-
-```
-
-A primeira linha indica que tem algo de estranho dentro da função `main` no arquivo `main.c`. Em seguida, existe um erro na linha 5, coluna 28, do arquivo `main.c`, indicado pelo `main.c:5:28: error`. Após o `error`, temos a explicação do erro, que no caso é o ponto e vírgula (`;`) esperado antes do `return`.
-
-Na saída do comando, entre o `printf` (`5 |`) e o `return` (`7 |`), o compilador nos sugere adicionar um `;` ao final do `printf`, o que corrige o erro.
-
-### Biblioteca Padrão
-
 Você deve estar se perguntando: de onde vem a função `printf`? Nós não escrevemos o código dela em lugar nenhum!
 
 A resposta é a **Biblioteca Padrão do C**: um conjunto de funções prontas que já vêm junto com a linguagem, para tarefas comuns, como exibir texto na tela ou ler dados do usuário. Pense nela como uma caixa de ferramentas: ao invés de cada programador precisar inventar sua própria forma de escrever no terminal, a Biblioteca Padrão já oferece essa ferramenta pronta, chamada `printf`, para todo mundo usar.
@@ -184,7 +156,108 @@ O `#include <stdio.h>` é o que **libera o uso** dessas funções no nosso códi
 
 > Falaremos sobre o porquê de usarmos os símbolos `<>` mais para frente.
 
-Vamos ver o erro que o compilador ira dar caso o `#include <stdio.h>` não esteja presente em `main.c`:
+## printf
+
+A função `printf` **imprime** (_print_) textos **formatados** (_f_) no terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](./variaveis.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
+
+Nós precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
+
+O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro (que veremos logo em seguida).
+
+## Mensagens de Compilação
+
+A primeira vista, as mensagens de compilação são assustadores e difíceis de decifrar, quando não sabemos como lê-las. Vamos analisar diversas mensagens comuns, e ao final, espero que você veja como as mensagens de compilação nos ajudam a identificar e corrigir erros.
+
+### Esquecer o ponto e vírgula
+
+Execute o comando `gcc -o main main.c` e veja oque acontece quando esquecemos de colocar o `;` ao final do `printf`.
+
+**Código**:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Olá, Mundo!\n")
+
+    return 0;
+}
+```
+
+Ao longo do guia, ao mostrar as saídas de comandos, como o de compilação, usarei o `$` na primeira linha para indicar qual foi o comando executado e abaixo sua saída, como a seguir:
+
+```
+$ gcc -o main main.c
+main.c: In function ‘main’:
+main.c:5:28: error: expected ‘;’ before ‘return’
+    5 |     printf("Olá, Mundo!\n")
+      |                            ^
+      |                            ;
+    6 |
+    7 |         return 0;
+      |         ~~~~~~
+
+```
+
+Parece muita coisa, mas a saída sempre segue o mesmo padrão. Vamos ler a saída com calma, de cima para baixo.
+
+#### 1. Onde: `main.c: In function ‘main’:`
+
+A primeira linha indica a **localização** do erro, ou seja, em qual **arquivo** e em qual **função** o erro foi encontrado. Nesse caso é a função `main` dentro do arquivo `main.c`.
+
+#### 2. Localização: `main.c:5:28`
+
+Sabemos que o erro está no arquivo `main.c`, função `main`, mas a onde em específico? Nessa linha, o compilador nos informa novamente em qual arquivo o erro ocorreu e ainda informa a **linha** e **coluna** do erro, seguindo o seguinte padrão: `arquivo:linha:coluna`. Nesse caso, o erro está na **linha 5**, **coluna 28** de `main.c`. Note que a linha 5 é onde o `printf` começa, e a coluna 28 é onde não colocamos o `;`.
+
+#### 3. Gravidade: `error`, `warning` e `note`
+
+Os trechos passados da mensagem indicam **a onde** o erro ocorreu, já `error: expected ‘;’ before ‘return’` é a mensagem do **que aconteceu de errado**. Cada mensagem começa com um desses três **rótulos**:
+
+- **`error`**: o programa não compila. É necessário corrigi-lo.
+- **`warning`**: o programa compila, mas algo provavelmente está errado. Nunca ignore os avisos.
+- **`note`**: uma informação extra para te ajudar a resolver um problema. Não é o problema em si.
+
+#### 4. O que aconteceu: `expected ‘;’ before ‘return’`
+
+Essa é a explicação do erro, uma tradução da mensagem seria: `O ‘;’ é esperado antes do ‘return’`.
+
+#### 5. O trecho do código
+
+```
+    5 |     printf("Olá, Mundo!\n")
+      |                            ^
+      |                            ;
+    6 |
+    7 |         return 0;
+      |         ~~~~~~
+```
+
+Ao final, temos o trecho do código que gerou o erro. Antes do trecho começar, são colocados alguns espaços (nesse caso quatro) para indicar a qual mensagem o erro se refere. As marcações `5 |`, `6 |` e `7 |` indicam **as linhas no código** em que o erro aconteceu, seguido por seus conteúdos.
+
+Já as linhas que possuem apenas `|`, sem numeração, são anotações sobre o erro que o compilador está passando para nós. O compilador "grifou" o `return` com uma série de acentos (`~~~~~~`) e sinalizou que devemos adicionar um ponto e vírgula ao final do `printf` da seguinte maneira:
+
+```
+^
+;
+```
+
+### Esquecer do `include`
+
+Veja a mensagem gerada pelo compilador quando esquecemos de colocar o `#include <stdio.h>` antes de usar a função `printf`:
+
+**Código**:
+
+``` c
+int main(void)
+{
+    printf("Olá, Mundo!\n");
+
+    return 0;
+}
+```
+
+**Saída**:
 
 ```
 $ gcc -o main main.c
@@ -202,9 +275,68 @@ main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf�
 
 ```
 
-O compilador notifica um erro na linha 3, coluna 5 (`main.c:3:5`), falando que a função `printf` foi **implicitamente declarada**. Veja que logo abaixo, o próprio compilador já nos dá a solução do problema em `note: include ‘<stdio.h>‘`
+Em saídas com muitas mensagens, é comum que apenas as **primeiras mensagens** apontem para o **erro principal** e as outras mostrarem outros erros **gerados** pelo erro principal. Vamos analisar essa mensagem de cima para baixo e identificar o **erro principal** (ausência do `#include`).
 
-> O que é uma função implicitamente declarada ficará claro em [Funções](./funcoes.md).
+#### 1. Onde
+
+A primeira linha junto com `main.c:3:5` indicam que a mensagem se refere à função `main` no arquivo `main.c`, linha 3 e coluna 5.
+
+#### 2. O que aconteceu
+
+Seguido do `error:` vem a mensagem `implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]`. Uma tradução dessa mensagem seria: `declaração implícita da função ‘printf’`, já o conteúdo entre colchetes, `[-Wimplict-function-declaration]`, indica o nome da opção do GCC que gerou essa mensagem (ele é útil para pesquisar mais sobre o erro em especifico na internet). Essa mensagem está dizendo que a função `printf` foi **implicitamente declarada**, isso quer dizer que quando o compilador encontrou o uso do `printf` na linha 3 ele não sabia que essa função existia, e por isso não sabe como continuar.
+
+> Veremos o que exatamente é uma função "implicitamente declarada" em [Funções](./funcoes.md).
+
+#### 3. Trecho do código
+
+```
+    3 |     printf("Olá, Mundo!\n");
+      |     ^~~~~~
+```
+
+O compilador mostra a linha com problema e usa `^~~~~~` para **apontar exatamente** onde está o erro: a palavra `printf`, que não é conhecida pelo compilador.
+
+#### 4. A solução: `main.c:1:1: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’`
+
+Nessa linha temos duas informações, qual é a solução do problema e a onde devemos colocá-la. A solução é incluir o `stdio.h` ou dar uma declaração para a função `printf`. Se nos "declaramos a função `printf`" teremos outro problema, esse veremos em [Funções](./funcoes.md), então vamos incluir o `stdio.h`. Logo abaixo temos o seguinte trecho do código:
+
+```
+  +++ |+#include <stdio.h>
+    1 | int main(void)
+```
+
+O compilador utilizou o `+++ |` para indicar exatamente **o que fazer** e **a onde fazer** a alteração, que no caso é incluir a linha `#include <stdio.h>` acima de `int main(void)`.
+
+#### 5. Outras mensagens
+
+O compilador ainda nos informa mais duas mensagens:
+
+```
+main.c:3:5: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
+    3 |     printf("Olá, Mundo!\n");
+      |     ^~~~~~
+main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+```
+
+Note que elas apontam para o mesmo lugar do erro principal: linha 3, coluna 5, o `printf`. Isso é um sinal de que ambas são consequências do mesmo problema, a ausência do `#include <stdio.h>`.
+
+Aqui temos um aviso, não um erro. Uma tradução seria: `declaração implícita incompatível da função embutida ‘printf’`.
+
+O compilador GCC já conhece algumas funções da Biblioteca Padrão, como o `printf`, por serem muito usadas. Elas são chamadas de funções embutidas (*built-in functions*), e o GCC sabe qual é a forma correta de usá-las: quais parâmetros recebem e o que retornam. O nome entre colchetes, `[-Wbuiltin-declaration-mismatch]`, identifica a opção que gerou o aviso, e vale pesquisá-lo na Internet para saber mais. Em resumo, o compilador está dizendo: "você usou uma função que eu conheço, mas do jeito errado, porque não me disse de onde ela vem".
+
+Lembre-se do que vimos em gravidade: um `warning` sozinho não impede a compilação, mas indica que algo provavelmente está errado. Aqui, ele só aparece junto do error, mas em outros programas você poderá ter um executável gerado com avisos. Não os ignore!
+
+A última mensagem é igual à que vimos no passo 4: `include ‘<stdio.h>’ or provide a declaration of ‘printf’`. O `note` sempre complementa a mensagem logo acima dele. Como o GCC emitiu dois problemas (o `error` e o `warning`), ele repetiu a mesma dica para cada um, afinal, a solução é a mesma.
+
+Por isso, a saída tem duas notas idênticas: a primeira ajuda com o `error`, a segunda com o `warning`.
+
+Adicione o `#include <stdio.h>` no começo do arquivo e compile novamente. Todas as quatro mensagens desaparecem juntas! Esse é o hábito mais importante ao ler uma saída do compilador:
+
+1. Identifique o erro principal, em geral o primeiro `error`.
+2. Corrija apenas ele.
+3. Compile de novo e veja o que sobrou.
+
+Muitas vezes, uma única correção elimina diversas mensagens de uma vez.
 
 ---
 
@@ -213,3 +345,4 @@ O compilador notifica um erro na linha 3, coluna 5 (`main.c:3:5`), falando que a
   &nbsp;|&nbsp;
   <a href="./linguagem-c.md">O que é C? →</a>
 </p>
+
