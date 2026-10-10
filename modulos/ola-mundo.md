@@ -167,7 +167,20 @@ O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar l
 
 ## Mensagens de Compilação
 
-A primeira vista, as mensagens de compilação são assustadores e difíceis de decifrar, quando não sabemos como lê-las. Vamos analisar diversas mensagens comuns, e ao final, espero que você veja como as mensagens de compilação nos ajudam a identificar e corrigir erros.
+À primeira vista, as mensagens de compilação são assustadoras e difíceis de decifrar, quando não sabemos como lê-las. Vamos analisar diversas mensagens comuns, e ao final, espero que você veja como as mensagens de compilação nos ajudam a identificar e corrigir erros.
+
+Antes de continuarmos verifique a sua versão do seu GCC, com o comando `gcc --version`, sua saída deve indicar a versão 16, como a seguir:
+
+```
+$ gcc --version
+gcc (GCC) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+```
+
+Caso sua versão seja diferente algumas mensagens do compilador podem aparecer diferentes. Você pode continuar, mas tenha isso em mente.
 
 ### Esquecer o ponto e vírgula
 
