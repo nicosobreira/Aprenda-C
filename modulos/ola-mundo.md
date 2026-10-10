@@ -338,6 +338,18 @@ Adicione o `#include <stdio.h>` no começo do arquivo e compile novamente. Todas
 
 Muitas vezes, uma única correção elimina diversas mensagens de uma vez.
 
+### Outros erros
+
+Ainda existem muitos erros de compilação, mas para entendê-los são necessários conteúdos que veremos mais para frente. A baixo vou mostrar códigos que apresentam alguns erros para você evitar, veremos as suas causas mais para frente:
+
+- **Não definir a função `main`**:
+
+``` c
+#include <stdio.h>
+
+printf("Olá, Mundo!\n");
+```
+
 ---
 
 <p align="center">
