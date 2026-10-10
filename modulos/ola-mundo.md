@@ -52,7 +52,7 @@ Esse é um programa que **não faz nada**, só é necessário para o próximo pa
 
 ## Compilando com o GCC
 
-Antes do compilar os programas, não se esqueça de **salvá-los**! Para isso use o atalho `Ctrl + s` ou, ainda melhor, ative a opção de *Salvar Automaticamente* dentro do VS Code da seguinte maneira: abra o menu de **Configurações** apertando `Ctrl + ,`, pesquise por "*Auto Save*" e selecione a opção "*After Delay*".
+Antes de compilar os programas, não se esqueça de **salvá-los**! Para isso use o atalho `Ctrl + s` ou, ainda melhor, ative a opção de *Salvar Automaticamente* dentro do VS Code da seguinte maneira: abra o menu de **Configurações** apertando `Ctrl + ,`, pesquise por "*Auto Save*" e selecione a opção "*After Delay*".
 
 O computador não entende C diretamente, então precisamos **traduzir** o arquivo `main.c` para um executável, usando o compilador instalado anteriormente, o `gcc`.
 
@@ -82,9 +82,9 @@ Por fim, para rodar o programa que acabamos de compilar:
 
 > Repare no `./` antes do nome do executável. Isso indica ao terminal que o programa está na **pasta atual**, e não em algum outro lugar do sistema. Sem esse prefixo, o terminal não vai encontrar o `main`.
 
-Nesse caso, o nosso programa **deve fazer nada** mesmo.
+Nesse caso, o nosso programa **não deve fazer nada** mesmo.
 
-O ciclo de **editar com `code`, compilar com `gcc`, executar com `./main`** — vai se repetir em praticamente todo capítulo do guia, então vale a pena se acostumar com ele desde já.
+O ciclo de **editar com `code`, compilar com `gcc` e executar com `./main`** vai se repetir em praticamente todo capítulo do guia, então vale a pena se acostumar com ele desde já.
 Você também pode usar as teclas "Seta para Cima" e "Seta para Baixo" para navegar pelo **histórico de comandos** - que são os últimos comandos executados no terminal.
 
 ---
@@ -112,9 +112,9 @@ Vamos entender esse código começando pela função `main` — o coração de t
 
 ## main
 
-É uma função especial dentro do C; ela é o **ponto inicial** de nosso programa, por isso do nome "main", do inglês, principal.
+É uma função especial dentro do C; ela é o **ponto inicial** de nosso programa, por isso o nome "main", do inglês, principal.
 
-As funções em C são semelhantes as da matemática. Dentro dos parênteses são colocados os parâmetros da função, quando escrevemos `f(x)`, dizemos que `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
+As funções em C são semelhantes às da matemática. Dentro dos parênteses são colocados os parâmetros da função: quando escrevemos `f(x)`, dizemos que `x` é um parâmetro da função `f`. Nesse caso, os parênteses contêm a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso; a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
 O `int` é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor é retornado com o `return`; ele vai para o **sistema operacional** e mostra se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
 
@@ -131,25 +131,25 @@ int main(void)
 }
 ```
 
-Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando função ser chamada, ou seja, o programa a ser executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
+Após os parênteses, temos as chaves. Elas indicam a definição da função, que é todo o código que será executado quando a função for chamada, ou seja, quando o programa for executado. Diferente das outras funções, a função `main` é chamada automaticamente ao rodarmos o nosso programa.
 
 ### Formatação do código
 
 Você pode escrever a função da seguinte maneira:
 
 ```c
-int main() {
+int main(void) {
     ...
 }
 ```
 
-E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemos formatar o nosso código. Quebrar uma linha para a abertura das chave é um costume meu, e é o que vou usar ao longo desse guia.
+E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemos formatar o nosso código. Quebrar uma linha para a abertura das chaves é um costume meu, e é o que vou usar ao longo desse guia.
 
 ## include
 
 Você deve estar se perguntando: de onde vem a função `printf`? Nós não escrevemos o código dela em lugar nenhum!
 
-A resposta é a **Biblioteca Padrão do C**: um conjunto de funções prontas que já vêm junto com a linguagem, para tarefas comuns, como exibir texto na tela ou ler dados do usuário. Pense nela como uma caixa de ferramentas: ao invés de cada programador precisar inventar sua própria forma de escrever no terminal, a Biblioteca Padrão já oferece essa ferramenta pronta, chamada `printf`, para todo mundo usar.
+A resposta é a **Biblioteca Padrão do C**: um conjunto de funções prontas que já vêm junto com a linguagem, para tarefas comuns, como exibir texto na tela ou ler dados do usuário. Pense nela como uma caixa de ferramentas: em vez de cada programador precisar inventar sua própria forma de escrever no terminal, a Biblioteca Padrão já oferece essa ferramenta pronta, chamada `printf`, para todo mundo usar.
 
 Essas ferramentas ficam organizadas em arquivos chamados de **_headers_** (do inglês, "cabeçalhos"), reconhecidos pela extensão `.h`. Cada header guarda um grupo de funções parecidas entre si. O header `stdio.h`, por exemplo, guarda as funções de entrada e saída (**i**nput/**o**utput), como o `printf` e o `scanf`.
 
@@ -163,7 +163,7 @@ A função `printf` **imprime** (_print_) textos **formatados** (_f_) no termina
 
 Nós precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
 
-O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar executar desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro (que veremos logo em seguida).
+O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar ler como um único comando tudo o que vem desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro (que veremos logo em seguida).
 
 ## Mensagens de Compilação
 
@@ -171,7 +171,7 @@ A primeira vista, as mensagens de compilação são assustadores e difíceis de 
 
 ### Esquecer o ponto e vírgula
 
-Execute o comando `gcc -o main main.c` e veja oque acontece quando esquecemos de colocar o `;` ao final do `printf`.
+Execute o comando `gcc -o main main.c` e veja o que acontece quando esquecemos de colocar o `;` ao final do `printf`.
 
 **Código**:
 
@@ -196,8 +196,8 @@ main.c:5:28: error: expected ‘;’ before ‘return’
       |                            ^
       |                            ;
     6 |
-    7 |         return 0;
-      |         ~~~~~~
+    7 |     return 0;
+      |     ~~~~~~
 
 ```
 
@@ -209,11 +209,11 @@ A primeira linha indica a **localização** do erro, ou seja, em qual **arquivo*
 
 #### 2. Localização: `main.c:5:28`
 
-Sabemos que o erro está no arquivo `main.c`, função `main`, mas a onde em específico? Nessa linha, o compilador nos informa novamente em qual arquivo o erro ocorreu e ainda informa a **linha** e **coluna** do erro, seguindo o seguinte padrão: `arquivo:linha:coluna`. Nesse caso, o erro está na **linha 5**, **coluna 28** de `main.c`. Note que a linha 5 é onde o `printf` começa, e a coluna 28 é onde não colocamos o `;`.
+Sabemos que o erro está no arquivo `main.c`, função `main`, mas onde, em específico? Nessa linha, o compilador nos informa novamente em qual arquivo o erro ocorreu e ainda informa a **linha** e **coluna** do erro, seguindo o seguinte padrão: `arquivo:linha:coluna`. Nesse caso, o erro está na **linha 5**, **coluna 28** de `main.c`. Note que a linha 5 é onde o `printf` começa, e a coluna 28 é onde não colocamos o `;`.
 
 #### 3. Gravidade: `error`, `warning` e `note`
 
-Os trechos passados da mensagem indicam **a onde** o erro ocorreu, já `error: expected ‘;’ before ‘return’` é a mensagem do **que aconteceu de errado**. Cada mensagem começa com um desses três **rótulos**:
+Os trechos passados da mensagem indicam **onde** o erro ocorreu, já `error: expected ‘;’ before ‘return’` é a mensagem sobre **o que aconteceu de errado**. Cada mensagem começa com um desses três **rótulos**:
 
 - **`error`**: o programa não compila. É necessário corrigi-lo.
 - **`warning`**: o programa compila, mas algo provavelmente está errado. Nunca ignore os avisos.
@@ -230,20 +230,20 @@ Essa é a explicação do erro, uma tradução da mensagem seria: `O ‘;’ é 
       |                            ^
       |                            ;
     6 |
-    7 |         return 0;
-      |         ~~~~~~
+    7 |     return 0;
+      |     ~~~~~~
 ```
 
 Ao final, temos o trecho do código que gerou o erro. Antes do trecho começar, são colocados alguns espaços (nesse caso quatro) para indicar a qual mensagem o erro se refere. As marcações `5 |`, `6 |` e `7 |` indicam **as linhas no código** em que o erro aconteceu, seguido por seus conteúdos.
 
-Já as linhas que possuem apenas `|`, sem numeração, são anotações sobre o erro que o compilador está passando para nós. O compilador "grifou" o `return` com uma série de acentos (`~~~~~~`) e sinalizou que devemos adicionar um ponto e vírgula ao final do `printf` da seguinte maneira:
+Já as linhas que possuem apenas `|`, sem numeração, são anotações sobre o erro que o compilador está passando para nós. O compilador "grifou" o `return` com uma sequência de til (`~~~~~~`) e sinalizou que devemos adicionar um ponto e vírgula ao final do `printf` da seguinte maneira:
 
 ```
 ^
 ;
 ```
 
-### Esquecer do `include`
+### Esquecer o `include`
 
 Veja a mensagem gerada pelo compilador quando esquecemos de colocar o `#include <stdio.h>` antes de usar a função `printf`:
 
@@ -276,7 +276,7 @@ main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf�
 
 ```
 
-Em saídas com muitas mensagens, é comum que apenas as **primeiras mensagens** apontem para o **erro principal** e as outras mostrarem outros erros **gerados** pelo erro principal. Vamos analisar essa mensagem de cima para baixo e identificar o **erro principal** (ausência do `#include`).
+Em saídas com muitas mensagens, é comum que apenas as **primeiras mensagens** apontem para o **erro principal** e as outras mostrem outros erros **gerados** pelo erro principal. Vamos analisar essa mensagem de cima para baixo e identificar o **erro principal** (ausência do `#include`).
 
 #### 1. Onde
 
@@ -284,7 +284,7 @@ A primeira linha junto com `main.c:3:5` indicam que a mensagem se refere à fun�
 
 #### 2. O que aconteceu
 
-Seguido do `error:` vem a mensagem `implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]`. Uma tradução dessa mensagem seria: `declaração implícita da função ‘printf’`, já o conteúdo entre colchetes, `[-Wimplict-function-declaration]`, indica o nome da opção do GCC que gerou essa mensagem (ele é útil para pesquisar mais sobre o erro em especifico na internet). Essa mensagem está dizendo que a função `printf` foi **implicitamente declarada**, isso quer dizer que quando o compilador encontrou o uso do `printf` na linha 3 ele não sabia que essa função existia, e por isso não sabe como continuar.
+Seguido do `error:` vem a mensagem `implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]`. Uma tradução dessa mensagem seria: `declaração implícita da função ‘printf’`, já o conteúdo entre colchetes, `[-Wimplicit-function-declaration]`, indica o nome da opção do GCC que gerou essa mensagem (ele é útil para pesquisar mais sobre o erro em específico na Internet). Essa mensagem está dizendo que a função `printf` foi **implicitamente declarada**, isso quer dizer que quando o compilador encontrou o uso do `printf` na linha 3 ele não sabia que essa função existia, e por isso não sabe como continuar.
 
 > Veremos o que exatamente é uma função "implicitamente declarada" em [Funções](./funcoes.md).
 
@@ -299,14 +299,14 @@ O compilador mostra a linha com problema e usa `^~~~~~` para **apontar exatament
 
 #### 4. A solução: `main.c:1:1: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’`
 
-Nessa linha temos duas informações, qual é a solução do problema e a onde devemos colocá-la. A solução é incluir o `stdio.h` ou dar uma declaração para a função `printf`. Se nos "declaramos a função `printf`" teremos outro problema, esse veremos em [Funções](./funcoes.md), então vamos incluir o `stdio.h`. Logo abaixo temos o seguinte trecho do código:
+Nessa linha temos duas informações, qual é a solução do problema e onde devemos colocá-la. A solução é incluir o `stdio.h` ou dar uma declaração para a função `printf`. Se nós "declararmos a função `printf`" teremos outro problema, que veremos em [Funções](./funcoes.md), então vamos incluir o `stdio.h`. Logo abaixo temos o seguinte trecho do código:
 
 ```
   +++ |+#include <stdio.h>
     1 | int main(void)
 ```
 
-O compilador utilizou o `+++ |` para indicar exatamente **o que fazer** e **a onde fazer** a alteração, que no caso é incluir a linha `#include <stdio.h>` acima de `int main(void)`.
+O compilador utilizou o `+++ |` para indicar exatamente **o que fazer** e **onde fazer** a alteração, que no caso é incluir a linha `#include <stdio.h>` acima de `int main(void)`.
 
 #### 5. Outras mensagens
 
@@ -325,7 +325,7 @@ Aqui temos um aviso, não um erro. Uma tradução seria: `declaração implícit
 
 O compilador GCC já conhece algumas funções da Biblioteca Padrão, como o `printf`, por serem muito usadas. Elas são chamadas de funções embutidas (*built-in functions*), e o GCC sabe qual é a forma correta de usá-las: quais parâmetros recebem e o que retornam. O nome entre colchetes, `[-Wbuiltin-declaration-mismatch]`, identifica a opção que gerou o aviso, e vale pesquisá-lo na Internet para saber mais. Em resumo, o compilador está dizendo: "você usou uma função que eu conheço, mas do jeito errado, porque não me disse de onde ela vem".
 
-Lembre-se do que vimos em gravidade: um `warning` sozinho não impede a compilação, mas indica que algo provavelmente está errado. Aqui, ele só aparece junto do error, mas em outros programas você poderá ter um executável gerado com avisos. Não os ignore!
+Lembre-se do que vimos em gravidade: um `warning` sozinho não impede a compilação, mas indica que algo provavelmente está errado. Aqui, ele só aparece junto do `error`, mas em outros programas você poderá ter um executável gerado com avisos. Não os ignore!
 
 A última mensagem é igual à que vimos no passo 4: `include ‘<stdio.h>’ or provide a declaration of ‘printf’`. O `note` sempre complementa a mensagem logo acima dele. Como o GCC emitiu dois problemas (o `error` e o `warning`), ele repetiu a mesma dica para cada um, afinal, a solução é a mesma.
 
@@ -341,20 +341,14 @@ Muitas vezes, uma única correção elimina diversas mensagens de uma vez.
 
 ### Outros erros
 
-Ainda existem muitos erros de compilação, mas para entendê-los são necessários conteúdos que veremos mais para frente. A baixo vou mostrar códigos que apresentam alguns erros para você evitar, veremos as suas causas mais para frente:
+Ainda existem muitos erros de compilação, mas para entendê-los são necessários conteúdos que veremos mais para frente. Abaixo vou mostrar códigos que apresentam alguns erros para você evitar; veremos as suas causas mais para frente:
 
-- **Não definir a função `main`**:
+- **Escrever código fora de uma função**:
 
 ``` c
 #include <stdio.h>
 
 printf("Olá, Mundo!\n");
-```
-
-- **Não escrever nada**:
-
-``` c
-#include <stdio.h>
 ```
 
 ---
@@ -364,4 +358,3 @@ printf("Olá, Mundo!\n");
   &nbsp;|&nbsp;
   <a href="./linguagem-c.md">O que é C? →</a>
 </p>
-
