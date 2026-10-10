@@ -31,8 +31,6 @@ Quando estamos criando nossos primeiros programas em C, não queremos nos preocu
 
 A linguagem C foi criada em 1970, há mais de 50 anos! Ela foi muito revolucionária para a época, por possuir um conjunto de regras bem concisas, ser portável e ter uma ótima performance, em um tempo onde os computadores eram muito mais lentos. Para conseguir isso, a linguagem C se comunica de forma mais direta com os componentes internos do computador, principalmente o **processador** e a **memória RAM**.
 
-Diferentemente de linguagens modernas que utilizam processos automáticos pesados rodando em segundo plano para gerenciar recursos, o C entrega o controle da máquina ao programador. Ele exige a manipulação manual da alocação de memória e é compilado quase sem intermediários para o código de máquina. É essa comunicação de baixo nível que elimina atrasos e permite extrair o máximo de velocidade e eficiência dos componentes físicos do computador.
-
 Dessa forma, para aprendermos C também temos que compreender como o **computador funciona de verdade**, o que é de extrema importância para a carreira de desenvolvedores e desenvolvedoras.
 
 ---
