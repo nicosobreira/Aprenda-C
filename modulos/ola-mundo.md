@@ -350,6 +350,12 @@ Ainda existem muitos erros de compilação, mas para entendê-los são necessár
 printf("Olá, Mundo!\n");
 ```
 
+- **Não escrever nada**:
+
+``` c
+#include <stdio.h>
+```
+
 ---
 
 <p align="center">
