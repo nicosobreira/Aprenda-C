@@ -116,7 +116,8 @@ Vamos entender esse código começando pela função `main` — o coração de t
 
 As funções em C são semelhantes as da matemática. Dentro dos parênteses são colocados os parâmetros da função, quando escrevemos `f(x)`, dizemos que `x` é um parâmetro da função `f`. Nesse caso, o parênteses está com a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso, a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-O `int` é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor vai para o **sistema operacional** e mostra para ele se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
+O `int` é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor é retornado com o `return`; ele vai para o **sistema operacional** e mostra se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
+
 O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, como no código a seguir, o programa fechará imediatamente e o texto nunca será exibido. Faça esse teste antes de continuar.
 
 ``` c
