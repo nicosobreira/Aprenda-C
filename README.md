@@ -36,14 +36,14 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 10. [Funções](./modulos/funcoes.md)
 11. [Exercícios: Funções](./exercicios/funcoes.md)
 12. ~~[Listas](./modulos/listas.md)~~
-13. ~~[Matrizes](./variaveis/matriz.md)~~
-14. ~~[Strings](./variaveis/string.md)~~
-15. ~~[Structs](./variaveis/struct.md)~~
-16. ~~[Enums](./variaveis/enum.md)~~
-17. ~~[Projeto 2](./projeto/dois.md)~~
-18. ~~[Compilador](./arquivos/compilador.md)~~
-19. ~~[Múltiplos arquivos](./arquivos/header.md)~~
-20. ~~[Projeto 3](./projeto/tres.md)~~
+13. ~~[Memória I](./modulos/memoria-1.md)~~
+14. ~~[Strings](./modulos/strings.md)~~
+15. ~~[Structs](./modulos/structs.md)~~
+16. ~~[Enums](./modulos/enum.md)~~
+17. ~~[Modularização](./modulos/modulos.md)~~
+18. ~~[Memória II](./modulos/memoria-2.md)~~
+19. ~~[Build Systems](./modulos/build.md)~~
+20. ~~[E agora](./modulos/conclusao.md)~~
 <!-- 18. [Build System]() -->
 
 ## Referências
