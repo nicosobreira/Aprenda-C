@@ -364,6 +364,17 @@ Ainda existem muitos erros de compilação, mas para entendê-los são necessár
 printf("Olá, Mundo!\n");
 ```
 
+### Conclusão
+
+Ao escrever nossos códigos, vamos nos deparar com as seguintes categorias de erros:
+
+- **Erro de Sintaxe**: quando violamos regras da linguagem, como esquecer de o ponto e vírgula ou do `#include` ao usar uma função.
+- **Erro de Tempo de Execução**: quando não está preparado para lidar com situações impossíveis, como dividir por zero, e então recebemos um erro ao executar o programa.
+- **Erro de Lógica**: o programa compila e roda sem problemas, mas o resultado final não sai da forma que foi desejada.
+- **Erro de Semântica**: ocorre quando o comando é executado, mas o significado do comando está errado para o contexto desejado.
+
+O compilador consegue identificar erros de sintaxe e **alguns** de semântica e tempo de execução, mas não consegue prever erros de lógica, esses ficam por conta do programador. Ao longo do guia veremos ainda mais erros; ao conhecê-los vamos conhecer um pouco mais da linguagem C, assim como nos familiarizar com as saídas do compilador.
+
 ---
 
 <p align="center">
