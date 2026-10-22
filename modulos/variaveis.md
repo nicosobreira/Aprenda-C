@@ -17,12 +17,12 @@ Para a máquina, a sequência `0100 0011` é apenas um dado bruto. No entanto, s
 
 ## Declaração
 
-Declarar a variável nada mais é do que mostrar para o computador como um número binário deve ser chamado (nome) e como teve ser interpretado (tipo).
+Declarar a variável nada mais é do que mostrar para o computador qual é o nome e tipo da informação que queremos armazenar.
 
-Para declarar uma variável em C, escrevemos:
+Para declarar uma variável do tipo inteiro (`int`) em C, escrevemos:
 
 ``` c
-    int numero;
+int numero;
 ```
 
 Dentro da função `main` fica assim:
@@ -59,7 +59,7 @@ A seguir nós **inicializamos** a variável `numero` com o valor `10`:
 int numero = 10;
 ```
 
-**Depois que declaramos** uma variável, alteramos o seu valor novamente sem usar falar o tipo da variável, como no código a seguir, que cria uma variável `idade` - com valor inicial de 18 - e muda para 10.
+**Depois que declaramos** uma variável, alteramos o seu valor novamente sem falar o tipo da variável, como no código a seguir, que cria uma variável `idade` - com valor inicial de 18 - e muda para 10.
 
 ``` c
 int main(void)
@@ -86,7 +86,7 @@ Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
 int idade = 18;
 ```
 
-Para exibirmos o valor da variável `idade`, usaremos a função `printf`, que precisa do `#include <stdio.h>` para ser usada.
+Para exibirmos o valor da variável `idade`, usaremos a função `printf`.
 
 A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é o texto que queremos imprimir, os outros são **valores que serão substituídas no texto**. Esses valores são indicadas dentro do texto com um único símbolo de porcentagem (`%`) seguidas por uma ou mais letras que indicam o **tipo desse valor**. Esses valores podem estar **armazenados em variáveis** ou **colocados diretamente** no `printf`. Veja os dois exemplos a seguir, um imprime o valor `10` e o outro o valor armazenado na variável `idade`:
 
@@ -114,7 +114,7 @@ int main(void)
 }
 ```
 
-O caractere ao lado do `%` representa o tipo do valor que será impressa. Nesse caso, usamos o `d` para indicar que estamos passando o valor de uma váriavel do tipo `int`.
+O caractere ao lado do `%` representa o tipo do valor que será impressa. Nesse caso, usamos o `d` para indicar que estamos passando o valor de uma variável do tipo `int`.
 
 Retire o `%d` e veja a saída do programa:
 
@@ -159,7 +159,7 @@ int main(void)
 {
     int idade = 18;
 
-    printf("%dIdade: \n", idade);
+    printf("I%ddade: \n", idade);
 
     return 0;
 }
@@ -189,6 +189,8 @@ Também podemos fazer operações aritméticas **entre variáveis e números**, 
 - **Soma** (`+`):
 
 ``` c
+#include <stdio.h>
+
 int main(void)
 {
     int a = 3;
@@ -203,6 +205,8 @@ int main(void)
 - **Subtração** (`-`):
 
 ``` c
+#include <stdio.h>
+
 int main(void)
 {
     int x = -1;
@@ -217,6 +221,8 @@ int main(void)
 - **Multiplicação** (`*`):
 
 ``` c
+#include <stdio.h>
+
 int main(void)
 {
     int u = -2;
@@ -231,6 +237,8 @@ int main(void)
 - **Divisão** (`/`):
 
 ``` c
+#include <stdio.h>
+
 int main(void)
 {
     int a = 12;
@@ -241,6 +249,11 @@ int main(void)
     return 0;
 }
 ```
+
+> Também podemos imprimir os resultados **direto** no `printf`:
+> ``` c
+> printf("resultado = %d\n", 2 + 4);
+> ```
 
 A divisão de inteiros (`int`) em C funciona um pouco diferente do que você possa imaginar. Quando os números dividem **sem sobrar resto**, a divisão funciona como esperado (como no exemplo acima), mas caso a divisão tenha números depois da vírgula, ela é **truncada**, isso é, todos os números **"depois da vírgula" são ignorados** e apenas a parte inteira é considerada. Veja o resultado de `7 / 2`:
 
@@ -255,24 +268,21 @@ int main(void)
 }
 ```
 
-> Não falamos que a divisão é "*arrendondada*", mas sim **truncada**. Isso quer dizer que mesmo em divisões muito pequenas, como `1 / 100`, os números depois da vírgula são ignorados.
-
-O resultado é `3` e não `3,5`. Vamos entender em [Memória I](./memoria-1.md) como o `int` é representado em binário, e com isso o por que da divisão ser truncada.
+O resultado é `3` e não `3,5`. A linguagem C define o tipo do resultado das operações aritméticas a partir dos **tipos** do números usados. Nesse caso, como `7` e `2` são do **tipo inteiro**, o resultado também é um inteiro - mas como não é possível representar números depois da vírgula com inteiros, o resultado é truncado.
+Não falamos que a divisão é "*arrendondada*", mas sim **truncada**. Isso quer dizer que mesmo em divisões muito pequenas, como `1 / 100`, os números depois da vírgula são ignorados.
 
 Ainda temos o operador **Módulo**, também chamado de "**resto da divisão**". Veja o código a seguir:
-
-> Para imprimir o símbolo de porcentagem ("%") usando o printf, usamos **duas porcentagens**, dessa forma: `%%`
 
 ``` c
 #include <stdio.h>
 
 int main(void)
 {
-    dividendo = 4;
-    divisor = 2;
+    int dividendo = 4;
+    int divisor = 2;
 
-    quociente = dividendo / divisor;
-    resto = dividendo % divisor;
+    int quociente = dividendo / divisor;
+    int resto = dividendo % divisor;
 
     printf("O valor do quociente é: %d\n", quociente);
 
@@ -288,84 +298,45 @@ Agora, troque o dividendo por `7` e veja o resultado.
 
 O quociente da divisão de 7 por 2 é 3, enquanto o resto é 1, ou seja, $2 \times 3 + 1 = 7$.
 
-<!--
-#### Representação binária
-
-> Entender o sistema binário é um pouco confuso no início, o importante é você **notar as similaridades com o sistema decimal**. Ao invés de representar um número de 10 maneiras diferentes (com 10 dígitos), usamos apenas 2 (`0` ou `1`).
-
-No sistema decimal, podemos representar o zero da seguinte maneira `0000`. Agora vamos começar a contar até o nove:
-
-```
-0000
-0001
-0002
-...
-0009
-```
-
-O que acontece depois do `9`? Não existe um único dígito que representa o dez. Então o dígito da direita **volta para `0`** e o da esquerda **aumenta em 1**:
-
-```
-0009
-0010   <- o "vai um"
-```
-
-Você já faz isso desde a escola, só nunca precisou pensar no mecanismo. O mesmo vale depois do `99`, que vira `100`.
-
-No binário, o mecanismo é **idêntico**, a única diferença é que cada dígito só vai até `1`. Vamos contar com 4 dígitos:
-
-```
-0000  ->  0
-0001  ->  1
-0010  ->  2   <- acabou o 1, então "vai um"
-0011  ->  3
-0100  ->  4   <- "vai um" duas vezes seguidas
-0101  ->  5
-0110  ->  6
-0111  ->  7
-1000  ->  8
-```
-
-> Cada dígito de um número binário é chamado de **bit**, do inglês *binary digit* ("dígito binário").
-
-No decimal, o número `345` significa `3 × 100 + 4 × 10 + 5 × 1`. Cada posição tem um **peso**, que é uma potência de 10:
-
-|            | Centena | Dezena | Unidade |
-| :-:        | :-:     | :-:    | :-:     |
-| **Peso**   | 100     | 10     | 1       |
-| **Dígito** | 3       | 4      | 5       |
-
-Logo, `3 × 100 + 4 × 10 + 5 × 1 = 345`.
-
-No binário, os pesos são potências de **2**, da direita para a esquerda. Veja quanto o binário `0101` vale em decimal:
-
-|            | 8 vezes | 4 vezes | 2 vezes | 1 vez |
-| :-:        | :-:     | :-:     | :-:     | :-:   |
-| **Peso**   | 8       | 4       | 2       | 1     |
-| **Dígito** | 0       | 1       | 0       | 1     |
-
-Logo, `0 x 8 + 1 x 4 + 0 x 2 + 1 x 1 = 5`.
-
-Isso mostra por que `0101` vale 5. Para binários maiores a lógica é a mesma; veja o binário `0100 0011`, ele possui os pesos `128, 64, 32, 16, 8, 4, 2, 1`, e os bits ligados são o `64`, o `2` e o `1`. Logo, em decimal esse binário vale: `64 + 2 + 1 = 67`.
-
-> Para converter um número binário em decimal, **some os pesos das posições onde há `1`**. Pratique: quanto vale `0000 1010`? E `0001 0000`?
-
-Com 4 dígitos decimais, vamos de `0000` até `9999`, ou seja, $10^4 = 10 000$ números. Com 4 bits, temos $2^4 = 16$ números, de `0000` (0) até `1111` (15). Em geral, **n bits representam $2^n$ valores diferentes**.
-
-Um `int` em C é representado com pelo menos 16 bits, mas nenhum deles representa números quebrados, apenas inteiros.
-
-Não existe uma posição com peso "meio", então um `int` **não tem como guardar uma fração**. Quando o C divide dois `int`, o resultado é apenas o **quociente** e o resto é descartado:
+Por fim, usamos os parênteses `()` para indicar quais operações devem ser executadas primeiro. Veja como a saída muda entre os exemplos, mesmo que eles tenham o mesmo número:
 
 ``` c
-printf("%d\n", 1 / 2); // 0
+#include <stdio.h>
+
+int main(void)
+{
+    int resultado = (12 - 4) * 10;
+
+    printf("resultado = %d\n", resultado);
+    return 0;
+}
 ```
--->
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    int resultado = 12 - 4 * 10;
+
+    printf("resultado = %d\n", resultado);
+    return 0;
+}
+```
+
+A ordem das operações segue as mesmas regras da matemática:
+
+1. São resolvidos as operações dos parênteses mais internos até chegar nos externos.
+2. A multiplicação e divisão são feitas da esquerda para direita, sem prioridade.
+3. Por último, a soma e subtração, também pela esquerda para direita.
+
+
 
 ### float / double
 
-Tanto o `float` quanto o `double` representam números reais, aqueles com casas depois da vírgula. A única diferença é no **nível de precisão** entre os tipos: o `double` é mais preciso que o `float`. Enquanto o tipo `float` consegue representar, aproximadamente, 7 dígitos decimais, o `double` representa 14.
+Tanto o `float` quanto o `double` representam números reais, aqueles com casas depois da vírgula. A única diferença é no **nível de precisão** entre os tipos: o `double` é mais preciso que o `float`. Enquanto o tipo `float` consegue representar, aproximadamente, 7 dígitos decimais, o `double` representa 16.
 
-Essa maior precisão tem um custo, o tipo `double` precisa de mais espaço do que o `float`, mas na prática na *maioria da vezes* esse curto é desprezível. Em [Memória I](./memoria-1.md) veremos como esses tipos são representados, com isso você conseguirá avaliar quando usar um ou outro. Ao longo do curso vamos usar o `double`.
+Essa maior precisão tem um custo, o tipo `double` precisa de mais espaço do que o `float`, mas na *maioria da vezes* esse curto é desprezível. Em [Memória I](./memoria-1.md) veremos como esses tipos são representados, com isso você conseguirá avaliar quando usar um ou outro. Ao longo do curso vamos usar o `double`.
 
 Declaramos o `float` da seguinte forma:
 
@@ -385,8 +356,6 @@ double media_d = 3.2;
 
 Para imprimir o valor da média, vamos usar o `%f` em ambos:
 
-> Declare a função main e importe o _header_ `stdio`.
-
 ```c
 #include <stdio.h>
 
@@ -402,28 +371,136 @@ int main(void)
 }
 ```
 
-O `printf` interpreta o `float` e `double` como reais em sua implementação interna, por isso utilizamos do mesmo símbolo `f` para ambos. Rode o comando e veja o resultado: ele é seguido por um monte de zeros!
+O `printf` interpreta o `float` e `double` como reais, por isso utilizamos do mesmo símbolo `f` para ambos. Rode o comando e veja o resultado: ele é seguido por um monte de zeros!
 
-Dependendo do tipo da variável que passamos para o `printf` nós podemos mudar como o valor será exibido. Por exemplo, para exibirmos apenas duas casas depois da vírgula, usamos:
+Dependendo do tipo da variável que passamos para o `printf`, podemos mudar como o valor será exibido. Por exemplo, para exibirmos apenas duas casas depois da vírgula, usamos:
 
 ```c
-printf("Média: %.2f\n", media_f);
+printf("Média Float: %.2f\n", media_f);
 ```
 
 Até podemos arrendondar o número com:
 
 ```c
-printf("Média: %.0f\n", media_d);
+printf("Média Double: %.0f\n", media_d);
 ```
 
 Também existem outros formatadores para `float` e `double`. Caso você queira ignorar os zeros desnecessários (que ficam a esquerda do número), use o `%g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `15.00`, usando o `%g`, será exibido apenas `15`.
 
+#### Operações
+
+Podemos usar as mesmas operações que vimos, só temos que tomar um cuidado. Tente prever qual é a saída do programa:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    double resultado = 7 / 2;
+
+    printf("resultado = %f\n", resultado);
+
+    return 0;
+}
+```
+
+Como estamos usando o `double`, o resultado esperado é `3.5`, mas recebemos `3.0` novamente; o motivo é a mesma regra que já vimos: o tipo do resultado das operações aritmética é o mesmo dos números usados. Por padrão, quando não colocamos um ponto (`.`), o número é interpretado como um `int`. Veja como a saída sai corretamente quando usamos `.0`:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    double resultado = 7.0 / 2.0;
+
+    printf("resultado = %f\n", resultado);
+    return 0;
+}
+```
+
+### Bits e o sistema binário
+
+Antes de continuarmos, precisamos entender por que o binário `0100 0011` vale 67. Para isso, vamos entender como se **conta** só com zeros e uns.
+
+#### Por que binário?
+
+O computador é feito de circuitos que diferenciam com segurança **dois estados**: tensão alta ou baixa, ligado ou desligado. Distinguir dez estados diferentes (um por dígito decimal) é muito mais difícil e propenso a erros.
+
+A solução é usar um sistema com somente dois dígitos, chamado de **binário**. Chamamos esses dígitos de **bit**, do inglês *binary digit.
+
+#### Contando em decimal e em binário
+
+> Entender o sistema binário é um pouco confuso no início, o importante é você **notar as similaridades com o sistema decimal**. Ao invés de 10 símbolos por dígito (`0` a `9`), usamos apenas 2 (`0` e `1`).
+
+Vamos contar em **decimal** com 4 dígitos:
+
+```
+0008
+0009
+0010   <- o dígito da direita volta para 0 e o da esquerda aumenta em 1
+```
+
+Você já faz esse "vai um" desde a escola. No binário o mecanismo é **idêntico**, só que o dígito acaba no `1`:
+
+```
+0000  ->  0
+0001  ->  1
+0010  ->  2   <- acabou o 1, então "vai um"
+0011  ->  3
+0100  ->  4   <- "vai um" duas vezes seguidas
+0101  ->  5
+0110  ->  6
+0111  ->  7
+1000  ->  8
+```
+
+#### Pesos das posições
+
+No decimal, o número `345` significa `3 × 100 + 4 × 10 + 5 × 1`. Cada posição tem um **peso**, que é uma potência de 10.
+
+No **binário**, os pesos são potências de **2**, da direita para a esquerda. Veja o binário `0101`:
+
+|            | 8 | 4 | 2 | 1 |
+| :-:        | :-: | :-: | :-: | :-: |
+| **Dígito** | 0 | 1 | 0 | 1 |
+
+Logo, `0 × 8 + 1 × 4 + 0 × 2 + 1 × 1 = 5`.
+
+Agora podemos resolver a dívida do começo. O binário `0100 0011` tem 8 posições, com pesos `128, 64, 32, 16, 8, 4, 2, 1`:
+
+|            | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| :-:        | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| **Dígito** | 0   | 1  | 0  | 0  | 0 | 0 | 1 | 1 |
+
+Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`.
+
+> Para converter um binário em decimal, **some os pesos das posições onde há `1`**.
+
+Pratique: quanto vale `0000 1010`? E `0001 0000`? Como se escreve o `13` em binário?
+
+<details>
+<summary>Clique aqui para ver a resposta</summary>
+
+- `0000 1010` = `8 + 2` = **10**.
+- `0001 0000` = **16**, só o peso `16` está ligado.
+- `13` = `8 + 4 + 1` = `0000 1101`.
+
+</details>
+
+#### Quantos valores cabem em n bits?
+
+Com 4 dígitos decimais vamos de `0000` a `9999`, ou seja, $10^4 = 10\,000$ números. Com 4 bits, temos $2^4 = 16$ números, de `0000` (0) a `1111` (15). Em geral, **n bits representam $2^n$ valores diferentes**.
+
+Um grupo de 8 bits é chamado de **byte**, e consegue representar $2^8 = 256$ valores, de 0 a 255. Guarde esse número, ele vai explicar vários comportamentos do `char`.
+
+> Em [Memória I](./memoria-1.md) veremos como o `int` usa essa mesma ideia, inclusive para representar números negativos.
+
 ### char
 
-Representa um único caractere. Declaramos da seguinte forma:
+O `char` é um tipo que representa um único caractere. Declaramos da seguinte forma:
 
 ```c
-char caractere = 'a';
+    char caractere = 'a';
 ```
 
 Tá lembrado no começo do capítulo, quando discutimos como o binário `0100 0011` (ou 67 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
@@ -445,7 +522,9 @@ int main(void)
 
 Primeiro, declaramos uma variável do tipo `char` chamada `letra_C`. Depois, usamos o `%c` para imprimir o caractere no terminal. Mas fazemos algo esquisito em seguida: imprimimos a variável `letra_C` como um `int`?! Por que o código funciona, e por que ele exibe 67?
 
-Isso se deve ao modo como os caracteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 8 bits, que é **traduzido para um caractere** por meio da [Tabela de Conversão ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
+Isso se deve ao modo como os caracteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 1 byte (8 bits), que é usado como um índice na chamada [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
+
+A tabela ASCII foi usada para **padronizar** como letras e números são representados. No passado, tudo mundo concordava que representar as letras como índices em algum tipo de tabela era e melhor forma de armazená-las, já que um texto de 1000 caracteres só ocuparia 1000 bytes (exatamante 1KB). O único problema era a onde cada caracter devia ficar; dispositivos diferentes apresentavam valores distintos para os mesmos caracteres. Com o ASCII, esses valores foram padronizados.
 
 Se você abrir essa tabela, notará duas coisas: o _código ASCII_ do caractere `C` é 67; e que não existem caracteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada pra a língua inglesa, por isso eles não colocaram acentos nela. Para usar acentos, são usados mais de 8 bits, por isso não é possível armazenar um carácter acentuado da seguinte forma:
 
@@ -482,9 +561,7 @@ $ ./main
 Tentando mostrar um acento: �
 ```
 
-Existem duas partes para explicar o
-O programa até executa, mas o compilador nos avisa na linha 5, coluna 23, que estamos usando um carácter de "muitos caracteres" (`multi-character character`). Por enquanto, não conhecemos a linguagem bem o bastante para entender esse aviso, em [Strings](./strings.md) voltaremos para esse caso.
-
+O programa até executa, mas o compilador nos avisa na linha 5, coluna 23, que estamos usando um carácter de "muitos caracteres" (`multi-character character`). Por enquanto, não conhecemos a linguagem bem o bastante para entender esse aviso, em [Strings](./strings.md) voltaremos para esse caso e veremos como armazenar letras acentuadas.
 
 ### bool
 
@@ -518,24 +595,36 @@ Os nomes que damos aos elementos do código, como *variáveis* e *funções*, s�
 
 São variáveis que, ao serem declaradas, não podem mudar de valor.
 
-Por exemplo, vamos declarar a variável `pi`, com o valor aproximado da constante.
-
-> Não se esqueça de importar `#include <stdio.h>` e declarar a função `main`!
+Usamos o `const` seguido pelo tipo para declarar uma variável constante. Veja o exemplo a seguir, que declara o valor da constante `pi`:
 
 ```c
-const double pi = 3.14;
+#include <stdio.h>
 
-printf("Pi vale aproximadamente %f\n", pi);
+int main(void)
+{
+    const double pi = 3.14;
+
+    printf("Pi vale aproximadamente %f\n", pi);
+
+    return 0;
+}
 ```
 
 Vamos tentar aumentar o valor da aproximação do `pi` **após** a declaração da variável:
 
 ```c
-const double pi = 3.14;
+#include <stdio.h>
 
-pi = 3.14159;
+int main(void)
+{
+    const double pi = 3.14;
 
-printf("Pi vale aproximadamente %f\n", pi);
+    pi = 3.14159;
+
+    printf("Pi vale aproximadamente %f\n", pi);
+
+    return 0;
+}
 ```
 
 Recebemos o seguinte erro de compilação:
@@ -555,9 +644,16 @@ Ela fala que ocorreu um erro ao atribuir algum valor à uma variável _read-only
 Se amanhã nós precisarmos aumentar a precisão da constante `pi`, isso é, aumentar o número de casas depois da vírgula, nós só precisamos alterar em **um lugar** - se não usássemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo. Por exemplo, para atualizar a constante:
 
 ```c
-const double pi = 3.1415926;
+#include <stdio.h>
 
-printf("Pi vale aproximadamente %f\n", pi);
+int main(void)
+{
+    const double pi = 3.1415926;
+
+    printf("Pi vale aproximadamente %f\n", pi);
+
+    return 0;
+}
 ```
 
 ## Boas práticas
