@@ -167,7 +167,7 @@ int main(void)
 }
 ```
 
-A saída será `I18dade:`, o que é estranho, mas mostra que o `%d` pode ficar em qualquer posição do texto.
+> A saída será `I18dade:`, o que é estranho, mas mostra que o `%d` pode ficar em qualquer posição do texto.
 
 Também podemos passar quantos argumentos quisermos para a função `printf`, desde que cada um tenha o seu `%` correspondente:
 
@@ -598,7 +598,7 @@ Os nomes que damos aos elementos do código, como *variáveis* e *funções*, s�
 - São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de _underline_.
 - **Não são permitidos** espaços, use o sublinhado, como em `soma_total`.
 - **Não é permitido** começar com um dígito. Exemplos de identificadores errados: `1pessoa` e `02_vida`.
-- **Não é permitido** ter acento, como em `int café`. Use `cafe` ao invés disso.
+- **Não é recomendado** ter acentos, como em `int café`. Use `cafe` ao invés disso.
 - A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, as variáveis `Vida`, `vida` e `VIDA` são tratadas como coisas diferentes.
 - Você não pode usar **palavras reservadas** da linguagem. Palavras como `int`, `double`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções.
 
