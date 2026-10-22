@@ -11,3 +11,4 @@
     - Stack
 - Representação em binário dos tipos primitivos (conexão com [Variáveis](./variaveis.md))
 - O que são ponteiros
+- Falar sobre conversão de valores (int para float, float para int) com exemplos em código, com e sem printf (misturar com operações também).
