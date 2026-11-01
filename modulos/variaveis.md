@@ -8,11 +8,11 @@
 
 # Variáveis
 
-As variáveis servem para **armazenar** valores na **memória do computador**. Elas nos permitem guardar informações bem diferentes, como: idade de uma pessoa, preço de um produto e se um usuário está logado ou não.
-O primeiro é um número inteiro, o outro tem casas depois da vírgula, e o último só pode ser verdadeiro ou falso.
+As variáveis servem para **armazenar** valores na **memória do computador**. Elas nos permitem guardar informações bem diferentes, como a idade de uma pessoa, o preço de um produto e se um usuário está logado ou não.
+Os valores são, respectivamente: um número inteiro, um número com casas depois da vírgula e um valor que só pode ser verdadeiro ou falso.
 Lembra que em [O que é C?](./linguagem-c.md) vimos que o computador só lida com zeros e uns? Mas como o computador guarda dados tão diferentes entre si, se ele só entende 0 e 1?
 
-A verdade é que o computador interpreta os zeros e uns da maneira que nós, programadores, mandamos. Tomamos o número binário `0100 0011` como exemplo. Quando o computador olha para o binário, ele não tem a menor ideia do que significa.
+A verdade é que o computador interpreta os zeros e uns da maneira que nós, programadores, mandamos. Tomemos o número binário `0100 0011` como exemplo. Quando o computador olha para ele, não tem a menor ideia do que ele significa.
 Para a máquina, a sequência `0100 0011` é apenas um dado bruto. No entanto, se nós mandarmos o computador interpretar isso como um número inteiro, o valor é 67. Ao final do módulo, veremos que esse mesmo binário representa um outro tipo de informação: uma letra.
 
 ## Declaração
@@ -38,7 +38,7 @@ int main(void)
 
 O `int` mostra ao computador que o valor armazenado na variável de nome `numero` é do tipo **inteiro**.
 
-Ao longo do módulo, veremos ainda mais tipos, alguns deles são:
+Ao longo do módulo, veremos mais tipos. Alguns deles são:
 
 - **Letra**:
 
@@ -88,9 +88,9 @@ Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
 int idade = 18;
 ```
 
-Para exibirmos o valor da variável `idade`, usaremos a função `printf`.
+Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h` (lembra do `#include <stdio.h>` de [Olá, Mundo](./ola-mundo.md)?).
 
-A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é o texto que queremos imprimir, os outros são **valores que serão substituídos no texto**. Esses valores são indicados dentro do texto com um único símbolo de porcentagem (`%`) seguido por uma ou mais letras que indicam o **tipo desse valor**. Esses valores podem estar **armazenados em variáveis** ou **colocados diretamente** no `printf`. Veja os dois exemplos a seguir, um imprime o valor `10` e o outro, o valor armazenado na variável `idade`:
+A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é o texto que queremos imprimir, os outros são **valores que serão substituídos no texto**. Esses valores são indicados dentro do texto com o símbolo de porcentagem (`%`) seguido por uma ou mais letras que indicam o **tipo desse valor**. Esses valores podem estar **armazenados em variáveis** ou **colocados diretamente** no `printf`. Veja os dois exemplos a seguir, um imprime o valor `10` e o outro, o valor armazenado na variável `idade`:
 
 ``` c
 #include <stdio.h>
@@ -116,7 +116,7 @@ int main(void)
 }
 ```
 
-O caractere ao lado do `%` representa o tipo do valor que será impresso. Nesse caso, usamos o `d` para indicar que estamos passando o valor de uma variável do tipo `int`.
+O caractere ao lado do `%` representa o tipo do valor que será impresso. Nesse caso, usamos o `d` (de *decimal*) para indicar que o valor a ser impresso é um `int`, seja ele escrito diretamente ou guardado em uma variável.
 
 Retire o `%d` e veja a saída do programa:
 
@@ -152,7 +152,7 @@ $ ./main
 Idade:
 ```
 
-O programa compila, mas o GCC nos dá um `warning` na linha 7, coluna 12 de `main.c`, nos avisando que estamos passando muitos argumentos para a função `printf`. A solução é colocar o `%d` no texto, não importa onde:
+O programa compila, mas o GCC nos dá um `warning` na linha 7, coluna 12 de `main.c`, nos avisando que estamos passando muitos argumentos para a função `printf`. A solução é colocar o `%d` no texto. Ele pode ficar em qualquer posição, como no exemplo a seguir:
 
 ``` c
 #include <stdio.h>
@@ -167,7 +167,7 @@ int main(void)
 }
 ```
 
-> A saída será `I18dade:`, o que é estranho, mas mostra que o `%d` pode ficar em qualquer posição do texto.
+> A saída será `I18dade:`, o que é estranho, mas mostra que o `%d` é só um espaço reservado, que o `printf` troca pelo valor. O correto aqui seria `"Idade: %d\n"`.
 
 Também podemos passar quantos argumentos quisermos para a função `printf`, desde que cada um tenha o seu `%` correspondente:
 
@@ -189,8 +189,6 @@ int main(void)
 
 Também podemos fazer operações aritméticas **entre variáveis e números**, como nos exemplos a seguir:
 
-> Para ver a variável `resultado` não se esqueça de usar o `#include <stdio.h>` e `printf`!
-
 - **Soma** (`+`):
 
 ``` c
@@ -202,6 +200,8 @@ int main(void)
     int b = a + 1;
 
     int resultado = a + b;
+
+    printf("resultado = %d\n", resultado);
 
     return 0;
 }
@@ -219,6 +219,8 @@ int main(void)
 
     int resultado = x - y;
 
+    printf("resultado = %d\n", resultado);
+
     return 0;
 }
 ```
@@ -234,6 +236,8 @@ int main(void)
     int v = u * 0;
 
     int resultado = u * v;
+
+    printf("resultado = %d\n", resultado);
 
     return 0;
 }
@@ -251,6 +255,8 @@ int main(void)
 
     int resultado = a / b;
 
+    printf("resultado = %d\n", resultado);
+
     return 0;
 }
 ```
@@ -260,7 +266,7 @@ int main(void)
 > printf("resultado = %d\n", 2 + 4);
 > ```
 
-A divisão de inteiros (`int`) em C funciona um pouco diferente do que você possa imaginar. Quando os números dividem **sem sobrar resto**, a divisão funciona como esperado (como no exemplo acima), mas caso a divisão tenha números depois da vírgula, ela é **truncada**, isto é, todos os números **"depois da vírgula" são ignorados** e apenas a parte inteira é considerada. Veja o resultado de `7 / 2`:
+A divisão de inteiros (`int`) em C funciona um pouco diferente do que você possa imaginar. Quando os números dividem **sem sobrar resto**, a divisão funciona como esperado (como no exemplo acima), mas caso a divisão tenha dígitos depois da vírgula, ela é **truncada**, isto é, todos os dígitos **depois da vírgula são descartados** e apenas a parte inteira é mantida. Veja o resultado de `7 / 2`:
 
 ``` c
 #include <stdio.h>
@@ -273,8 +279,8 @@ int main(void)
 }
 ```
 
-O resultado é `3` e não `3,5`. A linguagem C define o tipo do resultado das operações aritméticas a partir dos **tipos** dos números usados. Nesse caso, como `7` e `2` são do **tipo inteiro**, o resultado também é um inteiro - mas como não é possível representar números depois da vírgula com inteiros, o resultado é truncado.
-Não falamos que a divisão é "*arredondada*", mas sim **truncada**. Isso quer dizer que mesmo em divisões muito pequenas, como `1 / 100`, os números depois da vírgula são ignorados.
+O resultado é `3` e não `3.5`. A linguagem C define o tipo do resultado das operações aritméticas a partir dos **tipos** dos números usados. Nesse caso, como `7` e `2` são do **tipo inteiro**, o resultado também é um inteiro. Como os inteiros não representam frações, a parte depois da vírgula é descartada.
+Dizemos que a divisão é **truncada**, e não "*arredondada*". Isso quer dizer que `99 / 100` vale `0`, mesmo que o valor real, `0.99`, esteja bem perto de `1`. Nos números negativos o descarte também é em direção ao zero: `-7 / 2` vale `-3`, e não `-4`.
 
 Ainda temos o operador **Módulo**, também chamado de "**resto da divisão**". Veja o código a seguir:
 
@@ -349,7 +355,7 @@ Declaramos o `float` da seguinte forma:
 float media_f = 6.72f;
 ```
 
-Temos que colocar esse `f` no final para indicar que o número é um `float`. Também podemos usar o `F`.
+Colocamos o `f` no final para indicar que o número é um `float`. Também podemos usar o `F`. Sem ele, o `6.72` seria um `double`, que o compilador converteria para `float` automaticamente: funciona, mas é melhor deixar a intenção clara.
 
 Já o `double`:
 
@@ -376,7 +382,7 @@ int main(void)
 }
 ```
 
-O `printf` interpreta o `float` e `double` como reais, por isso utilizamos do mesmo símbolo `f` para ambos. Rode o comando e veja o resultado: ele é seguido por um monte de zeros!
+Para o `printf`, ambos os tipos usam o mesmo formatador, já que o `float` é convertido automaticamente em `double` ao ser passado para a função. Rode o programa e veja o resultado: o valor vem seguido de zeros, pois o `%f` mostra, por padrão, 6 casas depois da vírgula.
 
 Podemos mudar como o valor será exibido alterando o formatador. Por exemplo, para exibirmos apenas duas casas depois da vírgula, usamos:
 
@@ -384,13 +390,15 @@ Podemos mudar como o valor será exibido alterando o formatador. Por exemplo, pa
 printf("Média Float: %.2f\n", media_f);
 ```
 
-Também podemos arredondar o número com:
+Também podemos arredondar o número **apenas na exibição** (o valor guardado na variável não muda):
 
 ```c
 printf("Média Double: %.0f\n", media_d);
 ```
 
-Também existem outros formatadores para `float` e `double`. Caso você queira ignorar os zeros desnecessários (que ficam à direita do número), use o `%g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `15.00`, usando o `%g`, será exibido apenas `15`.
+Também existem outros formatadores para `float` e `double`. Caso você queira ignorar os zeros desnecessários (aqueles que ficam à direita, depois da vírgula), use o `%g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `15.00`, usando o `%g`, será exibido apenas `15`.
+
+> Por padrão, o `%g` mostra no máximo 6 dígitos significativos: `3.14159265` é exibido como `3.14159`. Para números muito grandes ou muito pequenos ele também pode usar notação científica, como `1e+06` para `1000000.0`.
 
 #### Operações
 
@@ -409,7 +417,7 @@ int main(void)
 }
 ```
 
-Como estamos usando o `double`, o resultado esperado é `3.5`, mas recebemos `3.000000` novamente; o motivo é a mesma regra que já vimos: o tipo do resultado das operações aritméticas é o mesmo dos números usados. Por padrão, quando não colocamos um ponto (`.`), o número é interpretado como um `int`. Veja como a saída sai corretamente quando usamos `.0`:
+Como estamos usando o `double`, o resultado esperado é `3.5`, mas recebemos `3.000000` novamente; o motivo é a mesma regra que já vimos: o tipo do resultado depende dos tipos dos números usados, **e não** do tipo da variável que o recebe. Primeiro o computador divide `7 / 2` como inteiros, obtendo `3`, e só depois converte esse `3` para `double` ao guardá-lo na variável. Por padrão, um número sem ponto (`.`) é interpretado como `int`, e um número com ponto, como `double`. Veja como a saída sai corretamente quando usamos `.0`:
 
 ``` c
 #include <stdio.h>
@@ -423,6 +431,8 @@ int main(void)
     return 0;
 }
 ```
+
+> O operador módulo (`%`) só funciona com inteiros. Tente `7 % 2.0` e o GCC dará o erro `invalid operands to binary %`.
 
 ### Bits e o sistema binário
 
@@ -497,21 +507,21 @@ Pratique: quanto vale `0000 1010`? E `0001 0000`? Como se escreve o `13` em bin�
 
 Com 4 dígitos decimais vamos de `0000` a `9999`, ou seja, $10^4 = 10\,000$ números. Com 4 bits, temos $2^4 = 16$ números, de `0000` (0) a `1111` (15). Em geral, **n bits representam $2^n$ valores diferentes**.
 
-Um grupo de 8 bits é chamado de **byte**, e consegue representar $2^8 = 256$ valores, de 0 a 255. Guarde esse número, ele vai explicar vários comportamentos do `char`.
+Na esmagadora maioria dos computadores, um grupo de 8 bits é chamado de **byte**, e consegue representar $2^8 = 256$ valores, de 0 a 255. Guarde esse número, ele vai explicar vários comportamentos do `char`.
 
 > Em [Memória I](./memoria-1.md) veremos como o `int` usa essa mesma ideia, inclusive para representar números negativos.
 
 ### char
 
-O `char` é um tipo que representa um único caractere. Declaramos da seguinte forma:
+Representa um único caractere, como uma letra do alfabeto ou um sinal de pontuação.
 
-```c
+``` c
 char caractere = 'a';
 ```
 
-Lembra do começo do capítulo, quando discutimos como o binário `0100 0011` (ou 67 em decimal) pode ser interpretado de formas diferentes? Agora veremos na prática com o código a seguir:
+Lembra do começo do capítulo, quando vimos que o binário `0100 0011` (67 em decimal) pode ser interpretado de formas diferentes? Agora veremos isso na prática:
 
-```c
+``` c
 #include <stdio.h>
 
 int main(void)
@@ -519,55 +529,70 @@ int main(void)
     char letra_C = 'C';
 
     printf("Caractere: %c\n", letra_C);
-
-    printf("Índice: %d\n", letra_C);
+    printf("Código:    %d\n", letra_C);
 
     return 0;
 }
 ```
 
-Primeiro, declaramos uma variável do tipo `char` chamada `letra_C`. Depois, usamos o `%c` para imprimir o caractere no terminal. Mas fazemos algo esquisito em seguida: imprimimos a variável `letra_C` como um `int`?! Por que o código funciona, e por que ele exibe 67?
+Declaramos uma variável do tipo `char` chamada `letra_C` e usamos o `%c` para imprimir o **caractere** no terminal. Em seguida fazemos algo esquisito: imprimimos a mesma variável com o `%d`, como se fosse um `int`. Por que o código funciona, e por que ele exibe `67`?
 
-Isso se deve ao modo como os caracteres funcionam em C. Por debaixo dos panos, o tipo `char` é um número binário de 1 byte (8 bits), que é usado como um índice na chamada [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) apenas no momento em que será exibido.
+Por debaixo dos panos, o `char` é só um **número inteiro**. A linguagem C define que ele ocupa **1 byte**, e é isso que o torna pequeno: na esmagadora maioria dos computadores, 1 byte tem 8 bits, o que permite guardar 256 valores diferentes.
 
-A tabela ASCII foi usada para **padronizar** como letras e números são representados. No passado, todo mundo concordava que representar as letras como índices em algum tipo de tabela era a melhor forma de armazená-las, já que um texto de 1000 caracteres só ocuparia 1000 bytes (exatamente 1 KB). O único problema era onde cada caractere devia ficar; dispositivos diferentes apresentavam valores distintos para os mesmos caracteres. Com o ASCII, esses valores foram padronizados.
+O C **não sabe** que o número `67` é a letra `C`. Quem faz essa associação é uma **tabela de codificação**. O `%c` diz ao `printf` para enviar o valor ao terminal **como um caractere**, e é o terminal que consulta a sua tabela para desenhar a letra; já o `%d` diz para mostrá-lo como número. Por isso a mesma variável aparece de duas formas.
 
-Se você abrir essa tabela, notará duas coisas: o _código ASCII_ do caractere `C` é 67; e que não existem caracteres acentuados. Isso se deve ao fato da Tabela ASCII ter sido criada para a língua inglesa, por isso não possui acentos. Para representar acentos, é necessário usar mais de 8 bits, por isso não é possível armazenar um caractere acentuado em um `char` da seguinte forma:
+#### De onde vem a tabela?
 
-- **Código**:
+A linguagem C **não define** qual tabela deve ser usada. Ela só exige que o `char` seja capaz de representar um conjunto básico de caracteres (letras sem acento, dígitos e pontuação comuns). Quem escolhe a tabela de verdade é o **sistema operacional**, o **terminal** e o **compilador**.
+
+Isso faz sentido pela história. Nos anos 1960, cada fabricante tinha o seu próprio código de caracteres. O **ASCII** (1963) acabou se tornando o mais popular, mas ele só tem 128 caracteres, pensados para o inglês, e por isso não tem acentos. A IBM, por exemplo, usava outra tabela, o EBCDIC, em que a letra `C` **não vale** 67, mas sim **195**. Quando o C foi criado (1972), esses sistemas coexistiam, então a linguagem evitou se prender a uma única tabela. Esse é um dos motivos de ela ter sido tão portável.
+
+Para dar conta de outros idiomas, surgiram tabelas de 8 bits que aproveitavam os valores de 128 a 255 para acentos (como a Latin-1), mas cada país usava uma diferente. O **Unicode** (1991) resolveu isso ao criar **uma única tabela** com os caracteres de praticamente todas as línguas. Hoje, quase todos os sistemas usam o Unicode. A codificação mais comum é o **UTF-8** (Linux, macOS e a web), que mantém os 128 primeiros valores **idênticos ao ASCII**. O Windows usa internamente outra codificação do Unicode, o UTF-16, e o terminal ainda pode usar tabelas antigas, por isso configuramos o PowerShell para UTF-8 em [Instalando o C](./instalacao.md). Por isso, na prática, `'C'` vale `67` em praticamente qualquer computador moderno.
+
+Você pode consultar a [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) para ver os valores dos caracteres básicos.
+
+#### Aspas simples
+
+Repare que usamos aspas **simples** (`'C'`) e não aspas duplas. Em C, `'C'` representa **um único caractere** (na prática, seu código numérico), enquanto `"C"` representa um **texto**, isto é, um conjunto de caracteres. Veremos a diferença com mais detalhes em [Strings](./strings.md).
+
+#### E os acentos?
+
+Em UTF-8, apenas os 128 primeiros valores ocupam 1 byte. Caracteres como `ê` e `ç` ocupam **2 bytes ou mais**, então **não cabem em um único `char`**. É por isso que os acentos funcionam dentro de textos (que são conjuntos de `char`), mas dão problemas quando tentamos guardá-los em um `char` sozinho. Veremos isso em [Strings](./strings.md).
+
+#### E o `\n`?
+
+Quando escrevemos `\n`, não temos um caractere `\` seguido de um `n`: a **barra invertida** (`\`) inicia uma **sequência de escape**, que representa **um único caractere** difícil de digitar. O `\n`, por exemplo, é o caractere de **nova linha**, que vale `10` na tabela ASCII. Ele é um **caractere de controle**: os valores de `0` a `31` da tabela não são símbolos visíveis, mas sim **comandos** para o terminal, como quebrar a linha.
+
+Algumas sequências de escape:
+
+| Sequência | Significado               | Valor |
+| :-:       | :-                        | :-:   |
+| `\n`      | Nova linha                | 10    |
+| `\t`      | Tabulação                 | 9     |
+| `\0`      | Caractere nulo            | 0     |
+| `\\`      | A própria barra invertida | 92    |
+| `\'`      | Aspas simples             | 39    |
+| `\"`      | Aspas duplas              | 34    |
+
+Nem toda sequência de escape é um caractere de controle: `\\`, `\'` e `\"` representam símbolos visíveis que, sem o escape, teriam outro significado. Teste você mesmo com `printf("%d\n", '\n');`. Veremos o uso do `\0` em [Strings](./strings.md).
+
+#### Operações com `char`
+
+Como o `char` é um número no final das contas, podemos fazer contas com ele. O código a seguir é válido:
 
 ``` c
 #include <stdio.h>
 
 int main(void)
 {
-    char com_acento = 'á';
+    char c = 'C' - 2;
 
-    printf("Tentando mostrar um acento: %c\n", com_acento);
-
+    printf("Caractere: %c\n", c);
     return 0;
 }
 ```
 
-- **Mensagem do compilador**:
-
-```
-$ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:5:23: warning: multi-character character constant [-Wmultichar]
-    5 |     char com_acento = 'á';
-      |                       ^~~
-main.c:5:23: warning: overflow in conversion from ‘int’ to ‘char’ changes value from ‘50081’ to ‘-95’ [-Woverflow]
-```
-
-- **Saída do programa**:
-
-```
-$ ./main
-Tentando mostrar um acento: �
-```
-
-O programa até executa, mas o compilador nos avisa na linha 5, coluna 23, que estamos usando uma constante de caractere com vários caracteres (`multi-character character constant`). Por enquanto, não conhecemos a linguagem bem o bastante para entender esse aviso, em [Strings](./strings.md) voltaremos para esse caso e veremos como armazenar letras acentuadas.
+O código anterior calcula `'C' - 2`, ou seja, `67 - 2`, que resulta em `65`, a letra `A` (em tabelas compatíveis com o ASCII, como o UTF-8).
 
 ### bool
 
@@ -584,23 +609,202 @@ int main(void)
 }
 ```
 
-Diferente dos outros tipos primitivos, para declararmos uma variável booleana, precisamos primeiro importar sua definição na Biblioteca Padrão, com o `#include <stdbool.h>`.
-O motivo disso ficará claro em [Condicionais](./condicionais.md)
+Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#include <stdbool.h>`. Isso acontece porque, no C11, o tipo booleano nativo se chama `_Bool`; o header `stdbool.h` define os nomes `bool`, `true` e `false` para facilitar a leitura. (A partir do C23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
 
-Nós também não temos como imprimir um `bool` do mesmo jeito que vínhamos fazendo. Isso se deve ao fato da função `printf` não definir em sua implementação uma maneira de converter o `bool` para uma string, ou seja, não definir um código como `d` para tal. Mas nós veremos em [Condicionais](./condicionais.md) um jeito de fazer isso.
+Podemos imprimir um `bool` com o `%d`:
+
+```c
+#include <stdbool.h>
+#include <stdio.h>
+
+int main(void)
+{
+    bool estou_feliz = true;
+
+    printf("estou_feliz = %d\n", estou_feliz);
+
+    return 0;
+}
+```
+
+Aparece `1` para `true` e `0` para `false`, pois, por debaixo dos panos, o `bool` é só um número, assim como o `char`. Veremos isso melhor em [Condicionais](./condicionais.md).
 
 Chamamos os estados **verdadeiro** e **falso** de `true` e `false`, respectivamente.
 
 ## Regras de Nomenclatura
 
-Os nomes que damos aos elementos do código, como *variáveis* e *funções*, são chamados formalmente de **identificadores**. Eles seguem estas regras:
+Cada variável ou função que criamos precisa de um **nome**, para que possamos nos referir a ela depois. Esses nomes são chamados formalmente de **identificadores**, e valem para variáveis, funções e, mais para frente, `struct`s, `enum`s e outros elementos.
 
-- São permitidos os seguintes caracteres: letras (minúsculas e maiúsculas), dígitos (de 0 a 9) e o sublinhado (`_`), também chamado de _underline_.
-- **Não são permitidos** espaços, use o sublinhado, como em `soma_total`.
-- **Não é permitido** começar com um dígito. Exemplos de identificadores errados: `1pessoa` e `02_vida`.
-- **Não é recomendado** ter acentos, como em `int café`. Use `cafe` ao invés disso.
-- A linguagem C diferencia letras minúsculas das maiúsculas. Por exemplo, as variáveis `Vida`, `vida` e `VIDA` são tratadas como coisas diferentes.
-- Você não pode usar **palavras reservadas** da linguagem. Palavras como `int`, `double`, `return`, `if`, `while` e `char` são proibidas de serem usadas como nomes de variáveis ou funções.
+Para o compilador, o identificador é só uma sequência de caracteres que ele precisa **separar do resto do código**. Se os nomes pudessem ter qualquer símbolo, ele não saberia onde um nome termina e outra coisa começa. As regras existem para tornar essa separação **inequívoca**.
+
+### Caracteres permitidos
+
+Um identificador pode ser formado por:
+
+- Letras **minúsculas** e **maiúsculas** (`a` a `z`, `A` a `Z`);
+- **Dígitos** (`0` a `9`); e
+- O **sublinhado** (`_`), também chamado de *underscore*.
+
+Isso significa que **espaços** e símbolos como `-`, `+`, `.` e `@` **não** são permitidos. O motivo é simples: todos eles já têm outro significado para o compilador. Veja o que acontece com `-`:
+
+``` c
+int nota-final = 10;
+```
+
+O compilador lê o nome até onde ele é válido, ou seja, `nota`, e então encontra o `-`, que para ele é o operador de **subtração** e não faz parte do nome. Como uma declaração não pode continuar com uma subtração, ele reclama:
+
+```
+$ gcc -o main main.c
+main.c: In function ‘main’:
+main.c:5:13: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘-’ token
+    5 |     int nota-final = 10;
+      |             ^
+```
+
+> O GCC ainda mostra outros erros em seguida (como `'final' undeclared`), mas o primeiro costuma ser o mais importante.
+
+O mesmo vale para o espaço, que separa uma palavra da outra. Quando precisamos de um nome com mais de uma palavra, usamos o sublinhado: `nota_final`.
+
+Tente compilar esta versão:
+
+``` c
+int nota final = 10;
+```
+
+O GCC vai reclamar de algo parecido com:
+
+```
+$ gcc -o main main.c
+main.c: In function ‘main’:
+main.c:5:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘final’
+    5 |     int nota final = 10;
+      |              ^~~~~
+```
+
+> A mensagem exata muda de acordo com a versão do GCC, mas a ideia é a mesma: ele leu `int nota` como uma declaração completa e não entendeu o que `final` está fazendo ali.
+
+### Não começar com dígito
+
+Um identificador **não pode começar com um dígito**, mas pode ter dígitos nas demais posições. Então `pessoa1` e `vida_2` são válidos, enquanto `1pessoa` e `02_vida` não são.
+
+A razão é a mesma de antes: o compilador precisa saber **logo no primeiro caractere** se está lendo um número ou um nome. Se começa com dígito, ele trata o que vem a seguir como um **número**. Com `1pessoa`, ele lê o `1`, tenta entender o `pessoa` como parte do número (um sufixo, como o `f` de `6.72f`) e falha:
+
+```
+main.c:5:9: error: invalid suffix "pessoa" on integer constant
+    5 |     int 1pessoa = 5;
+      |         ^~~~~~~
+```
+
+### Maiúsculas e minúsculas
+
+A linguagem C é ***case-sensitive***, isto é, **diferencia** letras maiúsculas de minúsculas. Os nomes `vida`, `Vida` e `VIDA` são três identificadores **diferentes**:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    int vida = 3;
+    int Vida = 10;
+    int VIDA = 100;
+
+    printf("%d %d %d\n", vida, Vida, VIDA);
+
+    return 0;
+}
+```
+
+Isso é uma faca de dois gumes: por um lado, permite diferenciar nomes por convenção; por outro, um simples erro de digitação, como escrever `Vida` quando queríamos `vida`, vira um erro de compilação (ou, pior, o uso de uma variável diferente). Por isso, **evite** nomes que só se diferenciam pelas maiúsculas.
+
+### Acentos e outros caracteres
+
+Os acentos **não fazem parte** da lista de caracteres permitidos. Mesmo assim, o código a seguir pode compilar sem erros, dependendo do compilador:
+
+``` c
+int café = 3;
+```
+
+A explicação está na história. Quando o C foi criado, os computadores usavam tabelas de caracteres **sem acentos**, como o ASCII (que vimos em [char](#char)). Com o Unicode, os padrões mais novos da linguagem (C99 e C11) passaram a permitir **outros caracteres** em identificadores, mas **deixam a decisão para cada compilador**. O GCC, a partir da versão 10, aceita nomes escritos diretamente em UTF-8.
+
+Mas só porque *pode* funcionar, não significa que *deve* ser usado:
+
+- O código fica **menos portável**: outro compilador, ou outra versão do GCC, pode recusá-lo.
+- Se o arquivo for salvo em uma **codificação diferente** da esperada pelo compilador (lembra que `ê` ocupa mais de 1 byte em UTF-8?), o nome pode ser lido de forma errada.
+- Nem todo teclado facilita digitar acentos, e isso atrapalha quem for ler ou mexer no seu código depois.
+
+Por isso, escreva `cafe` e `pontuacao` mesmo que o seu compilador aceite `café` e `pontuação`.
+
+### Palavras reservadas
+
+Algumas palavras têm um **significado fixo** dentro da linguagem, como `int`, `return`, `if` e `while`. Elas são chamadas de **palavras reservadas** (ou *keywords*) e **não podem** ser usadas como identificadores:
+
+``` c
+int return = 5;
+```
+
+```
+main.c:5:9: error: expected identifier or ‘(’ before ‘return’
+    5 |     int return = 5;
+      |         ^~~~~~
+```
+
+O compilador esperava um **nome**, mas encontrou o comando `return`. Veja a lista completa de palavras reservadas do C11:
+
+<details>
+<summary>Clique aqui para ver a lista</summary>
+
+```
+auto      break     case      char      const     continue
+default   do        double    else      enum      extern
+float     for       goto      if        inline    int
+long      register  restrict  return    short     signed
+sizeof    static    struct    switch    typedef   union
+unsigned  void      volatile  while
+_Alignas  _Alignof  _Atomic   _Bool     _Complex  _Generic
+_Imaginary          _Noreturn _Static_assert      _Thread_local
+```
+
+</details>
+
+Você não precisa decorar nada disso. Com o tempo, o seu editor vai **colorir** essas palavras de forma diferente das variáveis, e o compilador avisa quando houver conflito.
+
+> Repare que `bool`, `true` e `false` **não estão** na lista: no C11, eles são definidos por `<stdbool.h>`, como vimos em [bool](#bool). Mesmo assim, não use esses nomes para suas variáveis, já que o resultado seria confuso (e um erro caso você inclua o *header*).
+
+### Nomes que parecem permitidos, mas não são uma boa ideia
+
+Existem nomes que o compilador **aceita**, mas que causam problemas por debaixo dos panos.
+
+**Começar com sublinhado.** Nomes que começam com `_` seguido de uma letra maiúscula (como `_Vida`), ou com dois sublinhados (como `__vida`), são **reservados** para o compilador e a Biblioteca Padrão. Usá-los é um *comportamento indefinido*, isto é, o padrão da linguagem não define o que acontece, já que eles podem entrar em conflito com algo que o compilador define por conta própria. Os que começam com `_` e uma letra minúscula também são reservados quando declarados fora de qualquer função. A regra prática é: **não comece nomes com sublinhado**.
+
+**Reutilizar nomes da Biblioteca Padrão.** Nada impede você de criar uma variável chamada `printf` ou `scanf`:
+
+``` c
+int printf = 5;
+```
+
+Dentro de uma função, isso apenas **esconde** a função original (em [Funções](./funcoes.md#escopos) veremos que a variável do escopo mais interno tem preferência), e você não conseguirá mais chamar o `printf` ali: o GCC reclama que `called object ‘printf’ is not a function or function pointer`. Se isso for feito fora de qualquer função, o compilador acusa conflito com a declaração em `<stdio.h>` (`‘printf’ redeclared as different kind of symbol`).
+
+### Tamanho do nome
+
+Existe um limite para o tamanho de um identificador, mas ele é **muito grande**: o padrão do C11 exige que o compilador distinga nomes por pelo menos os **63 primeiros caracteres** (31 para nomes visíveis entre arquivos). Na prática, você nunca vai esbarrar nisso.
+
+Nem sempre foi assim. No C original, dos anos 1970, só os **8 primeiros caracteres** de um nome importavam e, mesmo no C89, nomes visíveis entre arquivos só precisavam ser distintos nos **6 primeiros** (uma limitação dos *linkers* da época). Duas variáveis chamadas `pontuacao_jogador1` e `pontuacao_jogador2` poderiam ser vistas como a **mesma coisa**, já que os primeiros 8 caracteres, `pontuaca`, são iguais! Isso ajuda a explicar por que tantos nomes antigos da Biblioteca Padrão são curtos e enigmáticos, como `strcpy`, `strlen` e `printf`. Hoje esses limites são grandes o bastante para não nos preocuparmos, então não há motivo para economizar letras.
+
+### O nome só existe para humanos
+
+Uma curiosidade: depois que o código é compilado, os nomes das **variáveis locais somem** (a menos que você peça ao compilador para guardá-los para um depurador). O processador não sabe o que é `idade` ou `saldo`; ele trabalha com **endereços de memória** e registradores. O compilador usa os seus identificadores para descobrir quais pedaços do código se referem à mesma variável, e depois os troca por posições na memória.
+
+Ou seja, os nomes são feitos **para humanos**, e o computador se vira sem eles. Isso é uma boa razão para escolhê-los pensando em quem vai ler o código, que pode ser você daqui a um mês.
+
+### Convenções do guia
+
+Além das regras (o que o compilador **exige**), existem as **convenções** (o que a comunidade **recomenda**). Neste guia vamos usar:
+
+- ***snake_case*** para variáveis e funções: todas as letras em minúsculas, com palavras separadas por sublinhado, como em `saldo_final` e `nota_final`;
+- Nomes **descritivos em português**, sem acentos nem abreviações misteriosas, como `pontuacao` em vez de `p` ou `pont`; e
+- O prefixo `g_` para variáveis globais, como em `g_pontuacao` (veremos o que são em [Funções](./funcoes.md#escopos)).
+
+Outros projetos usam convenções diferentes, como o *camelCase* (`saldoFinal`). O importante é **escolher uma e ser consistente** em todo o código.
 
 ## Variáveis Constantes
 
@@ -652,7 +856,7 @@ main.c:7:8: error: assignment of read-only variable ‘pi’
 É a segunda linha da saída do comando que nos interessa: `error: assignment of read-only variable ‘pi’`.
 Ela fala que ocorreu um erro ao atribuir algum valor a uma variável _read-only_, do inglês "apenas de leitura", chamada `pi`. Esse erro é uma garantia do compilador de que não podemos alterar variáveis constantes.
 
-Se amanhã nós precisarmos aumentar a precisão da constante `pi`, isto é, aumentar o número de casas depois da vírgula, nós só precisamos alterar em **um lugar** - se não usássemos constantes, teríamos que procurar cada caso com o valor `3.14` e trocá-lo. Por exemplo, para atualizar a constante:
+Se amanhã nós precisarmos aumentar a precisão da constante `pi`, isto é, aumentar o número de casas depois da vírgula, nós só precisamos alterar em **um lugar** - se não usássemos constantes, e o `pi` fosse usado em dezenas de cálculos, teríamos que procurar cada caso com o valor `3.14` e trocá-lo. Por exemplo, para atualizar a constante:
 
 ```c
 #include <stdio.h>
@@ -668,14 +872,6 @@ int main(void)
 ```
 
 ## Boas práticas
-
-### Nomenclatura
-
-Evite nomes misteriosos para as suas variáveis. Em vez de `int p;`, use `int pontuacao;`. O nome da variável deve transmitir parte da sua função dentro do código.
-
-Evite o encurtamento dos nomes, como escrever `int v_final;` ao invés de `int valor_final;`. Quando você nomeia bem o seu código, mesmo que demore um pouco mais para digitar, daqui a um mês, quando precisar mudar o código de novo, os nomes mais claros te ajudarão a relembrar a lógica do código. Por isso, não se prenda à regra de apenas 8 caracteres!
-
-Ao longo do guia, veremos ainda mais casos de como melhorar a sua nomenclatura. Quando estava aprendendo a programar, achava difícil pensar em bons nomes para as coisas. Se você se sente assim, recomendo utilizar Inteligência Artificial para ter ideias de como nomear.
 
 ### Inicialização
 
@@ -694,7 +890,7 @@ int main(void)
 }
 ```
 
-Você verá que a variável `numero` armazena valores aleatórios. O motivo disso ficará claro em [Memória I](./memoria-1.md), por ora, sempre inicialize suas variáveis para evitar usar valores aleatórios acidentalmente.
+Você verá que a variável `numero` armazena um valor imprevisível, o chamado **lixo de memória**: o que já estava naquele espaço antes de o programa usá-lo. Em alguns computadores o valor pode se repetir (como `0`), mas isso é coincidência e não pode ser contado. Na verdade, o padrão da linguagem diz que ler uma variável não inicializada é um *comportamento indefinido*. O motivo disso ficará claro em [Memória I](./memoria-1.md), por ora, sempre inicialize suas variáveis para evitar usar valores imprevisíveis acidentalmente.
 
 ### Valores Mágicos
 
@@ -739,7 +935,7 @@ int main(void)
 }
 ```
 
-Agora, conseguimos ler o cálculo da variável `total` da seguinte forma: o total é a soma da conta, com a taxa de serviço e as reservas de cada pessoa. E de novo, se precisarmos diminuir a taxa de serviço, por exemplo, só precisamos mudar em um lugar só.
+Agora, conseguimos ler o cálculo da variável `total` da seguinte forma: o total é a conta somada à taxa de serviço (um percentual da conta) e às reservas de cada pessoa. E de novo, se precisarmos diminuir a taxa de serviço, por exemplo, só precisamos mudar em um só lugar.
 
 ---
 
