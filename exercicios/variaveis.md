@@ -16,15 +16,21 @@ Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida
 
 Como ainda não sabemos como pedir dados para os usuários enquanto o programa está em execução, vamos utilizar um padrão de **entrada** e **saída** para os exercícios.
 
-Os exercícios vão **dar as entradas** e pedir para você criar uma solução entre o comentário `// Saída:` e o `return 0;`.
+Os exercícios vão **dar as entradas** e pedir para você criar uma solução entre o *comentário* `// Saída:` e o `return 0;`.
 
-### Exemplo
+> Os comentários começam com `//`. Veremos o que são eles logo em seguida.
 
-> Enunciado.
+### Exemplo de exercício: Soma de Inteiros
+
+> ***Explicação sobre o que o exercício está treinando***
+
+> Como somar e imprimir variáveis do tipo inteiro.
+
+> **Enunciado**
 
 Exiba a soma de dois números inteiros `a` e `b`.
 
-> O que o exercício vai dar.
+> **O que o exercício vai dar**
 
 ```c
 int main(void)
@@ -40,7 +46,7 @@ int main(void)
 }
 ```
 
-> A resposta do exercício.
+> **A resposta do exercício**
 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
@@ -67,9 +73,7 @@ int main(void)
 
 ### Comentários
 
-Repare que, no parágrafo anterior, eu falei em um "comentário `// Saída:`". Mas o que isso quer dizer? Se `Saída` não é uma variável, nem uma função, por que o compilador não reclama dele?
-
-A resposta é que aquela linha é um **comentário**: um texto que existe apenas para quem **lê** o código, não para o computador. O compilador simplesmente **ignora** tudo o que está dentro de um comentário, como se ele nem estivesse ali.
+Um comentário é um texto que existe apenas para quem **lê** o código, não para o computador. O compilador simplesmente **ignora** tudo o que está dentro de um comentário, como se ele nem estivesse ali.
 
 Em C, existem duas formas de escrever comentários:
 
@@ -117,6 +121,8 @@ Voltando aos exercícios: é exatamente esse **comentário de uma linha** (`//`)
 
 ## Prevendo a Saída
 
+> Operações aritméticas; o que acontece quando misturamos `int` e `double`; ordem das operações.
+
 Leia o código a seguir e, **antes de compilar**, anote o que você acha que cada `printf` vai imprimir:
 
 ``` c
@@ -160,7 +166,7 @@ Depois, compile, rode e compare com as suas previsões. Tente entender o por qu�
 </details>
 
 <details>
-<summary>Dica 2: Divisao</summary>
+<summary>Dica 2: Divisão</summary>
 
 - Lembre-se de que a divisão de inteiros é **truncada**. Teste a relação `dividendo = quociente * divisor + resto` com os valores `-7` e `2`.
 
@@ -205,6 +211,8 @@ Depois, compile, rode e compare com as suas previsões. Tente entender o por qu�
 
 ## Troca de Valores
 
+> Atribuição de variáveis.
+
 Crie um programa que **troque** os valores das variáveis `a` e `b`. Exiba os valores **antes** e **depois** da troca.
 
 ``` c
@@ -230,12 +238,11 @@ Antes:  a = 3 e b = 8
 Depois: a = 8 e b = 3
 ```
 
-Antes de olhar a dica, tente o jeito mais "óbvio": `a = b;` seguido de `b = a;`. Qual é o resultado? Por quê?
 
 <details>
 <summary>Precisa de uma dica? Clique aqui.</summary>
 
-Quando fazemos `a = b;`, o valor antigo de `a` é **perdido**.
+Tente o jeito mais "óbvio": `a = b;` seguido de `b = a;`. Qual é o resultado? Por quê?
 
 </details>
 
@@ -273,6 +280,8 @@ int main(void)
 </details>
 
 ## Segundos em Horas, Minutos e Segundos
+
+> Operações Aritméticas.
 
 Crie um programa que receba uma quantidade de segundos e a converta para horas, minutos e segundos.
 
@@ -377,16 +386,15 @@ int main(void)
 }
 ```
 
+Para resolver esse exercícios, analise cuidadosamente a [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html). Lembre-se de que os caracteres são representados como **números**.
+
+**Não use valores mágicos**.
+
 ### Exemplo
 
 ```
 A maiúscula de g é G.
 ```
-
-Faça em **duas etapas**:
-
-1. Imprima o `'g'` e o `'G'` como **números** (`%d`). Qual é a diferença entre eles? Teste com outro par de letras, como `'a'` e `'A'`. A diferença é a mesma?
-2. Use essa diferença para fazer a conversão. **Não use um valor mágico**: crie uma constante com um nome claro e calcule o valor dela a partir de **dois caracteres** (lembre-se de que o `char` é um número).
 
 <details>
 <summary>Precisa de uma dica? Clique aqui.</summary>
@@ -398,7 +406,7 @@ Como o `char` é só um número, você pode **somar** e **subtrair** caracteres 
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-Para a primeira parte, podemos ver o valor decimal da letra `g` e `G` da seguinte forma:
+Podemos ver o valor decimal da letra `g` e `G` da seguinte forma:
 
 ``` c
 printf("%c vale %d\n", 'g', 'G');
@@ -410,7 +418,7 @@ g vale 103
 G vale 71
 ```
 
-A diferença é `103 - 71`, ou seja, `32`; note que ela é a mesma para qualquer par de letras, porque na Tabela ASCII o alfabeto minúsculo está na mesma ordem do maiúsculo, só **deslocado**.
+A diferença é `103 - 71`, ou seja, `32`; note que ela é a mesma para qualquer par de letras, porque na [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) o alfabeto minúsculo está na mesma ordem do maiúsculo, só **deslocado**.
 
 Escrever `32` direto no código seria um valor mágico. Em vez disso, calculamos a diferença com os próprios caracteres:
 
@@ -436,6 +444,29 @@ int main(void)
 ```
 
 O código agora se explica sozinho: a diferença entre uma minúscula e uma maiúscula é a distância entre `'a'` e `'A'`.
+
+Na prática, caso não usamos esse método para mudar uma letra minuscula para maiúscula. A Biblioteca Padrão oferece a função `toupper` no header `ctype.h`, que é usada da seguinte forma:
+
+``` c
+#include <stdio.h> // Para o printf
+
+#include <ctype.h> // Para o toupper
+
+int main(void)
+{
+    // Entrada:
+
+    char minuscula = 'g';
+
+    // Saída:
+
+    char maiuscula = toupper(minuscula);
+
+    printf("A maiúscula de %c é %c.\n", minuscula, maiuscula);
+
+    return 0;
+}
+```
 
 </details>
 
