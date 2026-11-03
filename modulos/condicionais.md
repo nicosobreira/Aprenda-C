@@ -12,7 +12,7 @@ As condicionais são estruturas que nos possibilitam avaliar condições e execu
 
 ## if e else
 
-Para resolvermos o nosso problema do guarda chuva, vamos escrever um programa que irá fazer essa decisão! Primeiro iremos declarar uma variável do tipo `bool`, chamada `vai_chover`. Nós podemos dar o valor de `true` ou `false` para ela, você escolhe. Depois iremos implementar essa lógica do "se e senão".
+Para resolvermos o nosso problema do guarda chuva, vamos escrever um programa que irá fazer essa decisão! Primeiro iremos declarar uma variável do tipo `bool`, chamada `vai_chover`. Nós podemos dar o valor de `true` ou `false` para ela, você escolhe. Depois iremos implementar essa lógica do **"se e senão"**.
 
 > Não se esqueça de importar a definição do tipo `bool` com o header `<stdbool.h>`.
 
@@ -45,8 +45,9 @@ Mude o valor da variável `vai_chover` para `false` e veja como a saída muda.
 
 ## else if
 
-Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia. Utilizamos de valores arbitrários para decidir quais faixas de temperaturas são frias, quentes e a ideais.
+Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia e que cada indivíduo decide o que é "quente" e "frio".
 
+<!-- FIX: Esse paragrafo fala e fala, mas para alguém que está tendo o primeiro contato é muito confuso. Preciso explicar os operadores de comparação antes. -->
 Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores de comparação**, o "maior que" (`>`) e o "menor que" (`<`) da matemática, junto a dois condicionais.
 
 ```c

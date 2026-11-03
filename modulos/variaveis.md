@@ -21,13 +21,13 @@ Declarar a variável nada mais é do que mostrar para o computador qual é o nom
 
 Para declarar uma variável do tipo inteiro (`int`) em C, escrevemos:
 
-``` c
+```c
 int numero;
 ```
 
 Dentro da função `main` fica assim:
 
-``` c
+```c
 int main(void)
 {
     int numero;
@@ -42,13 +42,13 @@ Ao longo do módulo, veremos mais tipos. Alguns deles são:
 
 - **Letra**:
 
-``` c
+```c
 char letra;
 ```
 
 - **Número real** (com casas depois da vírgula):
 
-``` c
+```c
 double real;
 ```
 
@@ -57,13 +57,13 @@ double real;
 Para **alterar o valor** de uma variável usamos o igual (`=`).
 A seguir nós **inicializamos** a variável `numero` com o valor `10`:
 
-``` c
+```c
 int numero = 10;
 ```
 
 **Depois que declaramos** uma variável, podemos alterar o seu valor novamente, sem repetir o tipo, como no código a seguir, que cria a variável `idade` - com valor inicial 18 - e a muda para 10.
 
-``` c
+```c
 int main(void)
 {
     int idade = 18;
@@ -92,7 +92,7 @@ Para exibirmos o valor da variável `idade`, usaremos a função `printf`, decla
 
 A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é o texto que queremos imprimir, os outros são **valores que serão substituídos no texto**. Esses valores são indicados dentro do texto com o símbolo de porcentagem (`%`) seguido por uma ou mais letras que indicam o **tipo desse valor**. Esses valores podem estar **armazenados em variáveis** ou **colocados diretamente** no `printf`. Veja os dois exemplos a seguir, um imprime o valor `10` e o outro, o valor armazenado na variável `idade`:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -122,7 +122,7 @@ Retire o `%d` e veja a saída do programa:
 
 - **Código**:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -154,7 +154,7 @@ Idade:
 
 O programa compila, mas o GCC nos dá um `warning` na linha 7, coluna 12 de `main.c`, nos avisando que estamos passando muitos argumentos para a função `printf`. A solução é colocar o `%d` no texto. Ele pode ficar em qualquer posição, como no exemplo a seguir:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -171,7 +171,7 @@ int main(void)
 
 Também podemos passar quantos argumentos quisermos para a função `printf`, desde que cada um tenha o seu `%` correspondente:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -191,7 +191,7 @@ Também podemos fazer operações aritméticas **entre variáveis e números**, 
 
 - **Soma** (`+`):
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -209,7 +209,7 @@ int main(void)
 
 - **Subtração** (`-`):
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -227,7 +227,7 @@ int main(void)
 
 - **Multiplicação** (`*`):
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -245,7 +245,7 @@ int main(void)
 
 - **Divisão** (`/`):
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -262,13 +262,13 @@ int main(void)
 ```
 
 > Também podemos imprimir os resultados **direto** no `printf`:
-> ``` c
+> ```c
 > printf("resultado = %d\n", 2 + 4);
 > ```
 
 A divisão de inteiros (`int`) em C funciona um pouco diferente do que você possa imaginar. Quando os números dividem **sem sobrar resto**, a divisão funciona como esperado (como no exemplo acima), mas caso a divisão tenha dígitos depois da vírgula, ela é **truncada**, isto é, todos os dígitos **depois da vírgula são descartados** e apenas a parte inteira é mantida. Veja o resultado de `7 / 2`:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -284,7 +284,7 @@ Dizemos que a divisão é **truncada**, e não "*arredondada*". Isso quer dizer 
 
 Ainda temos o operador **Módulo**, também chamado de "**resto da divisão**". Veja o código a seguir:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -311,7 +311,7 @@ O quociente da divisão de 7 por 2 é 3, enquanto o resto é 1, ou seja, $2 \tim
 
 Por fim, usamos os parênteses `()` para indicar quais operações devem ser executadas primeiro. Veja como a saída muda entre os exemplos, mesmo que eles tenham os mesmos números:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -324,7 +324,7 @@ int main(void)
 }
 ```
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -404,7 +404,7 @@ Também existem outros formatadores para `float` e `double`. Caso você queira i
 
 Podemos usar as mesmas operações que vimos, só temos que tomar um cuidado. Tente prever qual é a saída do programa:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -419,7 +419,7 @@ int main(void)
 
 Como estamos usando o `double`, o resultado esperado é `3.5`, mas recebemos `3.000000` novamente; o motivo é a mesma regra que já vimos: o tipo do resultado depende dos tipos dos números usados, **e não** do tipo da variável que o recebe. Primeiro o computador divide `7 / 2` como inteiros, obtendo `3`, e só depois converte esse `3` para `double` ao guardá-lo na variável. Por padrão, um número sem ponto (`.`) é interpretado como `int`, e um número com ponto, como `double`. Veja como a saída sai corretamente quando usamos `.0`:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -515,13 +515,13 @@ Na esmagadora maioria dos computadores, um grupo de 8 bits é chamado de **byte*
 
 Representa um único caractere, como uma letra do alfabeto ou um sinal de pontuação.
 
-``` c
+```c
 char caractere = 'a';
 ```
 
 Lembra do começo do capítulo, quando vimos que o binário `0100 0011` (67 em decimal) pode ser interpretado de formas diferentes? Agora veremos isso na prática:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -547,7 +547,10 @@ A linguagem C **não define** qual tabela deve ser usada. Ela só exige que o `c
 
 Isso faz sentido pela história. Nos anos 1960, cada fabricante tinha o seu próprio código de caracteres. O **ASCII** (1963) acabou se tornando o mais popular, mas ele só tem 128 caracteres, pensados para o inglês, e por isso não tem acentos. A IBM, por exemplo, usava outra tabela, o EBCDIC, em que a letra `C` **não vale** 67, mas sim **195**. Quando o C foi criado (1972), esses sistemas coexistiam, então a linguagem evitou se prender a uma única tabela. Esse é um dos motivos de ela ter sido tão portável.
 
-Para dar conta de outros idiomas, surgiram tabelas de 8 bits que aproveitavam os valores de 128 a 255 para acentos (como a Latin-1), mas cada país usava uma diferente. O **Unicode** (1991) resolveu isso ao criar **uma única tabela** com os caracteres de praticamente todas as línguas. Hoje, quase todos os sistemas usam o Unicode. A codificação mais comum é o **UTF-8** (Linux, macOS e a web), que mantém os 128 primeiros valores **idênticos ao ASCII**. O Windows usa internamente outra codificação do Unicode, o UTF-16, e o terminal ainda pode usar tabelas antigas, por isso configuramos o PowerShell para UTF-8 em [Instalando o C](./instalacao.md). Por isso, na prática, `'C'` vale `67` em praticamente qualquer computador moderno.
+Para dar conta de outros idiomas, surgiram tabelas de 8 bits que aproveitavam os valores de 128 a 255 para acentos (como a Latin-1), mas cada país usava uma diferente. O **Unicode** (1991) resolveu isso ao criar **uma única tabela** com os caracteres de praticamente todas as línguas. Hoje, quase todos os sistemas usam o Unicode. A codificação mais comum é o **UTF-8** (Linux, macOS e a web), que mantém os 128 primeiros valores **idênticos ao ASCII**.
+Por isso, na prática, `'C'` vale `67` em praticamente qualquer computador moderno.
+
+> O Windows usa internamente outra codificação do Unicode, o UTF-16, e o terminal ainda pode usar tabelas antigas, por isso configuramos o PowerShell para UTF-8 em [Instalando o C](./instalacao.md).
 
 Você pode consultar a [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) para ver os valores dos caracteres básicos.
 
@@ -580,7 +583,7 @@ Nem toda sequência de escape é um caractere de controle: `\\`, `\'` e `\"` rep
 
 Como o `char` é um número no final das contas, podemos fazer contas com ele. O código a seguir é válido:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -647,7 +650,7 @@ Um identificador pode ser formado por:
 
 Isso significa que **espaços** e símbolos como `-`, `+`, `.` e `@` **não** são permitidos. O motivo é simples: todos eles já têm outro significado para o compilador. Veja o que acontece com `-`:
 
-``` c
+```c
 int nota-final = 10;
 ```
 
@@ -667,7 +670,7 @@ O mesmo vale para o espaço, que separa uma palavra da outra. Quando precisamos 
 
 Tente compilar esta versão:
 
-``` c
+```c
 int nota final = 10;
 ```
 
@@ -699,7 +702,7 @@ main.c:5:9: error: invalid suffix "pessoa" on integer constant
 
 A linguagem C é ***case-sensitive***, isto é, **diferencia** letras maiúsculas de minúsculas. Os nomes `vida`, `Vida` e `VIDA` são três identificadores **diferentes**:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -720,7 +723,7 @@ Isso é uma faca de dois gumes: por um lado, permite diferenciar nomes por conve
 
 Os acentos **não fazem parte** da lista de caracteres permitidos. Mesmo assim, o código a seguir pode compilar sem erros, dependendo do compilador:
 
-``` c
+```c
 int café = 3;
 ```
 
@@ -738,7 +741,7 @@ Por isso, escreva `cafe` e `pontuacao` mesmo que o seu compilador aceite `café`
 
 Algumas palavras têm um **significado fixo** dentro da linguagem, como `int`, `return`, `if` e `while`. Elas são chamadas de **palavras reservadas** (ou *keywords*) e **não podem** ser usadas como identificadores:
 
-``` c
+```c
 int return = 5;
 ```
 
@@ -778,7 +781,7 @@ Existem nomes que o compilador **aceita**, mas que causam problemas por debaixo 
 
 **Reutilizar nomes da Biblioteca Padrão.** Nada impede você de criar uma variável chamada `printf` ou `scanf`:
 
-``` c
+```c
 int printf = 5;
 ```
 
@@ -802,7 +805,6 @@ Além das regras (o que o compilador **exige**), existem as **convenções** (o 
 
 - ***snake_case*** para variáveis e funções: todas as letras em minúsculas, com palavras separadas por sublinhado, como em `saldo_final` e `nota_final`;
 - Nomes **descritivos em português**, sem acentos nem abreviações misteriosas, como `pontuacao` em vez de `p` ou `pont`; e
-- O prefixo `g_` para variáveis globais, como em `g_pontuacao` (veremos o que são em [Funções](./funcoes.md#escopos)).
 
 Outros projetos usam convenções diferentes, como o *camelCase* (`saldoFinal`). O importante é **escolher uma e ser consistente** em todo o código.
 

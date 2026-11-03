@@ -120,7 +120,7 @@ O `int` é usado para indicar que essa função **retornará** um valor do tipo 
 
 O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, como no código a seguir, o programa fechará imediatamente e o texto nunca será exibido. Faça esse teste antes de continuar.
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -188,7 +188,7 @@ Execute o comando `gcc -o main main.c` e veja o que acontece quando esquecemos d
 
 **Código**:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -262,7 +262,7 @@ Veja a mensagem gerada pelo compilador quando esquecemos de colocar o `#include 
 
 **Código**:
 
-``` c
+```c
 int main(void)
 {
     printf("Olá, Mundo!\n");
@@ -358,7 +358,7 @@ Ainda existem muitos erros de compilação, mas para entendê-los são necessár
 
 - **Escrever código fora de uma função**:
 
-``` c
+```c
 #include <stdio.h>
 
 printf("Olá, Mundo!\n");

@@ -125,7 +125,7 @@ Voltando aos exercícios: é exatamente esse **comentário de uma linha** (`//`)
 
 Leia o código a seguir e, **antes de compilar**, anote o que você acha que cada `printf` vai imprimir:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -215,7 +215,7 @@ Depois, compile, rode e compare com as suas previsões. Tente entender o por qu�
 
 Crie um programa que **troque** os valores das variáveis `a` e `b`. Exiba os valores **antes** e **depois** da troca.
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -253,7 +253,7 @@ O jeito "óbvio" não funciona: depois de `a = b;`, o valor `3` some e as duas v
 
 A solução é guardar o valor antigo de `a` em uma **variável auxiliar** antes de sobrescrevê-lo:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -287,7 +287,7 @@ Crie um programa que receba uma quantidade de segundos e a converta para horas, 
 
 Não use valores mágicos: `60` e `3600` devem ser constantes com nomes claros.
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -332,7 +332,7 @@ Primeiro descubra **quantas horas completas** cabem em `total_segundos` (qual op
 <details>
 <summary>Clique aqui para ver a resposta</summary>
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -371,7 +371,7 @@ Aqui, o truncamento da divisão de inteiros, que parecia um problema, é **exata
 
 Crie um programa que converta a letra minúscula `minuscula` para maiúscula, **sem usar** nenhuma função da Biblioteca Padrão.
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -408,7 +408,7 @@ Como o `char` é só um número, você pode **somar** e **subtrair** caracteres 
 
 Podemos ver o valor decimal da letra `g` e `G` da seguinte forma:
 
-``` c
+```c
 printf("%c vale %d\n", 'g', 'G');
 printf("%c vale %d\n", 'G', 'G');
 ```
@@ -422,7 +422,7 @@ A diferença é `103 - 71`, ou seja, `32`; note que ela é a mesma para qualquer
 
 Escrever `32` direto no código seria um valor mágico. Em vez disso, calculamos a diferença com os próprios caracteres:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -447,7 +447,7 @@ O código agora se explica sozinho: a diferença entre uma minúscula e uma mai�
 
 Na prática, caso não usamos esse método para mudar uma letra minuscula para maiúscula. A Biblioteca Padrão oferece a função `toupper` no header `ctype.h`, que é usada da seguinte forma:
 
-``` c
+```c
 #include <stdio.h> // Para o printf
 
 #include <ctype.h> // Para o toupper

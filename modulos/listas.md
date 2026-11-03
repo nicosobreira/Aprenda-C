@@ -293,7 +293,7 @@ Assim como as listas, cada byte possui um **endereço** único, que é literalme
 Usamos o operador `&` (o "e" comercial) para ver o **endereço de memória de uma variável** da seguinte forma: `&variavel` - apenas se `variavel` já foi declarada!
 Agora, vamos exibir esse endereço de forma numérica:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -365,7 +365,7 @@ Cada tipo recebe a quantidade de bytes necessária para o tipo de informação q
 
 Confira no seu computador:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
@@ -475,7 +475,7 @@ int main(void)
 
 O resultado esperado é 5, mas o que foi dado: 1! Lembre-se de que, em [Funções](./funcoes.md), vimos que todos os argumentos da função são **copiados**. O esperado seria que a lista `temperaturas` fosse copiada para a função `pegar_tamanho`, mas o que acontece é que **apenas o endereço de memória da lista é copiado**. Em outras palavras, o esperado seria que o tamanho em bytes da lista fosse 40 bytes ($5 \times 8$), mas o resultado é apenas 8 bytes:
 
-``` c
+```c
 #include <stdio.h>
 
 int pegar_tamanho(double lista[])
@@ -611,7 +611,7 @@ int pontuacoes[10] = {0}; // Todos os 10 elementos começam zerados
 
 Em uma lista com 4 elementos, o último índice válido é 3. Para uma lista de $n$ elementos, o último índice é $n - 1$. Dentro do `for` loop, tome cuidado para não colocar o `<=` sem querer, como no caso a seguir:
 
-``` c
+```c
 #include <stdio.h>
 
 int main(void)
