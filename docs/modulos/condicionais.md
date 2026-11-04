@@ -167,9 +167,8 @@ int main(void)
 O professor percebeu que os alunos estão indo muito mal na prova. Ele decidiu usar a frequência às aulas como outro fator que faz o aluno passar na matéria.
 A taxa de frequência vai de 0 a 10, e segue a seguinte lógica: se o aluno tirou menos que 6, mas possui frequência maior ou igual a 9, ele passa, do contrário ele reprova. Criamos uma nova variável também do tipo `#!c double` chamada `frequencia` e a usamos da seguinte forma:
 
-```c hl_lines="11"
+```c hl_lines="10"
 #include <stdio.h>
-#include <stdbool.h>
 
 int main(void)
 {
@@ -198,9 +197,8 @@ int main(void)
 
 Note que temos que repetir duas vezes a mensagem `"Você passou!"`. A linguagem C nos oferece os chamados **operadores booleanos**, que são operações que resultam em apenas `#!c true` ou `#!c false` a partir de uma **relação lógica**. Nesse caso, a relação lógica é o "E", ou seja, para o aluno **reprovar** é necessário que: *ele tire menos que 6* **e** *tenha frequência menor que 9*. Escrevemos essa operação como `#!c &&`:
 
-```c hl_lines="9"
+```c hl_lines="8"
 #include <stdio.h>
-#include <stdbool.h>
 
 int main(void)
 {
@@ -233,9 +231,8 @@ Basta que uma dessas condições seja falsa para que o aluno passe na matéria, 
 
 No parágrafo anterior, vimos que se o aluno tiver *nota maior ou igual a 6* **ou** *frequência maior ou igual a 9* ele **passa**. O C possui o operador "OU", escrito como `#!c ||`, que traz essa ideia:
 
-```c hl_lines="9"
+```c hl_lines="8"
 #include <stdio.h>
-#include <stdbool.h>
 
 int main(void)
 {
@@ -446,7 +443,7 @@ Prefira nomes **positivos** para variáveis booleanas (`passou`, e não `nao_pas
 
 Com o que vimos até agora, tente resolver o seguinte problema: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia e que cada indivíduo decide o que é "quente" e "frio".
 
-Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13 °C e 32 °C. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia.
+Crie um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13 °C e 32 °C. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia.
 
 ```c
 #include <stdio.h>
