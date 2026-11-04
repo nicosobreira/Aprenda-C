@@ -1,25 +1,17 @@
-<p align="center">
-  <a href="./linguagem-c.md">← O que é C?</a>
-  &nbsp;|&nbsp;
-  <a href="../exercicios/variaveis.md">Exercícios: Variáveis →</a>
-</p>
-
----
-
 # Variáveis
 
 As variáveis são valores **armazenados** na **memória do computador**, usados para **guardar** algum dado para uso futuro. Elas nos permitem guardar informações bem diferentes, como a idade de uma pessoa, o preço de um produto e se um usuário está logado ou não em um sistema.
 Os valores são, respectivamente: um número inteiro, um número real e um valor que só pode ser verdadeiro ou falso.
 Lembra que em [O que é C?](./linguagem-c.md) vimos que o computador só lida com zeros e uns? Como o computador guarda dados tão diferentes entre si, se ele só entende 0 e 1?
 
-A verdade é que o computador interpreta os zeros e uns da maneira que nós, programadores, mandamos. Tomemos o número binário `0100 0011` como exemplo. Quando o computador olha para ele, não tem a menor ideia do que ele significa.
-Para a máquina, a sequência `0100 0011` é apenas um dado bruto. No entanto, se nós mandarmos o computador interpretar isso como um número inteiro, o valor é 67. Ao final do módulo, veremos que esse mesmo binário representa um outro tipo de informação: uma letra.
+A verdade é que o computador interpreta os zeros e uns da maneira que nós, programadores, mandamos. Tomemos o número binário `#!c 0100 0011` como exemplo. Quando o computador olha para ele, não tem a menor ideia do que ele significa.
+Para a máquina, a sequência `#!c 0100 0011` é apenas um dado bruto. No entanto, se nós mandarmos o computador interpretar isso como um número inteiro, o valor é 67. Ao final do módulo, veremos que esse mesmo binário representa um outro tipo de informação: uma letra.
 
 ## Declaração
 
 Declarar a variável nada mais é do que mostrar para o computador qual é o nome e tipo da informação que queremos armazenar.
 
-Para declarar uma variável do tipo inteiro (`int`) em C, escrevemos:
+Para declarar uma variável do tipo inteiro (`#!c int`) em C, escrevemos:
 
 ```c
 int numero;
@@ -36,32 +28,28 @@ int main(void)
 }
 ```
 
-O `int` mostra ao computador que o valor armazenado na variável de nome `numero` é do tipo **inteiro**.
+O `#!c int` mostra ao computador que o valor armazenado na variável de nome `numero` é do tipo **inteiro**.
 
 Ao longo do módulo, veremos mais tipos. Alguns deles são:
 
-- **Letra**:
-
-```c
+```c title="Letra"
 char letra;
 ```
 
-- **Número real** (com casas depois da vírgula):
-
-```c
+```c title="Número real"
 double real;
 ```
 
 ## Atribuição
 
-Para **alterar o valor** de uma variável usamos o igual (`=`), que na programação siginifica **atribuição**.
-A seguir nós **inicializamos** a variável `numero` com o valor `10`:
+Para **alterar o valor** de uma variável usamos o igual (`#!c =`), que na programação significa **atribuição**.
+A seguir nós **inicializamos** a variável `numero` com o valor `#!c 10`:
 
 ```c
 int numero = 10;
 ```
 
-**Depois que declaramos** uma variável, podemos alterar o seu valor novamente sem repetir o tipo, Como no código a seguir, que cria a variável `idade` - com valor inicial 18, e a muda para 10.
+**Depois que declaramos** uma variável, podemos alterar o seu valor novamente sem repetir o tipo, Como no código a seguir, que cria a variável `idade` - com valor inicial `#!c 18`, e a muda para `#!c 10`.
 
 ```c
 int main(void)
@@ -82,17 +70,17 @@ Nesse módulo, veremos esses tipos **sem muitos detalhes**. No entanto, no módu
 
 ### int
 
-Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
+Representa um número inteiro, como `#!c -1`, `#!c -3`, `#!c 0` e `#!c 1`.
 
 ```c
 int idade = 18;
 ```
 
-Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h`.
+Para exibirmos o valor da variável `idade`, usaremos a função `#!c printf`, declarada em `#!c stdio.h`.
 
-A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é o texto que queremos imprimir, os outros são **valores que serão substituídos no texto**. Esses valores são indicados dentro do texto com o símbolo de porcentagem (`%`) seguido por uma ou mais letras que indicam o **tipo desse valor**. Esses valores podem estar **armazenados em variáveis** ou **colocados diretamente** no `printf`. Veja os dois exemplos a seguir, um imprime o valor `10` e o outro, o valor armazenado na variável `idade`:
+A função `#!c printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é o texto que queremos imprimir, os outros são **valores que serão substituídos no texto**. Esses valores são indicados dentro do texto com o símbolo de porcentagem (`%`) seguido por uma ou mais letras que indicam o **tipo desse valor**. Esses valores podem estar **armazenados em variáveis** ou **colocados diretamente** no `#!c printf`. Veja os dois exemplos a seguir, um imprime o valor `#!c 10` e o outro, o valor armazenado na variável `idade`:
 
-```c
+```c title="Direto"
 #include <stdio.h>
 
 int main(void)
@@ -103,7 +91,7 @@ int main(void)
 }
 ```
 
-```c
+```c title="Variável"
 #include <stdio.h>
 
 int main(void)
@@ -116,13 +104,11 @@ int main(void)
 }
 ```
 
-O caractere ao lado do `%` representa o tipo do valor que será impresso. Nesse caso, usamos o `d` (de *decimal*) para indicar que o valor a ser impresso é um `int`, seja ele escrito diretamente ou guardado em uma variável.
+O caractere ao lado do `%` representa o tipo do valor que será impresso. Nesse caso, usamos o `d` (de *decimal*) para indicar que o valor a ser impresso é um `#!c int`, seja ele escrito diretamente ou guardado em uma variável.
 
-Retire o `%d` e veja a saída do programa:
+Retire o `#!c %d` e veja a saída do programa:
 
-- **Código**:
-
-```c
+```c title="Código"
 #include <stdio.h>
 
 int main(void)
@@ -135,9 +121,7 @@ int main(void)
 }
 ```
 
-- **Mensagem do compilador**:
-
-```
+```console title="Mensagem do compilador"
 $ gcc -o main main.c
 main.c: In function ‘main’:
 main.c:7:12: warning: too many arguments for format [-Wformat-extra-args]
@@ -145,14 +129,12 @@ main.c:7:12: warning: too many arguments for format [-Wformat-extra-args]
       |            ^~~~~~~~~~~
 ```
 
-- **Saída do programa**:
-
-```
+```console title="Saída do programa"
 $ ./main
 Idade:
 ```
 
-O programa compila, mas o GCC nos dá um `warning` na linha 7, coluna 12 de `main.c`, nos avisando que estamos passando muitos argumentos para a função `printf`. A solução é colocar o `%d` no texto. Ele pode ficar em qualquer posição, como no exemplo a seguir:
+O programa compila, mas o GCC nos dá um `warning` na linha 7, coluna 12 de `main.c`, nos avisando que estamos passando muitos argumentos para a função `#!c printf`. A solução é colocar o `%d` no texto. Ele pode ficar em qualquer posição, como no exemplo a seguir:
 
 ```c
 #include <stdio.h>
@@ -167,9 +149,11 @@ int main(void)
 }
 ```
 
-> A saída será `I18dade:`, o que é estranho, mas mostra que o `%d` é só um espaço reservado, que o `printf` troca pelo valor. O correto aqui seria `"Idade: %d\n"`.
+!!! atenção
 
-Também podemos passar quantos argumentos quisermos para a função `printf`, desde que cada um tenha o seu `%` correspondente:
+    A saída será `I18dade:`, o que é estranho, mas mostra que o `%d` é só um espaço reservado que o `#!c printf` troca pelo valor. O correto aqui seria `"Idade: %d\n"`.
+
+Também podemos passar quantos argumentos quisermos para a função `#!c printf`, desde que cada um tenha o seu `%` correspondente:
 
 ```c
 #include <stdio.h>
@@ -261,12 +245,14 @@ int main(void)
 }
 ```
 
-> Também podemos imprimir os resultados **direto** no `printf`:
-> ```c
-> printf("resultado = %d\n", 2 + 4);
-> ```
+!!! dica
 
-A divisão de inteiros (`int`) em C funciona um pouco diferente do que você possa imaginar. Quando os números dividem **sem sobrar resto**, a divisão funciona como esperado (como no exemplo acima), mas caso a divisão tenha dígitos depois da vírgula, ela é **truncada**, isto é, todos os dígitos **depois da vírgula são descartados** e apenas a parte inteira é mantida. Veja o resultado de `7 / 2`:
+    Também podemos imprimir os resultados **direto** no `#!c printf`:
+    ```c
+    printf("resultado = %d\n", 2 + 4);
+    ```
+
+A divisão de inteiros (`#!c int`) em C funciona um pouco diferente do que você possa imaginar. Quando os números dividem **sem sobrar resto**, a divisão funciona como esperado (como no exemplo acima), mas caso a divisão tenha dígitos depois da vírgula, ela é **truncada**, isto é, todos os dígitos **depois da vírgula são descartados** e apenas a parte inteira é mantida. Veja o resultado de `#!c 7 / 2`:
 
 ```c
 #include <stdio.h>
@@ -279,8 +265,8 @@ int main(void)
 }
 ```
 
-Ele é `3`, e não `3.5`. A linguagem C define o tipo do resultado das operações aritméticas a partir dos **tipos** dos números usados. Nesse caso, como `7` e `2` são do **tipo inteiro**, o resultado também é um inteiro. Como os inteiros não representam frações, a parte depois da vírgula é descartada.
-Dizemos que a divisão é **truncada**, e não "*arredondada*". Isso quer dizer que `99 / 100` vale `0`, mesmo que o valor real, `0.99`, esteja bem perto de `1`. Nos números negativos o descarte também é em direção ao zero: `-7 / 2` vale `-3`, e não `-4`.
+Ele é `#!c 3`, e não `#!c 3.5`. A linguagem C define o tipo do resultado das operações aritméticas a partir dos **tipos** dos números usados. Nesse caso, como `#!c 7` e `#!c 2` são do **tipo inteiro**, o resultado também é um inteiro. Como os inteiros não representam frações, a parte depois da vírgula é descartada.
+Dizemos que a divisão é **truncada**, e não "*arredondada*". Isso quer dizer que `#!c 99 / 100` vale `#!c 0`, mesmo que o valor real, `#!c 0.99`, esteja bem perto de `#!c 1`. Nos números negativos o descarte também é em direção ao zero: `#!c -7 / 2` vale `#!c -3`, e não `#!c -4`.
 
 Ainda temos o operador **Módulo**, também chamado de "**resto da divisão**". Veja o código a seguir:
 
@@ -311,9 +297,7 @@ O quociente da divisão de 7 por 2 é 3, enquanto o resto é 1, ou seja, $2 \tim
 
 Por fim, usamos os parênteses `()` para indicar quais operações devem ser executadas primeiro. Veja como a saída muda entre os exemplos, mesmo que eles tenham os mesmos números:
 
-> Código 1
-
-```c
+```c title="Com parênteses"
 #include <stdio.h>
 
 int main(void)
@@ -326,9 +310,7 @@ int main(void)
 }
 ```
 
-> Código 2
-
-```c
+```c title="Sem parênteses"
 #include <stdio.h>
 
 int main(void)
@@ -349,19 +331,19 @@ A ordem das operações segue as mesmas regras da matemática:
 
 ### float / double
 
-Tanto o `float` quanto o `double` representam números reais, aqueles com casas depois da vírgula. A principal diferença é no **nível de precisão** entre os tipos: o `double` é mais preciso que o `float`. Enquanto o tipo `float` consegue representar, aproximadamente, 7 dígitos decimais, o `double` representa cerca de 15.
+Tanto o `#!c float` quanto o `#!c double` representam números reais, aqueles com casas depois da vírgula. A principal diferença é no **nível de precisão** entre os tipos: o `#!c double` é mais preciso que o `#!c float`. Enquanto o tipo `#!c float` consegue representar, aproximadamente, 7 dígitos decimais, o `#!c double` representa cerca de 15.
 
-Essa maior precisão tem um custo: o tipo `double` precisa de mais espaço do que o `float`, mas na *maioria das vezes* esse custo é desprezível. Em [Memória I](./memoria-1.md) veremos como esses tipos são representados, com isso você conseguirá avaliar quando usar um ou outro. Ao longo do guia vamos usar o `double`.
+Essa maior precisão tem um custo: o tipo `#!c double` precisa de mais espaço do que o `#!c float`, mas na *maioria das vezes* esse custo é desprezível. Em [Memória I](./memoria-1.md) veremos como esses tipos são representados, com isso você conseguirá avaliar quando usar um ou outro. Ao longo do guia vamos usar o `#!c double`.
 
-Declaramos o `float` da seguinte forma:
+Declaramos o `#!c float` da seguinte forma:
 
 ```c
 float media_f = 6.72f;
 ```
 
-Colocamos o `f` no final para indicar que o número é um `float`. Também podemos usar o `F`. Sem ele, o `6.72` seria um `double`, que o compilador converteria para `float` automaticamente: funciona, mas é melhor deixar a intenção clara.
+Colocamos o `#!c f` no final para indicar que o número é um `#!c float`. Também podemos usar o `#!c F`. Sem ele, o `#!c 6.72` seria um `#!c double`, que o compilador converteria para `#!c float` automaticamente: funciona, mas é melhor deixar a intenção clara.
 
-Já o `double`:
+Já o `#!c double`:
 
 ```c
 double media_d = 3.2;
@@ -386,7 +368,7 @@ int main(void)
 }
 ```
 
-Para o `printf`, ambos os tipos usam o mesmo formatador, já que o `float` é convertido automaticamente em `double` ao ser passado para a função. Rode o programa e veja o resultado: o valor vem seguido de zeros, pois o `%f` mostra, por padrão, 6 casas depois da vírgula.
+Para o `#!c printf`, ambos os tipos usam o mesmo formatador, já que o `#!c float` é convertido automaticamente em `#!c double` ao ser passado para a função. Rode o programa e veja o resultado: o valor vem seguido de zeros, pois o `#!c %f` mostra, por padrão, 6 casas depois da vírgula.
 
 Podemos mudar como o valor será exibido alterando o formatador. Por exemplo, para exibirmos apenas duas casas depois da vírgula, usamos:
 
@@ -400,9 +382,11 @@ Também podemos arredondar o número **apenas na exibição** (o valor guardado 
 printf("Média Double: %.0f\n", media_d);
 ```
 
-Também existem outros formatadores para `float` e `double`. Caso você queira ignorar os zeros desnecessários (aqueles que ficam à direita, depois da vírgula), use o `%g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `15.00`, usando o `%g`, será exibido apenas `15`.
+Também existem outros formatadores para `#!c float` e `#!c double`. Caso você queira ignorar os zeros desnecessários (aqueles que ficam à direita, depois da vírgula), use o `#!c %g`. Esse formatador apenas mostrará o mínimo possível; se o valor for `#!c 15.00`, usando o `#!c %g`, será exibido apenas `#!c 15`.
 
-> Por padrão, o `%g` mostra no máximo 6 dígitos significativos: `3.14159265` é exibido como `3.14159`. Para números muito grandes ou muito pequenos ele também pode usar notação científica, como `1e+06` para `1000000.0`.
+!!! info
+
+    Por padrão, o `#!c %g` mostra no máximo 6 dígitos significativos: `#!c 3.14159265` é exibido como `#!c 3.14159`. Para números muito grandes ou muito pequenos ele também pode usar notação científica, como `#!c 1e+06` para `#!c 1000000.0`.
 
 #### Operações
 
@@ -421,7 +405,7 @@ int main(void)
 }
 ```
 
-Como estamos usando o `double`, o resultado esperado é `3.5`, mas recebemos `3.000000` novamente; o motivo é a mesma regra que já vimos: o tipo do resultado depende dos tipos dos números usados, **e não** do tipo da variável que o recebe. Primeiro o computador divide `7 / 2` como inteiros, obtendo `3`, e só depois converte esse `3` para `double` ao guardá-lo na variável. Por padrão, um número sem ponto (`.`) é interpretado como `int`, e um número com ponto, como `double`. Veja como a saída sai corretamente quando usamos `.0`:
+Como estamos usando o `#!c double`, o resultado esperado é `#!c 3.5`, mas recebemos `#!c 3.000000` novamente; o motivo é a mesma regra que já vimos: o tipo do resultado depende dos tipos dos números usados, **e não** do tipo da variável que o recebe. Primeiro o computador divide `#!c 7 / 2` como inteiros, obtendo `#!c 3`, e só depois converte esse `#!c 3` para `#!c double` ao guardá-lo na variável. Por padrão, um número sem ponto (`.`) é interpretado como `#!c int`, e um número com ponto, como `#!c double`. Veja como a saída sai corretamente quando usamos `.0`:
 
 ```c
 #include <stdio.h>
@@ -436,7 +420,9 @@ int main(void)
 }
 ```
 
-> O operador módulo (`%`) só funciona com inteiros. Tente `7 % 2.0` e o GCC dará o erro `invalid operands to binary %`.
+!!! atenção
+
+    O operador módulo (`%`) só funciona com inteiros. Tente `7 % 2.0` e o GCC dará o erro `invalid operands to binary %`.
 
 ### Bits e o sistema binário
 
@@ -511,9 +497,9 @@ Pratique: quanto vale `0000 1010`? E `0001 0000`? Como se escreve o `13` em bin�
 
 Com 4 dígitos decimais vamos de `0000` a `9999`, ou seja, $10^4 = 10\,000$ números. Com 4 bits, temos $2^4 = 16$ números, de `0000` (0) a `1111` (15). Em geral, **n bits representam $2^n$ valores diferentes**.
 
-Na esmagadora maioria dos computadores, um grupo de 8 bits é chamado de **byte**, e consegue representar $2^8 = 256$ valores, de 0 a 255. Guarde esse número, ele vai explicar vários comportamentos do `char`.
+Na esmagadora maioria dos computadores, um grupo de 8 bits é chamado de **byte**, e consegue representar $2^8 = 256$ valores, de 0 a 255. Guarde esse número, ele vai explicar vários comportamentos do `#!c char`.
 
-> Em [Memória I](./memoria-1.md) veremos como o `int` usa essa mesma ideia, inclusive para representar números negativos.
+> Em [Memória I](./memoria-1.md) veremos como o `#!c int` usa essa mesma ideia, inclusive para representar números negativos.
 
 ### char
 
@@ -539,15 +525,15 @@ int main(void)
 }
 ```
 
-Declaramos uma variável do tipo `char` chamada `letra_C` e usamos o `%c` para imprimir o **caractere** no terminal. Em seguida fazemos algo esquisito: imprimimos a mesma variável com o `%d`, como se fosse um `int`. Por que o código funciona, e por que ele exibe `67`?
+Declaramos uma variável do tipo `#!c char` chamada `letra_C` e usamos o `%c` para imprimir o **caractere** no terminal. Em seguida fazemos algo esquisito: imprimimos a mesma variável com o `%d`, como se fosse um `#!c int`. Por que o código funciona, e por que ele exibe `67`?
 
-Por debaixo dos panos, o `char` é só um **número inteiro**. A linguagem C define que ele ocupa **1 byte**, e é isso - na maioria dos computadores, vale 8 bits, ou seja, **256** possíveis valores.
+Por debaixo dos panos, o `#!c char` é só um **número inteiro**. A linguagem C define que ele ocupa **1 byte**, e é isso - na maioria dos computadores, vale 8 bits, ou seja, **256** possíveis valores.
 
-A linguagem C **não sabe** que o número `67` é a letra `C`. Quem faz essa associação é uma **tabela de codificação**. O `%c` diz ao `printf` para enviar o valor ao terminal **como um caractere**, e é o terminal que consulta a sua tabela para desenhar a letra; já o `%d` diz para mostrá-lo como número. Por isso a mesma variável aparece de duas formas.
+A linguagem C **não sabe** que o número `67` é a letra `C`. Quem faz essa associação é uma **tabela de codificação**. O `%c` diz ao `#!c printf` para enviar o valor ao terminal **como um caractere**, e é o terminal que consulta a sua tabela para desenhar a letra; já o `%d` diz para mostrá-lo como número. Por isso a mesma variável aparece de duas formas.
 
 #### De onde vem a tabela?
 
-A linguagem C **não define** qual tabela deve ser usada. Ela só exige que o `char` seja capaz de representar um conjunto básico de caracteres (letras sem acento, dígitos e pontuação comuns). Quem escolhe a tabela de verdade é o **sistema operacional**, o **terminal** e o **compilador**.
+A linguagem C **não define** qual tabela deve ser usada. Ela só exige que o `#!c char` seja capaz de representar um conjunto básico de caracteres (letras sem acento, dígitos e pontuação comuns). Quem escolhe a tabela de verdade é o **sistema operacional**, o **terminal** e o **compilador**.
 
 Isso faz sentido pela história. Nos anos 1960, cada fabricante tinha o seu próprio código de caracteres. O **ASCII** (1963) acabou se tornando o mais popular, mas ele só tem 128 caracteres, pensados para o inglês, e por isso não tem acentos. A IBM, por exemplo, usava outra tabela, o EBCDIC, em que a letra `C` **não vale** 67, mas sim **195**. Quando o C foi criado (1972), esses sistemas coexistiam, então a linguagem evitou se prender a uma única tabela. Esse é um dos motivos de ela ter sido tão portável.
 
@@ -564,11 +550,11 @@ Repare que usamos aspas **simples** (`'C'`) e não aspas duplas. Em C, `'C'` rep
 
 #### E os acentos?
 
-Em UTF-8, apenas os 128 primeiros valores ocupam 1 byte. Caracteres como `ê` e `ç` ocupam **2 bytes ou mais**, então **não cabem em um único `char`**. É por isso que os acentos funcionam dentro de textos (que são conjuntos de `char`), mas dão problemas quando tentamos guardá-los em um `char` sozinho. Veremos isso em [Strings](./strings.md).
+Em UTF-8, apenas os 128 primeiros valores ocupam 1 byte. Caracteres como `ê` e `ç` ocupam **2 bytes ou mais**, então **não cabem em um único `#!c char`**. É por isso que os acentos funcionam dentro de textos (que são conjuntos de `#!c char`), mas dão problemas quando tentamos guardá-los em um `#!c char` sozinho. Veremos isso em [Strings](./strings.md).
 
 #### E o `\n`?
 
-Quando escrevemos `\n`, não temos um caractere `\` seguido de um `n`: a **barra invertida** (`\`) inicia uma **sequência de escape**, que representa **um único caractere** difícil de digitar. O `\n`, por exemplo, é o caractere de **nova linha**, que vale `10` na tabela ASCII. Ele é um **caractere de controle**: os valores de `0` a `31` da tabela não são símbolos visíveis, mas sim **comandos** para o terminal, como quebrar a linha.
+Quando escrevemos `#!c \n`, não temos um caractere `\` seguido de um `n`: a **barra invertida** (`\`) inicia uma **sequência de escape**, que representa **um único caractere** difícil de digitar. O `#!c \n`, por exemplo, é o caractere de **nova linha**, que vale `#!c 10` na tabela ASCII. Ele é um **caractere de controle**: os valores de `#!c 0` a `#!c 31` da tabela não são símbolos visíveis, mas sim **comandos** para o terminal, como quebrar a linha.
 
 Algumas sequências de escape:
 
@@ -583,9 +569,9 @@ Algumas sequências de escape:
 
 Nem toda sequência de escape é um caractere de controle: `\\`, `\'` e `\"` representam símbolos visíveis que, sem o escape, teriam outro significado. Teste você mesmo com `printf("%d\n", '\n');`. Veremos o uso do `\0` em [Strings](./strings.md).
 
-#### Operações com `char`
+#### Operações com `#!c char`
 
-Como o `char` é um número no final das contas, podemos fazer contas com ele. O código a seguir é válido:
+Como o `#!c char` é um número no final das contas, podemos fazer contas com ele. O código a seguir é válido:
 
 ```c
 #include <stdio.h>
@@ -616,9 +602,9 @@ int main(void)
 }
 ```
 
-Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#include <stdbool.h>`. Isso acontece porque, na versão 11 do C (chamada de "C11"), o tipo booleano nativo se chama `_Bool`; o header `stdbool.h` define os nomes `bool`, `true` e `false` para facilitar a leitura. (A partir da versão 23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
+Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#!c #include <stdbool.h>`. Isso acontece porque, na versão 11 do C (chamada de "C11"), o tipo booleano nativo se chama `_Bool`; o header `#!c stdbool.h` define os nomes `#!c bool`, `#!c #!c true` e `#!c false` para facilitar a leitura. (A partir da versão 23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
 
-Podemos imprimir um `bool` com o `%d`:
+Podemos imprimir um `#!c bool` com o `%d`:
 
 ```c
 #include <stdbool.h>
@@ -634,9 +620,9 @@ int main(void)
 }
 ```
 
-Aparece `1` para `true` e `0` para `false`, pois, por debaixo dos panos, o `bool` é só um número, assim como o `char`. Veremos isso melhor em [Condicionais](./condicionais.md).
+Aparece `1` para `#!c true` e `0` para `#!c false`, pois, por debaixo dos panos, o `#!c bool` é só um número, assim como o `#!c char`. Veremos isso melhor em [Condicionais](./condicionais.md).
 
-Chamamos os estados **verdadeiro** e **falso** de `true` e `false`, respectivamente.
+Chamamos os estados **verdadeiro** e **falso** de `#!c true` e `#!c false`, respectivamente.
 
 ## Regras de Nomenclatura
 
@@ -660,7 +646,7 @@ int nota-final = 10;
 
 O compilador lê o nome até onde ele é válido, ou seja, `nota`, e então encontra o `-`, que para ele é o operador de **subtração** e não faz parte do nome. Como uma declaração não pode continuar com uma subtração, ele reclama:
 
-```
+```console
 $ gcc -o main main.c
 main.c: In function ‘main’:
 main.c:5:13: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘-’ token
@@ -680,7 +666,7 @@ int nota final = 10;
 
 O GCC vai reclamar de algo parecido com:
 
-```
+```console
 $ gcc -o main main.c
 main.c: In function ‘main’:
 main.c:5:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘final’
@@ -743,7 +729,7 @@ Por isso, escreva `cafe` e `pontuacao` mesmo que o seu compilador aceite `café`
 
 ### Palavras reservadas
 
-Algumas palavras têm um **significado fixo** dentro da linguagem, como `int`, `return`, `if` e `while`. Elas são chamadas de **palavras reservadas** (ou *keywords*) e **não podem** ser usadas como identificadores:
+Algumas palavras têm um **significado fixo** dentro da linguagem, como `#!c int`, `return`, `if` e `while`. Elas são chamadas de **palavras reservadas** (ou *keywords*) e **não podem** ser usadas como identificadores:
 
 ```c
 int return = 5;
@@ -757,25 +743,22 @@ main.c:5:9: error: expected identifier or ‘(’ before ‘return’
 
 O compilador esperava um **nome**, mas encontrou o comando `return`. Veja a lista completa de palavras reservadas do C11:
 
-<details>
-<summary>Clique aqui para ver a lista</summary>
+??? nota "Lista de Palavras Reservadas"
 
-```
-auto      break     case      char      const     continue
-default   do        double    else      enum      extern
-float     for       goto      if        inline    int
-long      register  restrict  return    short     signed
-sizeof    static    struct    switch    typedef   union
-unsigned  void      volatile  while
-_Alignas  _Alignof  _Atomic   _Bool     _Complex  _Generic
-_Imaginary          _Noreturn _Static_assert      _Thread_local
-```
-
-</details>
+    ```
+    auto      break     case      char      const     continue
+    default   do        double    else      enum      extern
+    float     for       goto      if        inline    int
+    long      register  restrict  return    short     signed
+    sizeof    static    struct    switch    typedef   union
+    unsigned  void      volatile  while
+    _Alignas  _Alignof  _Atomic   _Bool     _Complex  _Generic
+    _Imaginary          _Noreturn _Static_assert      _Thread_local
+    ```
 
 Você não precisa decorar nada disso. Com o tempo, o seu editor vai **colorir** essas palavras de forma diferente das variáveis, e o compilador avisa quando houver conflito.
 
-> Repare que `bool`, `true` e `false` **não estão** na lista: no C11, eles são definidos por `<stdbool.h>`, como vimos em [bool](#bool). Mesmo assim, não use esses nomes para suas variáveis, já que o resultado seria confuso (e um erro caso você inclua o *header*).
+> Repare que `#!c bool`, `#!c true` e `#!c false` **não estão** na lista: no C11, eles são definidos por `<stdbool.h>`, como vimos em [bool](#bool). Mesmo assim, não use esses nomes para suas variáveis, já que o resultado seria confuso (e um erro caso você inclua o *header*).
 
 ### Nomes que parecem permitidos, mas não são uma boa ideia
 
@@ -783,19 +766,19 @@ Existem nomes que o compilador **aceita**, mas que causam problemas por debaixo 
 
 **Começar com sublinhado.** Nomes que começam com `_` seguido de uma letra maiúscula (como `_Vida`), ou com dois sublinhados (como `__vida`), são **reservados** para o compilador e a Biblioteca Padrão. Usá-los é um *comportamento indefinido*, isto é, o padrão da linguagem não define o que acontece, já que eles podem entrar em conflito com algo que o compilador define por conta própria. Os que começam com `_` e uma letra minúscula também são reservados quando declarados fora de qualquer função. A regra prática é: **não comece nomes com sublinhado**.
 
-**Reutilizar nomes da Biblioteca Padrão.** Nada impede você de criar uma variável chamada `printf` ou `scanf`:
+**Reutilizar nomes da Biblioteca Padrão.** Nada impede você de criar uma variável chamada `#!c printf` ou `scanf`:
 
 ```c
 int printf = 5;
 ```
 
-Dentro de uma função, isso apenas **esconde** a função original (em [Funções](./funcoes.md#escopos) veremos que a variável do escopo mais interno tem preferência), e você não conseguirá mais chamar o `printf` ali: o GCC reclama que `called object ‘printf’ is not a function or function pointer`. Se isso for feito fora de qualquer função, o compilador acusa conflito com a declaração em `<stdio.h>` (`‘printf’ redeclared as different kind of symbol`).
+Dentro de uma função, isso apenas **esconde** a função original (em [Funções](./funcoes.md#escopos) veremos que a variável do escopo mais interno tem preferência), e você não conseguirá mais chamar o `#!c printf` ali: o GCC reclama que `called object ‘printf’ is not a function or function pointer`. Se isso for feito fora de qualquer função, o compilador acusa conflito com a declaração em `<stdio.h>` (`‘printf’ redeclared as different kind of symbol`).
 
 ### Tamanho do nome
 
 Existe um limite para o tamanho de um identificador, mas ele é **muito grande**: o padrão do C11 exige que o compilador distinga nomes por pelo menos os **63 primeiros caracteres** (31 para nomes visíveis entre arquivos). Na prática, você nunca vai esbarrar nisso.
 
-Nem sempre foi assim. No C original, dos anos 1970, só os **8 primeiros caracteres** de um nome importavam e, mesmo no C89, nomes visíveis entre arquivos só precisavam ser distintos nos **6 primeiros** (uma limitação dos *linkers* da época). Duas variáveis chamadas `pontuacao_jogador1` e `pontuacao_jogador2` poderiam ser vistas como a **mesma coisa**, já que os primeiros 8 caracteres, `pontuaca`, são iguais! Isso ajuda a explicar por que tantos nomes antigos da Biblioteca Padrão são curtos e enigmáticos, como `strcpy`, `strlen` e `printf`. Hoje esses limites são grandes o bastante para não nos preocuparmos, então não há motivo para economizar letras.
+Nem sempre foi assim. No C original, dos anos 1970, só os **8 primeiros caracteres** de um nome importavam e, mesmo no C89, nomes visíveis entre arquivos só precisavam ser distintos nos **6 primeiros** (uma limitação dos *linkers* da época). Duas variáveis chamadas `pontuacao_jogador1` e `pontuacao_jogador2` poderiam ser vistas como a **mesma coisa**, já que os primeiros 8 caracteres, `pontuaca`, são iguais! Isso ajuda a explicar por que tantos nomes antigos da Biblioteca Padrão são curtos e enigmáticos, como `strcpy`, `strlen` e `#!c printf`. Hoje esses limites são grandes o bastante para não nos preocuparmos, então não há motivo para economizar letras.
 
 ### O nome só existe para humanos
 
@@ -850,7 +833,7 @@ int main(void)
 
 Recebemos o seguinte erro de compilação:
 
-```
+```console
 $ gcc -o main main.c
 main.c: In function ‘main’:
 main.c:7:8: error: assignment of read-only variable ‘pi’
@@ -881,7 +864,7 @@ int main(void)
 
 ### Inicialização
 
-Sempre que declarar uma variável, é recomendado que você a inicialize com um valor padrão, como `0` ou `1` para o tipo `int`. Escreva esse programa e **rode ele mais de uma vez**:
+Sempre que declarar uma variável, é recomendado que você a inicialize com um valor padrão, como `#!c 0` ou `#!c 1` para o tipo `#!c int`. Escreva esse programa e **rode ele mais de uma vez**:
 
 ```c
 #include <stdio.h>
@@ -918,7 +901,7 @@ int main(void)
 }
 ```
 
-Você saberia dizer o que os valores `0.1` e `15.0` representam? Pelo contexto talvez você consiga adivinhar, mas só depois de gastar um tempo decifrando o código. No caso, eles representam a **taxa de serviço** e o **preço da reserva por pessoa**, respectivamente.
+Você saberia dizer o que os valores `#!c 0.1` e `#!c 15.0` representam? Pelo contexto talvez você consiga adivinhar, mas só depois de gastar um tempo decifrando o código. No caso, eles representam a **taxa de serviço** e o **preço da reserva por pessoa**, respectivamente.
 
 Esses valores "soltos" são chamados de **valores mágicos**. Eles diminuem muito a clareza do nosso código. Uma solução é usar duas variáveis constantes chamadas `taxa_servico` e `preco_reserva` para deixar claras as suas funções no código:
 
@@ -943,10 +926,4 @@ int main(void)
 
 Agora, conseguimos ler o cálculo da variável `total` da seguinte forma: o total é a conta somada à taxa de serviço (um percentual da conta) e às reservas de cada pessoa. E de novo, se precisarmos diminuir a taxa de serviço, por exemplo, só precisamos mudar em um só lugar.
 
----
-
-<p align="center">
-  <a href="./linguagem-c.md">← O que é C?</a>
-  &nbsp;|&nbsp;
-  <a href="../exercicios/variaveis.md">Exercícios: Variáveis →</a>
-</p>
+*[C]: Linguagem de Programação C

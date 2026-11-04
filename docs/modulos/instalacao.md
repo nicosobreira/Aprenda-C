@@ -16,7 +16,9 @@ Siga os passos dependendo do sistema operacional que está usando: Windows, Linu
 
 ### Instalando o GCC pelo PowerShell
 
-> Não confunda com o "Prompt de Comando". O PowerShell é o terminal mais atualizado do Windows.
+!!! info
+
+    Não confunda com o "Prompt de Comando". O PowerShell é o terminal mais atualizado do Windows.
 
 Vamos usar o PowerShell, o terminal padrão do Windows, para instalar o GCC. A Microsoft oferece `winget`, um gerenciador de pacotes que já vem instalado no Windows 10 e 11 por padrão.
 
