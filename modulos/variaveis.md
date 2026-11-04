@@ -8,9 +8,9 @@
 
 # Variáveis
 
-As variáveis servem para **armazenar** valores na **memória do computador**. Elas nos permitem guardar informações bem diferentes, como a idade de uma pessoa, o preço de um produto e se um usuário está logado ou não.
-Os valores são, respectivamente: um número inteiro, um número com casas depois da vírgula e um valor que só pode ser verdadeiro ou falso.
-Lembra que em [O que é C?](./linguagem-c.md) vimos que o computador só lida com zeros e uns? Mas como o computador guarda dados tão diferentes entre si, se ele só entende 0 e 1?
+As variáveis são valores **armazenados** na **memória do computador**, usados para **guardar** algum dado para uso futuro. Elas nos permitem guardar informações bem diferentes, como a idade de uma pessoa, o preço de um produto e se um usuário está logado ou não em um sistema.
+Os valores são, respectivamente: um número inteiro, um número real e um valor que só pode ser verdadeiro ou falso.
+Lembra que em [O que é C?](./linguagem-c.md) vimos que o computador só lida com zeros e uns? Como o computador guarda dados tão diferentes entre si, se ele só entende 0 e 1?
 
 A verdade é que o computador interpreta os zeros e uns da maneira que nós, programadores, mandamos. Tomemos o número binário `0100 0011` como exemplo. Quando o computador olha para ele, não tem a menor ideia do que ele significa.
 Para a máquina, a sequência `0100 0011` é apenas um dado bruto. No entanto, se nós mandarmos o computador interpretar isso como um número inteiro, o valor é 67. Ao final do módulo, veremos que esse mesmo binário representa um outro tipo de informação: uma letra.
@@ -54,14 +54,14 @@ double real;
 
 ## Atribuição
 
-Para **alterar o valor** de uma variável usamos o igual (`=`).
+Para **alterar o valor** de uma variável usamos o igual (`=`), que na programação siginifica **atribuição**.
 A seguir nós **inicializamos** a variável `numero` com o valor `10`:
 
 ```c
 int numero = 10;
 ```
 
-**Depois que declaramos** uma variável, podemos alterar o seu valor novamente, sem repetir o tipo, como no código a seguir, que cria a variável `idade` - com valor inicial 18 - e a muda para 10.
+**Depois que declaramos** uma variável, podemos alterar o seu valor novamente sem repetir o tipo, Como no código a seguir, que cria a variável `idade` - com valor inicial 18, e a muda para 10.
 
 ```c
 int main(void)
@@ -88,7 +88,7 @@ Representa um número inteiro, como `-1`, `-3`, `0` e `1`.
 int idade = 18;
 ```
 
-Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h` (lembra do `#include <stdio.h>` de [Olá, Mundo](./ola-mundo.md)?).
+Para exibirmos o valor da variável `idade`, usaremos a função `printf`, declarada em `stdio.h`.
 
 A função `printf` pode receber mais de um argumento, separados por ",". O primeiro já sabemos que é o texto que queremos imprimir, os outros são **valores que serão substituídos no texto**. Esses valores são indicados dentro do texto com o símbolo de porcentagem (`%`) seguido por uma ou mais letras que indicam o **tipo desse valor**. Esses valores podem estar **armazenados em variáveis** ou **colocados diretamente** no `printf`. Veja os dois exemplos a seguir, um imprime o valor `10` e o outro, o valor armazenado na variável `idade`:
 
@@ -187,7 +187,7 @@ int main(void)
 
 ### Operações
 
-Também podemos fazer operações aritméticas **entre variáveis e números**, como nos exemplos a seguir:
+Fazemos operações aritméticas **entre variáveis e números** da seguinte forma:
 
 - **Soma** (`+`):
 
@@ -279,7 +279,7 @@ int main(void)
 }
 ```
 
-O resultado é `3` e não `3.5`. A linguagem C define o tipo do resultado das operações aritméticas a partir dos **tipos** dos números usados. Nesse caso, como `7` e `2` são do **tipo inteiro**, o resultado também é um inteiro. Como os inteiros não representam frações, a parte depois da vírgula é descartada.
+Ele é `3`, e não `3.5`. A linguagem C define o tipo do resultado das operações aritméticas a partir dos **tipos** dos números usados. Nesse caso, como `7` e `2` são do **tipo inteiro**, o resultado também é um inteiro. Como os inteiros não representam frações, a parte depois da vírgula é descartada.
 Dizemos que a divisão é **truncada**, e não "*arredondada*". Isso quer dizer que `99 / 100` vale `0`, mesmo que o valor real, `0.99`, esteja bem perto de `1`. Nos números negativos o descarte também é em direção ao zero: `-7 / 2` vale `-3`, e não `-4`.
 
 Ainda temos o operador **Módulo**, também chamado de "**resto da divisão**". Veja o código a seguir:
@@ -311,6 +311,8 @@ O quociente da divisão de 7 por 2 é 3, enquanto o resto é 1, ou seja, $2 \tim
 
 Por fim, usamos os parênteses `()` para indicar quais operações devem ser executadas primeiro. Veja como a saída muda entre os exemplos, mesmo que eles tenham os mesmos números:
 
+> Código 1
+
 ```c
 #include <stdio.h>
 
@@ -323,6 +325,8 @@ int main(void)
     return 0;
 }
 ```
+
+> Código 2
 
 ```c
 #include <stdio.h>
@@ -537,9 +541,9 @@ int main(void)
 
 Declaramos uma variável do tipo `char` chamada `letra_C` e usamos o `%c` para imprimir o **caractere** no terminal. Em seguida fazemos algo esquisito: imprimimos a mesma variável com o `%d`, como se fosse um `int`. Por que o código funciona, e por que ele exibe `67`?
 
-Por debaixo dos panos, o `char` é só um **número inteiro**. A linguagem C define que ele ocupa **1 byte**, e é isso que o torna pequeno: na esmagadora maioria dos computadores, 1 byte tem 8 bits, o que permite guardar 256 valores diferentes.
+Por debaixo dos panos, o `char` é só um **número inteiro**. A linguagem C define que ele ocupa **1 byte**, e é isso - na maioria dos computadores, vale 8 bits, ou seja, **256** possíveis valores.
 
-O C **não sabe** que o número `67` é a letra `C`. Quem faz essa associação é uma **tabela de codificação**. O `%c` diz ao `printf` para enviar o valor ao terminal **como um caractere**, e é o terminal que consulta a sua tabela para desenhar a letra; já o `%d` diz para mostrá-lo como número. Por isso a mesma variável aparece de duas formas.
+A linguagem C **não sabe** que o número `67` é a letra `C`. Quem faz essa associação é uma **tabela de codificação**. O `%c` diz ao `printf` para enviar o valor ao terminal **como um caractere**, e é o terminal que consulta a sua tabela para desenhar a letra; já o `%d` diz para mostrá-lo como número. Por isso a mesma variável aparece de duas formas.
 
 #### De onde vem a tabela?
 
@@ -612,7 +616,7 @@ int main(void)
 }
 ```
 
-Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#include <stdbool.h>`. Isso acontece porque, no C11, o tipo booleano nativo se chama `_Bool`; o header `stdbool.h` define os nomes `bool`, `true` e `false` para facilitar a leitura. (A partir do C23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
+Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#include <stdbool.h>`. Isso acontece porque, na versão 11 do C (chamada de "C11"), o tipo booleano nativo se chama `_Bool`; o header `stdbool.h` define os nomes `bool`, `true` e `false` para facilitar a leitura. (A partir da versão 23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
 
 Podemos imprimir um `bool` com o `%d`:
 
