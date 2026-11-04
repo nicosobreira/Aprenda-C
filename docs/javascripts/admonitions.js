@@ -14,13 +14,14 @@ const APELIDOS = {
   // Sem equivalente nativo: escolha livre, troque como preferir.
   cuidado: "danger",
   importante: "info",
-}
+  resposta: "success",
+};
 
 document$.subscribe(({ body }) => {
   for (const [pt, nativo] of Object.entries(APELIDOS)) {
-    const seletor = `.admonition.${CSS.escape(pt)}, details.${CSS.escape(pt)}`
+    const seletor = `.admonition.${CSS.escape(pt)}, details.${CSS.escape(pt)}`;
     for (const bloco of body.querySelectorAll(seletor)) {
-      bloco.classList.add(nativo)
+      bloco.classList.add(nativo);
     }
   }
-})
+});

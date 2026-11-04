@@ -83,6 +83,11 @@ toggle.name = "Usar a preferência do sistema"
 [project.markdown_extensions.toc]
 permalink = true
 
+[project.markdown_extensions.pymdownx.snippets]
+auto_append = [
+    "includes/abbreviations.md",
+]
+
 [project.markdown_extensions.pymdownx.arithmatex]
 generic = true
 [project.markdown_extensions.pymdownx.betterem]

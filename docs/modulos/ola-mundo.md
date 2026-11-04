@@ -8,9 +8,11 @@ Antes de escrever o programa em si, vamos ver como usar o Visual Studio Code e o
 
 Vamos estabelecer uma regra que seguiremos por todo o guia: **a cada novo módulo, crie uma nova pasta com o nome do módulo**. Isso evita que os arquivos de módulos diferentes se misturem, e já aproveitamos para praticar o uso do terminal.
 
-Abra o VS Code e, dentro dele, abra o terminal integrado com o atalho `` Ctrl + ` `` (ou pelo menu **Terminal > New Terminal**).
+Abra o VS Code e, dentro dele, abra o terminal integrado com o atalho ++ctrl+'`'++ (ou pelo menu **Terminal > New Terminal**).
 
-> Se você estiver no Windows, configure o terminal integrado do VS Code para usar o **PowerShell** por padrão, já que os comandos que ensinamos neste guia foram pensados para ele, não para o Prompt de Comando (`cmd`). Para isso, aperte `Ctrl + Shift + P`, digite `Terminal: Select Default Profile` e escolha `PowerShell` na lista. Feche o terminal aberto e abra um novo para a mudança ter efeito.
+!!! importante "No Windows"
+
+    Configure o terminal integrado do VS Code para usar o **PowerShell** por padrão, já que os comandos que ensinamos neste guia foram pensados para ele, não para o Prompt de Comando (`cmd`). Para isso, aperte ++ctrl+shift+p++, digite `Terminal: Select Default Profile` e escolha `PowerShell` na lista. Feche o terminal aberto e abra um novo para a mudança ter efeito.
 
 Com o terminal aberto, crie uma pasta chamada `intro` (o nome desse primeiro módulo) e entre nela:
 
@@ -44,9 +46,11 @@ Esse é um programa que **não faz nada**, só é necessário para o próximo pa
 
 ## Compilando com o GCC
 
-Antes de compilar os programas, não se esqueça de **salvá-los**! Para isso use o atalho `Ctrl + s` ou, ainda melhor, ative a opção de *Salvar Automaticamente* dentro do VS Code da seguinte maneira: abra o menu de **Configurações** apertando `Ctrl + ,`, pesquise por "*Auto Save*" e selecione a opção "*After Delay*".
+!!! dica
 
-O computador não entende C diretamente, então precisamos **traduzir** o arquivo `main.c` para um executável, usando o compilador instalado anteriormente, o `gcc`.
+    Antes de compilar os programas, não se esqueça de **salvá-los**! Para isso use o atalho ++ctrl+s++ ou, ainda melhor, ative a opção de *Salvar Automaticamente* dentro do VS Code da seguinte maneira: abra o menu de **Configurações** apertando ++ctrl+','++, pesquise por "*Auto Save*" e selecione a opção "*After Delay*".
+
+O computador não entende C diretamente, então precisamos **traduzir** o arquivo `main.c` para um executável, usando o compilador instalado anteriormente, o GCC.
 
 Ainda no terminal, **dentro da pasta `intro`**, e com o `main.c` **já salvo**, rode:
 
@@ -58,11 +62,13 @@ Vamos entender essa linha, pedaço por pedaço:
 
 - `gcc`: é o programa que vai compilar o código.
 - `main.c`: é o arquivo de código-fonte que queremos compilar.
-- `-o main`: diz ao `gcc` qual nome deve ser dado ao **executável gerado**. Sem essa opção, o `gcc` usaria um nome genérico. Aqui, escolhemos chamar o nosso de `main`, mas poderia ser qualquer outro.
+- `-o main`: diz ao GCC qual nome deve ser dado ao **executável gerado**. Sem essa opção, o GCC usaria um nome genérico. Aqui, escolhemos chamar o nosso de `main`, mas poderia ser qualquer outro.
 
-> No Windows, o `gcc` adiciona a extensão `.exe` automaticamente ao nome escolhido, então o executável se chamará `main.exe`, mesmo você tendo digitado só `main` no comando.
+!!! importante "No Windows"
 
-Se tudo ocorrer bem, esse comando **não imprime nada** no terminal, apenas cria o arquivo executável na mesma pasta. Se houver algum erro no seu código, o `gcc` vai mostrar mensagens indicando a linha e o motivo do erro.
+    O GCC adiciona a extensão `.exe` automaticamente ao nome escolhido, então o executável se chamará `main.exe`, mesmo você tendo digitado só `main` no comando.
+
+Se tudo ocorrer bem, esse comando **não imprime nada** no terminal, apenas cria o arquivo executável na mesma pasta. Se houver algum erro no seu código, o GCC vai mostrar mensagens indicando a linha e o motivo do erro.
 
 ## Executando o Programa
 
@@ -72,7 +78,9 @@ Por fim, para rodar o programa que acabamos de compilar:
 ./main
 ```
 
-> Repare no `./` antes do nome do executável. Isso indica ao terminal que o programa está na **pasta atual**, e não em algum outro lugar do sistema. Sem esse prefixo, o terminal não vai encontrar o `main`.
+!!! atenção
+
+    Repare no `./` antes do nome do executável. Isso indica ao terminal que o programa está na **pasta atual**, e não em algum outro lugar do sistema. Sem esse prefixo, o terminal não vai encontrar o `main`.
 
 Nesse caso, o nosso programa **não deve fazer nada** mesmo.
 
@@ -100,17 +108,19 @@ int main(void)
 
 Vamos entender esse código começando pela função `main` — o coração de todo programa em C.
 
-> Não se esqueça de compilar o programa e executá-lo antes de continuar!
+!!! atenção
+
+    Não se esqueça de compilar o programa e executá-lo antes de continuar!
 
 ## main
 
 É uma função especial dentro do C; ela é o **ponto inicial** de nosso programa, por isso o nome "main", do inglês, principal.
 
-As funções em C são semelhantes às da matemática. Dentro dos parênteses são colocados os parâmetros da função: quando escrevemos `f(x)`, dizemos que `x` é um parâmetro da função `f`. Nesse caso, os parênteses contêm a palavra `void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso; a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
+As funções em C são semelhantes às da matemática. Dentro dos parênteses são colocados os parâmetros da função: quando escrevemos `f(x)`, dizemos que `x` é um parâmetro da função `f`. Nesse caso, os parênteses contêm a palavra `#!c void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso; a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-O `int` é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor é retornado com o `return`; ele vai para o **sistema operacional** e mostra se o programa executou corretamente, retornando `0`, ou falhou em algum momento, retornando um valor diferente de `0`, como `1` ou `128`. Diferentes números indicam diferentes erros.
+O `#!c int` é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor é retornado com o `#!c return`; ele vai para o **sistema operacional** e mostra se o programa executou corretamente, retornando `#!c 0`, ou falhou em algum momento, retornando um valor diferente de `#!c 0`, como `#!c 1` ou `#!c 128`. Diferentes números indicam diferentes erros.
 
-O comando `return` encerra a função na mesma hora. Se você colocar o `return 0;` antes do `printf`, como no código a seguir, o programa fechará imediatamente e o texto nunca será exibido. Faça esse teste antes de continuar.
+O comando `#!c return` encerra a função na mesma hora. Se você colocar o `#!c return 0;` antes do `#!c printf`, como no código a seguir, o programa fechará imediatamente e o texto nunca será exibido. Faça esse teste antes de continuar.
 
 ```c
 #include <stdio.h>
@@ -139,23 +149,25 @@ E está tudo certo. A linguagem C é bem flexível quanto ao modo como escolhemo
 
 ## include
 
-Você deve estar se perguntando: de onde vem a função `printf`? Nós não escrevemos o código dela em lugar nenhum!
+Você deve estar se perguntando: de onde vem a função `#!c printf`? Nós não escrevemos o código dela em lugar nenhum!
 
-A resposta é a **Biblioteca Padrão do C**: um conjunto de funções prontas que já vêm junto com a linguagem, para tarefas comuns, como exibir texto na tela ou ler dados do usuário. Pense nela como uma caixa de ferramentas: em vez de cada programador precisar inventar sua própria forma de escrever no terminal, a Biblioteca Padrão já oferece essa ferramenta pronta, chamada `printf`, para todo mundo usar.
+A resposta é a **Biblioteca Padrão do C**: um conjunto de funções prontas que já vêm junto com a linguagem, para tarefas comuns, como exibir texto na tela ou ler dados do usuário. Pense nela como uma caixa de ferramentas: em vez de cada programador precisar inventar sua própria forma de escrever no terminal, a Biblioteca Padrão já oferece essa ferramenta pronta, chamada `#!c printf`, para todo mundo usar.
 
-Essas ferramentas ficam organizadas em arquivos chamados de **_headers_** (do inglês, "cabeçalhos"), reconhecidos pela extensão `.h`. Cada header guarda um grupo de funções parecidas entre si. O header `stdio.h`, por exemplo, guarda as funções de entrada e saída (**i**nput/**o**utput), como o `printf` e o `scanf`.
+Essas ferramentas ficam organizadas em arquivos chamados de **_headers_** (do inglês, "cabeçalhos"), reconhecidos pela extensão `.h`. Cada header guarda um grupo de funções parecidas entre si. O header `#!c stdio.h`, por exemplo, guarda as funções de entrada e saída (**i**nput/**o**utput), como o `#!c printf` e o `#!c scanf`.
 
-O `#include <stdio.h>` é o que **libera o uso** dessas funções no nosso código. Sem essa linha, o compilador não saberia o que é `printf`, e o programa não compilaria.
+O `#!c #include <stdio.h>` é o que **libera o uso** dessas funções no nosso código. Sem essa linha, o compilador não saberia o que é `#!c printf`, e o programa não compilaria.
 
-> Falaremos sobre o porquê de usarmos os símbolos `<>` mais para frente.
+!!! nota
+
+    Falaremos sobre o porquê de usarmos os símbolos `<>` mais para frente.
 
 ## printf
 
-A função `printf` **imprime** (_print_) textos **formatados** (_f_) no terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](./variaveis.md), mas o que você precisa saber agora é que o `printf` escreve o texto "Olá, Mundo!" no terminal.
+A função `#!c printf` **imprime** (_print_) textos **formatados** (_f_) no terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](./variaveis.md), mas o que você precisa saber agora é que o `#!c printf` escreve o texto "Olá, Mundo!" no terminal.
 
-Nós precisamos colocar esse `\n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
+Nós precisamos colocar esse `#!c \n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
 
-O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar ler como um único comando tudo o que vem desde o `printf` até o próximo ponto e vírgula, ou seja, até `return 0;`, o que vai gerar um erro (que veremos logo em seguida).
+O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar ler como um único comando tudo o que vem desde o `#!c printf` até o próximo ponto e vírgula, ou seja, até `#!c return 0;`, o que vai gerar um erro (que veremos logo em seguida).
 
 ## Mensagens de Compilação
 
@@ -163,7 +175,7 @@ O ponto e vírgula vai ao final dos comandos. Sem ele o compilador irá tentar l
 
 Antes de continuarmos verifique a sua versão do seu GCC, com o comando `gcc --version`, sua saída deve indicar a versão 16, como a seguir:
 
-```
+```console
 $ gcc --version
 gcc (GCC) 16.2.0
 Copyright (C) 2026 Free Software Foundation, Inc.
@@ -176,11 +188,9 @@ Caso sua versão seja diferente algumas mensagens do compilador podem aparecer d
 
 ### Esquecer o ponto e vírgula
 
-Execute o comando `gcc -o main main.c` e veja o que acontece quando esquecemos de colocar o `;` ao final do `printf`.
+Execute o comando `gcc -o main main.c` e veja o que acontece quando esquecemos de colocar o `;` ao final do `#!c printf`.
 
-**Código**:
-
-```c
+```c title="Código" hl_lines="5"
 #include <stdio.h>
 
 int main(void)
@@ -193,7 +203,7 @@ int main(void)
 
 Ao longo do guia, ao mostrar as saídas de comandos, como o de compilação, usarei o `$` na primeira linha para indicar qual foi o comando executado e abaixo sua saída, como a seguir:
 
-```
+```console title="Saída"
 $ gcc -o main main.c
 main.c: In function ‘main’:
 main.c:5:28: error: expected ‘;’ before ‘return’
@@ -241,7 +251,7 @@ Essa é a explicação do erro, uma tradução da mensagem seria: `O ‘;’ é 
 
 Ao final, temos o trecho do código que gerou o erro. Antes do trecho começar, são colocados alguns espaços (nesse caso quatro) para indicar a qual mensagem o erro se refere. As marcações `5 |`, `6 |` e `7 |` indicam **as linhas no código** em que o erro aconteceu, seguido por seus conteúdos.
 
-Já as linhas que possuem apenas `|`, sem numeração, são anotações sobre o erro que o compilador está passando para nós. O compilador "grifou" o `return` com uma sequência de til (`~~~~~~`) e sinalizou que devemos adicionar um ponto e vírgula ao final do `printf` da seguinte maneira:
+Já as linhas que possuem apenas `|`, sem numeração, são anotações sobre o erro que o compilador está passando para nós. O compilador "grifou" o `#!c return` com uma sequência de til (`~~~~~~`) e sinalizou que devemos adicionar um ponto e vírgula ao final do `#!c printf` da seguinte maneira:
 
 ```
 ^
@@ -250,11 +260,9 @@ Já as linhas que possuem apenas `|`, sem numeração, são anotações sobre o 
 
 ### Esquecer o `include`
 
-Veja a mensagem gerada pelo compilador quando esquecemos de colocar o `#include <stdio.h>` antes de usar a função `printf`:
+Veja a mensagem gerada pelo compilador quando esquecemos de colocar o `#!c #include <stdio.h>` antes de usar a função `#!c printf`:
 
-**Código**:
-
-```c
+```c title="Código"
 int main(void)
 {
     printf("Olá, Mundo!\n");
@@ -263,9 +271,7 @@ int main(void)
 }
 ```
 
-**Saída**:
-
-```
+```console title="Saída"
 $ gcc -o main main.c
 main.c: In function ‘main’:
 main.c:3:5: error: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
@@ -281,7 +287,7 @@ main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf�
 
 ```
 
-Em saídas com muitas mensagens, é comum que apenas as **primeiras mensagens** apontem para o **erro principal** e as outras mostrem outros erros **gerados** pelo erro principal. Vamos analisar essa mensagem de cima para baixo e identificar o **erro principal** (ausência do `#include`).
+Em saídas com muitas mensagens, é comum que apenas as **primeiras mensagens** apontem para o **erro principal** e as outras mostrem outros erros **gerados** pelo erro principal. Vamos analisar essa mensagem de cima para baixo e identificar o **erro principal** (ausência do `#!c #include`).
 
 #### 1. Onde
 
@@ -291,7 +297,9 @@ A primeira linha junto com `main.c:3:5` indicam que a mensagem se refere à fun�
 
 Seguido do `error:` vem a mensagem `implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]`. Uma tradução dessa mensagem seria: `declaração implícita da função ‘printf’`, já o conteúdo entre colchetes, `[-Wimplicit-function-declaration]`, indica o nome da opção do GCC que gerou essa mensagem (ele é útil para pesquisar mais sobre o erro em específico na Internet). Essa mensagem está dizendo que a função `printf` foi **implicitamente declarada**, isso quer dizer que quando o compilador encontrou o uso do `printf` na linha 3 ele não sabia que essa função existia, e por isso não sabe como continuar.
 
-> Veremos o que exatamente é uma função "implicitamente declarada" em [Funções](./funcoes.md).
+!!! nota
+
+    Veremos o que exatamente é uma função "implicitamente declarada" em [Funções](./funcoes.md).
 
 #### 3. Trecho do código
 
@@ -324,7 +332,7 @@ main.c:3:5: warning: incompatible implicit declaration of built-in function ‘p
 main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
 ```
 
-Note que elas apontam para o mesmo lugar do erro principal: linha 3, coluna 5, o `printf`. Isso é um sinal de que ambas são consequências do mesmo problema, a ausência do `#include <stdio.h>`.
+Note que elas apontam para o mesmo lugar do erro principal: linha 3, coluna 5, o `printf`. Isso é um sinal de que ambas são consequências do mesmo problema, a ausência do `#!c #include <stdio.h>`.
 
 Aqui temos um aviso, não um erro. Uma tradução seria: `declaração implícita incompatível da função embutida ‘printf’`.
 
@@ -336,7 +344,7 @@ A última mensagem é igual à que vimos no passo 4: `include ‘<stdio.h>’ or
 
 Por isso, a saída tem duas notas idênticas: a primeira ajuda com o `error`, a segunda com o `warning`.
 
-Adicione o `#include <stdio.h>` no começo do arquivo e compile novamente. Todas as quatro mensagens desaparecem juntas! Esse é o hábito mais importante ao ler uma saída do compilador:
+Adicione o `#!c #include <stdio.h>` no começo do arquivo e compile novamente. Todas as quatro mensagens desaparecem juntas! Esse é o hábito mais importante ao ler uma saída do compilador:
 
 1. Identifique o erro principal, em geral o primeiro `error`.
 2. Corrija apenas ele.
@@ -348,9 +356,7 @@ Muitas vezes, uma única correção elimina diversas mensagens de uma vez.
 
 Ainda existem muitos erros de compilação, mas para entendê-los são necessários conteúdos que veremos mais para frente. Abaixo vou mostrar códigos que apresentam alguns erros para você evitar; veremos as suas causas mais para frente:
 
-- **Escrever código fora de uma função**:
-
-```c
+```c title="Escrever código fora de uma função"
 #include <stdio.h>
 
 printf("Olá, Mundo!\n");
@@ -360,7 +366,7 @@ printf("Olá, Mundo!\n");
 
 Ao escrever nossos códigos, vamos nos deparar com as seguintes categorias de erros:
 
-- **Erro de Sintaxe**: quando violamos regras da linguagem, como esquecer de o ponto e vírgula ou do `#include` ao usar uma função.
+- **Erro de Sintaxe**: quando violamos regras da linguagem, como esquecer de o ponto e vírgula ou do `#!c #include` ao usar uma função.
 - **Erro de Tempo de Execução**: quando não está preparado para lidar com situações impossíveis, como dividir por zero, e então recebemos um erro ao executar o programa.
 - **Erro de Lógica**: o programa compila e roda sem problemas, mas o resultado final não sai da forma que foi desejada.
 - **Erro de Semântica**: ocorre quando o comando é executado, mas o significado do comando está errado para o contexto desejado.

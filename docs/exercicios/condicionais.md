@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="../modulos/condicionais.md">← Condicionais</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/repeticao.md">Estruturas de Repetição →</a>
-</p>
-
----
-
 # Exercícios: Condicionais
 
 Assim como em [Exercícios: Variáveis](./variaveis.md), ainda não sabemos pedir dados ao usuário. Por isso, os exercícios **dão as entradas** e você escreve a solução entre o comentário `// Saída:` e o `return 0;`.
@@ -32,53 +24,49 @@ int main(void)
 }
 ```
 
-<details>
-<summary>Precisa de uma dica? Clique aqui.</summary>
+??? dica
 
-Lembre-se de que as verificações vão **alterando as faixas de possíveis valores**. Releia o capítulo [else if](../condicional/README.md#else-if) se preciso.
-
-</details>
-
-<details>
-<summary>Clique aqui para ver a resposta</summary>
-
-```c
-#include <stdio.h>
-
-int main(void)
-{
-    // Entrada:
-
-    int idade = 27;
-
-    // Saída:
-
-    if (idade < 0)
-    {
-        printf("Idade inválida!\n");
-    }
-    else if (idade < 12)
-    {
-        printf("Infantil.\n");
-    }
-    else if (idade <= 17)
-    {
-        printf("Juvenil.\n");
-    }
-    else if (idade <= 59)
-    {
-        printf("Adulto.\n");
-    }
-    else
-    {
-        printf("Idoso.\n");
-    }
-
-    return 0;
-}
-```
+    Lembre-se de que as verificações vão **alterando as faixas de possíveis valores**. Releia o capítulo [else if](../modulos/condicionais.md#else-if) se preciso.
 
 </details>
+
+??? resposta
+
+    ```c
+    #include <stdio.h>
+
+    int main(void)
+    {
+        // Entrada:
+
+        int idade = 27;
+
+        // Saída:
+
+        if (idade < 0)
+        {
+            printf("Idade inválida!\n");
+        }
+        else if (idade < 12)
+        {
+            printf("Infantil.\n");
+        }
+        else if (idade <= 17)
+        {
+            printf("Juvenil.\n");
+        }
+        else if (idade <= 59)
+        {
+            printf("Adulto.\n");
+        }
+        else
+        {
+            printf("Idoso.\n");
+        }
+
+        return 0;
+    }
+    ```
 
 ## Aprovação Escolar
 
@@ -97,7 +85,9 @@ Mostre essa média e depois informe se esse aluno:
 2. Reprovou, caso a média seja menor ou igual a 4.
 3. Está de recuperação, caso a média esteja entre 4 e 6.
 
-> Pulei a definição da função `main`, mas você deve colocar.
+!!! info
+
+    Pulei a definição da função `main`, mas você deve colocar.
 
 ```c
 // Entrada:
@@ -112,55 +102,54 @@ double nota4 = 0.0;
 return 0;
 ```
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+??? resposta
 
-> Não se esqueça de colocar `#include <stdio.h>` para usar a função `printf`!
+    !!! atenção
 
-```c
-int main(void)
-{
-    // Entrada:
+        Não se esqueça de colocar `#!c #include <stdio.h>` para usar a função `printf`!
 
-    double nota1 = 0.0;
-    double nota2 = 0.0;
-    double nota3 = 0.0;
-    double nota4 = 0.0;
-
-    // Saída:
-
-    const double media_aprovado = 6.0;
-    const double media_reprovado = 4.0;
-
-    const double peso1 = 4;
-    const double peso2 = 2;
-    const double peso3 = 2;
-    const double peso4 = 1;
-
-    double pesos = peso1 + peso2 + peso3 + peso4;
-
-    double media = (nota1 * peso1 + nota2 * peso2 + nota3 * peso3 + nota4 * peso4) / pesos;
-
-    printf("A média do aluno foi: %.2f\n", media);
-
-    if (media >= media_aprovado)
+    ```c
+    int main(void)
     {
-        printf("Aprovado.\n");
-    }
-    else if (media <= media_reprovado)
-    {
-        printf("Reprovado.\n");
-    }
-    else
-    {
-        printf("Recuperação.\n");
-    }
+        // Entrada:
 
-    return 0;
-}
-```
+        double nota1 = 0.0;
+        double nota2 = 0.0;
+        double nota3 = 0.0;
+        double nota4 = 0.0;
 
-</details>
+        // Saída:
+
+        const double media_aprovado = 6.0;
+        const double media_reprovado = 4.0;
+
+        const double peso1 = 4;
+        const double peso2 = 2;
+        const double peso3 = 2;
+        const double peso4 = 1;
+
+        double pesos = peso1 + peso2 + peso3 + peso4;
+
+        double media = (nota1 * peso1 + nota2 * peso2 + nota3 * peso3 + nota4 * peso4) / pesos;
+
+        printf("A média do aluno foi: %.2f\n", media);
+
+        if (media >= media_aprovado)
+        {
+            printf("Aprovado.\n");
+        }
+        else if (media <= media_reprovado)
+        {
+            printf("Reprovado.\n");
+        }
+        else
+        {
+            printf("Recuperação.\n");
+        }
+
+        return 0;
+    }
+    ```
 
 ## Triângulo
 
@@ -174,8 +163,6 @@ Caso as retas **formem** um triângulo, classifique-o seguindo essas regras:
 - Se pelo menos dois dos lados são iguais, então ele é isósceles.
 - Senão, ele é escaleno.
 
-> Não se esqueça de criar a função `main`!
-
 ```c
 // Entrada
 
@@ -184,44 +171,31 @@ int b = 0;
 int c = 0;
 ```
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+??? resposta
 
-> Coloque o código dentro da função `main`, não se esqueça do `return 0;` ao final.
+    ```c
+    bool eh_triangulo = (a + b > c) && (a + c > b) && (b + c > a);
 
-```c
-// Saída
+    if (eh_triangulo)
+    {
+        printf("Forma um triângulo.\n");
+    }
+    else
+    {
+        printf("Não forma um triângulo.\n");
+        return -1;
+    }
 
-if (a + b > c && a + c > b && b + c > a)
-{
-    printf("Forma um triângulo.\n");
-}
-else
-{
-    printf("Não forma um triângulo.\n");
-    return -1;
-}
-
-if (a == b && b == c)
-{
-    printf("É um triângulo Equilátero!\n");
-}
-else if (a == b || a == c || b == c)
-{
-    printf("É um triângulo Isósceles!\n");
-}
-else
-{
-    printf("É um triângulo Escaleno!\n");
-}
-```
-
-</details>
-
----
-
-<p align="center">
-  <a href="../modulos/condicionais.md">← Condicionais</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/repeticao.md">Estruturas de Repetição →</a>
-</p>
+    if (a == b && b == c)
+    {
+        printf("É um triângulo Equilátero!\n");
+    }
+    else if (a == b || a == c || b == c)
+    {
+        printf("É um triângulo Isósceles!\n");
+    }
+    else
+    {
+        printf("É um triângulo Escaleno!\n");
+    }
+    ```

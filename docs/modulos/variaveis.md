@@ -602,7 +602,11 @@ int main(void)
 }
 ```
 
-Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#!c #include <stdbool.h>`. Isso acontece porque, na versão 11 do C (chamada de "C11"), o tipo booleano nativo se chama `_Bool`; o header `#!c stdbool.h` define os nomes `#!c bool`, `#!c #!c true` e `#!c false` para facilitar a leitura. (A partir da versão 23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
+!!! info
+
+    Chamamos os estados **verdadeiro** e **falso** de `#!c true` e `#!c false`, respectivamente.
+
+Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#!c #include <stdbool.h>`. Isso acontece porque, na versão 11 do C (chamada de "C11"), o tipo booleano nativo se chama `_Bool`; o header `#!c stdbool.h` define os nomes `#!c bool`, `#!c true` e `#!c false` para facilitar a leitura. (A partir da versão 23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
 
 Podemos imprimir um `#!c bool` com o `%d`:
 
@@ -620,9 +624,8 @@ int main(void)
 }
 ```
 
-Aparece `1` para `#!c true` e `0` para `#!c false`, pois, por debaixo dos panos, o `#!c bool` é só um número, assim como o `#!c char`. Veremos isso melhor em [Condicionais](./condicionais.md).
+Aparece `1` para `#!c true` e `0` para `#!c false`, pois, por debaixo dos panos, o `#!c bool` é só um número, assim como o `#!c char` ou `#!c int`. Veremos isso melhor em [Condicionais](./condicionais.md).
 
-Chamamos os estados **verdadeiro** e **falso** de `#!c true` e `#!c false`, respectivamente.
 
 ## Regras de Nomenclatura
 
@@ -925,5 +928,3 @@ int main(void)
 ```
 
 Agora, conseguimos ler o cálculo da variável `total` da seguinte forma: o total é a conta somada à taxa de serviço (um percentual da conta) e às reservas de cada pessoa. E de novo, se precisarmos diminuir a taxa de serviço, por exemplo, só precisamos mudar em um só lugar.
-
-*[C]: Linguagem de Programação C

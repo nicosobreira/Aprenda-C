@@ -4,15 +4,15 @@
 int main(void)
 {
     double nota = 5.0;
-    bool se_esforcou = false;
+    double frequencia = 10.0;
 
-    if (nota < 6.0 && se_esforcou)
+    if (nota < 6.0 && frequencia < 9.0)
     {
-        printf("Na próxima você consegue!\n");
+        printf("Você reprovou...\n");
     }
     else
     {
-        printf("Você precisa se esforçar mais!\n");
+        printf("Você passou!\n");
     }
 
     return 0;

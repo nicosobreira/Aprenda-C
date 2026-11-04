@@ -1,10 +1,10 @@
 # Condicionais
 
-As condicionais são estruturas que nos possibilitam avaliar condições e executar diferentes códigos dependendo de seus resultados. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda chuva, **senão** deixamos ele em casa.
+As estruturas condicionais nos possibilitam **avaliar condições** e executar diferentes códigos dependendo de seus resultados. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda-chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda-chuva, **senão** deixamos ele em casa.
 
 ## if e else
 
-Para resolvermos o nosso problema do guarda chuva, vamos escrever um programa que irá fazer essa decisão! Primeiro iremos declarar uma variável do tipo `#!c bool`, chamada `vai_chover`; damos o valor `#!c true` para ela. Depois iremos implementar essa lógica do **"se e senão"**.
+Para resolvermos o nosso problema do guarda-chuva, vamos escrever um programa que irá fazer essa decisão! Primeiro iremos declarar uma variável do tipo `#!c bool`, chamada `vai_chover`; damos o valor `#!c true` para ela. Depois iremos implementar essa lógica do **"se e senão"**.
 
 !!! atenção
 
@@ -14,18 +14,18 @@ Para resolvermos o nosso problema do guarda chuva, vamos escrever um programa qu
 #include <stdbool.h>
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     bool vai_chover = true;
 
     if (vai_chover)
     {
         printf("Vai chover!\n");
-        printf("É melhor levar o guarda chuva.\n");
+        printf("É melhor levar o guarda-chuva.\n");
     }
     else
     {
-        printf("Deixe o guarda chuva em casa, não irá chover hoje.\n");
+        printf("Deixe o guarda-chuva em casa, não irá chover hoje.\n");
     }
 
     return 0;
@@ -33,25 +33,25 @@ int main()
 ```
 
 As palavras `#!c if` e `#!c else` são traduções diretas para o "se" e "senão".
-Com isso em mente, lemos esse código da seguinte forma: **se** o valor armazenado na variável `vai_chover` for `#!c false`, **então** execute tudo entre as chaves abaixo do `#!c if`, senão execute tudo entre as chaves abaixo do `#!c else`.
+Com isso em mente, lemos esse código da seguinte forma: **se** o valor armazenado na variável `vai_chover` for `#!c true`, **então** execute tudo entre as chaves abaixo do `#!c if`, senão, execute tudo entre as chaves abaixo do `#!c else`.
 
 Mude o valor da variável `vai_chover` para `#!c false` e veja como a saída muda.
 
-<!-- TODO: Restrutuação de Condicionais:
+<!-- TODO: Reestruturação de Condicionais:
  Problema: hoje o módulo não está muito amigável para um iniciante na programação. Fazer as seguintes mudanças
 1. Falar do `#!c if` e deixar claro que ele serve para **alterar o fluxo** do código a partir de uma **condição**.
 2. A partir de um exemplo que mostra uma mensagem parabenizando o aluno - inicialmente utilizando somente a nota, (1) introduzir a ideia de operações booleanas (&&, || e !) com a introdução de uma nova variável chamada `se_esforcou` e (2) `#!c if` aninhado. + Ordem das condições importa
 3. Trazer o exemplo das temperaturas para mostrar como as condições vão sendo alteradas dentro do `if else`.
-4. Mover a seção sobre negação para Boas Práticas em Função.
+4. Mover a seção sobre negação para Boas Práticas em Funções.
 5. Na seção de Boas Práticas falar do `#!c if` sem {}
 -->
 
 ### Operações Relacionais
 
-Agora vamos pensar em outro exemplo: notificar a um aluno se ele passou ou está de recuperação em uma matéria.
-Esse exemplo vai nos ajudar a trabalhar as chamadas **operações relacionais**, as operações "menor igual" ($\le$) e "maior que" ($\gt$) da matemática.
+Agora vamos pensar em outro exemplo: notificar um aluno se ele passou ou está de recuperação em uma matéria.
+Esse exemplo vai nos ajudar a trabalhar as chamadas **operações relacionais**, as operações como "menor que" ($\lt$) e "maior ou igual" ($\ge$) da matemática.
 
-Na maioria das escolas, o aluno precisa tirar **6 ou mais** para passar, caso contrário ele reprova ou fica de recuperação. Usamos da operação **"maior ou igual"** (`#!c >=`) da matemática para transmitir essa ideia. No código a seguir declaramos uma variável do tipo `#!c double` que representa a nota do aluno e verificamos se ele passou ou não:
+Na maioria das escolas, o aluno precisa tirar **6 ou mais** para passar, caso contrário ele reprova ou fica de recuperação. Usamos a operação **"maior ou igual"** (`#!c >=`) da matemática para transmitir essa ideia. No código a seguir declaramos uma variável do tipo `#!c double` que representa a nota do aluno e verificamos se ele passou ou não:
 
 ```c
 #include <stdio.h>
@@ -73,7 +73,7 @@ int main(void)
 }
 ```
 
-Da mesma forma que podemos pensar que o aluno passa ao tirar **6 ou mais**, pensar que o aluno *reprova* ao tirar **menos que 6** também em válido. Veja como ao usarmos o operador **"menor que"** (`#!c <`), alteramos a lógica do código, mas deixando intacto o resultado:
+Da mesma forma que podemos pensar que o aluno *passa* na matéria ao tirar **6 ou mais**, pensar que o aluno *reprova* ao tirar **menos que 6** também é válido. Usamos o **"menor que"** (`#!c <`) para alterar a lógica do código, mas mantendo o mesmo resultado:
 
 ```c
 #include <stdio.h>
@@ -82,7 +82,7 @@ int main(void)
 {
     double nota = 5.0;
 
-    if (nota < 6.0))
+    if (nota < 6.0)
     {
         printf("Ficou de recuperação :(\n");
     }
@@ -95,9 +95,9 @@ int main(void)
 }
 ```
 
-Essa mudança foi feita por minha parte para mostrar o operador "menor que", mas ela também serve para mostrar que certas operações booleanas possuem uma equivalência entre si.
+Fiz essa mudança para mostrar o operador "menor que", mas ela também serve para mostrar que certas operações relacionais possuem uma equivalência entre si.
 
-Temos a operação de igualdade, representada com **dois símbolos de igual**, ou seja, `#!c ==`. Vamos exibir uma mensagem especial para o aluno, caso ele tire 10 - adicionando um **novo `#!c if`**:
+Ainda temos a operação de **igualdade**, representada com **dois sinais de igual**, ou seja, `#!c ==`. Vamos exibir uma mensagem especial para o aluno que tire 10 - adicionando um **novo `#!c if`**:
 
 ```c hl_lines="15-18"
 #include <stdio.h>
@@ -106,7 +106,7 @@ int main(void)
 {
     double nota = 5.0;
 
-    if (nota < 6.0))
+    if (nota < 6.0)
     {
         printf("Ficou de recuperação :(\n");
     }
@@ -124,7 +124,7 @@ int main(void)
 }
 ```
 
-Por fim, para a operação de *desigualdade* ($\ne$), o professor da turma quer incentivar os alunos que ficaram de recuperação, deixando claro que eles podiam ter tirado 0! Em C, escrevemos esta operação como `#!c !=`:
+O professor da turma quer incentivar os alunos que ficaram de recuperação, deixando claro que eles podiam ter tirado `#!c 0`! Em C, usamos a operação de **desigualdade** ($\ne$), escrita como `#!c !=`, para transmitir essa ideia:
 
 ```c hl_lines="11-18"
 #include <stdio.h>
@@ -133,7 +133,7 @@ int main(void)
 {
     double nota = 5.0;
 
-    if (nota < 6.0))
+    if (nota < 6.0)
     {
         printf("Ficou de recuperação :(\n");
 
@@ -162,52 +162,41 @@ int main(void)
 
 ### Operações Booleanas
 
-Agora o professor tem um problema um pouco diferente: ele percebeu que seus alunos andam **desmotivados** e quer mostrar uma mensagem motivacional dependendo do **esforço** e **nota** dos alunos.
-A nota ainda é uma variável do tipo `#! double`, já o esforço é uma `#!c bool` - que é `#!c true` se o aluno se esforçou e `#!c false` caso contrário.
+#### "E"
 
-``` c
-#include <stdio.h>
-#include <stdbool.h> // (1)!
+O professor percebeu que os alunos estão indo muito mal na prova. Ele decidiu usar a frequência às aulas como outro fator que faz o aluno passar na matéria.
+A taxa de frequência vai de 0 a 10, e segue a seguinte lógica: se o aluno tirou menos que 6, mas possui frequência maior ou igual a 9, ele passa, do contrário ele reprova. Criamos uma nova variável também do tipo `#!c double` chamada `frequencia` e a usamos da seguinte forma:
 
-int main(void)
-{
-    double nota = 5.0;
-    bool se_esforcou = false; // (1)!
-
-    return 0;
-}
-```
-
-1.  Não se esqueça de incluir o `stdbool.h` para usar o tipo `bool`.
-
-Se o aluno tirou menos que 6, mas se esforçou, o professor quer encorajar o aluno a estudar mais, caso contrário, uma mensagem mais direta é exibida. Para exibir a mensagem encorajadora, o aluno precisa *tirar menos que 6* **e** *ter se esforçado*; primeiro, vamos resolver esse problema com **dois `#!c if`** da seguinte forma:
-
-```c hl_lines="9-15"
+```c hl_lines="11"
 #include <stdio.h>
 #include <stdbool.h>
 
 int main(void)
 {
     double nota = 5.0;
-    bool se_esforcou = false;
+    double frequencia = 10.0;
 
     if (nota < 6.0)
     {
-        if (se_esforcou)
+        if (frequencia >= 9.0)
         {
-            printf("Na próxima você consegue!\n");
+            printf("Você passou!\n");
+        }
+        else
+        {
+            printf("Você reprovou...\n");
         }
     }
     else
     {
-        printf("Você precisa se esforçar mais!\n");
+        printf("Você passou!\n");
     }
 
     return 0;
 }
 ```
 
-Mas, a linguagem C nos oferece os chamados **operadores booleanos**. Eles geram os valores `#!c true` ou `#!c false` a partir de uma relação lógica. Nesse exemplo a relação lógica é o `E`, que só é verdadeiro (`#!c true`) se a nota for menor que 6 **e** o aluno se esforçou. Em C, o símbolo que representa o `E` é o `#!c &&`; no código fica assim:
+Note que temos que repetir duas vezes a mensagem `"Você passou!"`. A linguagem C nos oferece os chamados **operadores booleanos**, que são operações que resultam em apenas `#!c true` ou `#!c false` a partir de uma **relação lógica**. Nesse caso, a relação lógica é o "E", ou seja, para o aluno **reprovar** é necessário que: *ele tire menos que 6* **e** *tenha frequência menor que 9*. Escrevemos essa operação como `#!c &&`:
 
 ```c hl_lines="9"
 #include <stdio.h>
@@ -216,44 +205,347 @@ Mas, a linguagem C nos oferece os chamados **operadores booleanos**. Eles geram 
 int main(void)
 {
     double nota = 5.0;
-    bool se_esforcou = false;
+    double frequencia = 10.0;
 
-    if (nota < 6.0 && se_esfocou)
+    if (nota < 6.0 && frequencia < 9.0)
     {
-        printf("Na próxima você consegue!\n");
+        printf("Você reprovou...\n");
     }
     else
     {
-        printf("Você precisa se esforçar mais...\n");
+        printf("Você passou!\n");
     }
 
     return 0;
 }
 ```
 
+Basta que uma dessas condições seja falsa para que o aluno passe na matéria, ou seja, basta que sua nota seja maior ou igual a 6 **ou** sua frequência seja maior ou igual a 9 para que ele passe. A tabela a seguir, chamada de **tabela-verdade**, deixa clara essa relação. A coluna **Resultado** indica o que é passado para o `#!c if`:
+
+| `#!c nota < 6.0` | `#!c frequencia < 9.0` | **Resultado** |
+| :-: | :-: | :- |
+| **`#!c true`** | **`#!c true`** | **`#!c true`** |
+| `#!c true` | `#!c false` | `#!c false` |
+| `#!c false` | `#!c true` | `#!c false` |
+| `#!c false` | `#!c false` | `#!c false` |
+
+#### "OU"
+
+No parágrafo anterior, vimos que se o aluno tiver *nota maior ou igual a 6* **ou** *frequência maior ou igual a 9* ele **passa**. O C possui o operador "OU", escrito como `#!c ||`, que traz essa ideia:
+
+```c hl_lines="9"
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+    double nota = 5.0;
+    double frequencia = 10.0;
+
+    if (nota >= 6.0 || frequencia >= 9.0)
+    {
+        printf("Você passou!\n");
+    }
+    else
+    {
+        printf("Você reprovou...\n");
+    }
+
+    return 0;
+}
+```
+
+Basta que uma condição seja verdadeira para que o resultado seja verdadeiro:
+
+| `#!c nota >= 6.0` | `#!c frequencia >= 9.0` | **Resultado** |
+| :-: | :-: | :- |
+| **`#!c true`** | **`#!c true`** | **`#!c true`** |
+| **`#!c true`** | **`#!c false`** | **`#!c true`** |
+| **`#!c false`** | **`#!c true`** | **`#!c true`** |
+| `#!c false` | `#!c false` | `#!c false` |
+
+---
+
+O professor percebeu uma melhora nas notas dos alunos e decidiu fazer uma excursão para o cinema. O problema é que o cinema é muito novo e eles ainda não têm um sistema de **verificação de meia-entrada**. Tem direito a pagar meia entrada:
+
+- Idosos com 60 anos ou mais.
+- Crianças com até 12 anos.
+- E estudantes (na escola ou faculdade).
+
+Com o que vimos até agora, crie um programa que resolva esse problema antes de continuar.
+
+??? resposta
+
+    Basta usarmos o "OU" duas vezes, combinando as três condições:
+
+    ```c hl_lines="9"
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main(void)
+    {
+        int idade = 10;
+        bool esta_estudando = true;
+
+        if (idade >= 60 || idade <= 12 || esta_estudando)
+        {
+            printf("Você paga meia!\n");
+        }
+        else
+        {
+            printf("Você paga inteira!\n");
+        }
+
+        return 0;
+    }
+    ```
+
+À medida que fazemos mais verificações, é interessante darmos um **nome** para elas. Podemos criar três variáveis do tipo `#!c bool` chamadas `eh_idoso`, `eh_crianca` e `tem_meia` e usar no código:
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+    int idade = 10;
+    bool esta_estudando = true;
+
+    bool eh_idoso = idade >= 60;
+    bool eh_crianca = idade <= 12;
+
+    bool tem_meia = eh_idoso || eh_crianca || esta_estudando;
+
+    if (tem_meia)
+    {
+        printf("Você paga meia!\n");
+    }
+    else
+    {
+        printf("Você paga inteira!\n");
+    }
+
+    return 0;
+}
+```
+
+Isso não é obrigatório, mas fazer isso deixa claro o que cada condição faz.
+
+#### "NÃO"
+
+Repare que nas duas últimas seções escrevemos a mesma regra de duas formas: "reprova" com `#!c &&` e "passa" com `#!c ||`. Uma é **o contrário** da outra, e o C tem um operador para isso: o "NÃO", escrito como `#!c !`, que **inverte** um valor booleano, ou seja, `#!c true` vira `#!c false` e vice-versa.
+
+Usando o `#!c !`, podemos guardar a condição de aprovação em uma variável e tratar a reprovação como "**não** passou":
+
+```c hl_lines="9-11"
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+    double nota = 5.0;
+    double frequencia = 10.0;
+
+    bool passou = nota >= 6.0 || frequencia >= 9.0;
+
+    if (!passou)
+    {
+        printf("Você reprovou...\n");
+    }
+    else
+    {
+        printf("Você passou!\n");
+    }
+
+    return 0;
+}
+```
+
+Em uma tabela-verdade fica:
+
+| `#!c passou` | `#!c !passou` |
+| :-: | :-: |
+| `#!c true` | `#!c false` |
+| `#!c false` | `#!c true` |
+
+
+Isso nos dá um jeito de provar que as duas versões são equivalentes. Negar um "OU" é o mesmo que negar cada condição e trocar por "E":
+
+```c
+!(nota >= 6.0 || frequencia >= 9.0)   // não passou
+nota < 6.0 && frequencia < 9.0        // equivalente: nota baixa E frequência baixa
+```
+
+O contrário também vale: negar um "E" vira "OU" com cada condição negada. Isso é conhecido como **Leis de De Morgan**. Não precisa decorar: se tiver dúvida, monte a tabela-verdade e compare.
+
+!!! nota
+
+    Teste o programa com as quatro combinações de `nota` (acima e abaixo de 6) e `frequencia` (acima e abaixo de 9) e confirme que as duas formas sempre dão o mesmo resultado.
+
+---
+
+Por fim, o professor precisa organizar o **acesso à biblioteca da escola**. As regras são as seguintes:
+
+- Podem **retirar livros** as pessoas que estejam matriculadas ou que sejam professoras.
+- Mas ninguém pode retirar livros se tiver **algum livro atrasado**.
+- Para **entrar** na biblioteca é preciso ser aluno ou funcionário **e** ter feito o cadastro.
+
+Com o que vimos até agora, crie um programa que resolva a retirada de livros antes de continuar. Use as variáveis:
+
+```c
+bool esta_matriculado = true;
+bool eh_professor = false;
+bool tem_livro_atrasado = false;
+```
+
+!!! dica
+
+    Atenção à **precedência** dos operadores: o `#!c &&` é avaliado antes do `#!c ||`. Use parênteses para deixar a ordem explícita.
+
+??? resposta
+
+    Precisamos combinar um "OU" (matriculado ou professor) com um "NÃO" (não ter livro atrasado) usando um "E". Repare nos **parênteses**: sem eles, o `#!c &&` seria avaliado antes do `#!c ||` e a regra mudaria.
+
+    ```c hl_lines="10"
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main(void)
+    {
+        bool esta_matriculado = true;
+        bool eh_professor = false;
+        bool tem_livro_atrasado = false;
+
+        if ((esta_matriculado || eh_professor) && !tem_livro_atrasado)
+        {
+            printf("Você pode retirar livros!\n");
+        }
+        else
+        {
+            printf("Você não pode retirar livros.\n");
+        }
+
+        return 0;
+    }
+    ```
+
+    Teste o programa mudando os valores das três variáveis e confira se o resultado bate com o que você esperava.
+
+À medida que as regras crescem, vale **dar nome** a cada parte, como fizemos com `tem_meia`:
+
+```c
+bool tem_vinculo = esta_matriculado || eh_professor;
+bool pode_retirar = tem_vinculo && !tem_livro_atrasado;
+```
+
+#### Boa prática
+
+Prefira nomes **positivos** para variáveis booleanas (`passou`, e não `nao_passou`). Com o nome negativo, `#!c !nao_passou` vira uma "dupla negação", difícil de ler.
+
 ## else if
 
-Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia e que cada indivíduo decide o que é "quente" e "frio".
+Com o que vimos até agora, tente resolver o seguinte problema: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia e que cada indivíduo decide o que é "quente" e "frio".
 
-<!-- FIX: Esse paragrafo fala e fala, mas para alguém que está tendo o primeiro contato é muito confuso. Preciso explicar os operadores de comparação antes. -->
-Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13ºC e 32ºC. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia. Para decidirmos qual tipo de roupa é melhor levar, vamos usar de **operadores de comparação**, o "maior que" (`>`) e o "menor que" (`<`) da matemática, junto a dois condicionais.
+Para resolver esse problema, vamos criar um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13 °C e 32 °C. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia.
 
 ```c
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     const double temp_baixa = 13.0;
     const double temp_alta = 32.0;
 
     double temperatura = 25.2;
 
-    if (temperatura > temp_alta)
+    // ...
+
+    return 0;
+}
+```
+
+??? resposta
+
+    ```c
+    #include <stdio.h>
+
+    int main(void)
+    {
+        const double temp_baixa = 13.0;
+        const double temp_alta = 32.0;
+
+        double temperatura = 25.2;
+
+        if (temperatura >= temp_alta)
+        {
+            printf("Hoje vai fazer muito calor!\n");
+            printf("Use uma regata e se hidrate.\n");
+        }
+        else
+        {
+            if (temperatura <= temp_baixa)
+            {
+                printf("Hoje vai fazer frio!\n");
+                printf("É melhor levar o casaco e passar hidratante.\n");
+            }
+            else
+            {
+                printf("Hoje o clima está perfeito!\n");
+                printf("Uma camisa já basta.\n");
+            }
+        }
+
+        return 0;
+    }
+    ```
+
+Veja que após cada `#!c else` é necessário aumentar a indentação e adicionar um `#!c if` abaixo.
+
+```c
+else
+{
+    if (temperatura <= temp_baixa)
+    {
+        // ...
+    }
+    else
+    {
+        // ...
+    }
+}
+```
+
+Esse padrão é extremamente frequente na linguagem C, e por isso é comum escrever o `#!c else` e `#!c if` seguidos um do outro, assim:
+
+```c
+else if (temperatura <= temp_baixa)
+{
+    // ...
+}
+else
+{
+    // ...
+}
+```
+
+O chamado `#!c else if` não é uma estrutura condicional nova, mas apenas um `#!c else` seguido de um `#!c if`. Reescrevendo o código, fica assim:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    const double temp_baixa = 13.0;
+    const double temp_alta = 32.0;
+
+    double temperatura = 25.2;
+
+    if (temperatura >= temp_alta)
     {
         printf("Hoje vai fazer muito calor!\n");
         printf("Use uma regata e se hidrate.\n");
     }
-    else if (temperatura < temp_baixa)
+    else if (temperatura <= temp_baixa)
     {
         printf("Hoje vai fazer frio!\n");
         printf("É melhor levar o casaco e passar hidratante.\n");
@@ -268,58 +560,44 @@ int main()
 }
 ```
 
-> Não precisamos importar `stdbool.h`, isso por que não usamos o tipo `#!c bool` em nenhum momento.
+Isso elimina os níveis de indentação adicionais, ficando mais claro em qual **faixa de temperatura** cada parte do código está.
 
-Primeiro, o programa vai verificar, com o uso do primeiro `#!c if`, se o valor armazenado na variável `temperatura` é maior do que o armazenado em `temp_alta`. Se esse for o caso, então faça as recomendações para o calor, senão verifique se a `temperatura` é menor que `temp_baixa`, com o uso do `else if`. Se a `temperatura` for baixa, então recomende um casaco. Por fim, se a temperatura não está nem muito quente, nem muito frio, então o clima só pode estar perfeito.
+!!! nota
 
-Teste com diversos valores de temperatura, alterando o valor da variável `temperatura`, e veja quais mensagens aparecem.
+    Teste com diversos valores de temperatura, alterando o valor da variável `temperatura`, e veja quais mensagens aparecem.
 
-Note que **depois** de cada verificação que fazemos na variável `temperatura` estamos **limitando** seu valor. Pense comigo, antes de fazer a **primeira verificação** na linha `if (temperatura > temp_alta)` o valor de `temperatura` pode ser **qualquer um**: pode ser `-2.0`, `25.0` ou até algo absurdo como `1240.0` e `-900.0`; não temos como saber.
-É só depois de verificar se `temperatura > temp_alta` é que podemos indicar uma nova **faixa de temperatura** da variável `temperatura`. Veja, para `temp_alta` valendo `32.0`, se a `temperatura` for maior que `32.0` sabemos que seu valor vai de `32.0` - não incluindo - para cima (como `35.0` e `50.0`), **caso contrário** a `temperatura` com toda certeza é menor ou igual a `32.0`.
-Com isso, ao chegarmos na **segunda verificação** em `else if (temperatura < temp_baixa)` temos **certeza** que a `temperatura` é menor ou igual a `32.0`; e denovo, após verificarmos esta condição, podemos definir uma nova faixa de temperatura para a variável `temperatura`.
+Note que **depois** de cada verificação que fazemos na variável `temperatura` estamos **limitando** seu valor.
 
-No código a seguir, vou apenas escrever as possíveis faixas de temperatura **antes** de fazer as verificações, usando comentários e a notação matématica de intervalos, que é uma outra forma de escrever o que acabamos de ver. Não se preocupe se não conhecer essa notação, você pode ignorá-la e ler apenas os textos ao lado nos comentários.
+Pense comigo: antes de fazer a **primeira verificação** na linha `#!c if (temperatura >= temp_alta)` o valor de `temperatura` pode ser **qualquer um**: pode ser `#!c -2.0`, `#!c 25.0` ou até algo absurdo como `#!c 1240.0` e `#!c -900.0`; não temos como saber.
+É só depois de verificar se `#!c temperatura >= temp_alta` é que podemos indicar uma nova **faixa de temperatura** da variável `temperatura`. Se a `temperatura` for maior ou igual a `#!c 32.0` sabemos que seu valor vai de `#!c 32.0` (incluindo) para cima (como `#!c 35.0` e `#!c 50.0`), **caso contrário** a `temperatura` com toda certeza é menor que `#!c 32.0`.
+Com isso, ao chegarmos na **segunda verificação** em `#!c else if (temperatura <= temp_baixa)` temos **certeza** de que a `temperatura` é menor que `#!c 32.0`; e de novo, após verificarmos esta condição, podemos definir uma nova faixa de temperatura para a variável `temperatura`.
+
+O fluxograma deixa essa ideia mais clara:
+
+```mermaid
+flowchart LR
+    A["Temperatura<br>(-∞, +∞)"] --> B{">= 32?"}
+    B -- "Não" --> C["(-∞, 32)"]
+    C --> D{"<= 13?"}
+    D -- "Não" --> E["(13, 32)"]
+```
+
+No código a seguir, vou apenas escrever as possíveis faixas de temperatura **antes** de fazer as verificações, usando comentários e a notação matemática de intervalos, que é uma outra forma de escrever o que acabamos de ver. Não se preocupe se não conhecer essa notação, você pode ignorá-la e ler apenas os textos ao lado nos comentários.
 
 ```c
 // (-inf, +inf) todos os números reais
-if (temperatura > temp_alta)
-{
-    printf("Hoje vai fazer muito calor!\n");
-    printf("Use uma regata e se hidrate.\n");
-}
-// (-inf, 32.0] todos os reais negativos, nulos e positivos até 32.0
-else if (temperatura < temp_baixa)
-{
-    printf("Hoje vai fazer frio!\n");
-    printf("É melhor levar o casaco e passar hidratante.\n");
-}
-// [13.0, 32.0] todos os reais de 13.0 a 32.0
-else
-{
-    printf("Hoje o clima está perfeito!\n");
-    printf("Uma camisa já basta.\n");
-}
-```
-
-Agora, veja o que acontece com os valores exatos de `temp_baixa` e `temp_alta`. Você percebeu que a mensagem indica um clima perfeito? Como esses pontos indicam as **mudanças de temperatura**, eles devem ser **incluídos** em suas respectivas faixas de temperatura, mas por que este não é o caso?
-
-O problema é que ao final das verificações, no bloco do `#!c else`, a faixa de `temperatura` **incluí** esses valores. O erro está nas **verificações passadas**, que não incluíram os valores de `temp_baixa` e `temp_alta` em suas faixas.
-
-Para corrigir o erro, devemos usar os operadores `>=` e `<=`, lidos como "maior ou igual" e "menor ou igual", respectivamente, nas verificações `#!c if` e `else if`.
-
-> Na escrita do código, vou focar apenas nas mudanças do `#!c if`, mas você deve escrever tudo!
-
-```c
 if (temperatura >= temp_alta)
 {
     printf("Hoje vai fazer muito calor!\n");
     printf("Use uma regata e se hidrate.\n");
 }
+// (-inf, 32.0) todos os reais menores que 32.0
 else if (temperatura <= temp_baixa)
 {
     printf("Hoje vai fazer frio!\n");
     printf("É melhor levar o casaco e passar hidratante.\n");
 }
+// (13.0, 32.0) todos os reais entre 13.0 e 32.0
 else
 {
     printf("Hoje o clima está perfeito!\n");
@@ -334,7 +612,7 @@ As condições em C sempre resultam em valores numéricos. Vejamos um exemplo:
 ```c
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     printf("Condição Verdadeira: %d\n", 3 == 3);
     printf("Condição Falsa: %d\n", 1 > 10);
@@ -343,6 +621,6 @@ int main()
 }
 ```
 
-No primeiro caso, o resultado da condição `#!c 3 == 3` é 1, já que de fato, 3 é igual a 3. Já no segundo, como 1 não é maior que 10, o resultado é 0.
+No primeiro caso, o resultado da condição `#!c 3 == 3` é 1, já que, de fato, 3 é igual a 3. Já no segundo, como 1 não é maior que 10, o resultado é 0.
 
-A linguagem C define o valor `0` como **falso**, qualquer outro valor é verdadeiro. Dessa forma, o tipo `#!c bool` e os valores `#!c false` e `#!c false` são apenas números. Utilizamos desse tipo para trazer clareza em nosso código.
+A linguagem C define o valor `0` como **falso**; qualquer outro valor é verdadeiro. Dessa forma, o tipo `#!c bool` e os valores `#!c true` e `#!c false` são apenas números. Utilizamos esse tipo para trazer clareza em nosso código.
