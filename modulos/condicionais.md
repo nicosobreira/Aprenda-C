@@ -43,6 +43,133 @@ Com isso em mente, lemos esse código da seguinte forma: **se** o valor armazena
 
 Mude o valor da variável `vai_chover` para `false` e veja como a saída muda.
 
+<!-- TODO: Restrutuação de Condicionais:
+ Problema: hoje o módulo não está muito amigável para um iniciante na programação. Fazer as seguintes mudanças
+1. Falar do `if` e deixar claro que ele serve para **alterar o fluxo** do código a partir de uma **condição**.
+2. A partir de um exemplo que mostra uma mensagem parabenizando o aluno - inicialmente utilizando somente a nota, (1) introduzir a ideia de operações booleanas (&&, || e !) com a introdução de uma nova variável chamada `se_esforcou` e (2) `if` aninhado. + Ordem das condições importa
+3. Trazer o exemplo das temperaturas para mostrar como as condições vão sendo alteradas dentro do `if else`.
+4. Mover a seção sobre negação para Boas Práticas em Função.
+5. Na seção de Boas Práticas falar do `if` sem {}
+-->
+
+### Operações Relacionais
+
+Agora vamos pensar em outro exemplo: notificar a um aluno se ele passou ou está de recuperação em uma matéria.
+Esse exemplo vai nos ajudar a trabalhar as chamadas **operações relacionais**, que as operações "menor igual" ($\le$) e "maior que" ($\gt$) da matemática.
+
+Na maioria das escolas, o aluno precisa tirar **6 ou mais** para passar, caso contrário ele reprova ou fica de recuperação. Usamos da operação **"maior ou igual"** (`>=`) da matemática para transmitir essa ideia. No código a seguir declaramos uma variável do tipo `double` que representa a nota do aluno e verificamos se ele passou ou não:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    double nota = 5.0;
+
+    if (nota >= 6.0)
+    {
+        printf("Você passou!\n");
+    }
+    else
+    {
+        printf("Ficou de recuperação :(\n");
+    }
+
+    return 0;
+}
+```
+
+Da mesma forma que podemos pensar que o aluno passa ao tirar **6 ou mais**, pensar que o aluno *reprova* ao tirar **menos que 6** também em válido. Veja como ao usarmos o operador **"menor que"** (`<`), alteramos a lógica do código, mas sem deixando intacto o resultado:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    double nota = 5.0;
+
+    if (nota < 6.0))
+    {
+        printf("Ficou de recuperação :(\n");
+    }
+    else
+    {
+        printf("Você passou!\n");
+    }
+
+    return 0;
+}
+```
+
+Essa mudança foi feita por minha parte para mostrar o operador "menor que", mas ela também serve para mostrar que certas operações booleanas possuem uma equivalência entre si.
+
+Temos a operação de igualdade, representada com **dois símbolos de igual**, ou seja, `==`. Vamos exibir uma mensagem especial para o aluno, caso ele tire 10 - adicionando um **novo `if`**:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    double nota = 5.0;
+
+    if (nota < 6.0))
+    {
+        printf("Ficou de recuperação :(\n");
+    }
+    else
+    {
+        printf("Você passou!\n");
+
+        if (nota == 10.0)
+        {
+            printf("E parabéns por tirar 10!\n");
+        }
+    }
+
+    return 0;
+}
+```
+
+Por fim, para a operação de *desigualdade* ($\ne$), o professor da turma quer incentivar os alunos que ficaram de recuperação, deixando claro que eles podiam ter tirado 0! Em C, escrevemos esta operação como `!=`:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    double nota = 5.0;
+
+    if (nota < 6.0))
+    {
+        printf("Ficou de recuperação :(\n");
+
+        if (nota != 0.0)
+        {
+            printf("Mas podia ter sido 0 ;)\n");
+        }
+        else
+        {
+            printf("...\n");
+        }
+    }
+    else
+    {
+        printf("Você passou!\n");
+
+        if (nota == 10.0)
+        {
+            printf("E parabéns por tirar 10!\n");
+        }
+    }
+
+    return 0;
+}
+```
+
+### Operações Booleanas
+
+...
+
 ## else if
 
 Agora, vamos pensar em outro problema do dia a dia: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia e que cada indivíduo decide o que é "quente" e "frio".
