@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="./ola-mundo.md">← Olá, Mundo</a>
-  &nbsp;|&nbsp;
-  <a href="./variaveis.md">Variáveis →</a>
-</p>
-
----
-
 # O que é C?
 
 Após você ter aprendido a escrever o seu primeiro programa em C (o "Olá, Mundo!"), agora é o momento certo de entender de fato **o que é a linguagem C**, e por que ela é importante.
@@ -32,11 +24,3 @@ Quando estamos criando nossos primeiros programas em C, não queremos nos preocu
 A linguagem C foi criada em 1970, há mais de 50 anos! Ela foi muito revolucionária para a época, por possuir um conjunto de regras bem concisas, ser portável e ter uma ótima performance, em um tempo onde os computadores eram muito mais lentos. Para conseguir isso, a linguagem C se comunica de forma mais direta com os componentes internos do computador, principalmente o **processador** e a **memória RAM**.
 
 Dessa forma, para aprendermos C também temos que compreender como o **computador funciona de verdade**, o que é de extrema importância para a carreira de desenvolvedores e desenvolvedoras.
-
----
-
-<p align="center">
-  <a href="./ola-mundo.md">← Olá, Mundo</a>
-  &nbsp;|&nbsp;
-  <a href="./variaveis.md">Variáveis →</a>
-</p>

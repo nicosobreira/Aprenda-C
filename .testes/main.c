@@ -1,18 +1,19 @@
+#include <stdbool.h>
 #include <stdio.h>
 
 int main(void)
 {
-    const int total = 7;
-    double temperaturas[total] = {20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0};
+    double nota = 5.0;
+    bool se_esforcou = false;
 
-    double soma = 0;
-    for (int i = 0; i < total; i = i + 1)
+    if (nota < 6.0 && se_esforcou)
     {
-        soma += temperaturas[i];
+        printf("Na próxima você consegue!\n");
     }
-    double media = soma / total;
-
-    printf("A média de temperatura é %f°C\n", media);
+    else
+    {
+        printf("Você precisa se esforçar mais!\n");
+    }
 
     return 0;
 }

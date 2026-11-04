@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="./instalacao.md">← Instalando o C</a>
-  &nbsp;|&nbsp;
-  <a href="./linguagem-c.md">O que é C? →</a>
-</p>
-
----
-
 # Olá, Mundo
 
 O programa "Olá, Mundo!" é a iniciação de todo programador. Ele vai nos mostrar algumas regras básicas da linguagem C.
@@ -374,11 +366,3 @@ Ao escrever nossos códigos, vamos nos deparar com as seguintes categorias de er
 - **Erro de Semântica**: ocorre quando o comando é executado, mas o significado do comando está errado para o contexto desejado.
 
 O compilador consegue identificar erros de sintaxe e **alguns** de semântica e tempo de execução, mas não consegue prever erros de lógica, esses ficam por conta do programador. Ao longo do guia veremos ainda mais erros; ao conhecê-los vamos conhecer um pouco mais da linguagem C, assim como nos familiarizar com as saídas do compilador.
-
----
-
-<p align="center">
-  <a href="./instalacao.md">← Instalando o C</a>
-  &nbsp;|&nbsp;
-  <a href="./linguagem-c.md">O que é C? →</a>
-</p>

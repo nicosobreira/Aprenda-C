@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="../exercicios/repeticao.md">← Exercícios: Estruturas de Repetição</a>
-  &nbsp;|&nbsp;
-  <a href="../exercicios/funcoes.md">Exercícios: Funções →</a>
-</p>
-
----
-
 # Funções
 
 Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](./condicionais.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
@@ -821,3 +813,114 @@ E o mais importante: essas 155 linhas pagam um preço **uma única vez**. Da pr�
   &nbsp;|&nbsp;
   <a href="../exercicios/funcoes.md">Exercícios: Funções →</a>
 </p>
+
+## Boas Práticas
+
+### Retorno Antecipado
+
+Vamos pensar em uma festa: uma pessoa só pode entrar nela se possuir um convite, senão ela é barrada na entrada.
+
+Primeiro, vamos resolver esse problema usando um `#!c if` junto a um `#!c else`. Logo em seguida, veremos um jeito melhor, usando apenas um `#!c if`.
+Para tal, vamos criar uma função chamada `entrar_na_festa` que _retorna nada_ e tem como argumento uma variável do tipo `#!c bool` chamada `tem_convite`.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+void entrar_na_festa(bool tem_convite)
+{
+    if (tem_convite)
+    {
+        printf("Seja bem-vindo!\n");
+        printf("Pode escolher uma mesa aqui.\n");
+        printf("O banheiro fica à direita.\n");
+        printf("Tenha uma boa noite!\n");
+    }
+    else
+    {
+        printf("Você não tem convite! Rala!\n");
+    }
+}
+```
+
+Logo abaixo, na função `main`:
+
+```c
+int main()
+{
+    printf("-- Pessoa 1\n");
+    entrar_na_festa(true);
+
+    printf("\n");
+
+    printf("-- Pessoa 2\n");
+    entrar_na_festa(false);
+
+    return 0;
+}
+```
+
+Se você rodar o programa, verá que a primeira pessoa entrou na festa e a segunda não. O código funcionou, então por que essa pode não ser a melhor escolha?
+
+Para chegar a uma resposta, precisamos entender realmente o que significa "entrar em uma festa". Para uma pessoa entrar em uma festa, é **obrigatório** que ela tenha um convite, caso ela não tenha, ela será expulsa **na hora**, logo no **começo**. Pense que ter o convite é algo **válido** para entrar na festa, já não ter um, é **inválido**.
+
+O nosso código atual não traz essa ideia de **válido** e **inválido** em sua construção. Note que é diferente do nosso primeiro que vimos em [Condicional](./condicionais.md), onde chover ou não são **dois caminhos válidos** para um dia.
+
+Sendo assim, o problema está no _design_ de nosso código, não na lógica. Precisamos de algum jeito de comunicar a **validez** dos argumentos da função `entrar_na_festa` para outras pessoas que lerão o código. Para isso, vamos simplesmente sair no começo da função, caso algo inválido aconteça.
+
+Vamos **negar** o valor da variável `tem_convite` com o uso da exclamação `!` e analisar o código logo em seguida.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+void entrar_na_festa(bool tem_convite)
+{
+    if (!tem_convite)
+    {
+        printf("Você não tem convite! Rala!\n");
+        return;
+    }
+
+    printf("Seja bem-vindo!\n");
+    printf("Pode escolher uma mesa aqui.\n");
+    printf("O banheiro fica à direita.\n");
+    printf("Tenha uma boa noite!\n");
+}
+```
+
+Logo no começo da função, verificamos se a pessoa **não tem um convite** com `#!c !tem_convite`, lido como "a negação da variável `tem_convite`". Depois, **saímos da função** por meio do `#!c return` (O tipo `#!c void` indica que a função não retornará nada, simplesmente utilizamos o `#!c return;`, sem nenhum valor seguido dele). Mas se a pessoa tiver um convite, ela não pode entrar, e com isso o bloco do `#!c if` não irá rodar.
+
+Com essas mudanças, passamos a indicar que não ter um convite é algo inválido. Chamamos essa estratégia de **Retorno Antecipado**;
+Usar ela fica a sua escolha: você acha que é preciso transmitir a ideia de obrigatoriedade em um problema?
+
+A ideia do **Retorno Antecipado** também pode ser usado em outros contextos. Por exemplo, se você quiser dividir dois números, o divisor tem que ser diferente de `#!c 0`.
+
+Para isso, vamos criar uma função chamada `print_divisao` que retorna nada e tem como argumentos duas variáveis do tipo `#!c double`, chamadas `numero` e `divisor`. Seu propósito é imprimir a divisão entre `numero` e `divisor`.
+
+```c
+void print_divisao(double numero, double divisor)
+{
+    printf("O resultado é: %f\n", numero / divisor);
+}
+```
+
+Teste com diferentes valores para `numero` e `divisor`, mas sempre que o `divisor` valer 0, o valor será `inf`. Esse valor de `inf` está relacionado com o padrão IEEE 754, usado pela linguagem C.
+Esse padrão determina a divisão por 0 como uma operação válida, com um valor especial chamado de `inf`. Mas como poderíamos fazer a divisão se tornar inválida? Podemos usar um **Retorno Antecipado** para tal.
+
+```c
+void print_divisao(double numero, double divisor)
+{
+    if (divisor == 0.0)
+    {
+        printf("ERRO, a divisão por zero é inválida!\n");
+        return;
+    }
+
+    printf("O resultado é: %f\n", numero / divisor);
+}
+```
+
+Com isso, garantimos que o valor de `divisor` sempre será diferente de 0.
+
+> Note que, devido às imprecisões do padrão IEEE 754, não é recomendado comparar diretamente valores `float` ou `double` com o `==`, prefira as desigualdade, como `<` e `>=`. A única exceção é o `0.0`.

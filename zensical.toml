@@ -51,6 +51,7 @@ features = [
   "toc.follow",
   "search.highlight",
   "content.tabs.link",
+  "content.code.annotate",
   # "content.code.copy",  # botão de copiar, desligado por causa da regra "digite cada código"
 ]
 
