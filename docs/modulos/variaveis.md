@@ -489,7 +489,7 @@ No **binário**, os pesos são potências de **2**, da direita para a esquerda. 
 
 Logo, `0 × 8 + 1 × 4 + 0 × 2 + 1 × 1 = 5`.
 
-Agora podemos resolver a dívida do começo. O binário `0100 0011` tem 8 posições, com pesos `128, 64, 32, 16, 8, 4, 2, 1`:
+Agora podemos resolver a dúvida do começo. O binário `0100 0011` tem 8 posições, com pesos `128, 64, 32, 16, 8, 4, 2, 1`:
 
 |            | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 | :-:        | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -497,18 +497,17 @@ Agora podemos resolver a dívida do começo. O binário `0100 0011` tem 8 posiç
 
 Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`.
 
-> Para converter um binário em decimal, **some os pesos das posições onde há `1`**.
+!!! resumo
+
+    Para converter um binário em decimal, **some os pesos das posições onde há `1`**.
 
 Pratique: quanto vale `0000 1010`? E `0001 0000`? Como se escreve o `13` em binário?
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+??? resposta
 
-- `0000 1010` = `8 + 2` = **10**.
-- `0001 0000` = **16**, só o peso `16` está ligado.
-- `13` = `8 + 4 + 1` = `0000 1101`.
-
-</details>
+    - `0000 1010` = `8 + 2` = **10**.
+    - `0001 0000` = **16**, só o peso `16` está ligado.
+    - `13` = `8 + 4 + 1` = `0000 1101`.
 
 #### Quantos valores cabem em n bits?
 
