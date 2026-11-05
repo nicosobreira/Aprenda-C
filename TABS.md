@@ -1,8 +1,8 @@
 # Correções
 
-- [ ] Seta para o próximo capítulo e capítulo anterior
-- [ ] Aviso sobre o autosave do VSCode
-- [ ] Colocar os códigos antes de erros de saída em um details.
+- [x] Seta para o próximo capítulo e capítulo anterior
+- [x] Aviso sobre o autosave do VSCode
+- [x] Colocar os códigos antes de erros de saída em um details.
 - [ ] Usar o `int main(void) {}` quando valer apena executar, caso contrário não.
 
 ## Linguagem C
@@ -33,7 +33,7 @@
 
 ### Atribuição
 
-- [ ] Não expliquei por que é necessário o uso de `int` e quando não é. Mais exemplos em código.
+- [x] Não expliquei por que é necessário o uso de `int` e quando não é. Mais exemplos em código.
 
 ### int
 
@@ -43,18 +43,18 @@
 
 ### float/double
 
-- [ ] Não vou falado como mais bits e precisão estão conectados. Talvez colocar ao final uma tabela de quantos bits cada variável tem. Primeiro falar que os dois representam números reais, apenas isso, mais para frente explicar a diferença.
+- [x] Não vou falado como mais bits e precisão estão conectados. Talvez colocar ao final uma tabela de quantos bits cada variável tem. Primeiro falar que os dois representam números reais, apenas isso, mais para frente explicar a diferença.
 - [ ] Falar sobre conversão de valores (int para float, float para int) com exemplos em código, com e sem printf (misturar com operações também).
-- [ ] Explicar melhor o que o `.2` e `.0` faz.
-- [ ] Explicar a importância do `.0` para diferenciar do `int`.
+- [x] Explicar melhor o que o `.2` e `.0` faz.
+- [x] Explicar a importância do `.0` para diferenciar do `int`.
 
 ### char
 
-- [ ] Explicar a diferença entre `''` e `""` no começo
-- [ ] Colocar os testes `char letra = 67` e `char letra = '\n'` (mais exemplos com código).
-- [ ] Explicar direito o que é a tabela ASCII, por ela existe.
+- [x] Explicar a diferença entre `''` e `""` no começo
+- [x] Colocar os testes `char letra = 67` e `char letra = '\n'` (mais exemplos com código).
+- [x] Explicar direito o que é a tabela ASCII, por ela existe.
 - [ ] Explicar o que é um overflow com exemplo de acento `char letra = 'á'`
-- [ ] Eu menti no inicio, não existem caracteres acentuados em ASCII.
+- [x] Eu menti no inicio, não existem caracteres acentuados em ASCII.
 
 ### bool
 
@@ -62,21 +62,21 @@
 
 ### Regras de Nomenclatura
 
-- [ ] Explicar o que é um "identificador" antes de falar sobre as regras.
-- [ ] Explicar o que é uma palavra reservada
+- [x] Explicar o que é um "identificador" antes de falar sobre as regras.
+- [x] Explicar o que é uma palavra reservada
 
 ### Variáveis Constantes
 
-- [ ] Deixar claro que o `const` deixa constante.
+- [x] Deixar claro que o `const` deixa constante.
 
 ### Inicialização
 
-- [ ] Deixar claro que a inicialização vale para mais de um tipo.
-- [ ] Mostrar como inicializar variável no final.
+- [x] Deixar claro que a inicialização vale para mais de um tipo.
+- [x] Mostrar como inicializar variável no final.
 
 ### Valores Mágicos
 
-- [ ] Colocar parênteses entre as expressões com valores mágicos.
+- [x] Colocar parênteses entre as expressões com valores mágicos.
 
 ## Condicionais
 

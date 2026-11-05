@@ -28,8 +28,6 @@ int main(void)
 
     Lembre-se de que as verificações vão **alterando as faixas de possíveis valores**. Releia o capítulo [else if](../modulos/condicionais.md#else-if) se preciso.
 
-</details>
-
 ??? resposta
 
     ```c

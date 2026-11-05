@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="../modulos/repeticao.md">← Estruturas de Repetição</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/funcoes.md">Funções →</a>
-</p>
-
----
-
 # Exercícios: Estruturas de Repetições
 
 ## Formato da entrada
@@ -133,80 +125,77 @@ Note que é possível **trocar o 1 por outro número**, como o 2, por exemplo.
 
 ---
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+??? resposta
 
-### Usando o while
+    === "Usando `while`"
 
-```c
-#include <stdbool.h>
-#include <stdio.h>
+        ```c
+        #include <stdbool.h>
+        #include <stdio.h>
 
-int main(void)
-{
-    printf("Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!\n");
-
-    int numero;
-    bool leitura_valida = false;
-    do
-    {
-        printf("> ");
-
-        int r = scanf("%d", &numero);
-        if (r != 1)
+        int main(void)
         {
-            while (getchar() != '\n')
+            printf("Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!\n");
+
+            int numero;
+            bool leitura_valida = false;
+            do
             {
+                printf("> ");
+
+                int r = scanf("%d", &numero);
+                if (r != 1)
+                {
+                    while (getchar() != '\n')
+                    {
+                    }
+
+                    printf("Digite um número inteiro!\n");
+                }
+                else if (numero < 0)
+                {
+                    printf("Digite um número maior ou igual a %d!\n", 0);
+                }
+                else
+                {
+                    leitura_valida = true;
+                }
+            } while (!leitura_valida);
+
+            printf("\n");
+
+            int contador = 0;
+            while (contador <= numero)
+            {
+                printf("%d\n", contador);
+
+                contador += 2;
             }
 
-            printf("Digite um número inteiro!\n");
+            return 0;
         }
-        else if (numero < 0)
+        ```
+
+    === "Usando o `for`"
+
+        Aqui, vou apenas trocar o `while` pelo `for`, mas você deve colocar a leitura da entrada do usuário.
+
+        ```c
+        for (int contador = 0; contador <= numero; contador += 2)
         {
-            printf("Digite um número maior ou igual a %d!\n", 0);
+            printf("%d\n", contador);
         }
-        else
+        ```
+
+        Variáveis que são incrementadas, chamadas de **contadores**, normalmente possuem **nomes menores** quando o contexto permite.
+        É mais comum o uso de nomes como: `i`, `j` e `k`.
+
+        ```c
+        for (int i = 0; i <= numero; i += 2)
         {
-            leitura_valida = true;
+            printf("%d\n", i);
         }
-    } while (!leitura_valida);
-
-    printf("\n");
-
-    int contador = 0;
-    while (contador <= numero)
-    {
-        printf("%d\n", contador);
-
-        contador += 2;
-    }
-
-    return 0;
-}
-```
-
-### Usando o for
-
-Aqui, vou apenas trocar o `while` pelo `for`, mas você deve colocar a leitura da entrada do usuário.
-
-```c
-for (int contador = 0; contador <= numero; contador += 2)
-{
-    printf("%d\n", contador);
-}
-```
-
-Variáveis que são incrementadas, chamadas de **contadores**, normalmente possuem **nomes menores** quando o contexto permite.
-É mais comum o uso de nomes como: `i`, `j` e `k`.
-
-```c
-for (int i = 0; i <= numero; i += 2)
-{
-    printf("%d\n", i);
-}
-```
-
-</details>
+        ```
 
 ## Jogo da Adivinhação
 
@@ -340,88 +329,82 @@ int aleatorio = min + rand() % (max - min + 1);
 
 ---
 
-<details>
-<summary>Dica 1</summary>
+??? dica
 
-Separe a lógica em **dois** `do while`, um **externo** e outro **interior**, de modo que o interior apenas valide a entrada, sem nenhuma comparação com a variável `aleatorio`.
+    Separe a lógica em **dois** `do while`, um **externo** e outro **interior**, de modo que o interior apenas valide a entrada, sem nenhuma comparação com a variável `aleatorio`.
 
-</details>
+??? resposta
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+    ```c
+    #include <stdbool.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <time.h>
 
-```c
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int main(void)
-{
-    srand(time(NULL));
-
-    const int min = 1;
-    const int max = 100;
-
-    int aleatorio = min + rand() % (max - min + 1);
-
-    printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
-    printf("Tente adivinhar o número.\n");
-
-    int jogadas = 0;
-
-    int tentativa;
-    do
+    int main(void)
     {
-        bool leitura_valida = false;
+        srand(time(NULL));
+
+        const int min = 1;
+        const int max = 100;
+
+        int aleatorio = min + rand() % (max - min + 1);
+
+        printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
+        printf("Tente adivinhar o número.\n");
+
+        int jogadas = 0;
+
+        int tentativa;
         do
         {
-            printf("> ");
-
-            int r = scanf("%d", &tentativa);
-            if (r != 1)
+            bool leitura_valida = false;
+            do
             {
-                while (getchar() != '\n')
+                printf("> ");
+
+                int r = scanf("%d", &tentativa);
+                if (r != 1)
                 {
+                    while (getchar() != '\n')
+                    {
+                    }
+
+                    printf("Digite um número inteiro!\n");
                 }
+                else if (tentativa < min)
+                {
+                    printf("Digite um número maior ou igual a %d!\n", min);
+                }
+                else if (tentativa > max)
+                {
+                    printf("Digite um número menor ou igual a %d!\n", max);
+                }
+                else
+                {
+                    leitura_valida = true;
+                }
+            } while (!leitura_valida);
 
-                printf("Digite um número inteiro!\n");
-            }
-            else if (tentativa < min)
+            printf("\n");
+
+            if (tentativa > aleatorio)
             {
-                printf("Digite um número maior ou igual a %d!\n", min);
+                printf("O número é menor.\n");
             }
-            else if (tentativa > max)
+            else if (tentativa < aleatorio)
             {
-                printf("Digite um número menor ou igual a %d!\n", max);
+                printf("O número é maior.\n");
             }
-            else
-            {
-                leitura_valida = true;
-            }
-        } while (!leitura_valida);
 
-        printf("\n");
+            jogadas += 1;
+        } while (tentativa != aleatorio);
 
-        if (tentativa > aleatorio)
-        {
-            printf("O número é menor.\n");
-        }
-        else if (tentativa < aleatorio)
-        {
-            printf("O número é maior.\n");
-        }
+        printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
 
-        jogadas += 1;
-    } while (tentativa != aleatorio);
-
-    printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
-
-    return 0;
-}
-```
-
-</details>
+        return 0;
+    }
+    ```
 
 ## Menu de Caixa Eletrônico
 
@@ -486,161 +469,24 @@ Digite um número real!
 
 > 3
 Até mais!
-
 ```
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+??? resposta
 
-> Não se esqueça de importar os _headers_ caso necessário!
+    !!! aviso
 
-Vamos criar duas variáveis constantes que vão nos dizer a primeira opção e a última.
+        Não se esqueça de importar os _headers_ caso necessário!
 
-```c
-const int primeira_opcao = 1;
-const int ultima_opcao = 3;
-```
+    Vamos criar duas variáveis constantes que vão nos dizer a primeira opção e a última.
 
-Em seguida, declaramos a variável `saldo` com o valor de R$ 1000.0 e mostramos as opções disponíveis.
-
-```c
-double saldo = 1000.0;
-
-printf("--- OPÇÕES ---\n");
-printf("1. Ver Saldo\n");
-printf("2. Depositar\n");
-printf("3. Sair\n");
-printf("\n");
-```
-
-Para sair do caixa, o usuário deve digitar o número `3`, caso contrário o caixa deve continuar ligado. Implementamos essa lógica com um _while loop_ junto a uma variável booleana chamada `caixa_esta_ligado`, com o valor `true`.
-
-```c
-bool caixa_esta_ligado = true;
-while (caixa_esta_ligado)
-{
-    // Continuação ...
-}
-```
-
-Agora, pedimos por um valor de 1 a 3, ou seja, de `primeira_opcao` até `ultima_opcao`, dentro do _while loop_.
-
-```c
-    int opcao;
-
-    bool leitura_valida = false;
-    do
-    {
-        printf("> ");
-
-        int r = scanf("%d", &opcao);
-        if (r != 1)
-        {
-            while (getchar() != '\n')
-            {
-            }
-
-            printf("Digite um número inteiro!\n");
-        }
-        else if (opcao < primeira_opcao)
-        {
-            printf("Digite um número maior ou igual a %d!\n", primeira_opcao);
-        }
-        else if (opcao > ultima_opcao)
-        {
-            printf("Digite um número menor ou igual a %d!\n", ultima_opcao);
-        }
-        else
-        {
-            leitura_valida = true;
-        }
-    } while (!leitura_valida);
-```
-
-Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que não fazem nada - com exceção da opção `3`, que muda a variável `caixa_esta_ligado` para `false`, desligando o caixa:
-
-```c
-    if (opcao == 1)
-    {
-        // Opção 1
-    }
-    else if (opcao == 2)
-    {
-        // Opção 2
-    }
-    else if (opcao == 3)
-    {
-        caixa_esta_ligado = false;
-    }
-
-    printf("\n"); // Quebra linha visual
-```
-
-Implementar a opção `1` é fácil, é só exibir o saldo atual:
-
-```c
-        // Opção 1
-        printf("Seu saldo é de R$ %.2f\n", saldo);
-```
-
-Para a opção `2` temos que (1) ler um valor `double` do usuário e (2) somar esse valor à variável `saldo`. Fazemos isso no código a seguir:
-
-```c
-        // Opção 2
-        printf("\n"); // Quebra linha visual
-        printf("Deseja depositar quanto? [Digite 0 para sair]\n");
-
-        double deposito;
-
-        bool leitura_valida = false;
-        do
-        {
-            printf("> ");
-
-            int r = scanf("%lf", &deposito);
-            if (r != 1)
-            {
-                while (getchar() != '\n')
-                {
-                }
-
-                printf("Digite um número real!\n");
-            }
-            else if (deposito < 0)
-            {
-                printf("Digite um número positivo!\n");
-            }
-            else
-            {
-                leitura_valida = true;
-            }
-        } while (!leitura_valida);
-
-        saldo += deposito;
-```
-
-Ao final exibimos uma mensagem de despedida e retornamos `0`:
-
-```c
-printf("Até mais!\n");
-
-return 0;
-```
-
-O código final, com tudo junto, está aqui em baixo.
-
-<details>
-<summary>Clique aqui para ver o código final</summary>
-
-```c
-#include <stdbool.h>
-#include <stdio.h>
-
-int main(void)
-{
+    ```c
     const int primeira_opcao = 1;
     const int ultima_opcao = 3;
+    ```
 
+    Em seguida, declaramos a variável `saldo` com o valor de R$ 1000.0 e mostramos as opções disponíveis.
+
+    ```c
     double saldo = 1000.0;
 
     printf("--- OPÇÕES ---\n");
@@ -648,10 +494,21 @@ int main(void)
     printf("2. Depositar\n");
     printf("3. Sair\n");
     printf("\n");
+    ```
 
+    Para sair do caixa, o usuário deve digitar o número `3`, caso contrário o caixa deve continuar ligado. Implementamos essa lógica com um _while loop_ junto a uma variável booleana chamada `caixa_esta_ligado`, com o valor `true`.
+
+    ```c
     bool caixa_esta_ligado = true;
     while (caixa_esta_ligado)
     {
+        // Continuação ...
+    }
+    ```
+
+    Agora, pedimos por um valor de 1 a 3, ou seja, de `primeira_opcao` até `ultima_opcao`, dentro do _while loop_.
+
+    ```c
         int opcao;
 
         bool leitura_valida = false;
@@ -681,14 +538,39 @@ int main(void)
                 leitura_valida = true;
             }
         } while (!leitura_valida);
+    ```
 
+    Por enquanto, vamos criar uma série de `if` e `else if` para cada opção que não fazem nada - com exceção da opção `3`, que muda a variável `caixa_esta_ligado` para `false`, desligando o caixa:
+
+    ```c
         if (opcao == 1)
         {
-            printf("Seu saldo é de R$ %.2f\n", saldo);
+            // Opção 1
         }
         else if (opcao == 2)
         {
-            printf("\n");
+            // Opção 2
+        }
+        else if (opcao == 3)
+        {
+            caixa_esta_ligado = false;
+        }
+
+        printf("\n"); // Quebra linha visual
+    ```
+
+    Implementar a opção `1` é fácil, é só exibir o saldo atual:
+
+    ```c
+            // Opção 1
+            printf("Seu saldo é de R$ %.2f\n", saldo);
+    ```
+
+    Para a opção `2` temos que (1) ler um valor `double` do usuário e (2) somar esse valor à variável `saldo`. Fazemos isso no código a seguir:
+
+    ```c
+            // Opção 2
+            printf("\n"); // Quebra linha visual
             printf("Deseja depositar quanto? [Digite 0 para sair]\n");
 
             double deposito;
@@ -718,22 +600,120 @@ int main(void)
             } while (!leitura_valida);
 
             saldo += deposito;
-        }
-        else if (opcao == 3)
-        {
-            caixa_esta_ligado = false;
-        }
+    ```
 
-        printf("\n");
-    }
+    Ao final exibimos uma mensagem de despedida e retornamos `0`:
 
+    ```c
     printf("Até mais!\n");
 
     return 0;
-}
-```
+    ```
 
-</details>
+    O código final, com tudo junto, está aqui em baixo.
+
+    ??? nota "Código completo"
+
+        ```c
+        #include <stdbool.h>
+        #include <stdio.h>
+
+        int main(void)
+        {
+            const int primeira_opcao = 1;
+            const int ultima_opcao = 3;
+
+            double saldo = 1000.0;
+
+            printf("--- OPÇÕES ---\n");
+            printf("1. Ver Saldo\n");
+            printf("2. Depositar\n");
+            printf("3. Sair\n");
+            printf("\n");
+
+            bool caixa_esta_ligado = true;
+            while (caixa_esta_ligado)
+            {
+                int opcao;
+
+                bool leitura_valida = false;
+                do
+                {
+                    printf("> ");
+
+                    int r = scanf("%d", &opcao);
+                    if (r != 1)
+                    {
+                        while (getchar() != '\n')
+                        {
+                        }
+
+                        printf("Digite um número inteiro!\n");
+                    }
+                    else if (opcao < primeira_opcao)
+                    {
+                        printf("Digite um número maior ou igual a %d!\n", primeira_opcao);
+                    }
+                    else if (opcao > ultima_opcao)
+                    {
+                        printf("Digite um número menor ou igual a %d!\n", ultima_opcao);
+                    }
+                    else
+                    {
+                        leitura_valida = true;
+                    }
+                } while (!leitura_valida);
+
+                if (opcao == 1)
+                {
+                    printf("Seu saldo é de R$ %.2f\n", saldo);
+                }
+                else if (opcao == 2)
+                {
+                    printf("\n");
+                    printf("Deseja depositar quanto? [Digite 0 para sair]\n");
+
+                    double deposito;
+
+                    bool leitura_valida = false;
+                    do
+                    {
+                        printf("> ");
+
+                        int r = scanf("%lf", &deposito);
+                        if (r != 1)
+                        {
+                            while (getchar() != '\n')
+                            {
+                            }
+
+                            printf("Digite um número real!\n");
+                        }
+                        else if (deposito < 0)
+                        {
+                            printf("Digite um número positivo!\n");
+                        }
+                        else
+                        {
+                            leitura_valida = true;
+                        }
+                    } while (!leitura_valida);
+
+                    saldo += deposito;
+                }
+                else if (opcao == 3)
+                {
+                    caixa_esta_ligado = false;
+                }
+
+                printf("\n");
+            }
+
+            printf("Até mais!\n");
+
+            return 0;
+        }
+        ```
 
 ## Reflexões
 
@@ -743,11 +723,3 @@ Perceba que o código praticamente **não muda** de exercício para exercício. 
 À medida que o programa cresce, temos que ficar copiando e colando o **mesmo código**, o que torna o código difícil de entender - como no exercício 3.
 
 No próximo capítulo veremos as **funções**, que vão nos permitir reutilizar as lógicas de leitura em diversos lugares, eliminando o copia e cola.
-
----
-
-<p align="center">
-  <a href="../modulos/repeticao.md">← Estruturas de Repetição</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/funcoes.md">Funções →</a>
-</p>

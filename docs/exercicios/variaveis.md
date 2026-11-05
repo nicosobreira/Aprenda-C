@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="../modulos/variaveis.md">← Variáveis</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/condicionais.md">Condicionais →</a>
-</p>
-
----
-
 # Exercícios: Variáveis
 
 Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
@@ -469,11 +461,3 @@ int main(void)
 ```
 
 </details>
-
----
-
-<p align="center">
-  <a href="../modulos/variaveis.md">← Variáveis</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/condicionais.md">Condicionais →</a>
-</p>

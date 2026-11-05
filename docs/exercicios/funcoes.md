@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="../modulos/funcoes.md">← Funções</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/listas.md">Listas →</a>
-</p>
-
----
-
 # Exercícios: Funções
 
 Ao testar os programas, você não precisa ficar digitando os valores das funções `leia` toda vez no terminal, mas pode **comentar** a linha com o `leia` e colocar um valor de teste abaixo. Exemplo:
@@ -21,188 +13,202 @@ Depois é só remover a linha de teste e tirar o comentário.
 
 Agora que você já conhece as funções, primeiro refatore o exercício [Contador de Pares](./repeticao.md#contador-de-pares) e depois [Jogo da Adivinhação](./repeticao.md#jogo-da-adivinhação), usando as funções `leia`. Caso seja necessário, crie as suas próprias funções.
 
-<details>
-<summary>Resposta do Contador de Pares</summary>
+??? resposta "Resposta do Contador de Pares"
 
-```c
-#include <stdbool.h>
-#include <stdio.h>
+    === "`main`"
 
-int leia_int(void);
-int leia_int_positivo(void);
+        ```c
+        #include <stdbool.h>
+        #include <stdio.h>
 
-int main(void)
-{
-    printf("Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!\n");
+        int leia_int(void);
+        int leia_int_positivo(void);
 
-    int numero = leia_int_positivo();
-
-    printf("\n");
-
-    for (int i = 0; i <= numero; i += 2)
-    {
-        printf("%d\n", i);
-    }
-
-    return 0;
-}
-
-int leia_int(void)
-{
-    int numero;
-
-    bool leitura_valida = false;
-    do
-    {
-        printf("> ");
-
-        int r = scanf("%d", &numero);
-        if (r != 1)
+        int main(void)
         {
-            while (getchar() != '\n')
+            printf("Descubra quais são os inteiros pares entre 0 e algum número da sua escolha!\n");
+
+            int numero = leia_int_positivo();
+
+            printf("\n");
+
+            for (int i = 0; i <= numero; i += 2)
             {
+                printf("%d\n", i);
             }
 
-            printf("Digite um número inteiro!\n");
+            return 0;
         }
-        else
+        ```
+
+    === "`leia_int`"
+
+        ```c
+        int leia_int(void)
         {
-            leitura_valida = true;
-        }
-    } while (!leitura_valida);
+            int numero;
 
-    return numero;
-}
-
-int leia_int_positivo(void)
-{
-    int numero;
-
-    bool leitura_valida = false;
-    do
-    {
-        numero = leia_int();
-
-        if (numero < 0)
-        {
-            printf("Digite um número maior ou igual a %d!\n", 0);
-        }
-        else
-        {
-            leitura_valida = true;
-        }
-    } while(!leitura_valida);
-
-    return numero;
-}
-```
-
-</details>
-
-<details>
-<summary>Resposta do Jogo da Adivinhação</summary>
-
-```c
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int leia_int(void);
-int leia_int_entre(int min, int max);
-
-int main(void)
-{
-    srand(time(NULL));
-
-    const int min = 1;
-    const int max = 100;
-
-    int aleatorio = min + rand() % (max - min + 1);
-
-    printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
-    printf("Tente adivinhar o número.\n");
-
-    int jogadas = 0;
-
-    int tentativa;
-    do
-    {
-        tentativa = leia_int_entre(min, max);
-
-        printf("\n");
-
-        if (tentativa > aleatorio)
-        {
-            printf("O número é menor.\n");
-        }
-        else if (tentativa < aleatorio)
-        {
-            printf("O número é maior.\n");
-        }
-
-        jogadas += 1;
-    } while (tentativa != aleatorio);
-
-    printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
-
-    return 0;
-}
-
-int leia_int(void)
-{
-    int numero;
-
-    bool leitura_valida = false;
-    do
-    {
-        printf("> ");
-
-        int r = scanf("%d", &numero);
-        if (r != 1)
-        {
-            while (getchar() != '\n')
+            bool leitura_valida = false;
+            do
             {
-            }
+                printf("> ");
 
-            printf("Digite um número inteiro!\n");
+                int r = scanf("%d", &numero);
+                if (r != 1)
+                {
+                    while (getchar() != '\n')
+                    {
+                    }
+
+                    printf("Digite um número inteiro!\n");
+                }
+                else
+                {
+                    leitura_valida = true;
+                }
+            } while (!leitura_valida);
+
+            return numero;
         }
-        else
+        ```
+
+    === "`leia_int_positivo`"
+
+        ```c
+        int leia_int_positivo(void)
         {
-            leitura_valida = true;
+            int numero;
+
+            bool leitura_valida = false;
+            do
+            {
+                numero = leia_int();
+
+                if (numero < 0)
+                {
+                    printf("Digite um número maior ou igual a %d!\n", 0);
+                }
+                else
+                {
+                    leitura_valida = true;
+                }
+            } while(!leitura_valida);
+
+            return numero;
         }
-    } while (!leitura_valida);
+        ```
 
-    return numero;
-}
+??? resposta "Resposta do Jogo da Adivinhação"
 
-int leia_int_entre(int min, int max)
-{
-    int numero;
+    === "`main`"
 
-    bool leitura_valida = false;
-    do {
-        numero = leia_int();
+        ```c
+        #include <stdbool.h>
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <time.h>
 
-        if (numero < min)
+        int leia_int(void);
+        int leia_int_entre(int min, int max);
+
+        int main(void)
         {
-            printf("Digite um número maior ou igual a %d!\n", min);
-        }
-        else if (numero > max)
-        {
-            printf("Digite um número menor ou igual a %d!\n", max);
-        }
-        else
-        {
-            leitura_valida = true;
-        }
-    } while(!leitura_valida);
+            srand(time(NULL));
 
-    return numero;
-}
-```
+            const int min = 1;
+            const int max = 100;
 
-</details>
+            int aleatorio = min + rand() % (max - min + 1);
+
+            printf("Um número inteiro entre %d e %d foi gerado.\n", min, max);
+            printf("Tente adivinhar o número.\n");
+
+            int jogadas = 0;
+
+            int tentativa;
+            do
+            {
+                tentativa = leia_int_entre(min, max);
+
+                printf("\n");
+
+                if (tentativa > aleatorio)
+                {
+                    printf("O número é menor.\n");
+                }
+                else if (tentativa < aleatorio)
+                {
+                    printf("O número é maior.\n");
+                }
+
+                jogadas += 1;
+            } while (tentativa != aleatorio);
+
+            printf("Você acertou! Foram %d jogada(s)!\n", jogadas);
+
+            return 0;
+        }
+        ```
+
+    === "`leia_int`"
+
+        ```c
+        int leia_int(void)
+        {
+            int numero;
+
+            bool leitura_valida = false;
+            do
+            {
+                printf("> ");
+
+                int r = scanf("%d", &numero);
+                if (r != 1)
+                {
+                    while (getchar() != '\n')
+                    {
+                    }
+
+                    printf("Digite um número inteiro!\n");
+                }
+                else
+                {
+                    leitura_valida = true;
+                }
+            } while (!leitura_valida);
+
+            return numero;
+        }
+        ```
+
+    === "`leia_int_entre`"
+
+        ```c
+        int leia_int_entre(int min, int max)
+        {
+            int numero;
+
+            bool leitura_valida = false;
+            do {
+                numero = leia_int();
+
+                if (numero < min)
+                {
+                    printf("Digite um número maior ou igual a %d!\n", min);
+                }
+                else if (numero > max)
+                {
+                    printf("Digite um número menor ou igual a %d!\n", max);
+                }
+                else
+                {
+                    leitura_valida = true;
+                }
+            } while(!leitura_valida);
+
+            return numero;
+        }
+        ```
 
 ## Leitura de `char`
 
@@ -232,11 +238,3 @@ Faça as seguintes alterações no exercício [Triângulo](./exercicios/condicio
 ```
 
 </details>
-
----
-
-<p align="center">
-  <a href="../modulos/funcoes.md">← Funções</a>
-  &nbsp;|&nbsp;
-  <a href="../modulos/listas.md">Listas →</a>
-</p>

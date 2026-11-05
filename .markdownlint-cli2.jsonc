@@ -1,14 +1,6 @@
 {
     "config": {
-        "MD013": false,
-        "MD033": {
-            "allowed_elements": [
-                "details",
-                "summary",
-                "p",
-                "a"
-            ]
-        }
+        "MD013": false
     },
     "fix": true
 }
