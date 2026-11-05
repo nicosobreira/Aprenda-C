@@ -451,7 +451,9 @@ A solução é usar um sistema com somente dois dígitos, chamado de **binário*
 
 #### Contando em decimal e em binário
 
-> Entender o sistema binário é um pouco confuso no início, o importante é você **notar as similaridades com o sistema decimal**. Ao invés de 10 símbolos por dígito (`0` a `9`), usamos apenas 2 (`0` e `1`).
+!!! dica
+
+    Entender o sistema binário é um pouco confuso no início, o importante é você **notar as similaridades com o sistema decimal**. Ao invés de 10 símbolos por dígito (`0` a `9`), usamos apenas 2 (`0` e `1`).
 
 Vamos contar em **decimal** com 4 dígitos:
 
