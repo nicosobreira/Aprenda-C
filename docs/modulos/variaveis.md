@@ -558,7 +558,9 @@ Isso faz sentido pela história. Nos anos 1960, cada fabricante tinha o seu pró
 Para dar conta de outros idiomas, surgiram tabelas de 8 bits que aproveitavam os valores de 128 a 255 para acentos (como a Latin-1), mas cada país usava uma diferente. O **Unicode** (1991) resolveu isso ao criar **uma única tabela** com os caracteres de praticamente todas as línguas. Hoje, quase todos os sistemas usam o Unicode. A codificação mais comum é o **UTF-8** (Linux, macOS e a web), que mantém os 128 primeiros valores **idênticos ao ASCII**.
 Por isso, na prática, `'C'` vale `67` em praticamente qualquer computador moderno.
 
-> O Windows usa internamente outra codificação do Unicode, o UTF-16, e o terminal ainda pode usar tabelas antigas, por isso configuramos o PowerShell para UTF-8 em [Instalando o C](./instalacao.md).
+??? nota "No Windows"
+
+    O Windows usa internamente outra codificação do Unicode, o UTF-16, e o terminal ainda pode usar tabelas antigas, por isso configuramos o PowerShell para UTF-8 em [Instalando o C](./instalacao.md).
 
 Você pode consultar a [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) para ver os valores dos caracteres básicos.
 
