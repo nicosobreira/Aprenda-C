@@ -662,10 +662,9 @@ int main(void)
 
 Aparece `1` para `#!c true` e `0` para `#!c false`, pois, por debaixo dos panos, o `#!c bool` é só um número, assim como o `#!c char` ou `#!c int`. Veremos isso melhor em [Condicionais](./condicionais.md).
 
-
 ## Regras de Nomenclatura
 
-Cada variável ou função que criamos precisa de um **nome**, para que possamos nos referir a ela depois. Esses nomes são chamados formalmente de **identificadores**, e valem para variáveis, funções e, mais para frente, `struct`s, `enum`s e outros elementos.
+Cada variável ou função que criamos precisa de um **nome**, para que possamos nos referir a ela depois. Esses nomes são chamados formalmente de **identificadores**, e valem para variáveis, funções e outros elementos.
 
 Para o compilador, o identificador é só uma sequência de caracteres que ele precisa **separar do resto do código**. Se os nomes pudessem ter qualquer símbolo, ele não saberia onde um nome termina e outra coisa começa. As regras existem para tornar essa separação **inequívoca**.
 
