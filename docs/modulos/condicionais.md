@@ -458,9 +458,9 @@ Aqui o `#!c !` é aplicado só em `nota`. Como qualquer valor diferente de `0` �
 
 Por fim, o professor precisa organizar o **acesso à biblioteca da escola**. As regras são as seguintes:
 
-- Podem **retirar livros** as pessoas que estejam matriculadas ou que sejam professoras.
+- Para **entrar** na biblioteca é preciso ser aluno matriculado ou professor.
+- Podem **retirar livros** as pessoas que estejam cadastradas ou que sejam professoras.
 - Mas ninguém pode retirar livros se tiver **algum livro atrasado**.
-- Para **entrar** na biblioteca é preciso ser aluno ou funcionário **e** ter feito o cadastro.
 
 Com o que vimos até agora, crie um programa que resolva a retirada de livros antes de continuar. Use as variáveis:
 
@@ -474,7 +474,7 @@ bool tem_livro_atrasado = false;
 
     Precisamos combinar um "OU" (matriculado ou professor) com um "NÃO" (não ter livro atrasado) usando um "E". Repare nos **parênteses**: sem eles, o `#!c &&` seria avaliado antes do `#!c ||` e a regra mudaria.
 
-    ```c hl_lines="10"
+    ```c hl_lines="10 12"
     #include <stdio.h>
     #include <stdbool.h>
 
@@ -484,13 +484,20 @@ bool tem_livro_atrasado = false;
         bool eh_professor = false;
         bool tem_livro_atrasado = false;
 
-        if ((esta_matriculado || eh_professor) && !tem_livro_atrasado)
+        if (esta_matriculado || eh_professor)
         {
-            printf("Você pode retirar livros!\n");
+            if ((esta_matriculado || eh_professor) && !tem_livro_atrasado)
+            {
+                printf("Você pode retirar livros!\n");
+            }
+            else
+            {
+                printf("Você não pode retirar livros.\n");
+            }
         }
         else
         {
-            printf("Você não pode retirar livros.\n");
+            printf("Você não pode entrar!\n");
         }
 
         return 0;
@@ -505,6 +512,41 @@ bool tem_livro_atrasado = false;
 bool tem_vinculo = esta_matriculado || eh_professor;
 bool pode_retirar = tem_vinculo && !tem_livro_atrasado;
 ```
+
+??? resposta
+
+    ```c hl_lines="10"
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main(void)
+    {
+        bool esta_matriculado = true;
+        bool eh_professor = false;
+        bool tem_livro_atrasado = false;
+
+        bool tem_vinculo = esta_matriculado || eh_professor;
+        bool pode_retirar = tem_vinculo && !tem_livro_atrasado;
+
+        if (tem_vinculo)
+        {
+            if (pode_retirar)
+            {
+                printf("Você pode retirar livros!\n");
+            }
+            else
+            {
+                printf("Você não pode retirar livros.\n");
+            }
+        }
+        else
+        {
+            printf("Você não pode entrar!\n");
+        }
+
+        return 0;
+    }
+    ```
 
 ### Boas Práticas
 
