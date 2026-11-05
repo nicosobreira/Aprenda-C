@@ -1,6 +1,15 @@
+<!-- TODO: Reestruturação de Condicionais:
+ Problema: hoje o módulo não está muito amigável para um iniciante na programação. Fazer as seguintes mudanças
+1. Falar do `#!c if` e deixar claro que ele serve para **alterar o fluxo** do código a partir de uma **condição**.
+2. A partir de um exemplo que mostra uma mensagem parabenizando o aluno - inicialmente utilizando somente a nota, (1) introduzir a ideia de operações booleanas (&&, || e !) com a introdução de uma nova variável chamada `se_esforcou` e (2) `#!c if` aninhado. + Ordem das condições importa
+3. Trazer o exemplo das temperaturas para mostrar como as condições vão sendo alteradas dentro do `if else`.
+4. Mover a seção sobre negação para Boas Práticas em Funções.
+5. Na seção de Boas Práticas falar do `#!c if` sem {}
+-->
+
 # Condicionais
 
-As estruturas condicionais nos possibilitam **avaliar condições** e executar diferentes códigos dependendo de seus resultados. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda-chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda-chuva, **senão** deixamos ele em casa.
+As estruturas condicionais nos possibilitam **avaliar condições** e executar diferentes códigos dependendo de seus resultados - **alterando o fluxo do código**. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda-chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda-chuva, **senão** deixamos ele em casa.
 
 ## if e else
 
@@ -37,16 +46,7 @@ Com isso em mente, lemos esse código da seguinte forma: **se** o valor armazena
 
 Mude o valor da variável `vai_chover` para `#!c false` e veja como a saída muda.
 
-<!-- TODO: Reestruturação de Condicionais:
- Problema: hoje o módulo não está muito amigável para um iniciante na programação. Fazer as seguintes mudanças
-1. Falar do `#!c if` e deixar claro que ele serve para **alterar o fluxo** do código a partir de uma **condição**.
-2. A partir de um exemplo que mostra uma mensagem parabenizando o aluno - inicialmente utilizando somente a nota, (1) introduzir a ideia de operações booleanas (&&, || e !) com a introdução de uma nova variável chamada `se_esforcou` e (2) `#!c if` aninhado. + Ordem das condições importa
-3. Trazer o exemplo das temperaturas para mostrar como as condições vão sendo alteradas dentro do `if else`.
-4. Mover a seção sobre negação para Boas Práticas em Funções.
-5. Na seção de Boas Práticas falar do `#!c if` sem {}
--->
-
-### Operações Relacionais
+## Operações Relacionais
 
 Agora vamos pensar em outro exemplo: notificar um aluno se ele passou ou está de recuperação em uma matéria.
 Esse exemplo vai nos ajudar a trabalhar as chamadas **operações relacionais**, as operações como "menor que" ($\lt$) e "maior ou igual" ($\ge$) da matemática.
@@ -160,9 +160,9 @@ int main(void)
 }
 ```
 
-### Operações Booleanas
+## Operações Booleanas
 
-#### "E"
+### "E"
 
 O professor percebeu que os alunos estão indo muito mal na prova. Ele decidiu usar a frequência às aulas como outro fator que faz o aluno passar na matéria.
 A taxa de frequência vai de 0 a 10, e segue a seguinte lógica: se o aluno tirou menos que 6, mas possui frequência maior ou igual a 9, ele passa, do contrário ele reprova. Criamos uma nova variável também do tipo `#!c double` chamada `frequencia` e a usamos da seguinte forma:
@@ -227,7 +227,7 @@ Basta que uma dessas condições seja falsa para que o aluno passe na matéria, 
 | `#!c false` | `#!c true` | `#!c false` |
 | `#!c false` | `#!c false` | `#!c false` |
 
-#### "OU"
+### "OU"
 
 No parágrafo anterior, vimos que se o aluno tiver *nota maior ou igual a 6* **ou** *frequência maior ou igual a 9* ele **passa**. O C possui o operador "OU", escrito como `#!c ||`, que traz essa ideia:
 
@@ -328,7 +328,7 @@ int main(void)
 
 Isso não é obrigatório, mas fazer isso deixa claro o que cada condição faz.
 
-#### "NÃO"
+### "NÃO"
 
 Repare que nas duas últimas seções escrevemos a mesma regra de duas formas: "reprova" com `#!c &&` e "passa" com `#!c ||`. Uma é **o contrário** da outra, e o C tem um operador para isso: o "NÃO", escrito como `#!c !`, que **inverte** um valor booleano, ou seja, `#!c true` vira `#!c false` e vice-versa.
 
@@ -379,6 +379,91 @@ O contrário também vale: negar um "E" vira "OU" com cada condição negada. Is
 
     Teste o programa com as quatro combinações de `nota` (acima e abaixo de 6) e `frequencia` (acima e abaixo de 9) e confirme que as duas formas sempre dão o mesmo resultado.
 
+### Ordem das operações
+
+Antes de resolver o próximo problema, precisamos responder a uma pergunta: quando misturamos vários operadores na mesma condição, **qual deles o C resolve primeiro**?
+
+Você já fez essa pergunta na matemática. Quanto vale `#!c 2 + 3 * 4`? Sabemos que a multiplicação vem antes da soma, então o resultado é `#!c 14`, e não `#!c 20`. Para mudar a ordem, usamos parênteses: `#!c (2 + 3) * 4` vale `#!c 20`. Teste os dois no C:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("%d\n", 2 + 3 * 4);
+    printf("%d\n", (2 + 3) * 4);
+
+    return 0;
+}
+```
+
+Dizemos que a multiplicação tem **precedência** sobre a soma. Os operadores lógicos também têm uma ordem de precedência, e os parênteses fazem o mesmo papel:
+
+| Ordem | Operador | Exemplo |
+| :-: | :-: | :- |
+| 1º | `#!c !` | `#!c !passou` |
+| 2º | `#!c <`, `#!c <=`, `#!c >`, `#!c >=` | `#!c nota >= 6.0` |
+| 3º | `#!c ==`, `#!c !=` | `#!c nota != 0.0` |
+| 4º | `#!c &&` | `#!c a && b` |
+| 5º | `#!c ||` | `#!c a || b` |
+
+O `#!c !` é resolvido primeiro, depois as comparações, **depois o `#!c &&` e por último o `#!c ||`**.
+
+#### Quando a precedência muda o resultado
+
+O professor decidiu **dispensar da prova final** os alunos que tiraram **9 ou mais** ou que participaram da **monitoria**, mas apenas se a **frequência também for 9 ou mais**. Veja duas formas de escrever essa regra:
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+    double nota = 9.5;
+    double frequencia = 5.0;
+    bool participou_monitoria = false;
+
+    bool sem_parenteses = nota >= 9.0 || participou_monitoria && frequencia >= 9.0;
+    bool com_parenteses = (nota >= 9.0 || participou_monitoria) && frequencia >= 9.0;
+
+    printf("Sem parênteses: %d\n", sem_parenteses);
+    printf("Com parênteses: %d\n", com_parenteses);
+
+    return 0;
+}
+```
+
+O resultado é:
+
+```
+Sem parênteses: 1
+Com parênteses: 0
+```
+
+O aluno tem nota alta, mas **frequência baixa**, então não deveria ser dispensado. A versão sem parênteses diz que sim. O motivo é que o C resolve o `#!c &&` primeiro, então a expressão é lida assim:
+
+```c
+nota >= 9.0 || (participou_monitoria && frequencia >= 9.0)
+```
+
+Ou seja, "nota alta" **sozinha** já basta. Essa regra não é a que o professor queria. O código **compila e roda sem nenhum erro**, e por isso esse tipo de bug é perigoso.
+
+Note que, nos exemplos anteriores deste capítulo, a precedência nunca atrapalhou. Em `#!c nota >= 6.0 || frequencia >= 9.0`, as comparações são resolvidas antes do `#!c ||`, que é exatamente o que queríamos.
+
+!!! nota
+
+    Mude os valores de `nota`, `frequencia` e `participou_monitoria` e veja em quais combinações as duas versões dão resultados diferentes.
+
+#### Cuidado com o `#!c !`
+
+Por ser o primeiro a ser resolvido, o `#!c !` age apenas sobre o que vem **logo depois dele**:
+
+```c
+if (!nota >= 6.0)  // ERRADO
+```
+
+Aqui o `#!c !` é aplicado só em `nota`. Como qualquer valor diferente de `0` é verdadeiro, `#!c !5.0` vale `0`, e o `#!c if` compara `#!c 0 >= 6.0`. O código compila e **não faz o que você queria**. Para negar a condição inteira, use parênteses, `#!c !(nota >= 6.0)`, ou, melhor ainda, escreva `#!c nota < 6.0`.
+
 ---
 
 Por fim, o professor precisa organizar o **acesso à biblioteca da escola**. As regras são as seguintes:
@@ -394,10 +479,6 @@ bool esta_matriculado = true;
 bool eh_professor = false;
 bool tem_livro_atrasado = false;
 ```
-
-!!! dica
-
-    Atenção à **precedência** dos operadores: o `#!c &&` é avaliado antes do `#!c ||`. Use parênteses para deixar a ordem explícita.
 
 ??? resposta
 
@@ -435,9 +516,21 @@ bool tem_vinculo = esta_matriculado || eh_professor;
 bool pode_retirar = tem_vinculo && !tem_livro_atrasado;
 ```
 
-#### Boa prática
+### Boas práticas
 
 Prefira nomes **positivos** para variáveis booleanas (`passou`, e não `nao_passou`). Com o nome negativo, `#!c !nao_passou` vira uma "dupla negação", difícil de ler.
+
+Na matemática, ninguém escreve `#!c (2 * 3) + 4`, pois os parênteses são desnecessários. Já nas condições, é comum usá-los **mesmo quando não são obrigatórios**, porque quem lê o código não precisa lembrar da tabela de precedência:
+
+```c
+// Funciona, mas obriga o leitor a lembrar a precedência
+nota >= 9.0 || participou_monitoria && frequencia >= 9.0
+
+// Mesma coisa, com a intenção explícita
+nota >= 9.0 || (participou_monitoria && frequencia >= 9.0)
+```
+
+Se a regra do professor fosse realmente a segunda, os parênteses a deixariam clara. Quando a expressão ficar grande, outra opção é **dar nomes** às partes, como fizemos com `tem_meia`.
 
 ## else if
 
@@ -621,3 +714,280 @@ int main(void)
 No primeiro caso, o resultado da condição `#!c 3 == 3` é 1, já que, de fato, 3 é igual a 3. Já no segundo, como 1 não é maior que 10, o resultado é 0.
 
 A linguagem C define o valor `0` como **falso**; qualquer outro valor é verdadeiro. Dessa forma, o tipo `#!c bool` e os valores `#!c true` e `#!c false` são apenas números. Utilizamos esse tipo para trazer clareza em nosso código.
+
+Essa ideia é também vale para as **operações booleanas**, veja:
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+    bool a = (3 == 3);
+    bool b = (1 > 10);
+
+    printf("a E b\n", a && b);
+
+    return 0;
+}
+```
+
+Como 1 é menor que 10, a condicional "E" se torna falsa, retornando 0.
+
+## Erros Comuns
+
+### Colocar `=` ao invés de `==`
+
+Um erro bem comum para quem está começando é escrever o operador de igualdade como `#!c =` e não `#!c ==`. O problema é que o programa **compila** e roda normalmente, só que com um bug. Veja no código a seguir:
+
+```c hl_lines="8" title="Código"
+#include <stdbool.h>
+#include <stdio.h>
+
+int main(void)
+{
+    double nota = 5.0;
+
+    if (nota = 10.0)
+    {
+        printf("Você tirou 10!\n");
+    }
+
+    return 0;
+}
+```
+
+```console title="Saída do programa"
+$ ./main
+Você tirou 10!
+```
+
+Vamos entender passo a passo o que está acontencedo: primeiro `nota` é declarada e recebe `#!c 5.0`, depois `nota` passa a valer `#!c 10.0` - já que usamos o símbolo da **atribuição**; lembre-se que `#!c 0` indica `#!c false` e **qualquer número diferente** indica `#!c true`, como `nota` vale `#!c 10.0`, que é diferente de zero, o bloco do `#!c if` é executado.
+
+De maneira similar, ao escrevermos `#!c nota = 0.0` o `#!c if` **nunca irá rodar**:
+
+```c hl_lines="8"
+#include <stdbool.h>
+#include <stdio.h>
+
+int main(void)
+{
+    double nota = 0.0;
+
+    if (nota = 0.0)
+    {
+        printf("Você tirou 0 :(\n");
+    }
+
+    return 0;
+}
+```
+
+O GCC é um compilador muito esperto, mas ele só nos avisa do que desconfia se nós **pedirmos**. Compile o código acima normalmente e nenhum aviso aparece. Agora, compile de novo com a opção `-Wall`:
+
+```console title="Compilando com -Wall"
+$ gcc -Wall -o main main.c
+main.c: In function ‘main’:
+main.c:8:9: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    8 |     if (nota = 0.0)
+      |         ^~~~
+```
+
+Tudo o que escrevemos depois do `gcc` e que começa com `-` é uma **flag** (ou opção): um pedido que muda o comportamento do compilador. Já usamos uma, a `-o`, que escolhe o nome do executável. A `-Wall` vem de *warnings all*, do inglês "todos os avisos", e liga um conjunto grande de verificações extras.
+
+Vamos ler a saída:
+
+- `main.c:8:9`: o aviso está na linha 8, coluna 9 do arquivo `main.c`.
+- `warning`: é um **aviso**, e não um `error`. O executável **ainda é gerado**, então o programa roda com o bug mesmo assim. Por isso é importante ler os avisos.
+- `suggest parentheses around assignment used as truth value`: em português, "sugiro parênteses em volta de uma atribuição usada como valor verdade". O compilador percebeu que você colocou uma **atribuição** onde o `#!c if` espera uma **condição**, e desconfiou que você queria um `#!c ==`.
+- `[-Wparentheses]`: o nome do aviso. Se você pesquisar por ele, encontra explicações detalhadas.
+
+Corrigindo para `#!c ==`, o aviso some:
+
+```c
+if (nota == 0.0)
+```
+
+Se você **realmente** quiser fazer uma atribuição dentro do `#!c if`, o que é raro, basta colocar parênteses extras para mostrar ao compilador que foi de propósito: `#!c if ((nota = 0.0))`.
+
+#### Outros erros que a `-Wall` encontra
+
+Lembra da variável sem valor inicial, do módulo de [Variáveis](./variaveis.md#inicialização)? Veja o que a `-Wall` diz sobre ela:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    int numero;
+
+    printf("número = %d\n", numero);
+
+    return 0;
+}
+```
+
+```console
+$ gcc -Wall -o main main.c
+main.c: In function ‘main’:
+main.c:7:5: warning: ‘numero’ is used uninitialized [-Wuninitialized]
+    7 |     printf("número = %d\n", numero);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c:5:9: note: ‘numero’ was declared here
+    5 |     int numero;
+      |         ^~~~~~
+```
+
+O compilador avisa que a variável `numero` foi usada **sem ter sido inicializada**, que é exatamente o "lixo de memória" que vimos lá.
+
+!!! atenção
+
+    A `-Wall` não encontra **todos** os problemas, apesar do nome. Ela também não substitui testar o programa: em códigos mais complexos, alguns avisos dependem da versão do GCC e das otimizações. Pense nela como uma segunda leitura do seu código.
+
+
+Existem muitos mais erros parecidos com esse que o `-Wall` nos avisa. Por isso, vamos passar a compilar nossos programas com o `-Wall` **sempre** e tratar cada aviso como se fosse um erro. Esse é o padrão que vamos seguir:
+
+```bash
+gcc -Wall -o main main.c
+```
+
+!!! dica
+
+    Quando você se sentir confortável, existem outras flags que vale conhecer: a `-Wextra` acrescenta ainda mais verificações, e a `-Werror` transforma **todo aviso em erro**, impedindo que o executável seja gerado enquanto houver algum.
+
+## Boas Práticas
+
+### if e else sem `{}`
+
+Ainda é possível escrever o `#!c if` e `#!c else` sem as chaves (`#!c {}`). Reescrevendo o primeiro problema do guarda-chuva:
+
+```c
+#include <stdbool.h>
+#include <stdio.h>
+
+int main(void)
+{
+    bool vai_chover = true;
+
+    if (vai_chover)
+        printf("Vai chover!\n");
+    else
+        printf("Deixe o guarda-chuva em casa, não irá chover hoje.\n");
+
+    return 0;
+}
+```
+
+O código funciona e produz o mesmo resultado, porque quando não há chaves o `#!c if` (ou o `#!c else`) controla **apenas o próximo comando**, ou seja, tudo até o primeiro `;`. É por isso que essa forma só é útil quando o bloco tem **uma única linha**.
+
+O problema aparece quando precisamos adicionar um segundo comando. Vamos recuperar a mensagem do guarda-chuva do início do capítulo e mudar `vai_chover` para `#!c false`:
+
+```c hl_lines="10"
+#include <stdbool.h>
+#include <stdio.h>
+
+int main(void)
+{
+    bool vai_chover = false;
+
+    if (vai_chover)
+        printf("Vai chover!\n");
+        printf("É melhor levar o guarda-chuva.\n");
+
+    return 0;
+}
+```
+
+```console title="Saída do programa"
+$ ./main
+É melhor levar o guarda-chuva.
+```
+
+Não vai chover, mas o programa mandou levar o guarda-chuva! O motivo é que a **indentação não significa nada para o compilador**, ela existe só para quem lê. Para o C, o código acima é:
+
+```c
+if (vai_chover)
+    printf("Vai chover!\n");
+
+printf("É melhor levar o guarda-chuva.\n"); // Não pertence ao if!
+```
+
+Esse é o tipo de bug mais perigoso: o código **parece** correto, compila e roda sem erro. Compilando com a `-Wall`, o GCC desconfia:
+
+```console
+$ gcc -Wall -o main main.c
+main.c: In function ‘main’:
+main.c:8:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+    8 |     if (vai_chover)
+      |     ^~
+main.c:10:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   10 |         printf("É melhor levar o guarda-chuva.\n");
+      |         ^~~~~~
+```
+
+> O nome do aviso, `-Wmisleading-indentation`, significa "indentação enganosa".
+
+!!! nota
+
+    Esse não é um problema só de iniciantes. Em 2014, um bug de segurança no código de conexões seguras (SSL/TLS) dos sistemas da Apple foi causado por uma linha `goto fail;` duplicada logo abaixo de um `#!c if` sem chaves. A segunda linha parecia fazer parte do `#!c if`, mas sempre era executada, e a verificação de um certificado era pulada.
+
+#### O `#!c else` pendente
+
+Sem chaves, também fica ambíguo **a qual `#!c if` um `#!c else` pertence**. Veja o código a seguir, em que a ideia é: sem convite, a pessoa é barrada; com convite, ela só entra como VIP se for VIP. Note que `tem_convite` vale `#!c false`:
+
+```c
+bool tem_convite = false;
+bool eh_vip = true;
+
+if (tem_convite)
+    if (eh_vip)
+        printf("Entrada VIP.\n");
+else
+    printf("Sem convite.\n");
+```
+
+Se você rodar o programa, **nada é impresso**. A mensagem "Sem convite." deveria aparecer. A regra da linguagem C é que o `#!c else` sempre pertence ao **`#!c if` mais próximo**, então o código é lido assim:
+
+```c
+if (tem_convite)
+{
+    if (eh_vip)
+    {
+        printf("Entrada VIP.\n");
+    }
+    else
+    {
+        printf("Sem convite.\n");
+    }
+}
+```
+
+A indentação sugeria que o `#!c else` pertencia ao primeiro `#!c if`, mas não é isso que o compilador entende. Esse problema se chama ***dangling else***, do inglês "else pendente", e o GCC também avisa sobre ele com a `-Wall`:
+
+```console
+main.c:9:8: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+    9 |     if (tem_convite)
+      |        ^
+```
+
+Com chaves, não existe ambiguidade:
+
+```c
+if (tem_convite)
+{
+    if (eh_vip)
+    {
+        printf("Entrada VIP.\n");
+    }
+}
+else
+{
+    printf("Sem convite.\n");
+}
+```
+
+**Use sempre as chaves**, mesmo quando o bloco tem uma única linha. Escrever duas chaves a mais é um preço pequeno perto de evitar esses bugs:
+
+- Adicionar um segundo comando no futuro não muda o significado do código.
+- A estrutura fica visível, sem depender da indentação.
+- Não existe o `#!c else` pendente.
