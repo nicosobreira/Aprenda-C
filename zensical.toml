@@ -21,9 +21,13 @@ nav = [
     { "Exercícios: Condicionais" = "exercicios/condicionais.md" },
     { "Estruturas de Repetição" = "modulos/repeticao.md" },
     { "Exercícios: Repetição" = "exercicios/repeticao.md" },
+    { "Funções" = "modulos/funcoes.md"},
+    { "Exercícios: Funções" = "exercicios/funcoes.md"},
+    { "Listas" = "modulos/listas.md"},
+    { "Exercícios: Listas" = "exercicios/listas.md"}
   ] },
 { "Avançado" = [
-    {"Memoria" = "modulos/memoria-1.md"},
+    {"Memoria I" = "modulos/memoria-1.md"},
     ] }
 
 
