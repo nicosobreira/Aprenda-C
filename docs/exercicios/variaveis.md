@@ -2,7 +2,9 @@
 
 Para fazer esses exercícios, sugiro **reduzir o uso de IA**. Em caso de dúvida, procure primeiro por **sites**, **vídeos** e **tutorias** para te ajudar, use a IA como a última saída.
 
-> Teste suas soluções com **outros valores de entrada**, não só com o do enunciado.
+!!! importante
+
+    Teste suas soluções com **outros valores de entrada**, não só com o do enunciado.
 
 ## Entrada e Saída
 
@@ -10,19 +12,27 @@ Como ainda não sabemos como pedir dados para os usuários enquanto o programa e
 
 Os exercícios vão **dar as entradas** e pedir para você criar uma solução entre o *comentário* `// Saída:` e o `return 0;`.
 
-> Os comentários começam com `//`. Veremos o que são eles logo em seguida.
+!!! atenção
+
+    Os comentários começam com `//`. Veremos o que são eles logo em seguida.
 
 ### Exemplo de exercício: Soma de Inteiros
 
-> ***Explicação sobre o que o exercício está treinando***
+!!! pergunta ""
+
+    "Explicação sobre o que o exercício está treinando"
 
 > Como somar e imprimir variáveis do tipo inteiro.
 
-> **Enunciado**
+!!! pergunta ""
+
+    Enunciado
 
 Exiba a soma de dois números inteiros `a` e `b`.
 
-> **O que o exercício vai dar**
+!!! pergunta ""
+
+    O que o exercício vai dar
 
 ```c
 int main(void)
@@ -38,30 +48,29 @@ int main(void)
 }
 ```
 
-> **A resposta do exercício**
+!!! pergunta ""
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+    A resposta do exercício
 
-```c
-int main(void)
-{
-    // Entrada:
+??? resposta
 
-    int a = 0;
-    int b = 0;
+    ```c
+    int main(void)
+    {
+        // Entrada:
 
-    // Saída:
+        int a = 0;
+        int b = 0;
 
-    int resultado = a + b;
+        // Saída:
 
-    printf("%d + %d = %d\n", a, b, resultado);
+        int resultado = a + b;
 
-    return 0;
-}
-```
+        printf("%d + %d = %d\n", a, b, resultado);
 
-</details>
+        return 0;
+    }
+    ```
 
 ### Comentários
 
@@ -150,56 +159,44 @@ int main(void)
 
 Depois, compile, rode e compare com as suas previsões. Tente entender o por quê da suas previsões esterem erradas.
 
-<details>
-<summary>Dica 1: Tipos</summary>
+??? dica "Dica 1"
 
-- O **tipo** do resultado depende dos **tipos dos números** da operação, e a conta é feita **da esquerda para a direita**.
+    O **tipo** do resultado depende dos **tipos dos números** da operação, e a conta é feita **da esquerda para a direita**.
 
-</details>
+??? dica "Dica 2"
 
-<details>
-<summary>Dica 2: Divisão</summary>
+    Lembre-se de que a divisão de inteiros é **truncada**. Teste a relação `dividendo = quociente * divisor + resto` com os valores `-7` e `2`.
 
-- Lembre-se de que a divisão de inteiros é **truncada**. Teste a relação `dividendo = quociente * divisor + resto` com os valores `-7` e `2`.
+??? dica "Dica 3: Char e Módulo"
 
-</details>
-
-<details>
-<summary>Dica 3: Char e Módulo</summary>
-
-- Lembre-se de que o `char` é um número e de que o módulo (`%`) tem a mesma prioridade da multiplicação e da divisão.
-
-</details>
+    Lembre-se de que o `char` é um número e de que o módulo (`%`) tem a mesma prioridade da multiplicação e da divisão.
 
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+??? resposta
 
-```
-1) 6
-2) 6.000000
-3) 7.000000
-4) -3
-5) -1
-6) 3
-7) 3.0
-8) 9
-9) C 67
-10) 17
-```
+    ```
+    1) 6
+    2) 6.000000
+    3) 7.000000
+    4) -3
+    5) -1
+    6) 3
+    7) 3.0
+    8) 9
+    9) C 67
+    10) 17
+    ```
 
-1. `7 / 2` é uma divisão entre inteiros, então vale `3` (truncado). Depois, `3 * 2` vale `6`.
-2. A conta continua da esquerda para a direita: `7 / 2` ainda é inteira e vale `3`. Só depois o `3` é multiplicado por `2.0`, resultando em `6.0`. O `.0` chegou **tarde demais** para salvar a divisão.
-3. Agora `7 / 2.0` já é uma divisão **real**, vale `3.5`, e `3.5 * 2` vale `7.0`.
-4. A divisão de inteiros é truncada **em direção ao zero**: `-3.5` vira `-3`, e não `-4`.
-5. O resto precisa manter a relação `dividendo = quociente * divisor + resto`: `-7 = (-3) * 2 + (-1)`. Em C, o sinal do resto é o **mesmo sinal do dividendo**.
-6. Como `*` e `%` têm a mesma prioridade, são feitos da esquerda para a direita: `3 * 4` vale `12`, `12 % 5` vale `2`, depois `2 + 2 - 1` vale `3`.
-7. `(3 + 4) / 2` é uma divisão entre inteiros (`7 / 2`), que vale `3`. Só depois o `3` é convertido para `double`, e não o contrário. Declarar a variável como `double` **não** muda a divisão.
-8. Ao guardar um `double` em um `int`, a parte depois da vírgula é **descartada** (truncada, não arredondada). Por isso o resultado é `9`, e não `10`.
-9. `'A'` vale `65`, então `'A' + 2` vale `67`. O `%c` mostra esse valor como letra (`C`), e o `%d`, como número.
-10. Isso é a relação `dividendo = quociente * divisor + resto` escrita em C: `17 / 5` vale `3`, `3 * 5` vale `15`, `17 % 5` vale `2` e `15 + 2` vale `17`. O valor de `x` não mudou.
-
-</details>
+    1. `7 / 2` é uma divisão entre inteiros, então vale `3` (truncado). Depois, `3 * 2` vale `6`.
+    2. A conta continua da esquerda para a direita: `7 / 2` ainda é inteira e vale `3`. Só depois o `3` é multiplicado por `2.0`, resultando em `6.0`. O `.0` chegou **tarde demais** para salvar a divisão.
+    3. Agora `7 / 2.0` já é uma divisão **real**, vale `3.5`, e `3.5 * 2` vale `7.0`.
+    4. A divisão de inteiros é truncada **em direção ao zero**: `-3.5` vira `-3`, e não `-4`.
+    5. O resto precisa manter a relação `dividendo = quociente * divisor + resto`: `-7 = (-3) * 2 + (-1)`. Em C, o sinal do resto é o **mesmo sinal do dividendo**.
+    6. Como `*` e `%` têm a mesma prioridade, são feitos da esquerda para a direita: `3 * 4` vale `12`, `12 % 5` vale `2`, depois `2 + 2 - 1` vale `3`.
+    7. `(3 + 4) / 2` é uma divisão entre inteiros (`7 / 2`), que vale `3`. Só depois o `3` é convertido para `double`, e não o contrário. Declarar a variável como `double` **não** muda a divisão.
+    8. Ao guardar um `double` em um `int`, a parte depois da vírgula é **descartada** (truncada, não arredondada). Por isso o resultado é `9`, e não `10`.
+    9. `'A'` vale `65`, então `'A' + 2` vale `67`. O `%c` mostra esse valor como letra (`C`), e o `%d`, como número.
+    10. Isso é a relação `dividendo = quociente * divisor + resto` escrita em C: `17 / 5` vale `3`, `3 * 5` vale `15`, `17 % 5` vale `2` e `15 + 2` vale `17`. O valor de `x` não mudou.
 
 ## Troca de Valores
 
@@ -231,45 +228,40 @@ Depois: a = 8 e b = 3
 ```
 
 
-<details>
-<summary>Precisa de uma dica? Clique aqui.</summary>
+??? dica
 
-Tente o jeito mais "óbvio": `a = b;` seguido de `b = a;`. Qual é o resultado? Por quê?
+    Tente o jeito mais "óbvio": `a = b;` seguido de `b = a;`. Qual é o resultado? Por quê?
 
-</details>
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+??? resposta
 
-O jeito "óbvio" não funciona: depois de `a = b;`, o valor `3` some e as duas variáveis passam a valer `8`. Ao executar `b = a;`, copiamos o `8` para `b`, que já valia `8`.
+    O jeito "óbvio" não funciona: depois de `a = b;`, o valor `3` some e as duas variáveis passam a valer `8`. Ao executar `b = a;`, copiamos o `8` para `b`, que já valia `8`.
 
-A solução é guardar o valor antigo de `a` em uma **variável auxiliar** antes de sobrescrevê-lo:
+    A solução é guardar o valor antigo de `a` em uma **variável auxiliar** antes de sobrescrevê-lo:
 
-```c
-#include <stdio.h>
+    ```c
+    #include <stdio.h>
 
-int main(void)
-{
-    // Entrada:
+    int main(void)
+    {
+        // Entrada:
 
-    int a = 3;
-    int b = 8;
+        int a = 3;
+        int b = 8;
 
-    // Saída:
+        // Saída:
 
-    printf("Antes:  a = %d e b = %d\n", a, b);
+        printf("Antes:  a = %d e b = %d\n", a, b);
 
-    int auxiliar = a;
-    a = b;
-    b = auxiliar;
+        int auxiliar = a;
+        a = b;
+        b = auxiliar;
 
-    printf("Depois: a = %d e b = %d\n", a, b);
+        printf("Depois: a = %d e b = %d\n", a, b);
 
-    return 0;
-}
-```
-
-</details>
+        return 0;
+    }
+    ```
 
 ## Segundos em Horas, Minutos e Segundos
 
@@ -314,50 +306,44 @@ Para `7200`:
 2h 0min 0s
 ```
 
-<details>
-<summary>Precisa de uma dica? Clique aqui.</summary>
+??? dica
 
-Primeiro descubra **quantas horas completas** cabem em `total_segundos` (qual operação ignora o que sobra?). Depois, pergunte-se: **o que sobrou**? (qual operação dá esse resto?).
+    Primeiro descubra **quantas horas completas** cabem em `total_segundos` (qual operação ignora o que sobra?). Depois, pergunte-se: **o que sobrou**? (qual operação dá esse resto?).
 
-</details>
+??? resposta
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
-
-```c
+    ```c
 #include <stdio.h>
 
-int main(void)
-{
-    // Entrada:
+    int main(void)
+    {
+        // Entrada:
 
-    int total_segundos = 3725;
+        int total_segundos = 3725;
 
-    // Saída:
+        // Saída:
 
-    const int segundos_por_minuto = 60;
-    const int segundos_por_hora = 3600;
+        const int segundos_por_minuto = 60;
+        const int segundos_por_hora = 3600;
 
-    int horas = total_segundos / segundos_por_hora;
-    int resto = total_segundos % segundos_por_hora;
+        int horas = total_segundos / segundos_por_hora;
+        int resto = total_segundos % segundos_por_hora;
 
-    int minutos = resto / segundos_por_minuto;
-    int segundos = resto % segundos_por_minuto;
+        int minutos = resto / segundos_por_minuto;
+        int segundos = resto % segundos_por_minuto;
 
-    printf("%dh %dmin %ds\n", horas, minutos, segundos);
+        printf("%dh %dmin %ds\n", horas, minutos, segundos);
 
-    return 0;
-}
-```
+        return 0;
+    }
+    ```
 
-Usamos a **divisão truncada** para contar quantas unidades completas cabem, e o **módulo** para saber o que sobrou. Para `3725`:
+    Usamos a **divisão truncada** para contar quantas unidades completas cabem, e o **módulo** para saber o que sobrou. Para `3725`:
 
-1. `3725 / 3600` vale `1` hora, e `3725 % 3600` sobra `125` segundos.
-2. `125 / 60` vale `2` minutos, e `125 % 60` sobra `5` segundos.
+    1. `3725 / 3600` vale `1` hora, e `3725 % 3600` sobra `125` segundos.
+    2. `125 / 60` vale `2` minutos, e `125 % 60` sobra `5` segundos.
 
-Aqui, o truncamento da divisão de inteiros, que parecia um problema, é **exatamente o que queremos**.
-
-</details>
+    Aqui, o truncamento da divisão de inteiros, que parecia um problema, é **exatamente o que queremos**.
 
 ## Maiúscula e Minúscula
 
@@ -388,76 +374,70 @@ Para resolver esse exercícios, analise cuidadosamente a [Tabela ASCII](https://
 A maiúscula de g é G.
 ```
 
-<details>
-<summary>Precisa de uma dica? Clique aqui.</summary>
+??? dica
 
-Como o `char` é só um número, você pode **somar** e **subtrair** caracteres como qualquer outro inteiro. Por exemplo, `'A' + 2` vale `67`, que é o código de `'C'`.
+    Como o `char` é só um número, você pode **somar** e **subtrair** caracteres como qualquer outro inteiro. Por exemplo, `'A' + 2` vale `67`, que é o código de `'C'`.
 
-</details>
+??? resposta
 
-<details>
-<summary>Clique aqui para ver a resposta</summary>
+    Podemos ver o valor decimal da letra `g` e `G` da seguinte forma:
 
-Podemos ver o valor decimal da letra `g` e `G` da seguinte forma:
+    ```c
+    printf("%c vale %d\n", 'g', 'G');
+    printf("%c vale %d\n", 'G', 'G');
+    ```
 
-```c
-printf("%c vale %d\n", 'g', 'G');
-printf("%c vale %d\n", 'G', 'G');
-```
+    ```
+    g vale 103
+    G vale 71
+    ```
 
-```
-g vale 103
-G vale 71
-```
+    A diferença é `103 - 71`, ou seja, `32`; note que ela é a mesma para qualquer par de letras, porque na [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) o alfabeto minúsculo está na mesma ordem do maiúsculo, só **deslocado**.
 
-A diferença é `103 - 71`, ou seja, `32`; note que ela é a mesma para qualquer par de letras, porque na [Tabela ASCII](https://www.ime.usp.br/~kellyrb/mac2166_2015/tabela_ascii.html) o alfabeto minúsculo está na mesma ordem do maiúsculo, só **deslocado**.
+    Escrever `32` direto no código seria um valor mágico. Em vez disso, calculamos a diferença com os próprios caracteres:
 
-Escrever `32` direto no código seria um valor mágico. Em vez disso, calculamos a diferença com os próprios caracteres:
+    ```c
+    #include <stdio.h>
 
-```c
-#include <stdio.h>
+    int main(void)
+    {
+        // Entrada:
 
-int main(void)
-{
-    // Entrada:
+        char minuscula = 'g';
 
-    char minuscula = 'g';
+        // Saída:
 
-    // Saída:
+        const int diferenca = 'a' - 'A';
 
-    const int diferenca = 'a' - 'A';
+        char maiuscula = minuscula - diferenca;
 
-    char maiuscula = minuscula - diferenca;
+        printf("A maiúscula de %c é %c.\n", minuscula, maiuscula);
 
-    printf("A maiúscula de %c é %c.\n", minuscula, maiuscula);
+        return 0;
+    }
+    ```
 
-    return 0;
-}
-```
+    O código agora se explica sozinho: a diferença entre uma minúscula e uma maiúscula é a distância entre `'a'` e `'A'`.
 
-O código agora se explica sozinho: a diferença entre uma minúscula e uma maiúscula é a distância entre `'a'` e `'A'`.
+    Na prática, caso não usamos esse método para mudar uma letra minuscula para maiúscula. A Biblioteca Padrão oferece a função `toupper` no header `ctype.h`, que é usada da seguinte forma:
 
-Na prática, caso não usamos esse método para mudar uma letra minuscula para maiúscula. A Biblioteca Padrão oferece a função `toupper` no header `ctype.h`, que é usada da seguinte forma:
+    ```c
+    #include <stdio.h> // Para o printf
 
-```c
-#include <stdio.h> // Para o printf
+    #include <ctype.h> // Para o toupper
 
-#include <ctype.h> // Para o toupper
+    int main(void)
+    {
+        // Entrada:
 
-int main(void)
-{
-    // Entrada:
+        char minuscula = 'g';
 
-    char minuscula = 'g';
+        // Saída:
 
-    // Saída:
+        char maiuscula = toupper(minuscula);
 
-    char maiuscula = toupper(minuscula);
+        printf("A maiúscula de %c é %c.\n", minuscula, maiuscula);
 
-    printf("A maiúscula de %c é %c.\n", minuscula, maiuscula);
-
-    return 0;
-}
-```
-
-</details>
+        return 0;
+    }
+    ```
