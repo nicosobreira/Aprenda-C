@@ -7,29 +7,29 @@
 
 ## Linguagem C
 
-- [ ] No segundo parágrafo final, muitos conceitos atrapalham quem está començando. Simplificar oque é falado (não citar conceitos específicos)
+- [x] No segundo parágrafo final, muitos conceitos atrapalham quem está començando. Simplificar oque é falado (não citar conceitos específicos)
 
 ## Olá Mundo
 
-- [ ] Mensagens de erros mais completas e claras. Fazer um passo a passo de como ler uma mensagem de erro (Ver [Error](./correcoes/erro.md))
+- [x] Mensagens de erros mais completas e claras. Fazer um passo a passo de como ler uma mensagem de erro (Ver [Error](./correcoes/erro.md))
 
 ### Compilando com o GCC
 
-- [ ] O autosave do vs code não foi habilitado
+- [x] O autosave do vs code não foi habilitado
 
 ### main
 
-- [ ] Pulou a parte em que o return fica antes do `printf`
-- [ ] Explicar o que não escrever `main` faz (erro no linker)
-- [ ] Explicar o que colocar o código sem `main` faz, mas como `printf`
-- [ ] Explicar que é o return que retorna 0
+- [x] Pulou a parte em que o return fica antes do `printf`
+- [x] Explicar o que não escrever `main` faz (erro no linker)
+- [x] Explicar o que colocar o código sem `main` faz, mas como `printf`
+- [x] Explicar que é o return que retorna 0
 
 ## Variáveis
 
 ### Declaração
 
-- [ ] Mostrar mais tipos primitos (int, char, float) para elucidar melhor.
-- [ ] Ao falar da mudança semântica da variável, dar um contexto antes que deixe essa ideia explícita.
+- [x] Mostrar mais tipos primitos (int, char, float) para elucidar melhor.
+- [x] Ao falar da mudança semântica da variável, dar um contexto antes que deixe essa ideia explícita.
 
 ### Atribuição
 
@@ -37,9 +37,9 @@
 
 ### int
 
-- [ ] Mais exemplos (em código) sobre as operações matemáticas (3 a 5 exemplos que mostrem todas as possíveis operações) (var x var, etc).
-- [ ] Deixar claro que para inserir a variável no printf é necessário o `%` (não deixar implícito) 
-- [ ] Explicar que dá para fazer `printf("%d\n", 1 + 2);`
+- [x] Mais exemplos (em código) sobre as operações matemáticas (3 a 5 exemplos que mostrem todas as possíveis operações) (var x var, etc).
+- [x] Deixar claro que para inserir a variável no printf é necessário o `%` (não deixar implícito) 
+- [x] Explicar que dá para fazer `printf("%d\n", 1 + 2);`
 
 ### float/double
 
@@ -82,30 +82,30 @@
 
 ## if e else
 
-- [ ] Erro de ortografia: "guarda chuva" -> "guarda-chuvanvim"
+- [x] Erro de ortografia: "guarda chuva" -> "guarda-chuva"
 
 ## else if
 
-- [ ] **Não tinha explicado o que são comentários**. Deixar claro que o `//` também pode ser usado para `/* */` na hora de ocultar o `printf`.
-- [ ] Não expliquei direito o `if else`. O código está muito jogado e não vou trabalhado.
-- [ ] Deixar que o `if`, `if else` e `else` ignoram os outros.
-- [ ] Mudar "- não incluindo - para cima".
-- [ ] Falar sobre `>=` e `>` antes.
+- [x] **Não tinha explicado o que são comentários**. Deixar claro que o `//` também pode ser usado para `/* */` na hora de ocultar o `printf`.
+- [x] Não expliquei direito o `if else`. O código está muito jogado e não vou trabalhado.
+- [x] Deixar que o `if`, `if else` e `else` ignoram os outros.
+- [x] Mudar "- não incluindo - para cima".
+- [x] Falar sobre `>=` e `>` antes.
 - [ ] Explicar a saída de `if ((12 <= idade) <= 17)` retorna. Tudo é 0 e 1 no final, (12 <= idade) retorna um número que é comparado.
-- [ ] Explicar o `&&` e `||`
-- [ ] Condições dentro das outras.
-- [ ] Condições com parentêses (ordem das verificações padrão).
-- [ ] Colocar condições em variáveis `bool eh_triangulo = (a + b) > c && ...`.
+- [x] Explicar o `&&` e `||`
+- [x] Condições dentro das outras.
+- [x] Condições com parentêses (ordem das verificações padrão).
+- [x] Colocar condições em variáveis `bool eh_triangulo = (a + b) > c && ...`.
 
 ## Negação
 
-- [ ] Mover o capítulo sobre Retorno Antecipado para Funções (em Boas Práticas). Aqui, ele só serve para confundir e não agrega muito. Pensar em um exemplo de negação usando intervalos, ou algo do tipo.
+- [x] Mover o capítulo sobre Retorno Antecipado para Funções (em Boas Práticas). Aqui, ele só serve para confundir e não agrega muito. Pensar em um exemplo de negação usando intervalos, ou algo do tipo.
 - [ ] Não expliquei direito o que é o padrão IEEE 754. Deixar claro que ele organiza os bits em certa forma.
-- [ ] Usar uma variável `tem_acesso` para explicar `!tem_acesso`.
+- [x] Usar uma variável `tem_acesso` para explicar `!tem_acesso`.
 
 ## Ideiais de Exercícios para Variáveis
 
-- [ ] Analisar expressão aritmética, calcular média ()
+- [x] Analisar expressão aritmética, calcular média ()
 
 ## Exercícios Condicional
 
