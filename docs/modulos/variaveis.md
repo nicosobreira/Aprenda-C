@@ -587,7 +587,7 @@ Algumas sequências de escape:
 | `\'`      | Aspas simples             | 39    |
 | `\"`      | Aspas duplas              | 34    |
 
-Nem toda sequência de escape é um caractere de controle: `\\`, `\'` e `\"` representam símbolos visíveis que, sem o escape, teriam outro significado. Teste você mesmo com `printf("%d\n", '\n');`. Veremos o uso do `\0` em [Strings](./strings.md).
+Nem toda sequência de escape é um caractere de controle: `#!c \\`, `#!c \'` e `#!c \"` representam símbolos visíveis que, sem o escape, teriam outro significado. Teste você mesmo com `#!c printf("%d\n", '\n');`. Veremos o uso do `#!c \0` em [Strings](./strings.md).
 
 #### Operações com `#!c char`
 
@@ -621,7 +621,7 @@ int main(void)
 }
 ```
 
-O código anterior calcula `'C' - 2`, ou seja, `67 - 2`, que resulta em `65`, a letra `A` (em tabelas compatíveis com o ASCII, como o UTF-8).
+O código anterior calcula `#!c 'C' - 2`, ou seja, `#!c 67 - 2`, que resulta em `#!c 65`, a letra `#!c A` (em tabelas compatíveis com o ASCII, como o UTF-8).
 
 ### bool
 
