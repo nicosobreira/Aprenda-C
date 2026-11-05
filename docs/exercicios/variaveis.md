@@ -157,7 +157,7 @@ int main(void)
 }
 ```
 
-Depois, compile, rode e compare com as suas previsões. Tente entender o por quê da suas previsões esterem erradas.
+Depois, compile, rode e compare com as suas previsões. Tente entender o por quê da suas previsões estarem erradas.
 
 ??? dica "Dica 1"
 
