@@ -336,7 +336,7 @@ Note que elas apontam para o mesmo lugar do erro principal: linha 3, coluna 5, o
 
 Aqui temos um aviso, não um erro. Uma tradução seria: `declaração implícita incompatível da função embutida ‘printf’`.
 
-O compilador GCC já conhece algumas funções da Biblioteca Padrão, como o `printf`, por serem muito usadas. Elas são chamadas de funções embutidas (*built-in functions*), e o GCC sabe qual é a forma correta de usá-las: quais parâmetros recebem e o que retornam. O nome entre colchetes, `[-Wbuiltin-declaration-mismatch]`, identifica a opção que gerou o aviso, e vale pesquisá-lo na Internet para saber mais. Em resumo, o compilador está dizendo: "você usou uma função que eu conheço, mas do jeito errado, porque não me disse de onde ela vem".
+O compilador GCC já conhece algumas funções da Biblioteca Padrão, como o `printf`, por serem muito usadas. Elas são chamadas de funções embutidas (*built-in functions*), e o GCC sabe qual é a forma correta de usá-las: quais parâmetros recebem e o que retornam. Em resumo, o compilador está dizendo: "você usou uma função que eu conheço, mas do jeito errado, porque não me disse de onde ela vem".
 
 Lembre-se do que vimos em gravidade: um `warning` sozinho não impede a compilação, mas indica que algo provavelmente está errado. Aqui, ele só aparece junto do `error`, mas em outros programas você poderá ter um executável gerado com avisos. Não os ignore!
 

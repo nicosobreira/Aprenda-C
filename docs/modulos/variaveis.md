@@ -49,7 +49,7 @@ A seguir nós **inicializamos** a variável `numero` com o valor `#!c 10`:
 int numero = 10;
 ```
 
-**Depois que declaramos** uma variável, podemos alterar o seu valor novamente sem repetir o tipo, Como no código a seguir, que cria a variável `idade` - com valor inicial `#!c 18`, e a muda para `#!c 10`.
+**Depois que declaramos** uma variável, podemos alterar o seu valor novamente sem repetir o tipo. Como no código a seguir, que cria a variável `idade` - com valor inicial `#!c 18`, e a muda para `#!c 10`.
 
 ```c
 int main(void)
@@ -164,6 +164,21 @@ int main(void)
     int b = 2;
 
     printf("a e b valem %d e %d, respectivamente.\n", a, b);
+
+    return 0;
+}
+```
+
+!!! dica
+
+    Para exibir o símbolo de porcentegem ("%") faça `%%`. Como no exemplo a seguir:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Porcentagem %d%%\n", 20);
 
     return 0;
 }
@@ -291,7 +306,7 @@ int main(void)
 
 O quociente da divisão de 4 por 2 é 2, enquanto o resto é zero, ou seja, $2 \times 2 + 0 = 4$.
 
-Agora, troque o dividendo por `7` e veja o resultado.
+Agora, troque o dividendo por `#!c 7` e veja o resultado.
 
 O quociente da divisão de 7 por 2 é 3, enquanto o resto é 1, ou seja, $2 \times 3 + 1 = 7$.
 
@@ -341,7 +356,7 @@ Declaramos o `#!c float` da seguinte forma:
 float media_f = 6.72f;
 ```
 
-Colocamos o `#!c f` no final para indicar que o número é um `#!c float`. Também podemos usar o `#!c F`. Sem ele, o `#!c 6.72` seria um `#!c double`, que o compilador converteria para `#!c float` automaticamente: funciona, mas é melhor deixar a intenção clara.
+Colocamos o `#!c f` no final para indicar que o número é um `#!c float`. Também podemos usar o `#!c F`. Sem ele, o `#!c 6.72f` seria um `#!c double`, que o compilador converteria para `#!c float` automaticamente: funciona, mas é melhor deixar a intenção clara.
 
 Já o `#!c double`:
 

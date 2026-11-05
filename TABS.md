@@ -40,6 +40,7 @@
 - [x] Mais exemplos (em código) sobre as operações matemáticas (3 a 5 exemplos que mostrem todas as possíveis operações) (var x var, etc).
 - [x] Deixar claro que para inserir a variável no printf é necessário o `%` (não deixar implícito) 
 - [x] Explicar que dá para fazer `printf("%d\n", 1 + 2);`
+- [ ] Deixar claro que os `%` são em **ordem**.
 
 ### float/double
 
