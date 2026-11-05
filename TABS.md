@@ -81,6 +81,8 @@
 
 ## Condicionais
 
+- [ ] Abrir o capítulo falando que só escrevemos programas de forma linear. Explicar melhor o que "alterar os fluxos do código" significa.
+
 ## if e else
 
 - [x] Erro de ortografia: "guarda chuva" -> "guarda-chuva"

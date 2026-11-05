@@ -153,6 +153,11 @@ int main(void)
 
 ## Operações Booleanas
 
+<!-- TODO: Introduzir o que são operações booleanas, como eu fiz em relacionais.
+
+A linguagem C nos oferece os chamados **operadores booleanos**, que são operações que resultam em apenas `#!c true` ou `#!c false` a partir de uma **relação lógica**.
+-->
+
 ### "E"
 
 O professor percebeu que os alunos estão indo muito mal na prova. Ele decidiu usar a frequência às aulas como outro fator que faz o aluno passar na matéria.
@@ -260,7 +265,15 @@ O professor percebeu uma melhora nas notas dos alunos e decidiu fazer uma excurs
 - Crianças com até 12 anos.
 - E estudantes (na escola ou faculdade).
 
-Com o que vimos até agora, crie um programa que resolva esse problema antes de continuar.
+Com o que vimos até agora, crie um programa que resolva esse problema antes de continuar. Se baseie no seguinte código:
+
+```c
+int main(void)
+{
+    int idade = 10;
+    bool esta_estudando = true;
+}
+```
 
 ??? resposta
 
