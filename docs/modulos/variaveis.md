@@ -692,7 +692,9 @@ main.c:5:13: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attrib
       |             ^
 ```
 
-> O GCC ainda mostra outros erros em seguida (como `'final' undeclared`), mas o primeiro costuma ser o mais importante.
+!!! tip
+
+    O GCC ainda mostra outros erros em seguida (como `'final' undeclared`), mas o primeiro costuma ser o mais importante.
 
 O mesmo vale para o espaço, que separa uma palavra da outra. Quando precisamos de um nome com mais de uma palavra, usamos o sublinhado: `nota_final`.
 
