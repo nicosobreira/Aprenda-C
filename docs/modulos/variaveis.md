@@ -515,7 +515,9 @@ Com 4 dígitos decimais vamos de `0000` a `9999`, ou seja, $10^4 = 10\,000$ núm
 
 Na esmagadora maioria dos computadores, um grupo de 8 bits é chamado de **byte**, e consegue representar $2^8 = 256$ valores, de 0 a 255. Guarde esse número, ele vai explicar vários comportamentos do `#!c char`.
 
-> Em [Memória I](./memoria-1.md) veremos como o `#!c int` usa essa mesma ideia, inclusive para representar números negativos.
+??? nota
+
+    Em [Memória I](./memoria-1.md) veremos como o `#!c int` usa essa mesma ideia, inclusive para representar números negativos.
 
 ### char
 
