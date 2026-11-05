@@ -642,7 +642,7 @@ int main(void)
 
     Chamamos os estados **verdadeiro** e **falso** de `#!c true` e `#!c false`, respectivamente.
 
-Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#!c #include <stdbool.h>`. Isso acontece porque, na versão 11 do C (chamada de "C11"), o tipo booleano nativo se chama `_Bool`; o header `#!c stdbool.h` define os nomes `#!c bool`, `#!c true` e `#!c false` para facilitar a leitura. (A partir da versão 23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
+Diferente dos outros tipos primitivos, para declararmos uma variável booleana precisamos primeiro importar sua definição da Biblioteca Padrão, com o `#!c #include <stdbool.h>`. Isso acontece porque, na versão 11 do C (chamada de "C11"), o tipo booleano nativo se chama `#!c _Bool`; o header `#!c stdbool.h` define os nomes `#!c bool`, `#!c true` e `#!c false` para facilitar a leitura. (A partir da versão 23, esses três nomes passam a ser palavras reservadas e o header deixa de ser necessário.)
 
 Podemos imprimir um `#!c bool` com o `%d`:
 
