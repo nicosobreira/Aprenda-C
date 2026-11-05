@@ -495,7 +495,7 @@ Agora podemos resolver a dúvida do começo. O binário `0100 0011` tem 8 posiç
 | :-:        | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | **Dígito** | 0   | 1  | 0  | 0  | 0 | 0 | 1 | 1 |
 
-Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`.
+Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`. É assim que um `#!c int` é representado na memória!
 
 !!! resumo
 
