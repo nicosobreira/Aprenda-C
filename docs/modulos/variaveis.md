@@ -779,7 +779,7 @@ main.c:5:9: error: expected identifier or ‘(’ before ‘return’
       |         ^~~~~~
 ```
 
-O compilador esperava um **nome**, mas encontrou o comando `return`. Veja a lista completa de palavras reservadas do C11:
+O compilador esperava um **nome**, mas encontrou o comando `#!c return`. Veja a lista completa de palavras reservadas do C11:
 
 ??? nota "Lista de Palavras Reservadas"
 
@@ -796,7 +796,9 @@ O compilador esperava um **nome**, mas encontrou o comando `return`. Veja a list
 
 Você não precisa decorar nada disso. Com o tempo, o seu editor vai **colorir** essas palavras de forma diferente das variáveis, e o compilador avisa quando houver conflito.
 
-> Repare que `#!c bool`, `#!c true` e `#!c false` **não estão** na lista: no C11, eles são definidos por `<stdbool.h>`, como vimos em [bool](#bool). Mesmo assim, não use esses nomes para suas variáveis, já que o resultado seria confuso (e um erro caso você inclua o *header*).
+!!! note
+
+    Repare que `#!c bool`, `#!c true` e `#!c false` **não estão** na lista: no C11, eles são definidos por `#!c <stdbool.h>`, como vimos em [bool](#bool). Mesmo assim, não use esses nomes para suas variáveis, já que o resultado seria confuso (e um erro caso você inclua o *header*).
 
 ### Nomes que parecem permitidos, mas não são uma boa ideia
 
