@@ -495,7 +495,11 @@ Agora podemos resolver a dúvida do começo. O binário `0100 0011` tem 8 posiç
 | :-:        | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | **Dígito** | 0   | 1  | 0  | 0  | 0 | 0 | 1 | 1 |
 
-Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`. É assim que um `#!c int` é representado na memória!
+Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`. É assim que um `#!c int` **positivo é representado na memória!
+
+!!! nota
+
+    Em [Memória I](./memoria-1.md) veremos como o `#!c int` usa essa mesma ideia, inclusive para representar números negativos.
 
 !!! resumo
 
@@ -514,10 +518,6 @@ Pratique: quanto vale `0000 1010`? E `0001 0000`? Como se escreve o `13` em bin�
 Com 4 dígitos decimais vamos de `0000` a `9999`, ou seja, $10^4 = 10\,000$ números. Com 4 bits, temos $2^4 = 16$ números, de `0000` (0) a `1111` (15). Em geral, **n bits representam $2^n$ valores diferentes**.
 
 Na esmagadora maioria dos computadores, um grupo de 8 bits é chamado de **byte**, e consegue representar $2^8 = 256$ valores, de 0 a 255. Guarde esse número, ele vai explicar vários comportamentos do `#!c char`.
-
-!!! nota
-
-    Em [Memória I](./memoria-1.md) veremos como o `#!c int` usa essa mesma ideia, inclusive para representar números negativos.
 
 ### char
 
