@@ -714,8 +714,6 @@ main.c:5:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attrib
       |              ^~~~~
 ```
 
-> A mensagem exata muda de acordo com a versão do GCC, mas a ideia é a mesma: ele leu `int nota` como uma declaração completa e não entendeu o que `final` está fazendo ali.
-
 ### Não começar com dígito
 
 Um identificador **não pode começar com um dígito**, mas pode ter dígitos nas demais posições. Então `pessoa1` e `vida_2` são válidos, enquanto `1pessoa` e `02_vida` não são.
@@ -769,7 +767,7 @@ Por isso, escreva `cafe` e `pontuacao` mesmo que o seu compilador aceite `café`
 
 ### Palavras reservadas
 
-Algumas palavras têm um **significado fixo** dentro da linguagem, como `#!c int`, `return`, `if` e `while`. Elas são chamadas de **palavras reservadas** (ou *keywords*) e **não podem** ser usadas como identificadores:
+Algumas palavras têm um **significado fixo** dentro da linguagem, como `#!c int`, `#!c return`, `#!c if` e `#!c while`. Elas são chamadas de **palavras reservadas** (ou *keywords*) e **não podem** ser usadas como identificadores:
 
 ```c
 int return = 5;
