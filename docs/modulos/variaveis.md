@@ -591,16 +591,30 @@ Nem toda sequência de escape é um caractere de controle: `\\`, `\'` e `\"` rep
 
 #### Operações com `#!c char`
 
-Como o `#!c char` é um número no final das contas, podemos fazer contas com ele. O código a seguir é válido:
+Como o `#!c char` é um número no final das contas. Veja:
 
 ```c
 #include <stdio.h>
 
 int main(void)
 {
-    char c = 'C' - 2;
+    char c = 67;
 
     printf("Caractere: %c\n", c);
+    return 0;
+}
+```
+
+Podemos até fazer operações:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    char a = 'C' - 2;
+
+    printf("Caractere: %c\n", a);
     return 0;
 }
 ```
