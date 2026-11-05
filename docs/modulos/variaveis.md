@@ -919,7 +919,7 @@ int main(void)
 }
 ```
 
-Você verá que a variável `numero` armazena um valor imprevisível, o chamado **lixo de memória**: o que já estava naquele espaço antes de o programa usá-lo. Em alguns computadores o valor pode se repetir (como `0`), mas isso é coincidência e não pode ser contado. Na verdade, o padrão da linguagem diz que ler uma variável não inicializada é um *comportamento indefinido*. O motivo disso ficará claro em [Memória I](./memoria-1.md), por ora, sempre inicialize suas variáveis para evitar usar valores imprevisíveis acidentalmente.
+Você verá que a variável `numero` armazena um valor imprevisível, o chamado **lixo de memória**: o que já estava naquele espaço antes de o programa usá-lo. Em alguns computadores o valor pode se repetir (como `#!c 0`), mas isso é coincidência e não pode ser contado. Na verdade, o padrão da linguagem diz que ler uma variável não inicializada é um *comportamento indefinido*. O motivo disso ficará claro em [Memória I](./memoria-1.md), por ora, sempre inicialize suas variáveis para evitar usar valores imprevisíveis acidentalmente.
 
 ### Valores Mágicos
 
