@@ -85,7 +85,7 @@ Siga os passos dependendo do sistema operacional que está usando: Windows, Linu
         if (-not (Test-Path $d))
         {
             New-Item -Path $d -ItemType Directory -Force | Out-Null
-        }https://github.com/lemelinha
+        }
 
         $e = if (Test-Path $p) { Get-Content -Raw $p } else { '' }
 
