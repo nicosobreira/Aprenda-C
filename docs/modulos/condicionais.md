@@ -1,12 +1,3 @@
-<!-- TODO: Reestruturação de Condicionais:
- Problema: hoje o módulo não está muito amigável para um iniciante na programação. Fazer as seguintes mudanças
-1. Falar do `#!c if` e deixar claro que ele serve para **alterar o fluxo** do código a partir de uma **condição**.
-2. A partir de um exemplo que mostra uma mensagem parabenizando o aluno - inicialmente utilizando somente a nota, (1) introduzir a ideia de operações booleanas (&&, || e !) com a introdução de uma nova variável chamada `se_esforcou` e (2) `#!c if` aninhado. + Ordem das condições importa
-3. Trazer o exemplo das temperaturas para mostrar como as condições vão sendo alteradas dentro do `if else`.
-4. Mover a seção sobre negação para Boas Práticas em Funções.
-5. Na seção de Boas Práticas falar do `#!c if` sem {}
--->
-
 # Condicionais
 
 As estruturas condicionais nos possibilitam **avaliar condições** e executar diferentes códigos dependendo de seus resultados - **alterando o fluxo do código**. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda-chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda-chuva, **senão** deixamos ele em casa.
@@ -165,7 +156,7 @@ int main(void)
 ### "E"
 
 O professor percebeu que os alunos estão indo muito mal na prova. Ele decidiu usar a frequência às aulas como outro fator que faz o aluno passar na matéria.
-A taxa de frequência vai de 0 a 10, e segue a seguinte lógica: se o aluno tirou menos que 6, mas possui frequência maior ou igual a 9, ele passa, do contrário ele reprova. Criamos uma nova variável também do tipo `#!c double` chamada `frequencia` e a usamos da seguinte forma:
+A taxa de frequência vai de 0 a 10, e segue esta lógica: se o aluno tirou menos que 6, mas possui frequência maior ou igual a 9, ele passa, do contrário ele reprova. Criamos uma nova variável também do tipo `#!c double` chamada `frequencia` e a usamos da seguinte forma:
 
 ```c hl_lines="10"
 #include <stdio.h>
@@ -195,7 +186,7 @@ int main(void)
 }
 ```
 
-Note que temos que repetir duas vezes a mensagem `"Você passou!"`. A linguagem C nos oferece os chamados **operadores booleanos**, que são operações que resultam em apenas `#!c true` ou `#!c false` a partir de uma **relação lógica**. Nesse caso, a relação lógica é o "E", ou seja, para o aluno **reprovar** é necessário que: *ele tire menos que 6* **e** *tenha frequência menor que 9*. Escrevemos essa operação como `#!c &&`:
+Note que temos que repetir duas vezes a mensagem `"Você passou!"`. A linguagem C nos oferece os chamados **operadores booleanos**, que são operações que resultam em apenas `#!c true` ou `#!c false` a partir de uma **relação lógica**. Nesse caso, a relação lógica é o "E", ou seja, para o aluno **reprovar** é necessário que *ele tire menos que 6* **e** *tenha frequência menor que 9*. Escrevemos essa operação como `#!c &&`:
 
 ```c hl_lines="8"
 #include <stdio.h>
@@ -263,7 +254,7 @@ Basta que uma condição seja verdadeira para que o resultado seja verdadeiro:
 
 ---
 
-O professor percebeu uma melhora nas notas dos alunos e decidiu fazer uma excursão para o cinema. O problema é que o cinema é muito novo e eles ainda não têm um sistema de **verificação de meia-entrada**. Tem direito a pagar meia entrada:
+O professor percebeu uma melhora nas notas dos alunos e decidiu fazer uma excursão para o cinema. O problema é que o cinema é muito novo e eles ainda não têm um sistema de **verificação de meia-entrada**. Têm direito a pagar meia-entrada:
 
 - Idosos com 60 anos ou mais.
 - Crianças com até 12 anos.
@@ -326,7 +317,7 @@ int main(void)
 }
 ```
 
-Isso não é obrigatório, mas fazer isso deixa claro o que cada condição faz.
+Isso não é obrigatório, mas deixa claro o que cada condição faz.
 
 ### "NÃO"
 
@@ -365,7 +356,6 @@ Em uma tabela-verdade fica:
 | `#!c true` | `#!c false` |
 | `#!c false` | `#!c true` |
 
-
 Isso nos dá um jeito de provar que as duas versões são equivalentes. Negar um "OU" é o mesmo que negar cada condição e trocar por "E":
 
 ```c
@@ -397,7 +387,7 @@ int main(void)
 }
 ```
 
-Dizemos que a multiplicação tem **precedência** sobre a soma. Os operadores lógicos também têm uma ordem de precedência, e os parênteses fazem o mesmo papel:
+Dizemos que a multiplicação tem **precedência** sobre a soma. Os operadores lógicos e de comparação também têm uma ordem de precedência, e os parênteses fazem o mesmo papel:
 
 | Ordem | Operador | Exemplo |
 | :-: | :-: | :- |
@@ -516,11 +506,11 @@ bool tem_vinculo = esta_matriculado || eh_professor;
 bool pode_retirar = tem_vinculo && !tem_livro_atrasado;
 ```
 
-### Boas práticas
+### Boas Práticas
 
 Prefira nomes **positivos** para variáveis booleanas (`passou`, e não `nao_passou`). Com o nome negativo, `#!c !nao_passou` vira uma "dupla negação", difícil de ler.
 
-Na matemática, ninguém escreve `#!c (2 * 3) + 4`, pois os parênteses são desnecessários. Já nas condições, é comum usá-los **mesmo quando não são obrigatórios**, porque quem lê o código não precisa lembrar da tabela de precedência:
+Na matemática, raramente escrevemos `#!c (2 * 3) + 4`, pois os parênteses são desnecessários. Já nas condições, é comum usá-los **mesmo quando não são obrigatórios**, porque quem lê o código não precisa lembrar da tabela de precedência:
 
 ```c
 // Funciona, mas obriga o leitor a lembrar a precedência
@@ -536,7 +526,7 @@ Se a regra do professor fosse realmente a segunda, os parênteses a deixariam cl
 
 Com o que vimos até agora, tente resolver o seguinte problema: qual tipo de roupa devo vestir hoje? Ao avaliarmos essa pergunta, temos que levar em consideração a temperatura média ao longo do dia e que cada indivíduo decide o que é "quente" e "frio".
 
-Crie um programa que declara duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13 °C e 32 °C. Depois, vamos criar outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia.
+Crie um programa que declare duas variáveis constantes do tipo `double` chamadas `temp_baixa` e `temp_alta`, que vão determinar as faixas de temperatura que você considera como frias e quentes, no meu caso são 13 °C e 32 °C. Depois, crie outra variável do tipo `double` chamada `temperatura`, que armazenará a temperatura média no dia.
 
 ```c
 #include <stdio.h>
@@ -605,7 +595,7 @@ else
 }
 ```
 
-Esse padrão é extremamente frequente na linguagem C, e por isso é comum escrever o `#!c else` e `#!c if` seguidos um do outro, assim:
+Esse padrão é extremamente frequente na linguagem C, e por isso é comum escrever o `#!c else` e o `#!c if` seguidos um do outro, assim:
 
 ```c
 else if (temperatura <= temp_baixa)
@@ -660,7 +650,7 @@ Note que **depois** de cada verificação que fazemos na variável `temperatura`
 
 Pense comigo: antes de fazer a **primeira verificação** na linha `#!c if (temperatura >= temp_alta)` o valor de `temperatura` pode ser **qualquer um**: pode ser `#!c -2.0`, `#!c 25.0` ou até algo absurdo como `#!c 1240.0` e `#!c -900.0`; não temos como saber.
 É só depois de verificar se `#!c temperatura >= temp_alta` é que podemos indicar uma nova **faixa de temperatura** da variável `temperatura`. Se a `temperatura` for maior ou igual a `#!c 32.0` sabemos que seu valor vai de `#!c 32.0` (incluindo) para cima (como `#!c 35.0` e `#!c 50.0`), **caso contrário** a `temperatura` com toda certeza é menor que `#!c 32.0`.
-Com isso, ao chegarmos na **segunda verificação** em `#!c else if (temperatura <= temp_baixa)` temos **certeza** de que a `temperatura` é menor que `#!c 32.0`; e de novo, após verificarmos esta condição, podemos definir uma nova faixa de temperatura para a variável `temperatura`.
+Com isso, ao chegarmos à **segunda verificação** em `#!c else if (temperatura <= temp_baixa)` temos **certeza** de que a `temperatura` é menor que `#!c 32.0`; e de novo, após verificarmos esta condição, podemos definir uma nova faixa de temperatura para a variável `temperatura`.
 
 O fluxograma deixa essa ideia mais clara:
 
@@ -715,7 +705,7 @@ No primeiro caso, o resultado da condição `#!c 3 == 3` é 1, já que, de fato,
 
 A linguagem C define o valor `0` como **falso**; qualquer outro valor é verdadeiro. Dessa forma, o tipo `#!c bool` e os valores `#!c true` e `#!c false` são apenas números. Utilizamos esse tipo para trazer clareza em nosso código.
 
-Essa ideia é também vale para as **operações booleanas**, veja:
+Essa ideia também vale para as **operações booleanas**. Veja:
 
 ```c
 #include <stdio.h>
@@ -726,17 +716,17 @@ int main(void)
     bool a = (3 == 3);
     bool b = (1 > 10);
 
-    printf("a E b\n", a && b);
+    printf("a E b: %d\n", a && b);
 
     return 0;
 }
 ```
 
-Como 1 é menor que 10, a condicional "E" se torna falsa, retornando 0.
+Como `#!c a` é verdadeiro (`#!c 1`) e `#!c b` é falso (`#!c 0`), o resultado de `#!c a && b` é `#!c 0`, como diz a tabela-verdade do "E".
 
 ## Erros Comuns
 
-### Colocar `=` ao invés de `==`
+### Colocar `=` em vez de `==`
 
 Um erro bem comum para quem está começando é escrever o operador de igualdade como `#!c =` e não `#!c ==`. O problema é que o programa **compila** e roda normalmente, só que com um bug. Veja no código a seguir:
 
@@ -762,7 +752,7 @@ $ ./main
 Você tirou 10!
 ```
 
-Vamos entender passo a passo o que está acontencedo: primeiro `nota` é declarada e recebe `#!c 5.0`, depois `nota` passa a valer `#!c 10.0` - já que usamos o símbolo da **atribuição**; lembre-se que `#!c 0` indica `#!c false` e **qualquer número diferente** indica `#!c true`, como `nota` vale `#!c 10.0`, que é diferente de zero, o bloco do `#!c if` é executado.
+Vamos entender passo a passo o que está acontecendo: primeiro `nota` é declarada e recebe `#!c 5.0`, depois `nota` passa a valer `#!c 10.0` - já que usamos o símbolo da **atribuição**; lembre-se de que `#!c 0` indica `#!c false` e **qualquer número diferente** indica `#!c true`. Como `nota` vale `#!c 10.0`, que é diferente de zero, o bloco do `#!c if` é executado.
 
 De maneira similar, ao escrevermos `#!c nota = 0.0` o `#!c if` **nunca irá rodar**:
 
@@ -799,7 +789,7 @@ Vamos ler a saída:
 
 - `main.c:8:9`: o aviso está na linha 8, coluna 9 do arquivo `main.c`.
 - `warning`: é um **aviso**, e não um `error`. O executável **ainda é gerado**, então o programa roda com o bug mesmo assim. Por isso é importante ler os avisos.
-- `suggest parentheses around assignment used as truth value`: em português, "sugiro parênteses em volta de uma atribuição usada como valor verdade". O compilador percebeu que você colocou uma **atribuição** onde o `#!c if` espera uma **condição**, e desconfiou que você queria um `#!c ==`.
+- `suggest parentheses around assignment used as truth value`: em português, "sugiro parênteses em volta de uma atribuição usada como valor de verdade". O compilador percebeu que você colocou uma **atribuição** onde o `#!c if` espera uma **condição**, e desconfiou que você queria um `#!c ==`.
 - `[-Wparentheses]`: o nome do aviso. Se você pesquisar por ele, encontra explicações detalhadas.
 
 Corrigindo para `#!c ==`, o aviso some:
@@ -844,8 +834,7 @@ O compilador avisa que a variável `numero` foi usada **sem ter sido inicializad
 
     A `-Wall` não encontra **todos** os problemas, apesar do nome. Ela também não substitui testar o programa: em códigos mais complexos, alguns avisos dependem da versão do GCC e das otimizações. Pense nela como uma segunda leitura do seu código.
 
-
-Existem muitos mais erros parecidos com esse que o `-Wall` nos avisa. Por isso, vamos passar a compilar nossos programas com o `-Wall` **sempre** e tratar cada aviso como se fosse um erro. Esse é o padrão que vamos seguir:
+Existem muitos outros erros parecidos com esse que a `-Wall` detecta. Por isso, vamos passar a compilar nossos programas com a `-Wall` **sempre** e tratar cada aviso como se fosse um erro. Esse é o padrão que vamos seguir:
 
 ```bash
 gcc -Wall -o main main.c
@@ -859,7 +848,7 @@ gcc -Wall -o main main.c
 
 ### if e else sem `{}`
 
-Ainda é possível escrever o `#!c if` e `#!c else` sem as chaves (`#!c {}`). Reescrevendo o primeiro problema do guarda-chuva:
+Ainda é possível escrever o `#!c if` e o `#!c else` sem as chaves (`#!c {}`). Reescrevendo o primeiro problema do guarda-chuva:
 
 ```c
 #include <stdbool.h>
