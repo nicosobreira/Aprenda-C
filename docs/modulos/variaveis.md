@@ -601,6 +601,7 @@ int main(void)
     char c = 67;
 
     printf("Caractere: %c\n", c);
+
     return 0;
 }
 ```
@@ -615,6 +616,7 @@ int main(void)
     char a = 'C' - 2;
 
     printf("Caractere: %c\n", a);
+
     return 0;
 }
 ```
