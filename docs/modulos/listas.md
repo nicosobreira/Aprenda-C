@@ -1,5 +1,7 @@
 # Listas
 
+<!-- TODO: Mudar o nome dessa módulo para `Arrays`. Deixar claro que um array é uma lista com valores **finitos** e que não pode aumentar. -->
+
 Até agora, quando precisávamos armazenar informações, criamos variáveis _individuais_ para cada dado: uma variável para a idade, outra para a nota de uma prova ou para o saldo de uma conta. Mas pense em uma situação em que tenhamos que **agrupar valores do mesmo tipo**, como na hora de calcular a **média de temperatura** nos dias úteis da **semana** e notas de um aluno, como faríamos isso? Nesse módulo veremos o conceito de **listas** (formalmente chamadas de **arrays** ou **vetores**), que vai nos possibilitar agrupar vários valores do mesmo tipo.
 
 ## O Problema
@@ -292,13 +294,11 @@ int main(void)
 {
     int idade = 18;
 
-    printf("Endereço de idade: %p\n", (void *)&idade);
+    printf("Endereço de idade: %p\n", &idade);
 
     return 0;
 }
 ```
-
-> Veremos o que é o `(void *)` em [Inserir Referência]().
 
 Execute o programa várias vezes e perceberá que o valor do endereço muda constantemente, isso é devido a como o sistema operacional reserva a memória para o programa - caso nada seja inicializado, a variável vai receber o valor armazenado no endereço de memória atual.
 

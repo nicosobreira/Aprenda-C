@@ -288,7 +288,7 @@ int main(void)
         int idade = 10;
         bool esta_estudando = true;
 
-        if (idade >= 60 || idade <= 12 || esta_estudando)
+        if (idade >= 60 || idade < 12 || esta_estudando)
         {
             printf("Você paga meia!\n");
         }
@@ -468,6 +468,8 @@ if (!nota >= 6.0)  // ERRADO
 Aqui o `#!c !` é aplicado só em `nota`. Como qualquer valor diferente de `0` é verdadeiro, `#!c !5.0` vale `0`, e o `#!c if` compara `#!c 0 >= 6.0`. O código compila e **não faz o que você queria**. Para negar a condição inteira, use parênteses, `#!c !(nota >= 6.0)`, ou, melhor ainda, escreva `#!c nota < 6.0`.
 
 ---
+
+<!-- TODO: o exercício está errado. Retirar a valização da entrada na biblioteca. -->
 
 Por fim, o professor precisa organizar o **acesso à biblioteca da escola**. As regras são as seguintes:
 

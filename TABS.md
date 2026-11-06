@@ -5,6 +5,9 @@
 - [x] Colocar os códigos antes de erros de saída em um details.
 - [ ] Usar o `int main(void) {}` quando valer apena executar, caso contrário não.
 
+No módulo de `repeticao` não está bom: A entrada de um usuário é algo mais complicado para um iniciante.
+Uma possível reformulação é dividir esse módulo em dois, uma parte fala sobre as estruturas de repetição e a outra sobre a entrada (e também o `continue` e `break`).
+
 ## Linguagem C
 
 - [x] No segundo parágrafo final, muitos conceitos atrapalham quem está començando. Simplificar oque é falado (não citar conceitos específicos)

@@ -1,6 +1,6 @@
 # Funções
 
-Já estamos usando diversas funções, como o `main`, `printf` e `scanf`, e até criamos algumas próprias, como a `entrar_na_festa` e `print_divisao`, lá no capítulo de [Condicionais](./condicionais.md). Agora, vamos entender a sintaxe e, principalmente, **por que** elas são tão importantes.
+Já estamos usando diversas funções, como o `main`, `printf` e `scanf`. Agora, vamos entender sua sintaxe e, principalmente, **como criar nossas funções** e **por que** elas são tão importantes.
 
 ## Declarando uma função
 

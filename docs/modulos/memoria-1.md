@@ -12,3 +12,14 @@
 - Representação em binário dos tipos primitivos (conexão com [Variáveis](./variaveis.md))
 - O que são ponteiros
 - Falar sobre conversão de valores (int para float, float para int) com exemplos em código, com e sem printf (misturar com operações também).
+
+## Promessas
+
+- Como o computador representa os valores `int`, `float`, `double`, `char` e `bool`? O que é `unsigned`?
+- Quando usar o `float` e o `double`? Qual é a diferença entre eles?
+- Como o `int` representa números negativos?
+- O que é o `NULL`?
+
+**Parte 1**: Representação em binário
+
+**Parte 2**: Estrutura da stack, como as variáveis são armazenadas. Ponteiros e arrays.
