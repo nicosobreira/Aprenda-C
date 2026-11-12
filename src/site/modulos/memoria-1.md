@@ -1,4 +1,4 @@
-# Pontos
+# Memória I
 
 - Explicar como muitas coisas sobre a memória do C é específico de como um **computador moderno** funciona.
 - Talvez explicar o que são matrizes?

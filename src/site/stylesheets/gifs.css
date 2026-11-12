@@ -1,0 +1,9 @@
+video.so-claro,
+video.so-escuro {
+  max-width: 100%;
+}
+
+[data-md-color-scheme="default"] video.so-escuro,
+[data-md-color-scheme="slate"] video.so-claro {
+  display: none;
+}

@@ -495,7 +495,7 @@ Agora podemos resolver a dúvida do começo. O binário `0100 0011` tem 8 posiç
 | :-:        | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | **Dígito** | 0   | 1  | 0  | 0  | 0 | 0 | 1 | 1 |
 
-Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`. É assim que um `#!c int` **positivo é representado na memória!
+Os bits ligados são o `64`, o `2` e o `1`, então `64 + 2 + 1 = 67`. É assim que um `#!c int` **positivo é representado na memória**!
 
 !!! nota
 
@@ -796,7 +796,7 @@ O compilador esperava um **nome**, mas encontrou o comando `#!c return`. Veja a 
 
 Você não precisa decorar nada disso. Com o tempo, o seu editor vai **colorir** essas palavras de forma diferente das variáveis, e o compilador avisa quando houver conflito.
 
-!!! note
+!!! nota
 
     Repare que `#!c bool`, `#!c true` e `#!c false` **não estão** na lista: no C11, eles são definidos por `#!c <stdbool.h>`, como vimos em [bool](#bool). Mesmo assim, não use esses nomes para suas variáveis, já que o resultado seria confuso (e um erro caso você inclua o *header*).
 

@@ -15,6 +15,9 @@
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
         uv
+        vhs
+        marksman
+        markdownlint-cli2
       ];
     };
   };

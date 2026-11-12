@@ -1,6 +1,46 @@
 {
+    "fix": true,
+    "gitignore": true,
+    "ignores": [
+        ".testes/**",
+        ".venv/**",
+        "site/**"
+    ],
     "config": {
-        "MD013": false
-    },
-    "fix": true
+        "default": true,
+        "MD013": false,
+        // Estilo do guia
+        "MD003": {
+            "style": "atx"
+        },
+        "MD004": {
+            "style": "dash"
+        },
+        "MD035": {
+            "style": "---"
+        },
+        "MD048": {
+            "style": "backtick"
+        },
+        "MD049": {
+            "style": "asterisk"
+        }, // *itálico*
+        "MD050": {
+            "style": "asterisk"
+        }, // **negrito**
+        // Compatibilidade com a sintaxe do Zensical
+        "MD033": {
+            "allowed_elements": [
+                "details",
+                "summary",
+                "p",
+                "a"
+            ]
+        },
+        "MD024": {
+            "siblings_only": true
+        }, // "Passo 1", "Código" se repetem em seções diferentes
+        "MD040": false, // blocos de saída do GCC ficam sem linguagem
+        "MD046": false // o conteúdo indentado das admonitions parece "código indentado"
+    }
 }

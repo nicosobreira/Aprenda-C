@@ -1,4 +1,4 @@
-# Notas
+# String
 
 - Caracteres acentuados e emojis
 

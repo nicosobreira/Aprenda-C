@@ -1,10 +1,10 @@
 # Condicionais
 
-As estruturas condicionais nos possibilitam **avaliar condições** e executar diferentes códigos dependendo de seus resultados - **alterando o fluxo do código**. Para deixar essa explicação mais clara, vamos pensar em um exemplo do dia a dia: será que eu devo levar o meu guarda-chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro pensamos se irá chover ou não no dia. **Se** chover, então pegamos o guarda-chuva, **senão** deixamos ele em casa.
+Até agora, nossos códigos foram executados de forma **linear**: um comando seguido de outro comando. Mas vamos pensar em um exemplo do dia a dia onde o resultado varia dependendo de uma **condição**: será que eu devo levar o meu guarda-chuva ao sair de casa? Ao avaliarmos essa pergunta, primeiro devemos saber se irá chover ou não no dia: **se** chover, então pegamos o guarda-chuva, **senão** deixamos ele em casa. A linguagem C nos oferece as chamadas **estruturas condicionais** que fazem essa decisão.
 
 ## if e else
 
-Para resolvermos o nosso problema do guarda-chuva, vamos escrever um programa que irá fazer essa decisão! Primeiro iremos declarar uma variável do tipo `#!c bool`, chamada `vai_chover`; damos o valor `#!c true` para ela. Depois iremos implementar essa lógica do **"se e senão"**.
+Vamos escrever um programa que irá fazer a decisão de levar ou não o guarda-chuva. Primeiro iremos declarar uma variável do tipo `#!c bool`, chamada `vai_chover`; damos o valor `#!c true` para ela. Depois iremos implementar essa lógica do **"se e senão"** com o `#!c if` e `#!c else`, respectivamente, da seguinte maneira:
 
 !!! atenção
 
@@ -32,8 +32,7 @@ int main(void)
 }
 ```
 
-As palavras `#!c if` e `#!c else` são traduções diretas para o "se" e "senão".
-Com isso em mente, lemos esse código da seguinte forma: **se** o valor armazenado na variável `vai_chover` for `#!c true`, **então** execute tudo entre as chaves abaixo do `#!c if`, senão, execute tudo entre as chaves abaixo do `#!c else`.
+O `#!c if` e `#!c else` são chamados de **comandos**, eles avaliam um **resultado**, formalmente chamado de **expressão**, que fica entre os parênteses (`()`). Nesse caso é a variável `vai_chover` que está sendo avaliada: se seu valor for `true`, então o *bloco* de código referente ao `#!c if` irá rodar, senão é o *bloco* abaixo do `#!c else`.
 
 Mude o valor da variável `vai_chover` para `#!c false` e veja como a saída muda.
 
@@ -154,6 +153,8 @@ int main(void)
 ## Operações Booleanas
 
 <!-- TODO: Introduzir o que são operações booleanas, como eu fiz em relacionais.
+
+Um pouco da história da lógica booleana para introduzir.
 
 A linguagem C nos oferece os chamados **operadores booleanos**, que são operações que resultam em apenas `#!c true` ou `#!c false` a partir de uma **relação lógica**.
 -->
@@ -785,7 +786,7 @@ Como `#!c a` é verdadeiro (`#!c 1`) e `#!c b` é falso (`#!c 0`), o resultado d
 
 ### Colocar `=` em vez de `==`
 
-Um erro bem comum para quem está começando é escrever o operador de igualdade como `#!c =` e não `#!c ==`. O problema é que o programa **compila** e roda normalmente, só que com um bug. Veja no código a seguir:
+Um erro bem comum para quem está começando é escrever o operador de igualdade como `#!c =` e não `#!c ==`. O problema é que o programa **compila sem erro** e roda normalmente, só que com um bug. Veja no código a seguir:
 
 ```c hl_lines="8" title="Código"
 #include <stdbool.h>
@@ -830,7 +831,7 @@ int main(void)
 }
 ```
 
-O GCC é um compilador muito esperto, mas ele só nos avisa do que desconfia se nós **pedirmos**. Compile o código acima normalmente e nenhum aviso aparece. Agora, compile de novo com a opção `-Wall`:
+O GCC é um compilador muito esperto, mas ele só nos avisa do que desconfia se nós **pedirmos**. Compile de novo com a opção `-Wall`, da seguinte maneira:
 
 ```console title="Compilando com -Wall"
 $ gcc -Wall -o main main.c
@@ -840,14 +841,12 @@ main.c:8:9: warning: suggest parentheses around assignment used as truth value [
       |         ^~~~
 ```
 
-Tudo o que escrevemos depois do `gcc` e que começa com `-` é uma **flag** (ou opção): um pedido que muda o comportamento do compilador. Já usamos uma, a `-o`, que escolhe o nome do executável. A `-Wall` vem de *warnings all*, do inglês "todos os avisos", e liga um conjunto grande de verificações extras.
+Tudo o que escrevemos depois do `gcc` e começa com `-` é uma **flag** (ou opção): um pedido que muda o comportamento do compilador. Já usamos uma flag, o `-o`, que escolhe o nome do executável. A flag `-Wall` vem de *warnings all*, do inglês "todos os avisos", e liga um conjunto grande de **verificações extras**. Dentre esses diversas verificações existe o `-Wparentheses`, que é a **flag** que gerou o aviso.
 
 Vamos ler a saída:
 
 - `main.c:8:9`: o aviso está na linha 8, coluna 9 do arquivo `main.c`.
-- `warning`: é um **aviso**, e não um `error`. O executável **ainda é gerado**, então o programa roda com o bug mesmo assim. Por isso é importante ler os avisos.
 - `suggest parentheses around assignment used as truth value`: em português, "sugiro parênteses em volta de uma atribuição usada como valor de verdade". O compilador percebeu que você colocou uma **atribuição** onde o `#!c if` espera uma **condição**, e desconfiou que você queria um `#!c ==`.
-- `[-Wparentheses]`: o nome do aviso. Se você pesquisar por ele, encontra explicações detalhadas.
 
 Corrigindo para `#!c ==`, o aviso some:
 
@@ -905,7 +904,7 @@ gcc -Wall -o main main.c
 
 ### if e else sem `{}`
 
-Ainda é possível escrever o `#!c if` e o `#!c else` sem as chaves (`#!c {}`). Reescrevendo o primeiro problema do guarda-chuva:
+Ainda é possível escrever o `#!c if` e o `#!c else` sem as chaves (`#!c {}`). Reescrevendo o primeiro problema do guarda-chuva fica:
 
 ```c
 #include <stdbool.h>
@@ -971,15 +970,9 @@ main.c:10:9: note: ...this statement, but the latter is misleadingly indented as
       |         ^~~~~~
 ```
 
-> O nome do aviso, `-Wmisleading-indentation`, significa "indentação enganosa".
-
-!!! nota
-
-    Esse não é um problema só de iniciantes. Em 2014, um bug de segurança no código de conexões seguras (SSL/TLS) dos sistemas da Apple foi causado por uma linha `goto fail;` duplicada logo abaixo de um `#!c if` sem chaves. A segunda linha parecia fazer parte do `#!c if`, mas sempre era executada, e a verificação de um certificado era pulada.
-
 #### O `#!c else` pendente
 
-Sem chaves, também fica ambíguo **a qual `#!c if` um `#!c else` pertence**. Veja o código a seguir, em que a ideia é: sem convite, a pessoa é barrada; com convite, ela só entra como VIP se for VIP. Note que `tem_convite` vale `#!c false`:
+Sem chaves, também fica ambíguo **a qual `#!c if` um `#!c else` pertence**. Veja o exemplo a seguir, onde uma pessoa sem convite - representado pelo `#!c tem_convite = false`, é barrada na entrada de uma festa; com o convite em mãos, só entra na área VIP se estiver na lista dos VIPs (`#!c eh_vip = true`):
 
 ```c
 bool tem_convite = false;

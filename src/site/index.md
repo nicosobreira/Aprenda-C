@@ -1,3 +1,7 @@
+---
+title: Início
+---
+
 # Aprenda C
 
 Bem-vindo a um guia de programação em C. Este guia busca te **ensinar a linguagem C sem esconder o que acontece debaixo dos panos.**
@@ -22,30 +26,6 @@ Esse é o jeito **correto** de se usar o material. Se você não seguir essas re
 - Copie e cole código de forma **consciente**. Saiba que digitar possui importância e evita leitura passiva.
 - Não faça uma leitura passiva, sempre **teste suas ideias** e **tire suas dúvidas** com a Internet ou Inteligências Artificiais.
 
-## Módulos
-
-1. [Instalando o C](./modulos/instalacao.md)
-2. [Olá, Mundo](./modulos/ola-mundo.md)
-3. [O que é C?](./modulos/linguagem-c.md)
-4. [Variáveis](./modulos/variaveis.md)
-5. [Exercícios: Variáveis](./exercicios/variaveis.md)
-6. [Condicionais](./modulos/condicionais.md)
-7. [Exercícios: Condicionais](./exercicios/condicionais.md)
-8. [Estruturas de Repetição](./modulos/repeticao.md)
-9. [Exercícios: Estruturas de Repetição](./exercicios/repeticao.md)
-10. [Funções](./modulos/funcoes.md)
-11. [Exercícios: Funções](./exercicios/funcoes.md)
-12. ~~[Listas](./modulos/listas.md)~~
-13. ~~[Memória I](./modulos/memoria-1.md)~~
-14. ~~[Strings](./modulos/strings.md)~~
-15. ~~[Structs](./modulos/structs.md)~~
-16. ~~[Enums](./modulos/enum.md)~~
-17. ~~[Modularização](./modulos/modulos.md)~~
-18. ~~[Memória II](./modulos/memoria-2.md)~~
-19. ~~[Build Systems](./modulos/build.md)~~
-20. ~~[E agora](./modulos/conclusao.md)~~
-<!-- 18. [Build System]() -->
-
 ## Referências
 
 Alguns sites úteis que vão te ajudar:
@@ -55,7 +35,7 @@ Alguns sites úteis que vão te ajudar:
 
 ## Colaboração
 
-Caso encontre um erro em algum módulo ou tenha alguma sugestão, sinta-se livre para abrir um _issue_ aqui no GitHub. Eu não sou um especialista em C, por isso suas contribuições são muito valiosas!
+Caso encontre um erro em algum módulo ou tenha alguma sugestão, sinta-se livre para abrir um _issue_ no GitHub. Eu não sou um especialista em C, por isso suas contribuições são muito valiosas!
 
 ## Agradecimentos
 

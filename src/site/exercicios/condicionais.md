@@ -4,6 +4,8 @@ Assim como em [Exercícios: Variáveis](./variaveis.md), ainda não sabemos pedi
 
 ## Classificador de Idade
 
+> `#!c if` e `#!c else`.
+
 Crie um programa que receba a idade de uma pessoa como entrada e classifique a categoria correspondente, como saída, de acordo com as regras a seguir:
 
 - **Infantil**: Menor que 12 anos.
@@ -68,6 +70,8 @@ int main(void)
 
 ## Aprovação Escolar
 
+> `#!c if` e `#!c else`; valores mágicos e nomeação de variáveis.
+
 Crie um programa que receba quatro notas de um aluno, calcule a **média ponderada** das notas, seguindo os seguintes pesos:
 
 | Nota | Peso |
@@ -82,6 +86,8 @@ Mostre essa média e depois informe se esse aluno:
 1. Passou, caso a média seja maior ou igual a 6.
 2. Reprovou, caso a média seja menor ou igual a 4.
 3. Está de recuperação, caso a média esteja entre 4 e 6.
+
+**Não utilize [Valores Mágicos](../modulos/variaveis.md#valores-magicos)**
 
 !!! info
 
@@ -151,6 +157,8 @@ return 0;
 
 ## Triângulo
 
+> Transformar lógica em `#!c if` e `#!c else`.
+
 Crie um programa que verifique se três retas formam um triângulo, seguindo a seguinte regra: **para todo lado do triângulo, a soma de dois lados deve ser maior que o terceiro**. As retas são valores inteiros.
 
 Caso as retas **não formem** um triângulo, mostre uma mensagem de erro e retorne `-1` da função `main`.
@@ -170,6 +178,8 @@ int c = 0;
 ```
 
 ??? resposta
+
+    Como vimos no exercício de ["OU"](../modulos/condicionais.md#ou), podemos armazenar o resultado de uma expressão booleana em uma variável. Nesse caso, a variável se chama `#!c eh_triangulo`.
 
     ```c
     bool eh_triangulo = (a + b > c) && (a + c > b) && (b + c > a);

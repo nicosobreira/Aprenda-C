@@ -1,0 +1,8 @@
+[core]
+markdown.file_extensions = ["md"]
+text_sync = "full"
+title_from_heading = true
+
+[code_action]
+toc.enable = false
+create_missing_file.enable = true

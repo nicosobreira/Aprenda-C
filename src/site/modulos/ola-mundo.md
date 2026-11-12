@@ -1,4 +1,4 @@
-# Olá, Mundo
+# Olá, Mundo!
 
 O programa "Olá, Mundo!" é a iniciação de todo programador. Ele vai nos mostrar algumas regras básicas da linguagem C.
 

@@ -15,6 +15,7 @@ const APELIDOS = {
   cuidado: "danger",
   importante: "info",
   resposta: "success",
+  ensina: "question",
 };
 
 document$.subscribe(({ body }) => {
