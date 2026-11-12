@@ -4,33 +4,38 @@ site_description = "Um guia de programação em C que não esconde o que acontec
 site_author = "Nícolas Sobreira Perez"
 site_url = "https://nicosobreira.github.io/Aprenda-C/"
 repo_url = "https://github.com/nicosobreira/Aprenda-C"
-docs_dir = "docs"
-site_dir = "site"
+docs_dir = "src/site"
+site_dir = "build/site"
 
 nav = [
-  { "Início" = "index.md" },
+  "index.md",
   { "Primeiros passos" = [
-    { "Instalando o C" = "modulos/instalacao.md" },
-    { "Olá, Mundo" = "modulos/ola-mundo.md" },
-    { "O que é C?" = "modulos/linguagem-c.md" },
+      "modulos/instalacao.md",
+      "modulos/ola-mundo.md",
+      "modulos/linguagem-c.md",
   ] },
   { "Fundamentos" = [
-    { "Variáveis" = "modulos/variaveis.md" },
-    { "Exercícios: Variáveis" = "exercicios/variaveis.md"},
-    { "Condicionais" = "modulos/condicionais.md" },
-    { "Exercícios: Condicionais" = "exercicios/condicionais.md" },
-    { "Estruturas de Repetição" = "modulos/repeticao.md" },
-    { "Exercícios: Repetição" = "exercicios/repeticao.md" },
-    { "Funções" = "modulos/funcoes.md"},
-    { "Exercícios: Funções" = "exercicios/funcoes.md"},
-    { "Listas" = "modulos/listas.md"},
-    { "Exercícios: Listas" = "exercicios/listas.md"}
+      "modulos/variaveis.md",
+      "exercicios/variaveis.md",
+      "modulos/condicionais.md",
+      "exercicios/condicionais.md",
+      "modulos/repeticao.md",
+      "exercicios/repeticao.md",
+      "modulos/funcoes.md",
+      "exercicios/funcoes.md",
+      "modulos/listas.md",
+      "exercicios/listas.md",
   ] },
-{ "Avançado" = [
-    {"Memoria I" = "modulos/memoria-1.md"},
+  { "Avançado" = [
+      "modulos/memoria-1.md",
+      "modulos/strings.md",
+      "modulos/structs.md",
+      "modulos/enum.md",
+      "modulos/modulos.md",
+      "modulos/memoria-2.md",
+      "modulos/build.md",
+      "modulos/conclusão.md",
     ] }
-
-
 ]
 
 extra_javascript = [
@@ -41,6 +46,7 @@ extra_javascript = [
 ]
 extra_css = [
   "https://unpkg.com/katex@0/dist/katex.min.css",
+  "stylesheets/gifs.css"
 ]
 
 [project.theme]
