@@ -1,231 +1,136 @@
 # Estruturas de Repetição
 
-Como o nome já diz, as estruturas de repetição nos permitem **repetir** blocos de código. Para entender o poder dessas estruturas, vamos entender como **pedir dados ao usuário** enquanto os nosso programas estão sendo executados, mas mais importante como usar dessas estruturas para **validar** as entradas.
+<!-- TODO: Avaliar se esse parágrafo introdutório está muito confuso. -->
 
-## scanf I
+Assim como as [Estruturas Condicionais](./condicionais.md), as estruturas de repetição **alteram o fluxo do código** baseado em uma condição. Mas, como o nome já diz, essa alteração faz com que o código se repita.
 
-Existem alguns jeitos de pedir dados aos usuários em C. O primeiro método que veremos é usando a função `#!c scanf`, declarada no *header* `#!c <stdio.h>`. Quando essa função é executada, o programa para até que o usuário digite a tecla ++enter++, antes disso o usuário deve digitar o que está sendo pedido. Veja o programa a seguir, que pede para o usuário digitar um número inteiro e mostra esse número mais dois:
+## `while`
 
-```c
-#include <stdio.h>
+Vamos começar com o seguinte problema: uma pessoa quer saber em **quantos meses** sua poupança **duplica de valor**. Essa poupança funciona no regime de **Juros Compostos**.
 
-int main(void)
-{
-    int entrada = 0;
+??? pergunta "Esqueceu como calcular Juros Compostos? Aqui está uma revisão!"
 
-    printf("Digite um número inteiro: ");
-    int sucesso = scanf("%d", &entrada);
+    Nesse tipo de aplicação você coloca um valor inicial, representado pela letra $C$, e ele vai rendendo há uma taxa (letra $i$) pelo tempo (letra $t$); no final temos o valor arrecadado (letra $M$). A sua fórmula é a seguinte:
 
-    printf("[%d entradas lidas com sucesso]\n", sucesso);
+    $$
+    M = C(1 + i)^t
+    $$
 
-    printf("A entrada mais dois vale: %d\n", entrada + 2);
+    A parte $(1 + i)^t$ é o diferencial dessa aplicação: ela faz com que o **"juros varie sobre o juros"**. Vamos pensar em uma aplicação de valor inicial R\$ 100, taxa de 50% por mês e o tempo total seja três meses. O número embaixo do $M$ indica o valor arrecadado **até aquele mês**:
 
-    return 0;
-}
-```
+    $$
+    \begin{aligned}
+    M_0 &= 100(1 + 0,5)^0 = \textbf{100} \\
+    M_1 &= 100(1 + 0,5)^1 = \textbf{150} \\
+    M_2 &= 100(1 + 0,5)^2 = \textbf{225} \\
+    M_3 &= 100(1 + 0,5)^3 = \textbf{337,5} \\
+    \end{aligned}
+    $$
 
-???+ pergunta "Vídeo de Exemplo"
-    <video class="so-claro" autoplay loop muted playsinline>
-      <source src="../../assets/videos/repeticao/scanf-basico-claro.webm" type="video/webm">
-    </video>
-    <video class="so-escuro" autoplay loop muted playsinline>
-      <source src="../../assets/videos/repeticao/scanf-basico-escuro.webm" type="video/webm">
-    </video>
+    Note que podemos analisar o crescimento em relação ao valor arrecadado do **mês passado**:
 
-Primeiro declaramos a variável `#!c entrada`, que irá guardar a entrada do usuário. Em seguida, mostramos uma mensagem que deixa claro o que o usuário deve digitar. Depois vem a chamada da função `#!c scanf`, que é dividida nessas partes: o formatador `#!c "%d"`, que indica que um valor inteiro será lido; e `#!c &entrada`, que indica que o valor digitado será armazenado na variável `#!c entrada`.
+    $$
+    \begin{aligned}
+    M_0 &= 100 \\
+    M_1 &= M_0(1 + 0,5) = \textbf{150} \\
+    M_2 &= M_1(1 + 0,5) = \textbf{225} \\
+    M_3 &= M_2(1 + 0,5) = \textbf{337,5} \\
+    \end{aligned}
+    $$
 
-!!! nota
-
-    Veremos o que é o `#!c &` em [Memória I](./memoria-1.md), por ora leia `#!c &entrada` como o jeito que o `#!c scanf` usa para armazenar o valor que o usuário digitou na variável `entrada`.
-
-O `#!c scanf` ainda retorna um `#!c int` que indica o **total de valores lidos com sucesso**. Ele é útil para identificar possíveis erros de entrada: ao invés de digitar um número válido, digite um carácter, como o `#!c 'z'`, e veja que `sucesso` vai para `#!c 0`, indicando que a leitura falhou. Note que mesmo em caso de falha, o código não é interrompido; o que o `#!c scanf` faz nesse caso é **não alterar** a variável `entrada`, e por isso seu valor continua sendo `#!c 0`.
-
-!!! atenção
-
-    As funções `printf` e `scanf` possuem muitos formatadores, como o `%d`, em comum, mas existem alguns diferentes. Pesquise qual formatador é necessário antes de usar!
-
-Ainda podemos pedir mais de um valor ao usuário. Nos códigos a seguir é usado um espaço (`#!c ' '`) e "x" (`#!c 'x'`) como separadores, respectivamente:
-
-=== "Separador é um `#!c ' '`"
-
-    ```c
-    #include <stdio.h>
-
-    int main(void)
-    {
-        int a = 0;
-        int b = 0;
-
-        printf("Digite dois números (separados por espaço): ");
-        int sucessos = scanf("%d %d", &a, &b);
-
-        printf("[%d entradas lidas com sucesso]\n", sucessos);
-
-        printf("A soma entre os dois dá: %d\n", a + b);
-
-        return 0;
-    }
-    ```
-
-    ```console title="Simulação"
-    $ gcc -Wall -o main main.c
-    $ ./main
-    Digite dois números (separados por espaço): 3 2
-    [2 entradas lidas com sucesso]
-    A soma entre os dois dá: 5
-
-    $ ./main
-    Digite dois números (separados por espaço): 3 a
-    [1 entradas lidas com sucesso]
-    A soma entre os dois dá: 3
-    ```
-
-=== "Separador é um `#!c 'x'`"
-
-    ```c
-    #include <stdio.h>
-
-    int main(void)
-    {
-        int a = 0;
-        int b = 0;
-
-        printf("Digite dois números (separados por x): ");
-        int sucessos = scanf("%dx%d", &a, &b);
-
-        printf("[%d entradas lidas com sucesso]\n", sucessos);
-
-        printf("A soma entre os dois dá: %d\n", a + b);
-
-        return 0;
-    }
-    ```
-
-    ```console title="Simulação"
-    $ gcc -Wall -o main main.c
-    $ ./main
-    Digite dois números (separados por x): 5x2
-    [2 entradas lidas com sucesso]
-    A soma entre os dois dá: 7
-
-    $ ./main
-    Digite dois números (separados por x): 5 2
-    [1 entradas lidas com sucesso]
-    A soma entre os dois dá: 5
-    ```
-
-Note ainda que não usamos o `#!c '\n'` no `#!c printf` que indica o que o usuário deve digitar, mas sim usamos dois pontos `#!c ':'`. Faça as seguintes alterações e veja como a mensagem sai cada vez mais "esquisita":
-
-1. Retire o dois pontos e espaço no final, e execute o programa.
-2. Depois, coloque um `\n` no final da mensagem.
-3. E por último, remova a mensagem completamente.
-
-## `#!c do while`
-
-Agora vamos pensar no seguinte problema: para um usuário logar no sistema, ele deve digitar uma senha de 4 dígitos; **enquanto** a senha for incorreta, uma nova senha deve ser pedida, *não existe limites de tentativas*.
-
-Com o que sabemos até agora, tente implementar **uma tentativa** para esse sistema: caso o `#!c scanf` não tenha sucesso em ler a tentativa do usuário, a mensagem `#!c "Erro de digitação!"` aparece, e é retornado `#!c 1` da função `#!c main` (terminando o programa); caso o usuário digite a senha errada, a mensagem `#!c "Senha errada!"` é exibida, e é retornado `#!c 2` da função `#!c main`; do contrário a senha está certa, e a mensagem `#!c "Login feito."` é exibida.
-Utilize o código abaixo como base, aqui a variável `#!c senha` é um inteiro:
+O valor inicial é de R$ 1000, armazenado na variável `arrecadado`, e ele varia a uma taxa de 10% ao mês (variável `taxa`). O dobro do valor inicial está em `meta` e os meses fica em `meses`:
 
 ```c
 #include <stdio.h>
 
 int main(void)
 {
-    const int senha = 1234; // Senha do sistema
+    double taxa = 0.1;
+
+    double arrecadado = 1000.0;
+    double meta = arrecadado * 2.0;
+
+    int meses = 0;
 
     // ...
 
+    printf("Demorou %d meses para dobrar!\n", meses);
+
     return 0;
 }
 ```
 
-??? resposta
+Mas e agora, como calculamos a quantidade de meses? Uma possível saída é usar da estrutura de repetição `#!c while`; ela nos possibilita executar um bloco de código **enquanto** uma **condição for verdadeira**, portanto, o bloco de código é executado **até** a condição ser falsa - neste caso o `#!c while` é terminado e o programa continua. No problema, como queremos fazer o valor `arrecadado` dobrar, temos que atualizá-lo com base na `taxa` **enquanto** seu valor for **menor que** a `meta`. O código, **sem a atualização**, fica assim:
 
-    ```c
-    #include <stdio.h>
-
-    int main(void)
-    {
-        const int senha = 1234;  // Senha do sistema
-
-        int tentativa = 0000;  // Tentativa do usuário
-
-        printf("Digite a senha: ");
-        int sucesso = scanf("%d", &tentativa);
-
-        if (sucesso != 1)
-        {
-            printf("Erro de digitação!\n");
-            return 1;
-        }
-
-        if (tentativa != senha)
-        {
-            printf("Senha errada!\n");
-            return 2;
-        }
-
-        printf("Login feito.\n");
-
-        return 0;
-    }
-    ```
-
-    Você pode ter estranhado a ausência de um `#!c if else`, mas o motivo é simples: como estamos usando um `#!c return`, o programa **acaba** em caso erro.
-
-Mas com o que sabemos até agora, não conseguimos implementar a lógica do "**enquanto**" que o problema está pedindo. Para isso, vamos aprender a estrutura de repetição `#!c do while`.
-
----
-
-No código a seguir, é utilizada estrutura de repetição `#!c do while` para **calcular o número de dígitos** de um número. Essa estrutura **executa um código de bloco** até que **alguma condição seja atingida** - essa condição pode ser aquelas [Relacionais](./condicionais.md#operacoes-relacionais) e [Booleanas](./condicionais.md#operacoes-booleanas) que já vimos. No código abaixo, copiamos a variável `#!c numero` para outra, chamada de `temporario` - afim de não interferir no valor original - e fazemos o seguinte: dividimos `#!c temporario` por `#!c 10` **até que** `#!c temporario` se iguale a `#!c 0`; seguido de cada divisão, incrementamos a variável `#!c digitos` por `#!c 1`. Ao final, exibimos o resultado:
-
-```c hl_lines="11-15"
+```c hl_lines="12-17"
 #include <stdio.h>
 
 int main(void)
 {
-    int numero = 4568; // Teste com: 0, 5, 23, 800 e 4568
+    double taxa = 0.1;
 
-    int digitos = 0;
+    double arrecadado = 1000.0;
+    double meta = arrecadado * 2.0;
 
-    int temporario = numero;
+    int meses = 0;
 
-    do
+    while (arrecadado < meta)
     {
-        temporario = temporario / 10;
-        digitos = digitos + 1;
-    } while (temporario != 0);
+        // ...
 
-    printf("Número: %d\n", numero);
-    printf("Quantidade de dígitos: %d\n", digitos);
+        printf("Mês %d: R$ %.2f\n", meses, arrecadado);
+    }
+
+    printf("Demorou %d meses para dobrar!\n", meses);
 
     return 0;
 }
 ```
 
-=== "Para `#!c 0`"
+Para atualizar o valor arrecadado, fazemos a seguinte operação: `#!c arrecadado = arrecadado * (1.0 + taxa)`, ou seja, o valor arrecadado **antigo** é multiplicado pelo fator de aumento (`#!c (1.0 + taxa)`) e armazenado na mesma variável (em `arrecadado`). Como essa atualização ocorre **por mês**, podemos **incrementar** a variável `meses` da seguinte forma: `#!c meses = meses + 1`. No código final fica assim:
 
-| Iteração | m
+```c
+#include <stdio.h>
 
-=== "Para `#!c 5`"
+int main(void)
+{
+    double taxa = 0.1;
 
-    a
+    double arrecadado = 1000.0;
+    double meta = arrecadado * 2.0;
 
-=== "Para `#!c 23`"
+    int meses = 0;
 
-    a
+    while (arrecadado < meta)
+    {
+        arrecadado = arrecadado * (1.0 + taxa);
+        meses = meses + 1;
 
-=== "Para `#!c 800`"
+        printf("Mês %d: R$ %.2f\n", meses, arrecadado);
+    }
 
-    a
+    printf("Demorou %d meses para dobrar!\n", meses);
 
-=== "Para `#!c 4568`"
+    return 0;
+}
+```
 
-    a
+Essa é a saída do programa:
+
+```console hl_lines="10"
+$ ./main
+Mês 1: R$ 1100.00
+Mês 2: R$ 1210.00
+Mês 3: R$ 1331.00
+Mês 4: R$ 1464.10
+Mês 5: R$ 1610.51
+Mês 6: R$ 1771.56
+Mês 7: R$ 1948.72
+Mês 8: R$ 2143.59
+Demorou 8 meses para dobrar!
+```
 
 
-## while
 
 Agora, vamos criar um programa que pergunte por uma senha ao usuário. **Enquanto** a senha que o usuário digitar for diferente da senha correta, o programa vai continuar perguntando por uma nova senha. No entanto, no momento em que as senhas forem iguais, o programa irá sair do _loop_, do inglês "repetição", e continuar.
 

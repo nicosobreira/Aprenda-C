@@ -1,6 +1,6 @@
 [project]
 site_name = "Aprenda C"
-site_description = "Um guia de programação em C que não esconde o que acontece por debaixo dos panos."
+site_description = "Um curso de programação em C que não esconde o que acontece por debaixo dos panos."
 site_author = "Nícolas Sobreira Perez"
 site_url = "https://nicosobreira.github.io/Aprenda-C/"
 repo_url = "https://github.com/nicosobreira/Aprenda-C"
