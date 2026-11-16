@@ -517,7 +517,9 @@ Começando em 27, chegou em 1 após 111 passos.
     }
     ```
 
-    Nesse problema **não há como saber** quantas iterações teremos sem executar o programa. A sequência de `#!c 27`, por exemplo, sobe até `#!c 9232` antes de descer. Ainda mais curioso: ninguém conseguiu provar que **todo** número positivo chega em `#!c 1`. Essa é a famosa *Conjectura de Collatz*, um problema em aberto da matemática. Para quem quiser um desafio extra: modifique o programa para também mostrar o **maior valor** atingido na sequência (para `#!c 27`, são `#!c 9232`).
+    Nesse problema **não há como saber** quantas iterações teremos sem executar o programa. A sequência de `#!c 27`, por exemplo, sobe até `#!c 9232` antes de descer. Ainda mais curioso: ninguém conseguiu provar que **todo** número positivo chega em `#!c 1`. Essa é a famosa *Conjectura de Collatz*, um problema em aberto da matemática.
+
+    Para quem quiser um desafio extra, modifique o programa para também mostrar o **maior valor** atingido na sequência (para `#!c 27`, são `#!c 9232`).
 
 ---
 
@@ -525,6 +527,7 @@ Repare que, na soma de 1 a 100, os três elementos de uma repetição por contag
 
 ## for
 
+<!-- Usar o exercício da soma como motivador para o `for` loop. -->
 Para entendermos o porquê da estrutura de repetição `for` existir, vamos criar um contador de 1 até 10 usando o `while`.
 
 ```c

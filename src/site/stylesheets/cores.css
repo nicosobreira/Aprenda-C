@@ -1,18 +1,19 @@
 /* Paleta "GCC Warning": tons neutros + laranja como único acento. */
 
-/* --- As únicas 8 cores "cruas" do arquivo inteiro --- */
-/* :root { */
-/*   --cor-fundo: #fafaf9; */
-/*   --cor-texto: #1c1917; */
-/*   --cor-neutra: #404040; */
-/*   --cor-acento: #ea580c; */
-/* } */
-
+/* --- Cores "cruas" --- */
 :root {
   --cor-fundo: #fafaf9;
   --cor-texto: #1c1917;
   --cor-neutra: #404040;
   --cor-acento: #ea580c;
+
+  /* Texto que fica SOBRE o acento / SOBRE a neutra (precisa contrastar) */
+  --cor-sobre-acento: var(--cor-texto);
+  --cor-sobre-neutra: var(--cor-fundo);
+
+  /* Quanto da neutra entra em bordas e superfícies */
+  --mix-borda: 20%;
+  --mix-superficie: 12%;
 }
 
 [data-md-color-scheme="slate"] {
@@ -20,43 +21,103 @@
   --cor-texto: #f4f8f1;
   --cor-neutra: #434552;
   --cor-acento: #f54514;
+
+  --cor-sobre-acento: var(--cor-fundo);
+  --cor-sobre-neutra: var(--cor-texto);
+
+  --mix-borda: 60%;
+  --mix-superficie: 25%;
 }
 
-/* --- Tudo abaixo só referencia as variáveis acima --- */
-:root,
+/* --- Mapeamento para as variáveis do tema --- */
+[data-md-color-scheme="default"],
 [data-md-color-scheme="slate"] {
-  /* Fundo e texto padrão */
+  /* Fundo e texto */
   --md-default-bg-color: var(--cor-fundo);
   --md-default-fg-color: var(--cor-texto);
-  --md-default-fg-color--light: var(--cor-texto);
-  --md-default-fg-color--lighter: var(--cor-neutra);
-
-  /* Cabeçalho, rodapé e navegação */
-  --md-primary-fg-color: var(--cor-neutra);
-  --md-primary-bg-color: var(--cor-fundo);
-
-  /* O acento: links, botões, busca */
-  --md-accent-fg-color: var(--cor-acento);
-  --md-accent-bg-color: var(--cor-acento);
-  --md-typeset-a-color: var(--cor-acento);
-
-  /* Blocos de código */
-  --md-code-fg-color: var(--cor-texto);
-  --md-code-bg-color: color-mix(
+  --md-default-fg-color--light: color-mix(
     in srgb,
-    var(--cor-neutra) 12%,
+    var(--cor-texto) 75%,
+    var(--cor-fundo)
+  );
+  --md-default-fg-color--lighter: color-mix(
+    in srgb,
+    var(--cor-texto) 55%,
+    var(--cor-fundo)
+  );
+  --md-default-fg-color--lightest: color-mix(
+    in srgb,
+    var(--cor-neutra) var(--mix-borda),
     var(--cor-fundo)
   );
 
-  /* Texto marcado (==destaque==) usa o acento com transparência */
+  /* Cabeçalho, rodapé e navegação */
+  --md-primary-fg-color: var(--cor-neutra);
+  --md-primary-bg-color: var(--cor-sobre-neutra);
+  --md-primary-bg-color--light: color-mix(
+    in srgb,
+    var(--cor-sobre-neutra) 70%,
+    transparent
+  );
+
+  /* O acento: links, botões, busca */
+  --md-accent-fg-color: var(--cor-acento);
+  --md-accent-fg-color--transparent: color-mix(
+    in srgb,
+    var(--cor-acento) 10%,
+    transparent
+  );
+  --md-accent-bg-color: var(--cor-sobre-acento);
+  --md-accent-bg-color--light: color-mix(
+    in srgb,
+    var(--cor-sobre-acento) 70%,
+    transparent
+  );
+  --md-typeset-a-color: var(--cor-acento);
+
+  /* Texto marcado (==destaque==) */
   --md-typeset-mark-color: color-mix(
     in srgb,
     var(--cor-acento) 10%,
     transparent
   );
+
+  /* Admonitions (só o geral; as cores por tipo estão mais abaixo) */
+  --md-admonition-fg-color: var(--cor-texto);
+  --md-admonition-bg-color: var(--cor-fundo);
+
+  /* Blocos de código */
+  --md-code-fg-color: var(--cor-texto);
+  --md-code-bg-color: color-mix(
+    in srgb,
+    var(--cor-neutra) var(--mix-superficie),
+    var(--cor-fundo)
+  );
+
+  /* Realce de sintaxe: ajuste ao gosto */
+  /* --md-code-hl-keyword-color: var(--cor-acento); */
+  /* --md-code-hl-function-color: var(--cor-texto); */
+  /* --md-code-hl-number-color: color-mix( */
+  /*   in srgb, */
+  /*   var(--cor-acento) 70%, */
+  /*   var(--cor-texto) */
+  /* ); */
+  /* --md-code-hl-constant-color: color-mix( */
+  /*   in srgb, */
+  /*   var(--cor-acento) 70%, */
+  /*   var(--cor-texto) */
+  /* ); */
+  /* --md-code-hl-string-color: color-mix( */
+  /*   in srgb, */
+  /*   var(--cor-acento) 45%, */
+  /*   var(--cor-texto) */
+  /* ); */
+  --md-code-hl-comment-color: var(--md-default-fg-color--lighter);
+  --md-code-hl-operator-color: var(--md-default-fg-color--light);
+  --md-code-hl-punctuation-color: var(--md-default-fg-color--light);
 }
 
-/* Linhas destacadas em blocos de código (hl_lines) — também no acento */
+/* Linhas destacadas em blocos de código (hl_lines) */
 .highlight .hll {
   background-color: color-mix(in srgb, var(--cor-acento) 10%, transparent);
 }
