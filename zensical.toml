@@ -46,11 +46,14 @@ extra_javascript = [
 ]
 extra_css = [
   "https://unpkg.com/katex@0/dist/katex.min.css",
-  "stylesheets/gifs.css"
+  "stylesheets/gifs.css",
+  "stylesheets/cores.css",
 ]
 
 [project.theme]
 language = "pt-BR"
+font.text = "Inter"
+font.code = "JetBrains Mono"
 features = [
   "navigation.instant",
   "navigation.instant.prefetch",
@@ -64,6 +67,9 @@ features = [
   "content.code.annotate",
   # "content.code.copy",  # botão de copiar, desligado por causa da regra "digite cada código"
 ]
+
+[project.theme.icon]
+logo = "lucide/braces"
 
 # Modo automático / claro / escuro
 [[project.theme.palette]]

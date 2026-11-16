@@ -2,9 +2,22 @@
 
 int main(void)
 {
-    int idade = 18;
+    double taxa = 0.1;
 
-    printf("Endereço de idade: %p\n", &idade);
+    double arrecadado = 1000.0;
+    double meta = arrecadado * 2.0;
+
+    int meses = 0;
+
+    while (arrecadado < meta)
+    {
+        arrecadado = arrecadado * (1.0 + taxa);
+        meses = meses + 1;
+
+        printf("Mês %d: R$ %.2f\n", meses, arrecadado);
+    }
+
+    printf("Demorou %d meses para dobrar!\n", meses);
 
     return 0;
 }

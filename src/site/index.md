@@ -1,45 +1,80 @@
 ---
 title: Início
+hide:
+  - toc
 ---
 
 # Aprenda C
 
-Bem-vindo a um guia de programação em C. Este guia busca te **ensinar a linguagem C sem esconder o que acontece debaixo dos panos.**
+!!! warning ""
 
-A maioria dos materiais modernos **simplificam demais** os comportamentos da linguagem, e consequentemente, de como um computador funciona. Já os materiais antigos **complicam o que é simples** e trazem um rigor que afasta os iniciantes. Isso faz com que o estudante decore muita coisa, mas sem responder essas duas perguntas: **por que** as coisas são assim? E **como** elas funcionam?
+    **A linguagem C sem esconder o que acontece debaixo dos panos.**
 
-Além disso, os módulos introduzem conceitos de **Arquitetura de Software** e **boas práticas**, que te guiarão a escrever melhores códigos.
+A maioria dos materiais modernos **simplifica demais** os comportamentos da linguagem e, por consequência, de como um computador funciona. Os materiais antigos fazem o oposto: **complicam o que é simples** e trazem um rigor que afasta quem está começando. Os dois caminhos levam ao mesmo lugar: você decora regras, mas nunca entende **por quê** elas existem nem **como** a máquina funciona por trás delas.
 
-## Uso de AI na produção do guia
+Este guia tenta um terceiro caminho, conectando cada conceito à memória, ao compilador e ao binário, além de introduzir noções de **Arquitetura de Software** e **boas práticas** ao longo do caminho.
 
-Eu me limitei a usar AI para:
+[Começar agora](modulos/instalacao.md){ .md-button .md-button--primary }
+[Ver no GitHub](https://github.com/nicosobreira/Aprenda-C){ .md-button }
+
+## Por onde seguir
+
+<div class="grid cards" markdown>
+
+- :lucide-rocket: __Primeiros Passos__
+
+    ---
+
+    Instale o compilador, escreva o seu "Olá, Mundo!" e entenda o que é, de fato, a linguagem C.
+
+    [Começar →](modulos/instalacao.md)
+
+- :lucide-layers: __Fundamentos__
+
+    ---
+
+    Variáveis, condicionais, repetição, funções e listas: a base que sustenta qualquer programa em C.
+
+    [Ver módulos →](modulos/variaveis.md)
+
+- :lucide-cpu: __Avançado__
+
+    ---
+
+    Memória, ponteiros, strings e structs: o que realmente acontece por debaixo dos panos.
+
+    [Ver módulos →](modulos/memoria-1.md)
+
+</div>
+
+## Como usar este guia
+
+Essas regras existem porque, sem elas, eu não garanto o seu aprendizado:
+
+- **Execute todos os códigos de exemplo.** Pule apenas o que você já sabe de cor.
+- **Copie e cole de forma consciente.** Digitar tem importância, e evita a leitura passiva.
+- **Teste suas próprias ideias.** Mude valores, quebre o código de propósito, e tire dúvidas com a Internet ou com Inteligências Artificiais.
+
+## Uso de IA na produção do guia
+
+Me limitei a usar IA para:
 
 1. Correção ortográfica.
-2. Correção dos códigos de exemplos.
+2. Correção dos códigos de exemplo.
 3. Brainstorm de ideias.
-
-## Regras de uso
-
-Esse é o jeito **correto** de se usar o material. Se você não seguir essas regras, eu não garanto o seu aprendizado:
-
-- Execute **todos os códigos** de exemplo. Pode pular apenas se você **já sabe o conteúdo**.
-- Copie e cole código de forma **consciente**. Saiba que digitar possui importância e evita leitura passiva.
-- Não faça uma leitura passiva, sempre **teste suas ideias** e **tire suas dúvidas** com a Internet ou Inteligências Artificiais.
 
 ## Referências
 
-Alguns sites úteis que vão te ajudar:
-
 - [Geeks for Geeks](https://www.geeksforgeeks.org/) para o funcionamento da linguagem e funções da Biblioteca Padrão.
-- [Stack Overflow](https://stackoverflow.com/questions) para dúvidas mais específicas. Pode digitar a dúvida no google que esse site provavelmente já aparece.
+- [Stack Overflow](https://stackoverflow.com/questions) para dúvidas mais específicas. Pode digitar a dúvida no Google que esse site provavelmente já aparece.
 
 ## Colaboração
 
-Caso encontre um erro em algum módulo ou tenha alguma sugestão, sinta-se livre para abrir um _issue_ no GitHub. Eu não sou um especialista em C, por isso suas contribuições são muito valiosas!
+Caso encontre um erro em algum módulo ou tenha alguma sugestão, sinta-se livre para abrir uma *issue* no [GitHub](https://github.com/nicosobreira/Aprenda-C). Não sou um especialista em C, por isso suas contribuições são muito valiosas!
 
 ## Agradecimentos
 
-Algumas pessoas que ajudarem no desenvolvimento do projeto.
+Algumas pessoas que ajudaram no desenvolvimento do projeto.
 
 ### Testadores
 

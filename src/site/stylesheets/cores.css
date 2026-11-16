@@ -1,0 +1,56 @@
+/* src/site/stylesheets/cores.css */
+/* Paleta "GCC Warning": tons neutros + laranja como único acento. */
+
+/* --- As únicas 8 cores "cruas" do arquivo inteiro --- */
+:root {
+  --cor-fundo: #fafaf9;
+  --cor-texto: #1c1917;
+  --cor-neutra: #404040;
+  --cor-acento: #ea580c;
+}
+
+[data-md-color-scheme="slate"] {
+  --cor-fundo: #161513;
+  --cor-texto: #e7e5e4;
+  --cor-neutra: #d4d4d4;
+  --cor-acento: #f97316;
+}
+
+/* --- Tudo abaixo só referencia as variáveis acima --- */
+:root,
+[data-md-color-scheme="slate"] {
+  /* Fundo e texto padrão */
+  --md-default-bg-color: var(--cor-fundo);
+  --md-default-fg-color: var(--cor-texto);
+  --md-default-fg-color--light: var(--cor-texto);
+  --md-default-fg-color--lighter: var(--cor-neutra);
+
+  /* Cabeçalho, rodapé e navegação */
+  --md-primary-fg-color: var(--cor-neutra);
+  --md-primary-bg-color: var(--cor-fundo);
+
+  /* O acento: links, botões, busca */
+  --md-accent-fg-color: var(--cor-acento);
+  --md-accent-bg-color: var(--cor-acento);
+  --md-typeset-a-color: var(--cor-acento);
+
+  /* Blocos de código */
+  --md-code-fg-color: var(--cor-texto);
+  --md-code-bg-color: color-mix(
+    in srgb,
+    var(--cor-neutra) 12%,
+    var(--cor-fundo)
+  );
+
+  /* Texto marcado (==destaque==) usa o acento com transparência */
+  --md-typeset-mark-color: color-mix(
+    in srgb,
+    var(--cor-acento) 35%,
+    transparent
+  );
+}
+
+/* Linhas destacadas em blocos de código (hl_lines) — também no acento */
+.highlight .hll {
+  background-color: color-mix(in srgb, var(--cor-acento) 18%, transparent);
+}
