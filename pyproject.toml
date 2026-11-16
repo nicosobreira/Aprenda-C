@@ -8,5 +8,6 @@ dependencies = []
 
 [dependency-groups]
 dev = [
+    "pygments-ansi-color>=0.3.0",
     "zensical>=0.0.74",
 ]

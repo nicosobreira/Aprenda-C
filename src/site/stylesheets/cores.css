@@ -2,6 +2,13 @@
 /* Paleta "GCC Warning": tons neutros + laranja como único acento. */
 
 /* --- As únicas 8 cores "cruas" do arquivo inteiro --- */
+/* :root { */
+/*   --cor-fundo: #fafaf9; */
+/*   --cor-texto: #1c1917; */
+/*   --cor-neutra: #404040; */
+/*   --cor-acento: #ea580c; */
+/* } */
+
 :root {
   --cor-fundo: #fafaf9;
   --cor-texto: #1c1917;
@@ -10,10 +17,10 @@
 }
 
 [data-md-color-scheme="slate"] {
-  --cor-fundo: #161513;
+  --cor-fundo: #0c0f0f;
   --cor-texto: #e7e5e4;
-  --cor-neutra: #d4d4d4;
-  --cor-acento: #f97316;
+  --cor-neutra: #434552;
+  --cor-acento: #ff6600;
 }
 
 /* --- Tudo abaixo só referencia as variáveis acima --- */
@@ -45,12 +52,12 @@
   /* Texto marcado (==destaque==) usa o acento com transparência */
   --md-typeset-mark-color: color-mix(
     in srgb,
-    var(--cor-acento) 35%,
+    var(--cor-acento) 10%,
     transparent
   );
 }
 
 /* Linhas destacadas em blocos de código (hl_lines) — também no acento */
 .highlight .hll {
-  background-color: color-mix(in srgb, var(--cor-acento) 18%, transparent);
+  background-color: color-mix(in srgb, var(--cor-acento) 10%, transparent);
 }

@@ -10,7 +10,7 @@ hide:
 
     **A linguagem C sem esconder o que acontece debaixo dos panos.**
 
-A maioria dos materiais modernos **simplifica demais** os comportamentos da linguagem e, por consequência, de como um computador funciona. Os materiais antigos fazem o oposto: **complicam o que é simples** e trazem um rigor que afasta quem está começando. Os dois caminhos levam ao mesmo lugar: você decora regras, mas nunca entende **por quê** elas existem nem **como** a máquina funciona por trás delas.
+A ==maioria dos materiais modernos== **simplifica demais** os comportamentos da linguagem e, por consequência, de como um computador funciona. Os materiais antigos fazem o oposto: **complicam o que é simples** e trazem um rigor que afasta quem está começando. Os dois caminhos levam ao mesmo lugar: você decora regras, mas nunca entende **por quê** elas existem nem **como** a máquina funciona por trás delas.
 
 Este guia tenta um terceiro caminho, conectando cada conceito à memória, ao compilador e ao binário, além de introduzir noções de **Arquitetura de Software** e **boas práticas** ao longo do caminho.
 

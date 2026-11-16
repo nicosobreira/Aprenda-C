@@ -22,8 +22,8 @@ set -euo pipefail
 
 # --- Configuração (sobrescreva com variáveis de ambiente) -------------------
 
-DIR_ENTRADA="${DIR_ENTRADA:-gravacoes}"        # onde ficam os .tape
-DIR_SAIDA="${DIR_SAIDA:-docs/assets/videos}"   # onde as gravações são salvas
+DIR_ENTRADA="${DIR_ENTRADA:-src/gravacoes}"        # onde ficam os .tape
+DIR_SAIDA="${DIR_SAIDA:-src/site/assets/videos}"   # onde as gravações são salvas
 
 FORMATOS="${FORMATOS:-webm}"                   # separados por espaço: "webm mp4 gif"
 SUFIXO_CLARO="${SUFIXO_CLARO:--claro}"

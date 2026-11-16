@@ -1,4 +1,4 @@
-# Olá, Mundo!
+# Olá, Mundo
 
 O programa "Olá, Mundo!" é a iniciação de todo programador. Ele vai nos mostrar algumas regras básicas da linguagem C.
 
@@ -21,7 +21,7 @@ mkdir intro
 cd intro
 ```
 
-O comando `mkdir` (de _make directory_) cria uma pasta nova, e o `cd` (de _change directory_) entra dentro dela. A partir de agora, todo comando que rodarmos no terminal vai valer **dentro** dessa pasta `intro`. Esse mesmo padrão se repete nos próximos módulos: ao chegar em Variáveis, por exemplo, você criaria uma pasta `variaveis`, e assim por diante.
+O comando `mkdir` (de *make directory*) cria uma pasta nova, e o `cd` (de *change directory*) entra dentro dela. A partir de agora, todo comando que rodarmos no terminal vai valer **dentro** dessa pasta `intro`. Esse mesmo padrão se repete nos próximos módulos: ao chegar em Variáveis, por exemplo, você criaria uma pasta `variaveis`, e assim por diante.
 
 ## Criando e Editando Arquivos
 
@@ -118,7 +118,7 @@ Vamos entender esse código começando pela função `main` — o coração de t
 
 As funções em C são semelhantes às da matemática. Dentro dos parênteses são colocados os parâmetros da função: quando escrevemos `f(x)`, dizemos que `x` é um parâmetro da função `f`. Nesse caso, os parênteses contêm a palavra `#!c void`, indicando que essa função não recebe nenhum argumento. É importante salientar que nem sempre esse é o caso; a função `main` pode sim receber parâmetros, mas veremos isso mais para frente.
 
-O `#!c int` é usado para indicar que essa função **retornará** um valor do tipo _inteiro_ em algum momento da execução da função `main`. Esse valor é retornado com o `#!c return`; ele vai para o **sistema operacional** e mostra se o programa executou corretamente, retornando `#!c 0`, ou falhou em algum momento, retornando um valor diferente de `#!c 0`, como `#!c 1` ou `#!c 128`. Diferentes números indicam diferentes erros.
+O `#!c int` é usado para indicar que essa função **retornará** um valor do tipo *inteiro* em algum momento da execução da função `main`. Esse valor é retornado com o `#!c return`; ele vai para o **sistema operacional** e mostra se o programa executou corretamente, retornando `#!c 0`, ou falhou em algum momento, retornando um valor diferente de `#!c 0`, como `#!c 1` ou `#!c 128`. Diferentes números indicam diferentes erros.
 
 O comando `#!c return` encerra a função na mesma hora. Se você colocar o `#!c return 0;` antes do `#!c printf`, como no código a seguir, o programa fechará imediatamente e o texto nunca será exibido. Faça esse teste antes de continuar.
 
@@ -153,7 +153,7 @@ Você deve estar se perguntando: de onde vem a função `#!c printf`? Nós não 
 
 A resposta é a **Biblioteca Padrão do C**: um conjunto de funções prontas que já vêm junto com a linguagem, para tarefas comuns, como exibir texto na tela ou ler dados do usuário. Pense nela como uma caixa de ferramentas: em vez de cada programador precisar inventar sua própria forma de escrever no terminal, a Biblioteca Padrão já oferece essa ferramenta pronta, chamada `#!c printf`, para todo mundo usar.
 
-Essas ferramentas ficam organizadas em arquivos chamados de **_headers_** (do inglês, "cabeçalhos"), reconhecidos pela extensão `.h`. Cada header guarda um grupo de funções parecidas entre si. O header `#!c stdio.h`, por exemplo, guarda as funções de entrada e saída (**i**nput/**o**utput), como o `#!c printf` e o `#!c scanf`.
+Essas ferramentas ficam organizadas em arquivos chamados de ***headers*** (do inglês, "cabeçalhos"), reconhecidos pela extensão `.h`. Cada header guarda um grupo de funções parecidas entre si. O header `#!c stdio.h`, por exemplo, guarda as funções de entrada e saída (**i**nput/**o**utput), como o `#!c printf` e o `#!c scanf`.
 
 O `#!c #include <stdio.h>` é o que **libera o uso** dessas funções no nosso código. Sem essa linha, o compilador não saberia o que é `#!c printf`, e o programa não compilaria.
 
@@ -163,7 +163,7 @@ O `#!c #include <stdio.h>` é o que **libera o uso** dessas funções no nosso c
 
 ## printf
 
-A função `#!c printf` **imprime** (_print_) textos **formatados** (_f_) no terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](./variaveis.md), mas o que você precisa saber agora é que o `#!c printf` escreve o texto "Olá, Mundo!" no terminal.
+A função `#!c printf` **imprime** (*print*) textos **formatados** (*f*) no terminal. Nós veremos os diferentes tipos de formatação em [Variáveis](./variaveis.md), mas o que você precisa saber agora é que o `#!c printf` escreve o texto "Olá, Mundo!" no terminal.
 
 Nós precisamos colocar esse `#!c \n`, lido como "barra **n**ova linha", no final para quebrar a linha. Tire ele e veja como a saída sai meio grudada.
 
@@ -203,17 +203,16 @@ int main(void)
 
 Ao longo do guia, ao mostrar as saídas de comandos, como o de compilação, usarei o `$` na primeira linha para indicar qual foi o comando executado e abaixo sua saída, como a seguir:
 
-```console title="Saída"
+```ansi-color title="Saída"
 $ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:5:28: error: expected ‘;’ before ‘return’
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:5:28:[m [01;31merror: [mexpected ‘[01m;[m’ before ‘[01mreturn[m’
     5 |     printf("Olá, Mundo!\n")
-      |                            ^
-      |                            ;
-    6 |
-    7 |     return 0;
-      |     ~~~~~~
-
+      |                            [01;31m^[m
+      |                            [32m;[m
+    6 | 
+    7 |         [32mreturn[m 0;
+      |         [32m~~~~~~[m
 ```
 
 Parece muita coisa, mas a saída sempre segue o mesmo padrão. Vamos ler a saída com calma, de cima para baixo.
@@ -240,22 +239,22 @@ Essa é a explicação do erro, uma tradução da mensagem seria: `O ‘;’ é 
 
 #### 5. O trecho do código
 
-```
+```ansi-color
     5 |     printf("Olá, Mundo!\n")
-      |                            ^
-      |                            ;
-    6 |
-    7 |     return 0;
-      |     ~~~~~~
+      |                            [01;31m^[m
+      |                            [32m;[m
+    6 | 
+    7 |         [32mreturn[m 0;
+      |         [32m~~~~~~[m
 ```
 
 Ao final, temos o trecho do código que gerou o erro. Antes do trecho começar, são colocados alguns espaços (nesse caso quatro) para indicar a qual mensagem o erro se refere. As marcações `5 |`, `6 |` e `7 |` indicam **as linhas no código** em que o erro aconteceu, seguido por seus conteúdos.
 
 Já as linhas que possuem apenas `|`, sem numeração, são anotações sobre o erro que o compilador está passando para nós. O compilador "grifou" o `#!c return` com uma sequência de til (`~~~~~~`) e sinalizou que devemos adicionar um ponto e vírgula ao final do `#!c printf` da seguinte maneira:
 
-```
-^
-;
+```ansi-color
+[01;31m^[m
+[32m;[m
 ```
 
 ### Esquecer o `include`
@@ -271,20 +270,19 @@ int main(void)
 }
 ```
 
-```console title="Saída"
+```ansi-color title="Saída"
 $ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:3:5: error: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
-    3 |     printf("Olá, Mundo!\n");
-      |     ^~~~~~
-main.c:1:1: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
-  +++ |+#include <stdio.h>
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:3:5:[m [01;31merror: [mimplicit declaration of function ‘[01mprintf[m’ [[01;31m-Wimplicit-function-declaration[m]
+    3 |     [01;31mprintf[m("Olá, Mundo!\n");
+      |     [01;31m^~~~~~[m
+[01mmain.c:1:1:[m [01;36mnote: [minclude ‘[01m<stdio.h>[m’ or provide a declaration of ‘[01mprintf[m’
+  +++ |+[32m#include <stdio.h>[m
     1 | int main(void)
-main.c:3:5: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
-    3 |     printf("Olá, Mundo!\n");
-      |     ^~~~~~
-main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
-
+[01mmain.c:3:5:[m [01;35mwarning: [mincompatible implicit declaration of built-in function ‘[01mprintf[m’ [[01;35m-Wbuiltin-declaration-mismatch[m]
+    3 |     [01;35mprintf[m("Olá, Mundo!\n");
+      |     [01;35m^~~~~~[m
+[01mmain.c:3:5:[m [01;36mnote: [minclude ‘[01m<stdio.h>[m’ or provide a declaration of ‘[01mprintf[m’
 ```
 
 Em saídas com muitas mensagens, é comum que apenas as **primeiras mensagens** apontem para o **erro principal** e as outras mostrem outros erros **gerados** pelo erro principal. Vamos analisar essa mensagem de cima para baixo e identificar o **erro principal** (ausência do `#!c #include`).
@@ -303,9 +301,9 @@ Seguido do `error:` vem a mensagem `implicit declaration of function ‘printf�
 
 #### 3. Trecho do código
 
-```
-    3 |     printf("Olá, Mundo!\n");
-      |     ^~~~~~
+```ansi-color
+    3 |     [01;31mprintf[m("Olá, Mundo!\n");
+      |     [01;31m^~~~~~[m
 ```
 
 O compilador mostra a linha com problema e usa `^~~~~~` para **apontar exatamente** onde está o erro: a palavra `printf`, que não é conhecida pelo compilador.
@@ -314,8 +312,8 @@ O compilador mostra a linha com problema e usa `^~~~~~` para **apontar exatament
 
 Nessa linha temos duas informações, qual é a solução do problema e onde devemos colocá-la. A solução é incluir o `stdio.h` ou dar uma declaração para a função `printf`. Se nós "declararmos a função `printf`" teremos outro problema, que veremos em [Funções](./funcoes.md), então vamos incluir o `stdio.h`. Logo abaixo temos o seguinte trecho do código:
 
-```
-  +++ |+#include <stdio.h>
+```ansi-color
+  +++ |+[32m#include <stdio.h>[m
     1 | int main(void)
 ```
 
@@ -325,11 +323,11 @@ O compilador utilizou o `+++ |` para indicar exatamente **o que fazer** e **onde
 
 O compilador ainda nos informa mais duas mensagens:
 
-```
-main.c:3:5: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
-    3 |     printf("Olá, Mundo!\n");
-      |     ^~~~~~
-main.c:3:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+```ansi-color
+[01mmain.c:3:5:[m [01;35mwarning: [mincompatible implicit declaration of built-in function ‘[01mprintf[m’ [[01;35m-Wbuiltin-declaration-mismatch[m]
+    3 |     [01;35mprintf[m("Olá, Mundo!\n");
+      |     [01;35m^~~~~~[m
+[01mmain.c:3:5:[m [01;36mnote: [minclude ‘[01m<stdio.h>[m’ or provide a declaration of ‘[01mprintf[m’
 ```
 
 Note que elas apontam para o mesmo lugar do erro principal: linha 3, coluna 5, o `printf`. Isso é um sinal de que ambas são consequências do mesmo problema, a ausência do `#!c #include <stdio.h>`.

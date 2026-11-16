@@ -150,7 +150,111 @@ Damos o nome de **iteração** cada vez que o código dentro do `#!c while` é e
 
 ### Loop infinito
 
-<!-- Explicar o que é um loop infinito. -->
+Vamos voltar nossa atenção para o código **sem atualizar** `arrecadado`:
+
+```c hl_lines="14"
+#include <stdio.h>
+
+int main(void)
+{
+    double taxa = 0.1;
+
+    double arrecadado = 1000.0;
+    double meta = arrecadado * 2.0;
+
+    int meses = 0;
+
+    while (arrecadado < meta)
+    {
+        // Remoção da atualização de arrecadado
+
+        meses = meses + 1;
+
+        printf("Mês %d: R$ %.2f\n", meses, arrecadado);
+    }
+
+    printf("Demorou %d meses para dobrar!\n", meses);
+
+    return 0;
+}
+```
+
+Como as variáveis que fazem parte da condição do `#!c while` **não são** atualizadas, `arrecadado` **sempre** será menor que `meta`. O vídeo a seguir demostra como o programa se comporta:
+
+???+ pergunta "Vídeo de Exemplo"
+
+    <video class="so-claro" autoplay loop muted playsinline>
+      <source src="../../assets/videos/repeticao/loop-infinito-claro.webm" type="video/webm">
+    </video>
+    <video class="so-escuro" autoplay loop muted playsinline>
+      <source src="../../assets/videos/repeticao/loop-infinito-escuro.webm" type="video/webm">
+    </video>
+
+Como a condição é **sempre verdadeira**, o bloco de código não para de ser executado; com isso a variável `meses` é incrementada e a mensagem exibida inúmeras vezes. Damos o nome de **loop infinito** a essa falha, onde *loop* se refere as estruturas de repetição, nesse caso o `#!c while`. Para terminar o programa, apertamos o atalho ++ctrl+c++.
+
+---
+
+Agora resolva o seguinte problema: some os números de 1 a 100 usando o `#!c while`, isso é, fazer $1 + 2 + 3 + \dots + 99 + 100$. Esse problema mostra outra força das estruturas de repetição: repetir um trecho de código **certa quantidade de vezes**. No modelo abaixo, os comentários `#!c /* ... */` mostram o que precisa ser preenchido:
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    int comeco = 1;
+    int fim = 100;
+
+    int soma = /* ... */;
+
+    /* ... */
+
+    while (/* ... */)
+    {
+        /* ... */
+    }
+
+    printf("Soma dos números de %d a %d:\n", comeco, fim);
+    printf("%d\n", soma);
+
+    return 0;
+}
+```
+
+Essa é a saída esperada:
+
+```console
+$ ./main
+Soma dos números de 1 a 100:
+5050
+```
+
+??? resposta
+
+    ```c hl_lines="8 10 12 14-16"
+    #include <stdio.h>
+
+    int main(void)
+    {
+        int comeco = 1;
+        int fim = 100;
+
+        int soma = 0;
+
+        int contador = comeco;
+
+        while (contador <= fim)
+        {
+            soma = soma + contador;
+
+            contador = contador + 1;
+        }
+
+        printf("Soma dos números de %d a %d:\n", comeco, fim);
+        printf("%d\n", soma);
+
+        return 0;
+    }
+    ```
 
 ## for
 
@@ -160,15 +264,15 @@ Para entendermos o porquê da estrutura de repetição `for` existir, vamos cria
 int indice = 1;
 while (indice != 10)
 {
- printf("Índice atual: %d\n", indice);
+    printf("Índice atual: %d\n", indice);
 
- indice++;
+    indice++;
 }
 ```
 
 Antes de corrigirmos um erro lógico em nosso contador, vamos ver do que ele é feito:
 
-1. **Inicialização** antes do `while` _loop_. É a declaração da variável `indice` com o **valor inicial** de `1`.
+1. **Inicialização** antes do `while` *loop*. É a declaração da variável `indice` com o **valor inicial** de `1`.
 2. **Condição** dentro do `while`. É quando comparamos o valor atual da variável `indice` com `10`.
 3. **Atualização** ao final do `while`. Usamos da sintaxe `indice++` para indicar que estamos incrementando a variável `indice` em um. Essa parte é essencial para impedir um **loop infinito**. Note que poderíamos ter usado `indice += 1` também.
 
@@ -192,9 +296,9 @@ Para consertar esse erro, vamos usar da desigualdade **menor ou igual**, escrita
 int indice = 1;
 while (indice <= 10)
 {
- printf("Índice atual: %d\n", indice);
+    printf("Índice atual: %d\n", indice);
 
- indice++;
+    indice++;
 }
 
 return 0;
@@ -202,13 +306,13 @@ return 0;
 
 Lemos o `while` da seguinte maneira: enquanto o `indice` for **menor ou igual** a 10 imprima o índice atual e incremente a variável `indice` em 1.
 
-Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um `for` _loop_. Essa estrutura de repetição junta a **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros, como esquecer de incrementar o índice ao final do _loop_.
+Agora, vamos ver um jeito mais simples de escrever essa mesma lógica, usando um `for` *loop*. Essa estrutura de repetição junta a **inicialização**, a **condição** e o **incremento** em uma única linha, facilitando a leitura e eliminando erros, como esquecer de incrementar o índice ao final do *loop*.
 O mesmo programa acima pode ser escrito nesse novo formato:
 
 ```c
 for (int indice = 1; indice <= 10; indice++)
 {
- printf("Índice atual: %d\n", indice);
+    printf("Índice atual: %d\n", indice);
 }
 ```
 
@@ -230,13 +334,12 @@ printf("Digite um número para saber sua tabuada: ");
 scanf("%d", &numero);
 ```
 
-E agora, vamos criar o _loop_ que vai exibir a tabuada.
+E agora, vamos criar o *loop* que vai exibir a tabuada.
 
 ```c
 for (int indice = 1; indice <= total; indice++)
 {
- int resultado = numero * indice;
- printf("%d x %d = %d\n", numero, indice, resultado);
+    int resultado = numero * indice;
+    printf("%d x %d = %d\n", numero, indice, resultado);
 }
 ```
-
