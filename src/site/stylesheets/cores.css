@@ -1,4 +1,3 @@
-/* src/site/stylesheets/cores.css */
 /* Paleta "GCC Warning": tons neutros + laranja como único acento. */
 
 /* --- As únicas 8 cores "cruas" do arquivo inteiro --- */
@@ -18,9 +17,9 @@
 
 [data-md-color-scheme="slate"] {
   --cor-fundo: #0c0f0f;
-  --cor-texto: #e7e5e4;
+  --cor-texto: #f4f8f1;
   --cor-neutra: #434552;
-  --cor-acento: #ff6600;
+  --cor-acento: #f54514;
 }
 
 /* --- Tudo abaixo só referencia as variáveis acima --- */
