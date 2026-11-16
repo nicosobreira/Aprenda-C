@@ -93,25 +93,16 @@
     var(--cor-neutra) var(--mix-superficie),
     var(--cor-fundo)
   );
-
+  --md-code-hl-color: var(--cor-acento);
   /* Realce de sintaxe: ajuste ao gosto */
   /* --md-code-hl-keyword-color: var(--cor-acento); */
   /* --md-code-hl-function-color: var(--cor-texto); */
-  /* --md-code-hl-number-color: color-mix( */
-  /*   in srgb, */
-  /*   var(--cor-acento) 70%, */
-  /*   var(--cor-texto) */
-  /* ); */
-  /* --md-code-hl-constant-color: color-mix( */
-  /*   in srgb, */
-  /*   var(--cor-acento) 70%, */
-  /*   var(--cor-texto) */
-  /* ); */
-  /* --md-code-hl-string-color: color-mix( */
-  /*   in srgb, */
-  /*   var(--cor-acento) 45%, */
-  /*   var(--cor-texto) */
-  /* ); */
+  /* --md-code-hl-number-color: color-mix( */ /*   in srgb, */
+  /*   var(--cor-acento) 70%, */ /*   var(--cor-texto) */ /* ); */
+  /* --md-code-hl-constant-color: color-mix( */ /*   in srgb, */
+  /*   var(--cor-acento) 70%, */ /*   var(--cor-texto) */ /* ); */
+  /* --md-code-hl-string-color: color-mix( */ /*   in srgb, */
+  /*   var(--cor-acento) 45%, */ /*   var(--cor-texto) */ /* ); */
   --md-code-hl-comment-color: var(--md-default-fg-color--lighter);
   --md-code-hl-operator-color: var(--md-default-fg-color--light);
   --md-code-hl-punctuation-color: var(--md-default-fg-color--light);
