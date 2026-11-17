@@ -29,14 +29,17 @@ FORMATOS="${FORMATOS:-webm}"                   # separados por espaço: "webm mp
 SUFIXO_CLARO="${SUFIXO_CLARO:--claro}"
 SUFIXO_ESCURO="${SUFIXO_ESCURO:--escuro}"
 
-TEMA_CLARO="${TEMA_CLARO:-Catppuccin Latte}"
-TEMA_ESCURO="${TEMA_ESCURO:-Catppuccin Mocha}"
+# TEMA_CLARO="${TEMA_CLARO:-Catppuccin Latte}"
+# TEMA_ESCURO="${TEMA_ESCURO:-Catppuccin Mocha}"
+
+TEMA_CLARO='{ "name": "Aprenda C Claro", "black": "#404040", "red": "#a63249", "green": "#52925a", "yellow": "#a67e3d", "blue": "#4f6ba6", "magenta": "#ea580c", "cyan": "#38898f", "white": "#1c1917", "brightBlack": "#707070", "brightRed": "#bc5b6d", "brightGreen": "#78ab7e", "brightYellow": "#bc9867", "brightBlue": "#788fbc", "brightCyan": "#62a1a6", "brightMagenta": "#ef8249", "brightWhite": "#3c3835", "background": "#fafaf9", "foreground": "#1c1917", "selection": "#e0e0df", "cursor": "#ea580c" }'
+TEMA_ESCURO='{ "name": "Aprenda C Escuro", "black": "#404040", "red": "#ff4d6d", "green": "#7ee08a", "yellow": "#ffc15e", "blue": "#7aa2ff", "magenta": "#ea580c", "cyan": "#56d4dd", "white": "#f4f8f1", "brightBlack": "#707070", "brightRed": "#ff7a92", "brightGreen": "#9ee8a7", "brightYellow": "#ffd186", "brightBlue": "#9bb9ff", "brightMagenta": "#ef8249", "brightCyan": "#80dfe6", "brightWhite": "#ffffff", "background": "#0c0f0f", "foreground": "#f4f8f1", "selection": "#434552", "cursor": "#f54514" }'
 
 SHELL_GRAVACAO="${SHELL_GRAVACAO:-bash}"
 PROMPT="${PROMPT:-\$ }"
-TAMANHO_FONTE="${TAMANHO_FONTE:-18}"
-LARGURA="${LARGURA:-900}"
-ALTURA="${ALTURA:-400}"
+TAMANHO_FONTE="${TAMANHO_FONTE:-32}"
+LARGURA="${LARGURA:-1800}"
+ALTURA="${ALTURA:-800}"
 
 # Linhas extras do VHS, uma por linha. Ex.: $'Set Framerate 24\nSet Padding 20'
 OPCOES_EXTRAS="${OPCOES_EXTRAS:-}"
@@ -95,7 +98,7 @@ gerar_variante()
         echo "Set FontSize $TAMANHO_FONTE"
         echo "Set Width $LARGURA"
         echo "Set Height $ALTURA"
-        echo "Set Theme \"$tema\""
+        echo "Set Theme $tema"
 
         if [[ -n "$OPCOES_EXTRAS" ]]
         then

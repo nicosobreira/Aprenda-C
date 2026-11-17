@@ -46,9 +46,10 @@ extra_javascript = [
 ]
 extra_css = [
   "https://unpkg.com/katex@0/dist/katex.min.css",
-  "stylesheets/gifs.css",
+  "stylesheets/videos.css",
   "stylesheets/cores.css",
   "stylesheets/codigo.css",
+  "stylesheets/texto.css",
 ]
 
 [project.theme]

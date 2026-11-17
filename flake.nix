@@ -18,6 +18,7 @@
         vhs
         marksman
         markdownlint-cli2
+        jetbrains-mono
       ];
     };
   };

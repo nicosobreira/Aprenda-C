@@ -1,0 +1,21 @@
+/* Justifica apenas parágrafos e itens de lista, não código, tabelas ou títulos. */
+.md-typeset p,
+.md-typeset li {
+  text-align: justify;
+  hyphens: none; /* nunca separa palavras com hífen */
+  overflow-wrap: normal; /* nunca quebra no meio de uma palavra */
+  word-break: normal;
+  text-wrap: pretty; /* ajuda a evitar linhas com poucas palavras */
+}
+
+@media (max-width: 600px) {
+  .md-typeset p,
+  .md-typeset li {
+    text-align: left;
+  }
+}
+
+.md-typeset p code,
+.md-typeset li code {
+  overflow-wrap: anywhere;
+}
