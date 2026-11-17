@@ -13,7 +13,7 @@
 
   /* Quanto da neutra entra em bordas e superfícies */
   --mix-borda: 20%;
-  --mix-superficie: 12%;
+  --mix-superficie: 15%;
 }
 
 [data-md-color-scheme="slate"] {
@@ -26,7 +26,7 @@
   --cor-sobre-neutra: var(--cor-texto);
 
   --mix-borda: 60%;
-  --mix-superficie: 25%;
+  --mix-superficie: 20%;
 }
 
 /* --- Mapeamento para as variáveis do tema --- */

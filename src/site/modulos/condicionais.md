@@ -833,12 +833,11 @@ int main(void)
 
 O GCC é um compilador muito esperto, mas ele só nos avisa do que desconfia se nós **pedirmos**. Compile de novo com a opção `-Wall`, da seguinte maneira:
 
-```console title="Compilando com -Wall"
-$ gcc -Wall -o main main.c
-main.c: In function ‘main’:
-main.c:8:9: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
-    8 |     if (nota = 0.0)
-      |         ^~~~
+```ansi-color title="Compilando com -Wall"
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:8:9:[m [01;35mwarning: [msuggest parentheses around assignment used as truth value [[01;35m-Wparentheses[m]
+    8 |     if ([01;35mnota[m = 0.0)
+      |         [01;35m^~~~[m
 ```
 
 Tudo o que escrevemos depois do `gcc` e começa com `-` é uma **flag** (ou opção): um pedido que muda o comportamento do compilador. Já usamos uma flag, o `-o`, que escolhe o nome do executável. A flag `-Wall` vem de *warnings all*, do inglês "todos os avisos", e liga um conjunto grande de **verificações extras**. Dentre esses diversas verificações existe o `-Wparentheses`, que é a **flag** que gerou o aviso.
@@ -873,15 +872,15 @@ int main(void)
 }
 ```
 
-```console
+```ansi-color
 $ gcc -Wall -o main main.c
-main.c: In function ‘main’:
-main.c:7:5: warning: ‘numero’ is used uninitialized [-Wuninitialized]
-    7 |     printf("número = %d\n", numero);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main.c:5:9: note: ‘numero’ was declared here
-    5 |     int numero;
-      |         ^~~~~~
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:7:5:[m [01;35mwarning: [m‘[01mnumero[m’ is used uninitialized [[01;35m-Wuninitialized[m]
+    7 |     [01;35mprintf("número = %d\n", numero)[m;
+      |     [01;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m
+[01mmain.c:5:9:[m [01;36mnote: [m‘[01mnumero[m’ was declared here
+    5 |     int [01;36mnumero[m;
+      |         [01;36m^~~~~~[m
 ```
 
 O compilador avisa que a variável `numero` foi usada **sem ter sido inicializada**, que é exatamente o "lixo de memória" que vimos lá.
@@ -957,18 +956,7 @@ if (vai_chover)
 printf("É melhor levar o guarda-chuva.\n"); // Não pertence ao if!
 ```
 
-Esse é o tipo de bug mais perigoso: o código **parece** correto, compila e roda sem erro. Compilando com a `-Wall`, o GCC desconfia:
-
-```console
-$ gcc -Wall -o main main.c
-main.c: In function ‘main’:
-main.c:8:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
-    8 |     if (vai_chover)
-      |     ^~
-main.c:10:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
-   10 |         printf("É melhor levar o guarda-chuva.\n");
-      |         ^~~~~~
-```
+Esse é o tipo de bug mais perigoso: o código **parece** correto, compila e roda sem erro.
 
 #### O `#!c else` pendente
 
@@ -1003,10 +991,10 @@ if (tem_convite)
 
 A indentação sugeria que o `#!c else` pertencia ao primeiro `#!c if`, mas não é isso que o compilador entende. Esse problema se chama ***dangling else***, do inglês "else pendente", e o GCC também avisa sobre ele com a `-Wall`:
 
-```console
-main.c:9:8: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
-    9 |     if (tem_convite)
-      |        ^
+```ansi-color
+[01mmain.c:9:8:[m [01;35mwarning: [msuggest explicit braces to avoid ambiguous ‘[01melse[m’ [[01;35m-Wdangling-else[m]
+    9 |     if [01;35m([mtem_convite)
+      |        [01;35m^[m
 ```
 
 Com chaves, não existe ambiguidade:

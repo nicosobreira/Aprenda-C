@@ -20,7 +20,7 @@ Siga os passos dependendo do sistema operacional que está usando: Windows, Linu
 
     Abra o PowerShell (aperte a tecla ++win++, digite "PowerShell" e aperte ++enter++). Para conferir se o `winget` está disponível, rode:
 
-    ```console
+    ```
     winget --version
     ```
 

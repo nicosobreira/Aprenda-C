@@ -1,0 +1,86 @@
+:root {
+  --hl-kw: #f54514;
+  --hl-fn: #2ec4b6;
+  --hl-nu: #ffb703;
+  --hl-co: #7c83ff;
+  --hl-st: #b9e769;
+  --hl-pp: #d07cff;
+  --hl-cm: #78808c;
+  --hl-op: #c9d1c8;
+  --hl-pn: #9aa39b;
+  --hl-mix: 50%; /* no claro, escurece as cores para manter o contraste */
+}
+
+[data-md-color-scheme="slate"] {
+  --hl-mix: 100%;
+}
+
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-code-hl-keyword-color: color-mix(
+    in srgb,
+    var(--hl-kw) var(--hl-mix),
+    black
+  );
+  --md-code-hl-function-color: color-mix(
+    in srgb,
+    var(--hl-fn) var(--hl-mix),
+    black
+  );
+  --md-code-hl-number-color: color-mix(
+    in srgb,
+    var(--hl-nu) var(--hl-mix),
+    black
+  );
+  --md-code-hl-constant-color: color-mix(
+    in srgb,
+    var(--hl-co) var(--hl-mix),
+    black
+  );
+  --md-code-hl-string-color: color-mix(
+    in srgb,
+    var(--hl-st) var(--hl-mix),
+    black
+  );
+  --md-code-hl-special-color: color-mix(
+    in srgb,
+    var(--hl-pp) var(--hl-mix),
+    black
+  );
+  --md-code-hl-comment-color: color-mix(
+    in srgb,
+    var(--hl-cm) var(--hl-mix),
+    black
+  );
+  --md-code-hl-operator-color: color-mix(
+    in srgb,
+    var(--hl-op) var(--hl-mix),
+    black
+  );
+  --md-code-hl-punctuation-color: color-mix(
+    in srgb,
+    var(--hl-pn) var(--hl-mix),
+    black
+  );
+  --md-code-hl-name-color: var(--cor-texto);
+  --md-code-hl-variable-color: var(--cor-texto);
+}
+
+[data-md-color-scheme="default"] {
+  --ansi-mix: 65%;
+} /* escurece no claro */
+[data-md-color-scheme="slate"] {
+  --ansi-mix: 100%;
+}
+
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --ansi-black: var(--cor-neutra);
+  --ansi-white: var(--cor-texto);
+  --ansi-red: color-mix(in srgb, #ff4d6d var(--ansi-mix), black);
+  --ansi-green: color-mix(in srgb, #7ee08a var(--ansi-mix), black);
+  --ansi-yellow: color-mix(in srgb, #ffc15e var(--ansi-mix), black);
+  --ansi-blue: color-mix(in srgb, #7aa2ff var(--ansi-mix), black);
+  --ansi-magenta: var(--cor-acento);
+  --ansi-cyan: color-mix(in srgb, #56d4dd var(--ansi-mix), black);
+}

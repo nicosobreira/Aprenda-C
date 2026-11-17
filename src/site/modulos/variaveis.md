@@ -121,12 +121,11 @@ int main(void)
 }
 ```
 
-```console title="Mensagem do compilador"
-$ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:7:12: warning: too many arguments for format [-Wformat-extra-args]
-    7 |     printf("Idade: \n", idade);
-      |            ^~~~~~~~~~~
+```ansi-color title="Mensagem do compilador"
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:7:12:[m [01;35mwarning: [mtoo many arguments for format [[01;35m-Wformat-extra-args[m]
+    7 |     printf([01;35m"Idade: \n"[m, idade);
+      |            [01;35m^~~~~~~~~~~[m
 ```
 
 ```console title="Saída do programa"
@@ -684,12 +683,16 @@ int nota-final = 10;
 
 O compilador lê o nome até onde ele é válido, ou seja, `nota`, e então encontra o `-`, que para ele é o operador de **subtração** e não faz parte do nome. Como uma declaração não pode continuar com uma subtração, ele reclama:
 
-```console
+```ansi-color
 $ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:5:13: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘-’ token
-    5 |     int nota-final = 10;
-      |             ^
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:5:14:[m [01;31merror: [mexpected ‘[01m=[m’, ‘[01m,[m’, ‘[01m;[m’, ‘[01masm[m’ or ‘[01m__attribute__[m’ before ‘[01m-[m’ token
+    5 |     int nota[01;31m-[mfinal = 10;
+      |              [01;31m^[m
+[01mmain.c:5:16:[m [01;31merror: [m‘[01mfinal[m’ undeclared (first use in this function)
+    5 |     int nota-[01;31mfinal[m = 10;
+      |                [01;31m^~~~~[m
+[01mmain.c:5:16:[m [01;36mnote: [meach undeclared identifier is reported only once for each function it appears in
 ```
 
 !!! tip
@@ -706,12 +709,14 @@ int nota final = 10;
 
 O GCC vai reclamar de algo parecido com:
 
-```console
+```ansi-color
 $ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:5:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘final’
-    5 |     int nota final = 10;
-      |              ^~~~~
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:5:14:[m [01;31merror: [mexpected ‘[01m=[m’, ‘[01m,[m’, ‘[01m;[m’, ‘[01masm[m’ or ‘[01m__attribute__[m’ before ‘[01mfinal[m’
+    5 |     int nota [01;31mfinal[m = 10;
+      |              [01;31m^~~~~[m
+[01mmain.c:5:14:[m [01;31merror: [m‘[01mfinal[m’ undeclared (first use in this function)
+[01mmain.c:5:14:[m [01;36mnote: [meach undeclared identifier is reported only once for each function it appears in
 ```
 
 ### Não começar com dígito
@@ -720,10 +725,12 @@ Um identificador **não pode começar com um dígito**, mas pode ter dígitos na
 
 A razão é a mesma de antes: o compilador precisa saber **logo no primeiro caractere** se está lendo um número ou um nome. Se começa com dígito, ele trata o que vem a seguir como um **número**. Com `1pessoa`, ele lê o `1`, tenta entender o `pessoa` como parte do número (um sufixo, como o `f` de `6.72f`) e falha:
 
-```
-main.c:5:9: error: invalid suffix "pessoa" on integer constant
-    5 |     int 1pessoa = 5;
-      |         ^~~~~~~
+```ansi-color
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:5:9:[m [01;31merror: [minvalid suffix ‘[01mpessoa[m’ on integer constant
+    5 |     int [01;31m1pessoa[m = 5;
+      |         [01;31m^~~~~~~[m
+[01mmain.c:5:9:[m [01;31merror: [mexpected identifier or ‘[01m([m’ before numeric constant
 ```
 
 ### Maiúsculas e minúsculas
@@ -773,10 +780,11 @@ Algumas palavras têm um **significado fixo** dentro da linguagem, como `#!c int
 int return = 5;
 ```
 
-```
-main.c:5:9: error: expected identifier or ‘(’ before ‘return’
-    5 |     int return = 5;
-      |         ^~~~~~
+```ansi-color
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:5:9:[m [01;31merror: [mexpected identifier or ‘[01m([m’ before ‘[01mreturn[m’
+    5 |     int [01;31mreturn[m = 5;
+      |         [01;31m^~~~~~[m
 ```
 
 O compilador esperava um **nome**, mas encontrou o comando `#!c return`. Veja a lista completa de palavras reservadas do C11:
@@ -873,17 +881,16 @@ int main(void)
 
 Recebemos o seguinte erro de compilação:
 
-```console
+```ansi-color
 $ gcc -o main main.c
-main.c: In function ‘main’:
-main.c:7:8: error: assignment of read-only variable ‘pi’
-    7 |     pi = 3.14159;
-      |        ^
-
+[01mmain.c:[m In function ‘[01mmain[m’:
+[01mmain.c:7:8:[m [01;31merror: [massignment of read-only variable ‘[01mpi[m’
+    7 |     pi [01;31m=[m 3.14159;
+      |        [01;31m^[m
 ```
 
 É a segunda linha da saída do comando que nos interessa: `error: assignment of read-only variable ‘pi’`.
-Ela fala que ocorreu um erro ao atribuir algum valor a uma variável _read-only_, do inglês "apenas de leitura", chamada `pi`. Esse erro é uma garantia do compilador de que não podemos alterar variáveis constantes.
+Ela fala que ocorreu um erro ao atribuir algum valor a uma variável *read-only*, do inglês "apenas de leitura", chamada `pi`. Esse erro é uma garantia do compilador de que não podemos alterar variáveis constantes.
 
 Se amanhã nós precisarmos aumentar a precisão da constante `pi`, isto é, aumentar o número de casas depois da vírgula, nós só precisamos alterar em **um lugar** - se não usássemos constantes, e o `pi` fosse usado em dezenas de cálculos, teríamos que procurar cada caso com o valor `3.14` e trocá-lo. Por exemplo, para atualizar a constante:
 
